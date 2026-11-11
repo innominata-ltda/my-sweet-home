@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "presets": [
+    {
+      "id": "wash-dishes",
+      "area": "kitchen",
+      "title": "Lavar louça",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=1",
+      "rationale": "Louça parada atrai insetos e fica mais difícil de limpar."
+    },
+    {
+      "id": "clean-stove",
+      "area": "kitchen",
+      "title": "Limpar fogão",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Gordura acumulada endurece e vira risco de fogo."
+    },
+    {
+      "id": "clean-microwave",
+      "area": "kitchen",
+      "title": "Limpar micro-ondas",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Respingos ressecam e geram cheiro."
+    },
+    {
+      "id": "check-fridge-expiry",
+      "area": "kitchen",
+      "title": "Conferir validade na geladeira",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Evita desperdício e comida estragada."
+    },
+    {
+      "id": "clean-fridge-inside",
+      "area": "kitchen",
+      "title": "Limpar geladeira por dentro",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=30",
+      "rationale": "Evita mofo e mau cheiro."
+    },
+    {
+      "id": "replace-dish-sponge",
+      "area": "kitchen",
+      "title": "Trocar esponja de louça",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=14",
+      "rationale": "Esponja acumula bactérias rapidamente."
+    },
+    {
+      "id": "clean-toilet-sink",
+      "area": "bathroom",
+      "title": "Limpar vaso sanitário e pia",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Higiene básica e prevenção de manchas."
+    },
+    {
+      "id": "wash-shower-box",
+      "area": "bathroom",
+      "title": "Lavar box e chuveiro",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Evita limo e mofo."
+    },
+    {
+      "id": "change-bath-towels",
+      "area": "bathroom",
+      "title": "Trocar toalhas de banho",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Toalha úmida acumula fungos."
+    },
+    {
+      "id": "wash-bathroom-rug",
+      "area": "bathroom",
+      "title": "Lavar tapete do banheiro",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=14",
+      "rationale": "Absorve umidade e sujeira constantemente."
+    },
+    {
+      "id": "clean-drains",
+      "area": "bathroom",
+      "title": "Limpar ralos",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=14",
+      "rationale": "Evita entupimento e cheiro."
+    },
+    {
+      "id": "change-bed-sheets",
+      "area": "bedroom",
+      "title": "Trocar roupa de cama",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=15",
+      "rationale": "Suor e ácaros se acumulam no tecido."
+    },
+    {
+      "id": "flip-mattress",
+      "area": "bedroom",
+      "title": "Virar o colchão",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=90",
+      "rationale": "Distribui o desgaste e prolonga a vida útil."
+    },
+    {
+      "id": "wash-clothes",
+      "area": "laundry",
+      "title": "Lavar roupa",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Evita acúmulo e falta de roupa limpa."
+    },
+    {
+      "id": "iron-clothes",
+      "area": "laundry",
+      "title": "Passar roupa",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Acompanha a lavagem semanal."
+    },
+    {
+      "id": "wash-dishcloths",
+      "area": "laundry",
+      "title": "Lavar panos de prato",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=3",
+      "rationale": "Pano úmido contamina a louça."
+    },
+    {
+      "id": "sweep-floor",
+      "area": "generalCleaning",
+      "title": "Varrer o chão",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=3",
+      "rationale": "Poeira e cabelo se espalham rápido."
+    },
+    {
+      "id": "mop-floor",
+      "area": "generalCleaning",
+      "title": "Passar pano no chão",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Remove a sujeira que a vassoura não tira."
+    },
+    {
+      "id": "dust-furniture",
+      "area": "generalCleaning",
+      "title": "Tirar o pó dos móveis",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Reduz alergias."
+    },
+    {
+      "id": "take-out-trash",
+      "area": "generalCleaning",
+      "title": "Levar o lixo para fora",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=2",
+      "rationale": "Evita cheiro e insetos."
+    },
+    {
+      "id": "clean-windows",
+      "area": "generalCleaning",
+      "title": "Limpar vidros e janelas",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=30",
+      "rationale": "Mantém a claridade da casa."
+    },
+    {
+      "id": "clean-ac-filter",
+      "area": "generalCleaning",
+      "title": "Limpar filtro do ar-condicionado",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=30",
+      "rationale": "Filtro sujo gasta mais energia e piora o ar."
+    },
+    {
+      "id": "replace-water-filter",
+      "area": "generalCleaning",
+      "title": "Trocar refil do filtro de água",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=180",
+      "rationale": "Refil saturado deixa de filtrar."
+    },
+    {
+      "id": "water-plants",
+      "area": "generalCleaning",
+      "title": "Regar plantas",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=3",
+      "rationale": "A maioria das plantas de interior precisa de rega regular."
+    },
+    {
+      "id": "grocery-shopping",
+      "area": "shopping",
+      "title": "Fazer compras do mercado",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Compra planejada evita desperdício e idas extras."
+    },
+    {
+      "id": "go-to-farmers-market",
+      "area": "shopping",
+      "title": "Ir à feira",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=7",
+      "rationale": "Frutas e verduras frescas duram cerca de uma semana."
+    },
+    {
+      "id": "restock-cleaning-supplies",
+      "area": "shopping",
+      "title": "Repor produtos de limpeza",
+      "recommendedRrule": "FREQ=DAILY;INTERVAL=30",
+      "rationale": "Evita ficar sem no meio da faxina."
+    }
+  ]
+}

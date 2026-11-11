@@ -1,0 +1,14 @@
+title = "Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Ignore test fixtures and mock encryption passwords"
+paths = [
+  '''test/.*''',
+]
+stopwords = [
+  '''minha_senha_segura_123''',
+  '''senha_certa_123''',
+]

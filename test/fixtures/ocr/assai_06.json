@@ -1,0 +1,127 @@
+{
+  "imageWidth": 400.0,
+  "imageHeight": 340.0,
+  "blocks": [
+    {
+      "text": "ASSAI ATACADISTA S A\nCNPJ: 00.000.003/0001-25\nDATA: 26/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\n004 PRODUTO GENERICO 4 1 UN X 10,00 10,00\nSUBTOTAL R$ 150,00\nDESCONTO R$ 5,00\nTOTAL R$ 145,00\nPAGAMENTO VALE ALIMENTAÇÃO",
+      "boundingBox": {
+        "top": 10,
+        "left": 10,
+        "right": 380,
+        "bottom": 255
+      },
+      "lines": [
+        {
+          "text": "ASSAI ATACADISTA S A",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 30
+          },
+          "confidence": 0.98
+        },
+        {
+          "text": "CNPJ: 00.000.003/0001-25",
+          "boundingBox": {
+            "top": 35,
+            "left": 10,
+            "right": 250,
+            "bottom": 50
+          },
+          "confidence": 0.99
+        },
+        {
+          "text": "DATA: 26/09/2026 12:00:00",
+          "boundingBox": {
+            "top": 55,
+            "left": 10,
+            "right": 250,
+            "bottom": 70
+          },
+          "confidence": 0.96
+        },
+        {
+          "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 100,
+            "left": 10,
+            "right": 380,
+            "bottom": 115
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 120,
+            "left": 10,
+            "right": 380,
+            "bottom": 135
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 140,
+            "left": 10,
+            "right": 380,
+            "bottom": 155
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "004 PRODUTO GENERICO 4 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 160,
+            "left": 10,
+            "right": 380,
+            "bottom": 175
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "SUBTOTAL R$ 150,00",
+          "boundingBox": {
+            "top": 180,
+            "left": 10,
+            "right": 380,
+            "bottom": 195
+          },
+          "confidence": 0.98
+        },
+        {
+          "text": "DESCONTO R$ 5,00",
+          "boundingBox": {
+            "top": 200,
+            "left": 10,
+            "right": 380,
+            "bottom": 215
+          },
+          "confidence": 0.98
+        },
+        {
+          "text": "TOTAL R$ 145,00",
+          "boundingBox": {
+            "top": 220,
+            "left": 10,
+            "right": 380,
+            "bottom": 235
+          },
+          "confidence": 0.99
+        },
+        {
+          "text": "PAGAMENTO VALE ALIMENTAÇÃO",
+          "boundingBox": {
+            "top": 240,
+            "left": 10,
+            "right": 250,
+            "bottom": 255
+          },
+          "confidence": 0.95
+        }
+      ]
+    }
+  ]
+}

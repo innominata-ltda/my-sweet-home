@@ -1,0 +1,13 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "type-enum": [2, "always", ["feat", "fix", "perf", "refactor", "test", "docs", "spec", "plan", "tasks", "adr", "build", "ci", "chore", "style", "revert"]],
+    "scope-enum": [2, "always", ["core", "db", "ds", "l10n", "app", "products", "prices", "shopping", "expenses", "bills", "tasks", "recipes", "ocr", "backup", "extras", "sync", "repo", "foundation", "infra"]],
+    "scope-case": [2, "always", "lower-case"],
+    "subject-case": [2, "never", ["sentence-case", "start-case", "pascal-case", "upper-case"]],
+    "subject-full-stop": [2, "never", "."],
+    "header-max-length": [2, "always", 72],
+    "body-max-line-length": [1, "always", 100],
+    "footer-max-line-length": [0]
+  }
+}

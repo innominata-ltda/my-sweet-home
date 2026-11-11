@@ -1,0 +1,10 @@
+O My Sweet Home é o aplicativo completo, offline-first e focado em privacidade feito para quem começou a morar sozinho ou gerencia sua casa.
+
+Com o My Sweet Home você tem controle total sobre suas finanças, compras e afazeres sem precisar criar contas ou expor seus dados na nuvem:
+
+• Finanças e Orçamento: Defina seu teto de gastos mensal, acompanhe despesas por categoria e gerencie suas contas fixas sem surpresas no fim do mês.
+• Histórico de Preços e Mercado: Compare preços entre estabelecimentos e saiba onde comprar mais barato.
+• Tarefas e Rotina: Organize a limpeza, manutenção e afazeres domésticos com lembretes locais e calendário integrado.
+• Lista de Compras e Despensa: Planeje compras com base nas receitas e nos itens que faltam em casa.
+• 100% Gratuito e Sem Anúncios: Sem assinaturas, sem banners e sem rastreamento de dados.
+• Offline-first: Seus dados pertencem a você e ficam armazenados com segurança no seu dispositivo.

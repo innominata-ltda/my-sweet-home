@@ -1,0 +1,2764 @@
+{
+  "categories": [
+    {
+      "id": "cat_mercearia",
+      "name": "Mercearia"
+    },
+    {
+      "id": "cat_laticinios",
+      "name": "Laticínios"
+    },
+    {
+      "id": "cat_padaria",
+      "name": "Padaria"
+    },
+    {
+      "id": "cat_hortifruti",
+      "name": "Hortifruti"
+    },
+    {
+      "id": "cat_acougue",
+      "name": "Açougue"
+    },
+    {
+      "id": "cat_limpeza",
+      "name": "Limpeza"
+    },
+    {
+      "id": "cat_higiene",
+      "name": "Higiene Pessoal"
+    },
+    {
+      "id": "cat_bebidas",
+      "name": "Bebidas"
+    }
+  ],
+  "products": [
+    {
+      "canonicalName": "Arroz Branco Agulhinha",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Arroz Branco",
+        "Arroz Agulhinha",
+        "Arroz tipo 1",
+        "Arroz Polido",
+        "Arroz T1"
+      ]
+    },
+    {
+      "canonicalName": "Feijão Carioca",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Feijao Carioca",
+        "Feijão tipo 1",
+        "Feijao",
+        "Feijao Car",
+        "Feijao Tipo 1 Car",
+        "Feijão Mulatinho"
+      ]
+    },
+    {
+      "canonicalName": "Feijão Preto",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Feijao Preto",
+        "Feijão Preto Tipo 1"
+      ]
+    },
+    {
+      "canonicalName": "Óleo de Soja",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 900,
+      "aliases": [
+        "Oleo de Soja",
+        "Oleo",
+        "Oleo Soja"
+      ]
+    },
+    {
+      "canonicalName": "Leite UHT Integral",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Leite Integral",
+        "Leite de Caixa",
+        "Leite Longa Vida",
+        "Leite UHT",
+        "Leite UHT Int"
+      ]
+    },
+    {
+      "canonicalName": "Leite UHT Desnatado",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Leite Desnatado",
+        "Leite UHT Desn"
+      ]
+    },
+    {
+      "canonicalName": "Pão Francês",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Pao Frances",
+        "Pão de Sal",
+        "Cacetinho",
+        "Pãozinho",
+        "Pao Frances kg",
+        "Pao Franc",
+        "Pão Careca",
+        "Filão",
+        "Média"
+      ]
+    },
+    {
+      "canonicalName": "Café Torrado e Moído",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Cafe em po",
+        "Café Moído",
+        "Cafe Tradicional",
+        "Café",
+        "Cafe Torrado",
+        "Cafe Extra Forte"
+      ]
+    },
+    {
+      "canonicalName": "Açúcar Refinado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Acucar",
+        "Acucar Refinado",
+        "Acucar Branco"
+      ]
+    },
+    {
+      "canonicalName": "Açúcar Cristal",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Acucar Cristal"
+      ]
+    },
+    {
+      "canonicalName": "Macarrão Espaguete",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Macarrao",
+        "Espaguete",
+        "Massa Espaguete",
+        "Macarrao Esp"
+      ]
+    },
+    {
+      "canonicalName": "Macarrão Parafuso",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Macarrao Parafuso",
+        "Massa Parafuso",
+        "Macarrao Paraf"
+      ]
+    },
+    {
+      "canonicalName": "Molho de Tomate",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 340,
+      "aliases": [
+        "Molho Tomate",
+        "Molho de Tomate Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Detergente Líquido",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Detergente",
+        "Lava Louças",
+        "Detergente Liq",
+        "Lava Loucas Liquido"
+      ]
+    },
+    {
+      "canonicalName": "Sabão em Pó",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Sabao em po",
+        "Sabao",
+        "Sabao Po",
+        "Lava Roupas em Pó"
+      ]
+    },
+    {
+      "canonicalName": "Amaciante de Roupas",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 2000,
+      "aliases": [
+        "Amaciante",
+        "Amac",
+        "Amaciante Concentrado"
+      ]
+    },
+    {
+      "canonicalName": "Sabonete em Barra",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 90,
+      "aliases": [
+        "Sabonete",
+        "Sabonete Barra",
+        "Sabonete Bco"
+      ]
+    },
+    {
+      "canonicalName": "Papel Higiênico Folha Dupla",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Papel Higienico",
+        "Papel Hig",
+        "Pap. Higienico",
+        "Papel Hig F Dupla",
+        "Pap Hig FD"
+      ]
+    },
+    {
+      "canonicalName": "Creme Dental",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 90,
+      "aliases": [
+        "Pasta de Dente",
+        "Creme Dental",
+        "Gel Dental"
+      ]
+    },
+    {
+      "canonicalName": "Manteiga com Sal",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Manteiga",
+        "Manteiga Pote",
+        "Manteiga Sal",
+        "Manteiga Primeira Qualidade"
+      ]
+    },
+    {
+      "canonicalName": "Margarina com Sal",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Margarina",
+        "Margarina Pote",
+        "Margarina Cremosa"
+      ]
+    },
+    {
+      "canonicalName": "Cebola Nacional",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Cebola",
+        "Cebola kg",
+        "Cebola Branca"
+      ]
+    },
+    {
+      "canonicalName": "Batata Lavada",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Batata",
+        "Batata Inglesa",
+        "Batata kg",
+        "Batata Monalisa"
+      ]
+    },
+    {
+      "canonicalName": "Tomate Carmem",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Tomate",
+        "Tomate kg",
+        "Tomate Salada"
+      ]
+    },
+    {
+      "canonicalName": "Alho",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Alho",
+        "Alho a granel",
+        "Alho Roxo",
+        "Alho Descascado"
+      ]
+    },
+    {
+      "canonicalName": "Banana Prata",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Banana",
+        "Bn Prata",
+        "Banana Prata kg"
+      ]
+    },
+    {
+      "canonicalName": "Banana Nanica",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Banana Caturra",
+        "Banana D'Água",
+        "Banana Dagua",
+        "Bn Nanica",
+        "Bn Caturra"
+      ]
+    },
+    {
+      "canonicalName": "Carne Moída de Primeira",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Carne Moida",
+        "Moida Primeira",
+        "Patinho Moido",
+        "Carne Moida T1"
+      ]
+    },
+    {
+      "canonicalName": "Peito de Frango",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "File de Peito",
+        "Frango Peito",
+        "Peito Frango",
+        "Filé de Peito de Frango",
+        "File Peito Frango"
+      ]
+    },
+    {
+      "canonicalName": "Refrigerante Cola",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 2000,
+      "aliases": [
+        "Refrigerante",
+        "Refri",
+        "Refri Cola",
+        "Refrig Cola"
+      ]
+    },
+    {
+      "canonicalName": "Cerveja Pilsen",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 350,
+      "aliases": [
+        "Cerveja",
+        "Cerveja Lata",
+        "Cerveja Long Neck",
+        "Cerveja Puro Malte"
+      ]
+    },
+    {
+      "canonicalName": "Mandioca",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Macaxeira",
+        "Aipim",
+        "Mandioca Descascada",
+        "Mandioca Congelada",
+        "Mandioc kg"
+      ]
+    },
+    {
+      "canonicalName": "Abóbora Cabotiá",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Jerimum",
+        "Abóbora",
+        "Abobora",
+        "Abóbora Japonesa",
+        "Abobora Cabotia"
+      ]
+    },
+    {
+      "canonicalName": "Tangerina",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Mexerica",
+        "Bergamota",
+        "Tangerina Ponkan",
+        "Mexerica Ponkan",
+        "Mandarina",
+        "Laranja Cravo",
+        "Mimosa"
+      ]
+    },
+    {
+      "canonicalName": "Inhame",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Inhame kg"
+      ]
+    },
+    {
+      "canonicalName": "Biscoito Cream Cracker",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 350,
+      "aliases": [
+        "Bolacha Cream Cracker",
+        "Biscoito Água e Sal",
+        "Bolacha Água e Sal",
+        "Biscoito Salgado",
+        "Bolacha Salgada"
+      ]
+    },
+    {
+      "canonicalName": "Biscoito Doce Maisena",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 350,
+      "aliases": [
+        "Bolacha Maisena",
+        "Biscoito Maizena",
+        "Bolacha Maizena",
+        "Biscoito Maria",
+        "Bolacha Maria",
+        "Biscoito Doce",
+        "Bolacha Doce"
+      ]
+    },
+    {
+      "canonicalName": "Biscoito Recheado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 140,
+      "aliases": [
+        "Bolacha Recheada",
+        "Bisc Recheado"
+      ]
+    },
+    {
+      "canonicalName": "Carne Seca",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Charque",
+        "Carne de Charque",
+        "Jabá",
+        "Jaba",
+        "Ponta de Agulha Salgada"
+      ]
+    },
+    {
+      "canonicalName": "Quiabo",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Quingombô",
+        "Quiabo Bandeja"
+      ]
+    },
+    {
+      "canonicalName": "Chuchu",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Machucho",
+        "Xuxu"
+      ]
+    },
+    {
+      "canonicalName": "Cheiro-Verde",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Salsa e Cebolinha",
+        "Maço Cheiro Verde"
+      ]
+    },
+    {
+      "canonicalName": "Coentro",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Maço de Coentro",
+        "Coentro Fresco",
+        "Coentro Hidropônico"
+      ]
+    },
+    {
+      "canonicalName": "Manjericão",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Manjericao",
+        "Alfavaca",
+        "Manjericao Fresco"
+      ]
+    },
+    {
+      "canonicalName": "Alface Crespa",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Alface",
+        "Alface Hidropônica",
+        "Alface Hidroponica"
+      ]
+    },
+    {
+      "canonicalName": "Cenoura",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Cenoura kg",
+        "Cenoura Lavada",
+        "Cenoura Extra"
+      ]
+    },
+    {
+      "canonicalName": "Pimentão Verde",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Pimentao",
+        "Pimentão",
+        "Pimentao Verde"
+      ]
+    },
+    {
+      "canonicalName": "Limão Taiti",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Limão",
+        "Limao",
+        "Limao Taiti",
+        "Limão Comum",
+        "Limão Galego"
+      ]
+    },
+    {
+      "canonicalName": "Limão Siciliano",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Limao Siciliano",
+        "Limão Amarelo"
+      ]
+    },
+    {
+      "canonicalName": "Uva Sem Semente",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Uva",
+        "Uva Verde",
+        "Uva Vitória",
+        "Uva Vitoria",
+        "Uva Thompson",
+        "Uva Branca Sem Semente",
+        "Uva S/ Semente"
+      ]
+    },
+    {
+      "canonicalName": "Maçã Gala",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Maçã",
+        "Maca",
+        "Maca Gala",
+        "Maçã Nacional"
+      ]
+    },
+    {
+      "canonicalName": "Maçã Fuji",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Maca Fuji",
+        "Maçã Fuji kg"
+      ]
+    },
+    {
+      "canonicalName": "Laranja Pera",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Laranja",
+        "Laranja Pera kg"
+      ]
+    },
+    {
+      "canonicalName": "Mamão Papaya",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Mamão",
+        "Mamao",
+        "Mamao Papaya",
+        "Mamão Papaia",
+        "Mamão Havaí"
+      ]
+    },
+    {
+      "canonicalName": "Mamão Formosa",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Mamao Formosa",
+        "Mamão Formosa kg"
+      ]
+    },
+    {
+      "canonicalName": "Melancia",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Melancia kg",
+        "Melancia Fatiada",
+        "Melancia Baby"
+      ]
+    },
+    {
+      "canonicalName": "Abacaxi Pérola",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Abacaxi",
+        "Abacaxi Perola",
+        "Abacaxi Havaí",
+        "Ananás"
+      ]
+    },
+    {
+      "canonicalName": "Abacate",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Abacate Manteiga",
+        "Abacate kg"
+      ]
+    },
+    {
+      "canonicalName": "Manga Palmer",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Manga"
+      ]
+    },
+    {
+      "canonicalName": "Morango",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "packageSizeMilli": 250,
+      "aliases": [
+        "Morango Bandeja",
+        "Morangos"
+      ]
+    },
+    {
+      "canonicalName": "Maracujá Azedo",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Maracujá",
+        "Maracuja",
+        "Maracuja kg"
+      ]
+    },
+    {
+      "canonicalName": "Batata Doce",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Batata Doce Rosada",
+        "Batata Doce Branca"
+      ]
+    },
+    {
+      "canonicalName": "Pepino",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Pepino Japonês",
+        "Pepino Japones",
+        "Pepino Caipira",
+        "Pepino Comum"
+      ]
+    },
+    {
+      "canonicalName": "Abobrinha Italiana",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Abobrinha",
+        "Abobrinha Menina",
+        "Abobrinha Verde"
+      ]
+    },
+    {
+      "canonicalName": "Berinjela",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Beringela",
+        "Berinjela Comum"
+      ]
+    },
+    {
+      "canonicalName": "Beterraba",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Beterraba kg",
+        "Beterraba sem Folha"
+      ]
+    },
+    {
+      "canonicalName": "Brócolis",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Brocolis",
+        "Brócolis Ninja",
+        "Brocolis Ninja",
+        "Brócolis Comum"
+      ]
+    },
+    {
+      "canonicalName": "Couve-Flor",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Couve Flor",
+        "Couve-flor Bandeja"
+      ]
+    },
+    {
+      "canonicalName": "Couve Manteiga",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Couve",
+        "Couve Fatiada",
+        "Maço de Couve"
+      ]
+    },
+    {
+      "canonicalName": "Repolho Verde",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Repolho"
+      ]
+    },
+    {
+      "canonicalName": "Ovos Brancos",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Ovos",
+        "Ovo Branco",
+        "Cartela de Ovos",
+        "Ovos Gde",
+        "Ovos Grandes"
+      ]
+    },
+    {
+      "canonicalName": "Queijo Mussarela",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Mussarela",
+        "Muçarela",
+        "Mucarela",
+        "Queijo Mussarela Fatiado",
+        "Qj Mussarela",
+        "Queijo Mozzarella"
+      ]
+    },
+    {
+      "canonicalName": "Queijo Prato",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Qj Prato",
+        "Queijo Prato Fatiado",
+        "Queijo Lanche"
+      ]
+    },
+    {
+      "canonicalName": "Queijo Minas Frescal",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Queijo Minas",
+        "Queijo Branco",
+        "Qj Minas",
+        "Queijo Frescal"
+      ]
+    },
+    {
+      "canonicalName": "Queijo Coalho",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Qj Coalho",
+        "Espeto de Queijo Coalho"
+      ]
+    },
+    {
+      "canonicalName": "Queijo Parmesão Ralado",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 50,
+      "aliases": [
+        "Queijo Ralado",
+        "Parmesão Ralado",
+        "Parmesao",
+        "Qj Parmesao"
+      ]
+    },
+    {
+      "canonicalName": "Requeijão Cremoso",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Requeijão",
+        "Requeijao",
+        "Requeijao Tradicional",
+        "Requeijao Light",
+        "Catupiry",
+        "Req Trad",
+        "Req Cremoso",
+        "Req Catupiry"
+      ]
+    },
+    {
+      "canonicalName": "Creme de Ricota",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Ricota Cremosa",
+        "Ricota Fresca",
+        "Pasta de Ricota",
+        "Creme Ricota",
+        "Cr Ricota",
+        "Cr de Ricota"
+      ]
+    },
+    {
+      "canonicalName": "Iogurte Natural",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 170,
+      "aliases": [
+        "Iogurte",
+        "Iogurte Grego",
+        "Iogurte de Morango",
+        "Bebida Láctea",
+        "Bebida Lactea"
+      ]
+    },
+    {
+      "canonicalName": "Creme de Leite",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Cr de Leite",
+        "Creme Leite",
+        "Creme de Leite UHT",
+        "Creme de Leite Leve"
+      ]
+    },
+    {
+      "canonicalName": "Leite Condensado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 395,
+      "aliases": [
+        "Leite Cond",
+        "Leite Moça",
+        "Leite Condensado Semidesnatado"
+      ]
+    },
+    {
+      "canonicalName": "Leite em Pó",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Leite Po",
+        "Leite Ninho",
+        "Composto Lácteo"
+      ]
+    },
+    {
+      "canonicalName": "Presunto Cozido",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Presunto",
+        "Presunto Fatiado",
+        "Presunto Magro"
+      ]
+    },
+    {
+      "canonicalName": "Peito de Peru",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Peito de Peru Defumado",
+        "Peito Peru Fatiado",
+        "Blanquet de Peru"
+      ]
+    },
+    {
+      "canonicalName": "Mortadela",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Mortadela Defumada",
+        "Mortadela Tradicional",
+        "Mortadela Fatiada",
+        "Mortadela Bologna"
+      ]
+    },
+    {
+      "canonicalName": "Pão de Forma",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 450,
+      "aliases": [
+        "Pao de Forma",
+        "Pão de Forma Tradicional",
+        "Pão de Forma Integral",
+        "Pao Forma",
+        "Pão de Sanduíche",
+        "Pão de Caixa"
+      ]
+    },
+    {
+      "canonicalName": "Pão de Queijo",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Pao de Queijo",
+        "Pão de Queijo Congelado",
+        "Pao Queijo",
+        "Pão de Queijo Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Pão de Alho",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Pao de Alho",
+        "Pao Alho",
+        "Pão de Alho Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Pão de Hambúrguer",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Pao de Hamburguer"
+      ]
+    },
+    {
+      "canonicalName": "Torrada Tradicional",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 140,
+      "aliases": [
+        "Torrada",
+        "Torrada Integral",
+        "Torrada Multigrãos"
+      ]
+    },
+    {
+      "canonicalName": "Bolo Pronto",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 250,
+      "aliases": [
+        "Bolo"
+      ]
+    },
+    {
+      "canonicalName": "Patinho Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Patinho",
+        "Bife de Patinho",
+        "Patinho em Bife",
+        "Patinho Pedaço"
+      ]
+    },
+    {
+      "canonicalName": "Coxão Mole Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Coxão Mole",
+        "Coxao Mole",
+        "Chã de Dentro",
+        "Cha de Dentro"
+      ]
+    },
+    {
+      "canonicalName": "Coxão Duro Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Coxão Duro",
+        "Coxao Duro",
+        "Chã de Fora",
+        "Cha de Fora"
+      ]
+    },
+    {
+      "canonicalName": "Alcatra Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Alcatra",
+        "Miolo de Alcatra",
+        "Bife de Alcatra"
+      ]
+    },
+    {
+      "canonicalName": "Contra Filé Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Contra Filé",
+        "Contra File",
+        "Bife Chorizo",
+        "Filé de Costela"
+      ]
+    },
+    {
+      "canonicalName": "Picanha Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Picanha",
+        "Picanha Fatiada",
+        "Picanha Maturada"
+      ]
+    },
+    {
+      "canonicalName": "Fraldinha Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Fraldinha",
+        "Vazio Bovino"
+      ]
+    },
+    {
+      "canonicalName": "Acém Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Acém",
+        "Acem",
+        "Agulha Bovina"
+      ]
+    },
+    {
+      "canonicalName": "Costela Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Costela",
+        "Costela Gaúcha",
+        "Costela Ripa",
+        "Costela Minga",
+        "Ponta de Agulha"
+      ]
+    },
+    {
+      "canonicalName": "Coxa e Sobrecoxa de Frango",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Coxa de Frango",
+        "Sobrecoxa de Frango",
+        "Coxa Sobrecoxa"
+      ]
+    },
+    {
+      "canonicalName": "Coração de Galinha",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Coracao de Frango",
+        "Coração de Frango",
+        "Coracao Galinha"
+      ]
+    },
+    {
+      "canonicalName": "Linguiça Toscana",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Linguica Toscana",
+        "Linguiça de Pernil",
+        "Linguiça para Churrasco"
+      ]
+    },
+    {
+      "canonicalName": "Linguiça Calabresa",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Calabresa",
+        "Linguica Calabresa",
+        "Calabresa Defumada"
+      ]
+    },
+    {
+      "canonicalName": "Bacon Defumado",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Bacon",
+        "Bacon em Cubos",
+        "Bacon Fatiado",
+        "Bacon Manta",
+        "Toucinho Defumado"
+      ]
+    },
+    {
+      "canonicalName": "Salsicha Hot Dog",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Salsicha",
+        "Salsicha de Frango",
+        "Vina"
+      ]
+    },
+    {
+      "canonicalName": "Bisteca Suína",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Bisteca de Porco",
+        "Carré Suíno",
+        "Carre Suino",
+        "Chuleta Suína"
+      ]
+    },
+    {
+      "canonicalName": "Pernil Suíno",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Pernil de Porco"
+      ]
+    },
+    {
+      "canonicalName": "Filé de Salmão",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Salmão",
+        "Salmao",
+        "File de Salmao",
+        "Posta de Salmão",
+        "Combo Salmão",
+        "Comb Salmao"
+      ]
+    },
+    {
+      "canonicalName": "Filé de Tilápia",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Tilápia",
+        "Tilapia",
+        "File de Tilapia",
+        "Saint Peter"
+      ]
+    },
+    {
+      "canonicalName": "Lasanha Congelada",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 600,
+      "aliases": [
+        "Lasanha",
+        "Lasanha Bolonhesa",
+        "Lasanha Quatro Queijos",
+        "Lasanha Presunto e Queijo",
+        "Lasanha Calabresa",
+        "Lasan Calab",
+        "Lasan Bolonhesa"
+      ]
+    },
+    {
+      "canonicalName": "Pizza Congelada",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 460,
+      "aliases": [
+        "Pizza Mussarela",
+        "Pizza Calabresa",
+        "Pizza Pronta"
+      ]
+    },
+    {
+      "canonicalName": "Hambúrguer Congelado",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "un",
+      "aliases": [
+        "Hambúrguer Bovino",
+        "Hamburguer"
+      ]
+    },
+    {
+      "canonicalName": "Azeite de Oliva Extra Virgem",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Azeite",
+        "Azeite de Oliva",
+        "Azeite Extra Virgem",
+        "Azeite Portugues"
+      ]
+    },
+    {
+      "canonicalName": "Vinagre de Álcool",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 750,
+      "aliases": [
+        "Vinagre"
+      ]
+    },
+    {
+      "canonicalName": "Sal Refinado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Sal",
+        "Sal Marinho",
+        "Sal Iodado"
+      ]
+    },
+    {
+      "canonicalName": "Farinha de Trigo",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Farinha Trigo",
+        "Far Trigo",
+        "Farinha de Trigo Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Farinha de Mandioca",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Farinha Mandioca",
+        "Farinha Torrada",
+        "Farinha Branca",
+        "Farinha D'Água"
+      ]
+    },
+    {
+      "canonicalName": "Goma de Tapioca",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Tapioca",
+        "Massa de Tapioca",
+        "Fécula de Mandioca"
+      ]
+    },
+    {
+      "canonicalName": "Amido de Milho",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Maizena",
+        "Maisena",
+        "Fécula de Milho"
+      ]
+    },
+    {
+      "canonicalName": "Fubá de Milho",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Fubá",
+        "Fuba",
+        "Farinha de Milho",
+        "Milharina"
+      ]
+    },
+    {
+      "canonicalName": "Aveia em Flocos",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Aveia",
+        "Farelo de Aveia",
+        "Farinha de Aveia"
+      ]
+    },
+    {
+      "canonicalName": "Achocolatado em Pó",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Achocolatado",
+        "Nescau",
+        "Toddy"
+      ]
+    },
+    {
+      "canonicalName": "Maionese",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Maionese Tradicional",
+        "Maionese Sachê",
+        "Maionese Pote"
+      ]
+    },
+    {
+      "canonicalName": "Ketchup",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Catchup",
+        "Ketchup Tradicional",
+        "Catchup Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Mostarda",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Mostarda Amarela",
+        "Mostarda Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Molho Shoyu",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Shoyu",
+        "Molho de Soja"
+      ]
+    },
+    {
+      "canonicalName": "Batata Palha",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 100,
+      "aliases": [
+        "Batata Palha Tradicional",
+        "Batata Palha Extra Fina",
+        "Batata Chips"
+      ]
+    },
+    {
+      "canonicalName": "Azeitona Verde",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Azeitona",
+        "Azeitona sem Caroço",
+        "Azeitona Fatiada"
+      ]
+    },
+    {
+      "canonicalName": "Milho Verde em Conserva",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 170,
+      "aliases": [
+        "Milho Verde",
+        "Milho Lata",
+        "Milho Sache",
+        "Milho em Conserva"
+      ]
+    },
+    {
+      "canonicalName": "Ervilha em Conserva",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 170,
+      "aliases": [
+        "Ervilha",
+        "Ervilha Lata",
+        "Ervilha Sache",
+        "Seleta de Legumes"
+      ]
+    },
+    {
+      "canonicalName": "Atum em Lata",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 170,
+      "aliases": [
+        "Atum",
+        "Atum Ralado",
+        "Atum Sólido",
+        "Atum em Óleo"
+      ]
+    },
+    {
+      "canonicalName": "Sardinha em Lata",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 125,
+      "aliases": [
+        "Sardinha",
+        "Sardinha com Óleo",
+        "Sardinha em Molho"
+      ]
+    },
+    {
+      "canonicalName": "Orégano",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 10,
+      "aliases": [
+        "Oregano",
+        "Orégano Desidratado"
+      ]
+    },
+    {
+      "canonicalName": "Canela em Pó",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 30,
+      "aliases": [
+        "Canela Po",
+        "Canela",
+        "Canela em Casca"
+      ]
+    },
+    {
+      "canonicalName": "Pimenta-do-Reino",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 30,
+      "aliases": [
+        "Pimenta do Reino",
+        "Pimenta Preta"
+      ]
+    },
+    {
+      "canonicalName": "Chocolate em Barra",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 80,
+      "aliases": [
+        "Chocolate",
+        "Barra de Chocolate",
+        "Bombom",
+        "Caixa de Bombom",
+        "Chocolate ao Leite",
+        "Chocolate Meio Amargo"
+      ]
+    },
+    {
+      "canonicalName": "Sorvete Napolitano",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1500,
+      "aliases": [
+        "Sorvete",
+        "Pote de Sorvete"
+      ]
+    },
+    {
+      "canonicalName": "Água Mineral sem Gás",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Água Mineral",
+        "Agua Mineral",
+        "Agua s/ Gas",
+        "Agua Mineral s/ Gas",
+        "Agua Min",
+        "Galão de Água"
+      ]
+    },
+    {
+      "canonicalName": "Água Mineral com Gás",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Agua com Gas",
+        "Agua c/ Gas",
+        "Agua Mineral c/ Gas",
+        "Água com Gás"
+      ]
+    },
+    {
+      "canonicalName": "Suco Integral",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Suco",
+        "Suco de Uva",
+        "Suco de Laranja",
+        "Néctar de Fruta"
+      ]
+    },
+    {
+      "canonicalName": "Água de Coco",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Agua de Coco",
+        "Água de Coco Integral"
+      ]
+    },
+    {
+      "canonicalName": "Refresco em Pó",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 25,
+      "aliases": [
+        "Suco em Pó",
+        "Suco Tang",
+        "Refresco Po"
+      ]
+    },
+    {
+      "canonicalName": "Bebida Energética",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 250,
+      "aliases": [
+        "Energético",
+        "Energetico",
+        "Bebida Energetica",
+        "Red Bull",
+        "Monster Energy",
+        "Energ Monster",
+        "Energ Red Bull",
+        "Energ Baly",
+        "Energetico Lata"
+      ]
+    },
+    {
+      "canonicalName": "Vinho Tinto",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 750,
+      "aliases": [
+        "Vinho",
+        "Vinho Tinto Seco",
+        "Vinho Suave",
+        "Vinho Chileno",
+        "Vinho Argentino"
+      ]
+    },
+    {
+      "canonicalName": "Água Sanitária",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Agua Sanitaria",
+        "Cândida",
+        "Candida",
+        "Qboa",
+        "Cloro Ativo",
+        "Alvejante"
+      ]
+    },
+    {
+      "canonicalName": "Desinfetante",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Desinfetante Lavanda",
+        "Desinfetante Pinho",
+        "Pinho Sol",
+        "Pato Purific",
+        "Pedra Sanitária"
+      ]
+    },
+    {
+      "canonicalName": "Limpador Multiuso",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Multiuso",
+        "Veja Multiuso",
+        "Desengordurante"
+      ]
+    },
+    {
+      "canonicalName": "Esponja de Louça",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Esponja",
+        "Buchinha de Pia",
+        "Bucha de Louça",
+        "Esponja Dupla Face"
+      ]
+    },
+    {
+      "canonicalName": "Lã de Aço",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Bombril",
+        "Esponja de Aço",
+        "Assolan"
+      ]
+    },
+    {
+      "canonicalName": "Sabão em Barra",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Sabao Barra",
+        "Sabão Glicerinado",
+        "Sabão de Coco",
+        "Sabão em Pedra"
+      ]
+    },
+    {
+      "canonicalName": "Lava Roupas Líquido",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Sabão Líquido",
+        "Sabao Liquido",
+        "Lava Roupas Liq"
+      ]
+    },
+    {
+      "canonicalName": "Saco de Lixo",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Saco p/ Lixo",
+        "Saco Lixo 30L",
+        "Saco Lixo 50L",
+        "Saco Lixo 100L"
+      ]
+    },
+    {
+      "canonicalName": "Papel Toalha",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Toalha de Papel",
+        "Guardanapo de Papel",
+        "Guardanapo"
+      ]
+    },
+    {
+      "canonicalName": "Papel Alumínio",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Papel Aluminio"
+      ]
+    },
+    {
+      "canonicalName": "Shampoo",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Xampu",
+        "Shampoo Anticaspa"
+      ]
+    },
+    {
+      "canonicalName": "Condicionador",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Condicionador Capilar",
+        "Creme de Pentear",
+        "Creme para Pentear"
+      ]
+    },
+    {
+      "canonicalName": "Desodorante Aerosol",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Desodorante",
+        "Antitranspirante",
+        "Desodorante Roll-On"
+      ]
+    },
+    {
+      "canonicalName": "Enxaguante Bucal",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Antisséptico Bucal",
+        "Antisseptico Bucal",
+        "Enxaguante",
+        "Listerine",
+        "Colgate Plax"
+      ]
+    },
+    {
+      "canonicalName": "Fio Dental",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Fita Dental"
+      ]
+    },
+    {
+      "canonicalName": "Absorvente Higiênico",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Absorvente",
+        "Protetor Diário"
+      ]
+    },
+    {
+      "canonicalName": "Toalha Umedecida",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Lenço Umedecido",
+        "Lenco Umedecido",
+        "Toalhas Umedecidas"
+      ]
+    },
+    {
+      "canonicalName": "Fralda Descartável",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Fralda Infantil",
+        "Fralda P",
+        "Fralda M",
+        "Fralda G",
+        "Fralda XG"
+      ]
+    },
+    {
+      "canonicalName": "Areia Sanitária para Gatos",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Areia Higiênica",
+        "Areia de Gato",
+        "Granulado Higiênico",
+        "Sílica para Gatos"
+      ]
+    },
+    {
+      "canonicalName": "Ração para Gatos",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Racao Gato",
+        "Sachê para Gatos",
+        "Ração Seca Gatos"
+      ]
+    },
+    {
+      "canonicalName": "Ração para Cães",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Racao Cachorro",
+        "Ração para Cachorro",
+        "Petisco para Cães"
+      ]
+    },
+    {
+      "canonicalName": "Goiaba Vermelha",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Goiaba",
+        "Goiaba Branca"
+      ]
+    },
+    {
+      "canonicalName": "Pera Williams",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Pera",
+        "Pêra",
+        "Pera Portuguesa",
+        "Pera D'Água"
+      ]
+    },
+    {
+      "canonicalName": "Kiwi",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Kiwi Importado",
+        "Kiwi Nacional"
+      ]
+    },
+    {
+      "canonicalName": "Melão Amarelo",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Melão",
+        "Melao",
+        "Melão Rei",
+        "Melão Pele de Sapo"
+      ]
+    },
+    {
+      "canonicalName": "Coco Ralado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 100,
+      "aliases": [
+        "Coco Seco",
+        "Leite de Coco",
+        "Coco Fresco"
+      ]
+    },
+    {
+      "canonicalName": "Milho de Pipoca",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Pipoca",
+        "Pipoca de Micro-ondas",
+        "Pipoca Microondas"
+      ]
+    },
+    {
+      "canonicalName": "Amendoim Torrado",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Amendoim",
+        "Pasta de Amendoim"
+      ]
+    },
+    {
+      "canonicalName": "Gelatina em Pó",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 20,
+      "aliases": [
+        "Gelatina"
+      ]
+    },
+    {
+      "canonicalName": "Fermento Químico em Pó",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 100,
+      "aliases": [
+        "Fermento em Pó",
+        "Fermento Quimico"
+      ]
+    },
+    {
+      "canonicalName": "Mel de Abelha",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Mel"
+      ]
+    },
+    {
+      "canonicalName": "Chá Mate",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 250,
+      "aliases": [
+        "Chá",
+        "Cha de Camomila",
+        "Erva-Mate",
+        "Chimarrão",
+        "Tereré"
+      ]
+    },
+    {
+      "canonicalName": "Pão Sírio",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Pao Sirio",
+        "Pão Árabe",
+        "Tortilha de Trigo",
+        "Rap10"
+      ]
+    },
+    {
+      "canonicalName": "Inseticida Aerosol",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Inseticida",
+        "Repelente",
+        "Aromatizador de Ambiente"
+      ]
+    },
+    {
+      "canonicalName": "Lâmpada LED",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Lampada LED",
+        "Lâmpada Bulbo"
+      ]
+    },
+    {
+      "canonicalName": "Pilha Alcalina",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Pilha AA",
+        "Pilha AAA",
+        "Pilha Palito",
+        "Pilha Pequena"
+      ]
+    },
+    {
+      "canonicalName": "Vassoura",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Vassoura de Pelo",
+        "Vassoura Multiuso"
+      ]
+    },
+    {
+      "canonicalName": "Sobremesa Láctea",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Sobremesa Flan",
+        "Sobremesa Batavo",
+        "Flan",
+        "Chandelle",
+        "Danette",
+        "Pudim Lácteo",
+        "Sobremesa Lactea"
+      ]
+    },
+    {
+      "canonicalName": "Bala / Confeito",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 80,
+      "aliases": [
+        "Bala Fini",
+        "Bala de Gelatina",
+        "Bala Mastigável",
+        "Pastilha Tic Tac",
+        "Tic Tac",
+        "Goma de Mascar",
+        "Chiclete",
+        "Mentos",
+        "Halls",
+        "Trident"
+      ]
+    },
+    {
+      "canonicalName": "Esfoliante Corporal",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Esfoliante",
+        "Esfol Iante",
+        "Esfoliante Labotrat",
+        "Esfoliante Facial",
+        "Gel Esfoliante"
+      ]
+    },
+    {
+      "canonicalName": "Essência de Baunilha",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 30,
+      "aliases": [
+        "Baunilha",
+        "Extrato de Baunilha",
+        "Aroma de Baunilha",
+        "Baunilha Bombay"
+      ]
+    },
+    {
+      "canonicalName": "Chinelo / Sandália",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Sandália",
+        "Sandalia",
+        "Chinelo",
+        "Sand Ipanema",
+        "Sandalia Ipanema",
+        "Chinelo Havaianas",
+        "Sand Havaianas"
+      ]
+    },
+    {
+      "canonicalName": "Extrato de Tomate",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 340,
+      "aliases": [
+        "Massa de Tomate",
+        "Extrato Tomate",
+        "Extrato de Tomate Concentrado"
+      ]
+    },
+    {
+      "canonicalName": "Passata de Tomate",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Passata Rústica",
+        "Polpa de Tomate",
+        "Passata"
+      ]
+    },
+    {
+      "canonicalName": "Tomate Italiano",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Tomate Italiano kg",
+        "Tomate Longo"
+      ]
+    },
+    {
+      "canonicalName": "Abóbora Moranga",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Moranga",
+        "Abobora Moranga",
+        "Moranga kg"
+      ]
+    },
+    {
+      "canonicalName": "Cará",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Cara",
+        "Cará kg",
+        "Cara do Norte"
+      ]
+    },
+    {
+      "canonicalName": "Biscoito Wafer",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 110,
+      "aliases": [
+        "Bolacha Wafer",
+        "Wafer",
+        "Bisc Wafer"
+      ]
+    },
+    {
+      "canonicalName": "Carne de Sol",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Carne de Sol Bovina",
+        "Carne de Sol de Primeira"
+      ]
+    },
+    {
+      "canonicalName": "Cebolinha",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Maço de Cebolinha",
+        "Cebolinha Fresca",
+        "Cebolinha Verde"
+      ]
+    },
+    {
+      "canonicalName": "Salsa",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Salsinha",
+        "Maço de Salsa",
+        "Salsa Fresca"
+      ]
+    },
+    {
+      "canonicalName": "Alface Americana",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Alface Americana Hidropônica",
+        "Alface Crocante"
+      ]
+    },
+    {
+      "canonicalName": "Alface Lisa",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Alface Lisa Hidropônica",
+        "Alface Lisa kg"
+      ]
+    },
+    {
+      "canonicalName": "Laranja Lima",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Laranja Lima kg",
+        "Laranja de Céu"
+      ]
+    },
+    {
+      "canonicalName": "Laranja Bahia",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Laranja Navel",
+        "Laranja Baía"
+      ]
+    },
+    {
+      "canonicalName": "Avocado",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Avocado Hass",
+        "Abacate Avocado"
+      ]
+    },
+    {
+      "canonicalName": "Manga Tommy",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Manga Tommy Atkins",
+        "Manga Tommy kg"
+      ]
+    },
+    {
+      "canonicalName": "Manga Espada",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Manga Espada kg"
+      ]
+    },
+    {
+      "canonicalName": "Repolho Roxo",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Repolho Roxo kg"
+      ]
+    },
+    {
+      "canonicalName": "Ovos Caipiras",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Ovo Caipira",
+        "Ovos da Roça",
+        "Cartela Ovo Caipira"
+      ]
+    },
+    {
+      "canonicalName": "Ovos Vermelhos",
+      "categoryId": "cat_hortifruti",
+      "defaultUnit": "un",
+      "aliases": [
+        "Ovo Vermelho",
+        "Cartela Ovos Vermelhos"
+      ]
+    },
+    {
+      "canonicalName": "Apresuntado",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Apresuntado Fatiado",
+        "Apresuntado Pedaço"
+      ]
+    },
+    {
+      "canonicalName": "Pão de Hot Dog",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Pao de Hot Dog",
+        "Pao Hot Dog"
+      ]
+    },
+    {
+      "canonicalName": "Bisnaguinha",
+      "categoryId": "cat_padaria",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Pão Bisnaguinha",
+        "Bisnaga Infantil"
+      ]
+    },
+    {
+      "canonicalName": "Mistura para Bolo",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Massa de Bolo",
+        "Pó para Bolo"
+      ]
+    },
+    {
+      "canonicalName": "Lagarto Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Lagarto",
+        "Carne Lagarto",
+        "Tatu Bovino"
+      ]
+    },
+    {
+      "canonicalName": "Maminha Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Maminha",
+        "Maminha da Alcatra"
+      ]
+    },
+    {
+      "canonicalName": "Músculo Bovino",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Musculo",
+        "Músculo com Osso",
+        "Ossobuco"
+      ]
+    },
+    {
+      "canonicalName": "Paleta Bovina",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Paleta",
+        "Bife de Paleta"
+      ]
+    },
+    {
+      "canonicalName": "Asa de Frango",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Asa de Frango Congelada",
+        "Asinha de Frango",
+        "Meio da Asa",
+        "Tulipa de Frango"
+      ]
+    },
+    {
+      "canonicalName": "Linguiça Paio",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Paio",
+        "Paio Defumado"
+      ]
+    },
+    {
+      "canonicalName": "Salsicha Viena",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Salsicha Tipo Viena",
+        "Salsicha em Lata"
+      ]
+    },
+    {
+      "canonicalName": "Lombo Suíno",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Lombo de Porco",
+        "Lombo Fatiado"
+      ]
+    },
+    {
+      "canonicalName": "Costelinha Suína",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Costela de Porco",
+        "Costelinha de Porco"
+      ]
+    },
+    {
+      "canonicalName": "Panceta Suína",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Barriga de Porco",
+        "Pancetta"
+      ]
+    },
+    {
+      "canonicalName": "Nuggets de Frango",
+      "categoryId": "cat_acougue",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Empanado de Frango",
+        "Steak de Frango",
+        "Isca de Frango Empanada"
+      ]
+    },
+    {
+      "canonicalName": "Vinagre de Maçã",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Vinagre de Maca",
+        "Vinagre de Maca 500ml"
+      ]
+    },
+    {
+      "canonicalName": "Vinagre de Vinho",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 750,
+      "aliases": [
+        "Vinagre de Vinho Tinto",
+        "Vinagre de Vinho Branco"
+      ]
+    },
+    {
+      "canonicalName": "Sal Grosso",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Sal de Churrasco",
+        "Sal Grosso para Churrasco"
+      ]
+    },
+    {
+      "canonicalName": "Farinha de Trigo com Fermento",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "kg",
+      "aliases": [
+        "Farinha com Fermento"
+      ]
+    },
+    {
+      "canonicalName": "Farofa Pronta",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Farofa Temperada",
+        "Farofa de Mandioca Pronta",
+        "Farofa Tradicional"
+      ]
+    },
+    {
+      "canonicalName": "Polvilho Doce",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Fécula de Mandioca Doce",
+        "Polvilho Doce 500g"
+      ]
+    },
+    {
+      "canonicalName": "Polvilho Azedo",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Polvilho Fermentado",
+        "Polvilho Azedo 500g"
+      ]
+    },
+    {
+      "canonicalName": "Flocão de Milho",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Flocao",
+        "Flocos de Milho Pré-cozidos",
+        "Massa de Cuscuz",
+        "Cuscuz"
+      ]
+    },
+    {
+      "canonicalName": "Granola Tradicional",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Granola",
+        "Cereal Granola"
+      ]
+    },
+    {
+      "canonicalName": "Cacau em Pó 100%",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Cacau em Pó",
+        "Cacau Puro"
+      ]
+    },
+    {
+      "canonicalName": "Chocolate em Pó 50%",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Chocolate em Pó",
+        "Chocolate em Pó Solúvel"
+      ]
+    },
+    {
+      "canonicalName": "Molho de Pimenta",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Pimenta Líquida",
+        "Molho de Pimenta Vermelha"
+      ]
+    },
+    {
+      "canonicalName": "Molho Inglês",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Molho Ingles",
+        "Worcestershire Sauce"
+      ]
+    },
+    {
+      "canonicalName": "Colorau",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 100,
+      "aliases": [
+        "Colorífico",
+        "Urucum",
+        "Colorifico"
+      ]
+    },
+    {
+      "canonicalName": "Cominho em Pó",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 50,
+      "aliases": [
+        "Cominho",
+        "Cominho Moído"
+      ]
+    },
+    {
+      "canonicalName": "Cúrcuma / Açafrão",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 50,
+      "aliases": [
+        "Açafrão da Terra",
+        "Curcuma",
+        "Acafrao"
+      ]
+    },
+    {
+      "canonicalName": "Açaí em Pote",
+      "categoryId": "cat_laticinios",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Acai",
+        "Polpa de Açaí",
+        "Creme de Açaí"
+      ]
+    },
+    {
+      "canonicalName": "Vinho Branco",
+      "categoryId": "cat_bebidas",
+      "defaultUnit": "un",
+      "packageSizeMilli": 750,
+      "aliases": [
+        "Vinho Branco Seco",
+        "Vinho Branco Suave"
+      ]
+    },
+    {
+      "canonicalName": "Limpa Vidros",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 500,
+      "aliases": [
+        "Limpador de Vidros"
+      ]
+    },
+    {
+      "canonicalName": "Álcool 70%",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "packageSizeMilli": 1000,
+      "aliases": [
+        "Alcool 70",
+        "Álcool Líquido 70%",
+        "Alcool 70%"
+      ]
+    },
+    {
+      "canonicalName": "Filme de PVC",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Plástico Filme",
+        "Filme Plástico",
+        "Filme PVC"
+      ]
+    },
+    {
+      "canonicalName": "Escova de Dentes",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Escova Dental",
+        "Escova de Dente Macia",
+        "Escova de Dente"
+      ]
+    },
+    {
+      "canonicalName": "Hastes Flexíveis / Cotonetes",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Cotonete",
+        "Hastes Flexíveis",
+        "Cotonetes"
+      ]
+    },
+    {
+      "canonicalName": "Algodão Hidrófilo",
+      "categoryId": "cat_higiene",
+      "defaultUnit": "un",
+      "aliases": [
+        "Algodao",
+        "Algodão em Disco",
+        "Algodão em Bolas",
+        "Algodão"
+      ]
+    },
+    {
+      "canonicalName": "Castanha-de-Caju",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Castanha de Caju Torrada",
+        "Castanha de Caju"
+      ]
+    },
+    {
+      "canonicalName": "Castanha-do-Pará",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 150,
+      "aliases": [
+        "Castanha do Brasil",
+        "Castanha do Para"
+      ]
+    },
+    {
+      "canonicalName": "Paçoca de Amendoim",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 200,
+      "aliases": [
+        "Pacoca",
+        "Paçoquinha",
+        "Paçoca Rolha"
+      ]
+    },
+    {
+      "canonicalName": "Doce de Leite",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 400,
+      "aliases": [
+        "Doce de Leite Cremoso",
+        "Doce de Leite Pote"
+      ]
+    },
+    {
+      "canonicalName": "Goiabada Cascão",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 300,
+      "aliases": [
+        "Goiabada",
+        "Goiabada em Barra"
+      ]
+    },
+    {
+      "canonicalName": "Fermento Biológico Seco",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 10,
+      "aliases": [
+        "Fermento de Pão",
+        "Fermento Biologico",
+        "Fermento Biológico Instantâneo"
+      ]
+    },
+    {
+      "canonicalName": "Bicarbonato de Sódio",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 100,
+      "aliases": [
+        "Bicarbonato",
+        "Bicarbonato de Sodio"
+      ]
+    },
+    {
+      "canonicalName": "Geleia de Frutas",
+      "categoryId": "cat_mercearia",
+      "defaultUnit": "un",
+      "packageSizeMilli": 230,
+      "aliases": [
+        "Geleia de Morango",
+        "Geleia de Uva",
+        "Geleia"
+      ]
+    },
+    {
+      "canonicalName": "Rodo de Limpeza",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Rodo Duplo",
+        "Rodo de Borracha",
+        "Rodo"
+      ]
+    },
+    {
+      "canonicalName": "Pá de Lixo",
+      "categoryId": "cat_limpeza",
+      "defaultUnit": "un",
+      "aliases": [
+        "Pa de Lixo",
+        "Pá para Lixo"
+      ]
+    }
+  ]
+}

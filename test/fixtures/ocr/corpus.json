@@ -1,0 +1,2012 @@
+[
+  {
+    "id": "carrefour_01",
+    "file": "test/fixtures/ocr/carrefour_01.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 800.0,
+      "blocks": [
+        {
+          "text": "CARREFOUR COMERCIO E INDUSTRIA LTDA\nCNPJ: 45.543.915/0001-81\nRUA DAS FLORES 123 - SAO PAULO SP\nDATA: 21/09/2026 14:30:00\nCÓDIGO DESCRIÇÃO QTD VL UN VL TOTAL\n001 7891000123451 ARROZ BRANCO 5KG 1 UN X 25,90 25,90\n002 7891000123452 FEIJAO PRETO 1KG 2 UN X 8,00 16,00\n003 7891000123453 LEITE INTEGRAL 1L 4 UN X 5,50 22,00\n004 7891000123454 ACUCAR REFINADO 1KG 1 UN X 4,50 4,50\n005 7891000123455 CAFE MOIDO 500G 1 UN X 14,00 14,00\n006 7891000123456 OLEO DE SOJA 900ML 1 UN X 6,00 6,00\n007 7891000123457 MACARRAO ESPAGUETE 1 UN X 3,50 3,50\n008 7891000123458 MOLHO DE TOMATE 1 UN X 2,50 2,50\n009 7891000123459 SAL REFINADO 1KG 1 UN X 2,00 2,00\n010 7891000123460 BISCOITO RECHEADO 1 UN X 3,00 3,00\n011 7891000123461 DETERGENTE LIQUIDO 1 UN X 2,50 2,50\n012 7891000123462 SABONETE EM BARRA 1 UN X 2,50 2,50\nSUBTOTAL R$ 90,40\nDESCONTO R$ 3,00\nTOTAL R$ 87,40\nCARTAO DE DEBITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 445
+          },
+          "lines": [
+            {
+              "text": "CARREFOUR COMERCIO E INDUSTRIA LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 45.543.915/0001-81",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "RUA DAS FLORES 123 - SAO PAULO SP",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 300,
+                "bottom": 70
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "DATA: 21/09/2026 14:30:00",
+              "boundingBox": {
+                "top": 75,
+                "left": 10,
+                "right": 250,
+                "bottom": 90
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "CÓDIGO DESCRIÇÃO QTD VL UN VL TOTAL",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "001 7891000123451 ARROZ BRANCO 5KG 1 UN X 25,90 25,90",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 7891000123452 FEIJAO PRETO 1KG 2 UN X 8,00 16,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 7891000123453 LEITE INTEGRAL 1L 4 UN X 5,50 22,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "004 7891000123454 ACUCAR REFINADO 1KG 1 UN X 4,50 4,50",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "005 7891000123455 CAFE MOIDO 500G 1 UN X 14,00 14,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "006 7891000123456 OLEO DE SOJA 900ML 1 UN X 6,00 6,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 380,
+                "bottom": 235
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "007 7891000123457 MACARRAO ESPAGUETE 1 UN X 3,50 3,50",
+              "boundingBox": {
+                "top": 240,
+                "left": 10,
+                "right": 380,
+                "bottom": 255
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "008 7891000123458 MOLHO DE TOMATE 1 UN X 2,50 2,50",
+              "boundingBox": {
+                "top": 260,
+                "left": 10,
+                "right": 380,
+                "bottom": 275
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "009 7891000123459 SAL REFINADO 1KG 1 UN X 2,00 2,00",
+              "boundingBox": {
+                "top": 280,
+                "left": 10,
+                "right": 380,
+                "bottom": 295
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "010 7891000123460 BISCOITO RECHEADO 1 UN X 3,00 3,00",
+              "boundingBox": {
+                "top": 300,
+                "left": 10,
+                "right": 380,
+                "bottom": 315
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "011 7891000123461 DETERGENTE LIQUIDO 1 UN X 2,50 2,50",
+              "boundingBox": {
+                "top": 320,
+                "left": 10,
+                "right": 380,
+                "bottom": 335
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "012 7891000123462 SABONETE EM BARRA 1 UN X 2,50 2,50",
+              "boundingBox": {
+                "top": 340,
+                "left": 10,
+                "right": 380,
+                "bottom": 355
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 90,40",
+              "boundingBox": {
+                "top": 370,
+                "left": 10,
+                "right": 380,
+                "bottom": 385
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 3,00",
+              "boundingBox": {
+                "top": 390,
+                "left": 10,
+                "right": 380,
+                "bottom": 405
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 87,40",
+              "boundingBox": {
+                "top": 410,
+                "left": 10,
+                "right": 380,
+                "bottom": 425
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "CARTAO DE DEBITO",
+              "boundingBox": {
+                "top": 430,
+                "left": 10,
+                "right": 250,
+                "bottom": 445
+              },
+              "confidence": 0.96
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "CARREFOUR COMERCIO E INDUSTRIA LTDA",
+      "cnpj": "45543915000181",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 21,
+      "itemCount": 12,
+      "subtotal": 9040,
+      "discount": 300,
+      "total": 8740,
+      "paymentMethod": "CARTÃO DE DÉBITO"
+    }
+  },
+  {
+    "id": "pao_de_acucar_02",
+    "file": "test/fixtures/ocr/pao_de_acucar_02.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 600.0,
+      "blocks": [
+        {
+          "text": "COMPANHIA BRASILEIRA DE DISTRIBUICAO LTDA\nCNPJ: 47.508.411/0001-56\nEMISSAO: 22/09/2026 10:15:30\n001 BISC RECHEADO CHOCOLATE\nNESTLE 140G 2 UN X 4,50 9,00\n002 SUCO DE LARANJA 1L 1 UN X 12,00 12,00\n003 IOGURTE NATURAL 170G 4 UN X 6,00 24,00\nTOTAL R$ 45,00\nPAGAMENTO PIX",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 235
+          },
+          "lines": [
+            {
+              "text": "COMPANHIA BRASILEIRA DE DISTRIBUICAO LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.97
+            },
+            {
+              "text": "CNPJ: 47.508.411/0001-56",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "EMISSAO: 22/09/2026 10:15:30",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 BISC RECHEADO CHOCOLATE",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 250,
+                "bottom": 115
+              },
+              "confidence": 0.9
+            },
+            {
+              "text": "NESTLE 140G 2 UN X 4,50 9,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 SUCO DE LARANJA 1L 1 UN X 12,00 12,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 IOGURTE NATURAL 170G 4 UN X 6,00 24,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 45,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO PIX",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 250,
+                "bottom": 235
+              },
+              "confidence": 0.96
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "COMPANHIA BRASILEIRA DE DISTRIBUICAO LTDA",
+      "cnpj": "47508411000156",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 22,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 4500,
+      "paymentMethod": "PIX"
+    }
+  },
+  {
+    "id": "hortifruti_03",
+    "file": "test/fixtures/ocr/hortifruti_03.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 600.0,
+      "blocks": [
+        {
+          "text": "HORTIFRUTI NATURAL DA TERRA LTDA\nCNPJ: 12.345.678/0001-95\nDATA: 23/09/2026 11:00:00\n001 MAÇA GALA NACIONAL\n0,734 KG X 39,90 29,29\n002 BANANA NANICA\n1,250 KG X 8,00 10,00\nTOTAL R$ 39,29\nDINHEIRO R$ 50,00",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 235
+          },
+          "lines": [
+            {
+              "text": "HORTIFRUTI NATURAL DA TERRA LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 12.345.678/0001-95",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 23/09/2026 11:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 MAÇA GALA NACIONAL",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 250,
+                "bottom": 115
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "0,734 KG X 39,90 29,29",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.94
+            },
+            {
+              "text": "002 BANANA NANICA",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 250,
+                "bottom": 155
+              },
+              "confidence": 0.92
+            },
+            {
+              "text": "1,250 KG X 8,00 10,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.94
+            },
+            {
+              "text": "TOTAL R$ 39,29",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DINHEIRO R$ 50,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 250,
+                "bottom": 235
+              },
+              "confidence": 0.96
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "HORTIFRUTI NATURAL DA TERRA LTDA",
+      "cnpj": "12345678000195",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 23,
+      "itemCount": 2,
+      "subtotal": null,
+      "discount": null,
+      "total": 3929,
+      "paymentMethod": "DINHEIRO"
+    }
+  },
+  {
+    "id": "extra_04",
+    "file": "test/fixtures/ocr/extra_04.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 600.0,
+      "blocks": [
+        {
+          "text": "EXTRA SUPERMERCADOS LTDA\nCNPJ: 00.000.001/0001-36\nEMISSAO: 24/09/2026 16:20:00\n001 CARNE BOVINA 1KG 1 UN X 50,00 50,00\n002 CERVEJA LATA 350ML 6 PACK X 5,00 30,00\n003 REFRIGERANTE 2L 2 UN X 10,00 20,00\nSUBTOTAL R$ 100,00\nDESCONTO R$ 10,00\nVALOR A PAGAR R$ 90,00\nCARTAO DE CREDITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 245
+          },
+          "lines": [
+            {
+              "text": "EXTRA SUPERMERCADOS LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.001/0001-36",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "EMISSAO: 24/09/2026 16:20:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 CARNE BOVINA 1KG 1 UN X 50,00 50,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 CERVEJA LATA 350ML 6 PACK X 5,00 30,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 REFRIGERANTE 2L 2 UN X 10,00 20,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 100,00",
+              "boundingBox": {
+                "top": 170,
+                "left": 10,
+                "right": 380,
+                "bottom": 185
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 10,00",
+              "boundingBox": {
+                "top": 190,
+                "left": 10,
+                "right": 380,
+                "bottom": 205
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "VALOR A PAGAR R$ 90,00",
+              "boundingBox": {
+                "top": 210,
+                "left": 10,
+                "right": 380,
+                "bottom": 225
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "CARTAO DE CREDITO",
+              "boundingBox": {
+                "top": 230,
+                "left": 10,
+                "right": 250,
+                "bottom": 245
+              },
+              "confidence": 0.96
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "EXTRA SUPERMERCADOS LTDA",
+      "cnpj": "00000001000136",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 24,
+      "itemCount": 3,
+      "subtotal": 10000,
+      "discount": 1000,
+      "total": 9000,
+      "paymentMethod": "CARTÃO DE CRÉDITO"
+    }
+  },
+  {
+    "id": "dia_05",
+    "file": "test/fixtures/ocr/dia_05.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 600.0,
+      "blocks": [
+        {
+          "text": "DIA BRASIL SOCIEDADE LIMITADA\nCNPJ: 00.000.002/0001-80\nDATA 25/09/2026 09:10:00\n001 PÃO DE FORMA 500G 1 UN X 8,00 8,00\n002 MANTEIGA COM SAL 200G 1 UN X 12,00 12,00\n003 REQUEIJAO CREMOSO 200G 1 UN X 15,00 15,00\nTOTAL R$ 35,00\nCARTAO DE DEBITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 215
+          },
+          "lines": [
+            {
+              "text": "DIA BRASIL SOCIEDADE LIMITADA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.002/0001-80",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA 25/09/2026 09:10:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PÃO DE FORMA 500G 1 UN X 8,00 8,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 MANTEIGA COM SAL 200G 1 UN X 12,00 12,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.45
+            },
+            {
+              "text": "003 REQUEIJAO CREMOSO 200G 1 UN X 15,00 15,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 35,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "CARTAO DE DEBITO",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 250,
+                "bottom": 215
+              },
+              "confidence": 0.96
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "DIA BRASIL SOCIEDADE LIMITADA",
+      "cnpj": "00000002000180",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 25,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 3500,
+      "paymentMethod": "CARTÃO DE DÉBITO"
+    }
+  },
+  {
+    "id": "assai_06",
+    "file": "test/fixtures/ocr/assai_06.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 340.0,
+      "blocks": [
+        {
+          "text": "ASSAI ATACADISTA S A\nCNPJ: 00.000.003/0001-25\nDATA: 26/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\n004 PRODUTO GENERICO 4 1 UN X 10,00 10,00\nSUBTOTAL R$ 150,00\nDESCONTO R$ 5,00\nTOTAL R$ 145,00\nPAGAMENTO VALE ALIMENTAÇÃO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 255
+          },
+          "lines": [
+            {
+              "text": "ASSAI ATACADISTA S A",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.003/0001-25",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 26/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "004 PRODUTO GENERICO 4 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 150,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 5,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 145,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 380,
+                "bottom": 235
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO VALE ALIMENTAÇÃO",
+              "boundingBox": {
+                "top": 240,
+                "left": 10,
+                "right": 250,
+                "bottom": 255
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "ASSAI ATACADISTA S A",
+      "cnpj": "00000003000125",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 26,
+      "itemCount": 4,
+      "subtotal": 15000,
+      "discount": 500,
+      "total": 14500,
+      "paymentMethod": "VALE ALIMENTAÇÃO"
+    }
+  },
+  {
+    "id": "atacadao_07",
+    "file": "test/fixtures/ocr/atacadao_07.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 280.0,
+      "blocks": [
+        {
+          "text": "ATACADAO S A\nCNPJ: 00.000.004/0001-70\nDATA: 27/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\nTOTAL R$ 80,00\nPAGAMENTO PIX",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 195
+          },
+          "lines": [
+            {
+              "text": "ATACADAO S A",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.004/0001-70",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 27/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 80,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO PIX",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 250,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "ATACADAO S A",
+      "cnpj": "00000004000170",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 27,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 8000,
+      "paymentMethod": "PIX"
+    }
+  },
+  {
+    "id": "drogaria_08",
+    "file": "test/fixtures/ocr/drogaria_08.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 300.0,
+      "blocks": [
+        {
+          "text": "DROGARIA SP LTDA\nCNPJ: 00.000.005/0001-14\nDATA: 28/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\nSUBTOTAL R$ 42,00\nDESCONTO R$ 2,00\nTOTAL R$ 40,00\nPAGAMENTO CARTÃO DE CRÉDITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 215
+          },
+          "lines": [
+            {
+              "text": "DROGARIA SP LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.005/0001-14",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 28/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 42,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 2,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 40,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO CARTÃO DE CRÉDITO",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 250,
+                "bottom": 215
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "DROGARIA SP LTDA",
+      "cnpj": "00000005000114",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 28,
+      "itemCount": 2,
+      "subtotal": 4200,
+      "discount": 200,
+      "total": 4000,
+      "paymentMethod": "CARTÃO DE CRÉDITO"
+    }
+  },
+  {
+    "id": "padaria_09",
+    "file": "test/fixtures/ocr/padaria_09.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 280.0,
+      "blocks": [
+        {
+          "text": "PADARIA E CONFEITARIA PANIS LTDA\nCNPJ: 00.000.006/0001-69\nDATA: 29/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\nTOTAL R$ 28,00\nPAGAMENTO DINHEIRO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 195
+          },
+          "lines": [
+            {
+              "text": "PADARIA E CONFEITARIA PANIS LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.006/0001-69",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 29/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 28,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO DINHEIRO",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 250,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "PADARIA E CONFEITARIA PANIS LTDA",
+      "cnpj": "00000006000169",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 29,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 2800,
+      "paymentMethod": "DINHEIRO"
+    }
+  },
+  {
+    "id": "hortigo_10",
+    "file": "test/fixtures/ocr/hortigo_10.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 280.0,
+      "blocks": [
+        {
+          "text": "HORTIGO HORTIFRUTI LTDA\nCNPJ: 00.000.007/0001-03\nDATA: 30/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\nTOTAL R$ 34,50\nPAGAMENTO PIX",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 195
+          },
+          "lines": [
+            {
+              "text": "HORTIGO HORTIFRUTI LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.007/0001-03",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 30/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 34,50",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO PIX",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 250,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "HORTIGO HORTIFRUTI LTDA",
+      "cnpj": "00000007000103",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 30,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 3450,
+      "paymentMethod": "PIX"
+    }
+  },
+  {
+    "id": "mercado_bairro_11",
+    "file": "test/fixtures/ocr/mercado_bairro_11.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 340.0,
+      "blocks": [
+        {
+          "text": "MERCADO DO BAIRRO LTDA\nCNPJ: 00.000.008/0001-58\nDATA: 15/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\n004 PRODUTO GENERICO 4 1 UN X 10,00 10,00\nSUBTOTAL R$ 55,00\nDESCONTO R$ 5,00\nTOTAL R$ 50,00\nPAGAMENTO DINHEIRO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 255
+          },
+          "lines": [
+            {
+              "text": "MERCADO DO BAIRRO LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.008/0001-58",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 15/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "004 PRODUTO GENERICO 4 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 55,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 5,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 50,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 380,
+                "bottom": 235
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO DINHEIRO",
+              "boundingBox": {
+                "top": 240,
+                "left": 10,
+                "right": 250,
+                "bottom": 255
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "MERCADO DO BAIRRO LTDA",
+      "cnpj": "00000008000158",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 15,
+      "itemCount": 4,
+      "subtotal": 5500,
+      "discount": 500,
+      "total": 5000,
+      "paymentMethod": "DINHEIRO"
+    }
+  },
+  {
+    "id": "express_12",
+    "file": "test/fixtures/ocr/express_12.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 260.0,
+      "blocks": [
+        {
+          "text": "EXPRESS CONVENIENCIA LTDA\nCNPJ: 00.000.009/0001-00\nDATA: 16/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\nTOTAL R$ 18,50\nPAGAMENTO CARTÃO DE DÉBITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 175
+          },
+          "lines": [
+            {
+              "text": "EXPRESS CONVENIENCIA LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.009/0001-00",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 16/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 18,50",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO CARTÃO DE DÉBITO",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 250,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "EXPRESS CONVENIENCIA LTDA",
+      "cnpj": "00000009000100",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 16,
+      "itemCount": 2,
+      "subtotal": null,
+      "discount": null,
+      "total": 1850,
+      "paymentMethod": "CARTÃO DE DÉBITO"
+    }
+  },
+  {
+    "id": "hiper_13",
+    "file": "test/fixtures/ocr/hiper_13.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 360.0,
+      "blocks": [
+        {
+          "text": "HIPERMERCADO BIG LTDA\nCNPJ: 00.000.010/0001-27\nDATA: 17/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\n004 PRODUTO GENERICO 4 1 UN X 10,00 10,00\n005 PRODUTO GENERICO 5 1 UN X 10,00 10,00\nSUBTOTAL R$ 210,00\nDESCONTO R$ 15,00\nTOTAL R$ 195,00\nPAGAMENTO VALE REFEIÇÃO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 275
+          },
+          "lines": [
+            {
+              "text": "HIPERMERCADO BIG LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.010/0001-27",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 17/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "004 PRODUTO GENERICO 4 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "005 PRODUTO GENERICO 5 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 210,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 15,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 380,
+                "bottom": 235
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 195,00",
+              "boundingBox": {
+                "top": 240,
+                "left": 10,
+                "right": 380,
+                "bottom": 255
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO VALE REFEIÇÃO",
+              "boundingBox": {
+                "top": 260,
+                "left": 10,
+                "right": 250,
+                "bottom": 275
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "HIPERMERCADO BIG LTDA",
+      "cnpj": "00000010000127",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 17,
+      "itemCount": 5,
+      "subtotal": 21000,
+      "discount": 1500,
+      "total": 19500,
+      "paymentMethod": "VALE REFEIÇÃO"
+    }
+  },
+  {
+    "id": "loja_14",
+    "file": "test/fixtures/ocr/loja_14.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 280.0,
+      "blocks": [
+        {
+          "text": "LOJAS AMERICANAS S A\nCNPJ: 00.000.011/0001-71\nDATA: 18/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\nTOTAL R$ 60,00\nPAGAMENTO PIX",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 195
+          },
+          "lines": [
+            {
+              "text": "LOJAS AMERICANAS S A",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.011/0001-71",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 18/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "TOTAL R$ 60,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO PIX",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 250,
+                "bottom": 195
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "LOJAS AMERICANAS S A",
+      "cnpj": "00000011000171",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 18,
+      "itemCount": 3,
+      "subtotal": null,
+      "discount": null,
+      "total": 6000,
+      "paymentMethod": "PIX"
+    }
+  },
+  {
+    "id": "super_15",
+    "file": "test/fixtures/ocr/super_15.json",
+    "document": {
+      "imageWidth": 400.0,
+      "imageHeight": 340.0,
+      "blocks": [
+        {
+          "text": "SUPERMERCADO KAWAKAMI LTDA\nCNPJ: 00.000.012/0001-16\nDATA: 19/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\n004 PRODUTO GENERICO 4 1 UN X 10,00 10,00\nSUBTOTAL R$ 72,00\nDESCONTO R$ 2,00\nTOTAL R$ 70,00\nPAGAMENTO CARTÃO DE CRÉDITO",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 255
+          },
+          "lines": [
+            {
+              "text": "SUPERMERCADO KAWAKAMI LTDA",
+              "boundingBox": {
+                "top": 10,
+                "left": 10,
+                "right": 380,
+                "bottom": 30
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "CNPJ: 00.000.012/0001-16",
+              "boundingBox": {
+                "top": 35,
+                "left": 10,
+                "right": 250,
+                "bottom": 50
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "DATA: 19/09/2026 12:00:00",
+              "boundingBox": {
+                "top": 55,
+                "left": 10,
+                "right": 250,
+                "bottom": 70
+              },
+              "confidence": 0.96
+            },
+            {
+              "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 100,
+                "left": 10,
+                "right": 380,
+                "bottom": 115
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 120,
+                "left": 10,
+                "right": 380,
+                "bottom": 135
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 140,
+                "left": 10,
+                "right": 380,
+                "bottom": 155
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "004 PRODUTO GENERICO 4 1 UN X 10,00 10,00",
+              "boundingBox": {
+                "top": 160,
+                "left": 10,
+                "right": 380,
+                "bottom": 175
+              },
+              "confidence": 0.95
+            },
+            {
+              "text": "SUBTOTAL R$ 72,00",
+              "boundingBox": {
+                "top": 180,
+                "left": 10,
+                "right": 380,
+                "bottom": 195
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "DESCONTO R$ 2,00",
+              "boundingBox": {
+                "top": 200,
+                "left": 10,
+                "right": 380,
+                "bottom": 215
+              },
+              "confidence": 0.98
+            },
+            {
+              "text": "TOTAL R$ 70,00",
+              "boundingBox": {
+                "top": 220,
+                "left": 10,
+                "right": 380,
+                "bottom": 235
+              },
+              "confidence": 0.99
+            },
+            {
+              "text": "PAGAMENTO CARTÃO DE CRÉDITO",
+              "boundingBox": {
+                "top": 240,
+                "left": 10,
+                "right": 250,
+                "bottom": 255
+              },
+              "confidence": 0.95
+            }
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "storeName": "SUPERMERCADO KAWAKAMI LTDA",
+      "cnpj": "00000012000116",
+      "isCnpjValid": true,
+      "year": 2026,
+      "month": 9,
+      "day": 19,
+      "itemCount": 4,
+      "subtotal": 7200,
+      "discount": 200,
+      "total": 7000,
+      "paymentMethod": "CARTÃO DE CRÉDITO"
+    }
+  }
+]

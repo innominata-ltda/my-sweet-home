@@ -1,0 +1,802 @@
+[
+  {
+    "raw": "OLEO SOJA 1L",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "LEITE UHT INT BRAHMA",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "CREME DENTAL",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "CAFE TORRADO TIO JOAO 90G",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "BANANA PRATA AVIAO 1KG",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "LEITE UHT DESN COMFORT 1L",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "DETERGENTE LIQ 340G",
+    "expected": "Detergente Líquido"
+  },
+  {
+    "raw": "SABAO PO KICALDO 350ML",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "OLEO SOJA NEVE",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "MACARRAO ESP NIVEA 5KG",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "ARROZ AGULHINHA OMO 1L",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "OLEO DE SOJA QUALY 340G",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "LEITE UHT DESN BARILLA 90G",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR UNIAO 1L",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "LEITE UHT DESN LIMPOL 90G",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "CARNE MOIDA T1 1KG",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "CAFE TORRADO DOWNY 5KG",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "PAO DE SAL DOWNY 2L",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "SABONETE BCO QUALY",
+    "expected": "Sabonete em Barra"
+  },
+  {
+    "raw": "LEITE UHT INT 500G",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "REFRIG COLA PERSONAL 900ML",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "TOMATE CARMEM LIZA 900ML",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "LEITE UHT DESN SORRISO 500ML",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "AMACIANTE QUALY 350ML",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "ARROZ TIPO 1 PIRACANJUCA 350ML",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "ACUCAR CRISTAL COMFORT",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "CREME DENTAL",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "ACUCAR REFINADO CARAVELAS 5KG",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "MACARRAO PARAF COCA COLA 900ML",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "SABAO EM PO BRAHMA 350ML",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "ARROZ TIPO 1 SEARA",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "SABAO EM PO ARIEL 1L",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "PEITO FRANGO PARMALAT 5KG",
+    "expected": "Peito de Frango"
+  },
+  {
+    "raw": "BANANA PRATA PILAO 350ML",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "LEITE UHT DESN 500ML",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "PAO DE SAL RENATA 500ML",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "SABAO EM PO PEPSI 1L",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "CAFE TORRADO",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "CARNE MOIDA T1 5KG",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "FEIJAO CARIOCA 340G",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR LIMPOL 1L",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "BANANA PRATA 473ML",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "PEITO FRANGO SADIA 1L",
+    "expected": "Peito de Frango"
+  },
+  {
+    "raw": "OLEO DE SOJA 500ML",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "PAPEL HIG F DUPLA LIZA 90G",
+    "expected": "Papel Higiênico Folha Dupla"
+  },
+  {
+    "raw": "OLEO DE SOJA 5KG",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "CAFE TRADICIONAL 900ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "CREME DENTAL 5KG",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "MANTEIGA SAL SKOL",
+    "expected": "Manteiga com Sal"
+  },
+  {
+    "raw": "BANANA PRATA PARMALAT 1L",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "LEITE UHT DESN SADIA 500ML",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "FEIJAO CARIOCA",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "AMACIANTE 2L",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "MACARRAO ESP SKOL 2L",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "LEITE INTEGRAL 1KG",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "REFRIG COLA LIZA 1KG",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "FEIJAO CARIOCA COCA COLA 350ML",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "LEITE UHT DESN 900ML",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR ELEFANTE 473ML",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "CAFE TRADICIONAL KICALDO 500ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "REFRIG COLA DOWNY 1L",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "MOLHO TOMATE 90G",
+    "expected": "Molho de Tomate"
+  },
+  {
+    "raw": "MACARRAO PARAF SOYA",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "PEITO FRANGO SOYA 350ML",
+    "expected": "Peito de Frango"
+  },
+  {
+    "raw": "ACUCAR REFINADO 5KG",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "CAFE TRADICIONAL UNIAO 350ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "MACARRAO PARAF PEPSI",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "CARNE MOIDA T1 900ML",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "ACUCAR REFINADO",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "CARNE MOIDA T1 1L",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "DETERGENTE LIQ 500G",
+    "expected": "Detergente Líquido"
+  },
+  {
+    "raw": "TOMATE CARMEM LIZA",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "CREME DENTAL KICALDO",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "LEITE UHT INT YPE",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "MANTEIGA SAL SORRISO 5KG",
+    "expected": "Manteiga com Sal"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR MELITTA 340G",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "REFRIG COLA SORRISO",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "MACARRAO PARAF KICALDO 1L",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "CAFE TRADICIONAL DOVE 500ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "LEITE INTEGRAL ELEFANTE 900ML",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "PAPEL HIG F DUPLA 340G",
+    "expected": "Papel Higiênico Folha Dupla"
+  },
+  {
+    "raw": "PAPEL HIG F DUPLA ELEFANTE 5KG",
+    "expected": "Papel Higiênico Folha Dupla"
+  },
+  {
+    "raw": "AMACIANTE SADIA 2L",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "SABAO PO POMAROLA 90G",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "PAO FRANCES LIMPOL 500G",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "SABAO PO PERSONAL 350ML",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "DETERGENTE LIQ PIRACANJUCA 500G",
+    "expected": "Detergente Líquido"
+  },
+  {
+    "raw": "LEITE DESNATADO YPE",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "CERVEJA PILSEN DOWNY 350ML",
+    "expected": "Cerveja Pilsen"
+  },
+  {
+    "raw": "OLEO SOJA RENATA 500ML",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "ARROZ TIPO 1 BRAHMA 90G",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "PAO FRANCES SOYA 340G",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "MOLHO TOMATE PIRACANJUCA 500G",
+    "expected": "Molho de Tomate"
+  },
+  {
+    "raw": "TOMATE CARMEM COLGATE 500G",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "CARNE MOIDA T1 500ML",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "LEITE DESNATADO ARIEL 1KG",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "MACARRAO PARAF 473ML",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "CERVEJA PILSEN QUALY 90G",
+    "expected": "Cerveja Pilsen"
+  },
+  {
+    "raw": "PAO DE SAL UNIAO 500G",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "TOMATE CARMEM COMFORT",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "CAFE TRADICIONAL POMAROLA 900ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "ARROZ BRANCO T1 473ML",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR RENATA 500ML",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "BATATA LAV MELITTA 1KG",
+    "expected": "Batata Lavada"
+  },
+  {
+    "raw": "OLEO DE SOJA POMAROLA",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "ALHO SKOL 5KG",
+    "expected": "Alho"
+  },
+  {
+    "raw": "MARGARINA C/ SAL 350ML",
+    "expected": "Margarina com Sal"
+  },
+  {
+    "raw": "CARNE MOIDA T1 AVIAO 350ML",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "CREME DENTAL SKOL 900ML",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "CEBOLA NAC ELEFANTE 500G",
+    "expected": "Cebola Nacional"
+  },
+  {
+    "raw": "ALHO ELEFANTE 5KG",
+    "expected": "Alho"
+  },
+  {
+    "raw": "MACARRAO ESP 350ML",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "FEIJAO PRETO T1 900ML",
+    "expected": "Feijão Preto"
+  },
+  {
+    "raw": "PAO DE SAL 350ML",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "MARGARINA C/ SAL BARILLA 500ML",
+    "expected": "Margarina com Sal"
+  },
+  {
+    "raw": "REFRIG COLA TIO JOAO 473ML",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "AMACIANTE DOVE 500ML",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "PAPEL HIG F DUPLA BRAHMA 1L",
+    "expected": "Papel Higiênico Folha Dupla"
+  },
+  {
+    "raw": "BATATA LAV 1KG",
+    "expected": "Batata Lavada"
+  },
+  {
+    "raw": "AMACIANTE PERSONAL 2L",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "LEITE UHT INT BRAHMA",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "SABONETE BCO TIO JOAO",
+    "expected": "Sabonete em Barra"
+  },
+  {
+    "raw": "CREME DENTAL 1KG",
+    "expected": "Creme Dental"
+  },
+  {
+    "raw": "ACUCAR REFINADO BARILLA 340G",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "AMACIANTE 500ML",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "ACUCAR REFINADO SADIA",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "BANANA PRATA 1L",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR KICALDO 1L",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "PAO FRANCES MELITTA 2L",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "OLEO SOJA BARILLA 500G",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "SABAO EM PO 5KG",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "LEITE UHT DESN ITALAC 500G",
+    "expected": "Leite UHT Desnatado"
+  },
+  {
+    "raw": "PEITO FRANGO NEVE 1L",
+    "expected": "Peito de Frango"
+  },
+  {
+    "raw": "FEIJAO TIPO 1 CAR ELEFANTE",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "MACARRAO PARAF PIRACANJUCA 473ML",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "ARROZ AGULHINHA SORRISO 5KG",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "TOMATE CARMEM CAMIL 2L",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "OLEO DE SOJA NIVEA 2L",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "LEITE INTEGRAL PEPSI 500G",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "BANANA PRATA QUALY 473ML",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "ACUCAR CRISTAL ELEFANTE 5KG",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "ACUCAR CRISTAL ELEFANTE 473ML",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "AMACIANTE SEARA 900ML",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "BATATA LAV 340G",
+    "expected": "Batata Lavada"
+  },
+  {
+    "raw": "ACUCAR CRISTAL LIMPOL 350ML",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "PAO FRANCES 2L",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "CARNE MOIDA T1 SADIA 2L",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "MANTEIGA SAL PARMALAT 500ML",
+    "expected": "Manteiga com Sal"
+  },
+  {
+    "raw": "CAFE TRADICIONAL NIVEA 350ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "SABAO PO SKOL 2L",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "ACUCAR CRISTAL POMAROLA",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "PAO FRANCES BRAHMA 900ML",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "PAO FRANCES 473ML",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "ALHO ITALAC 500G",
+    "expected": "Alho"
+  },
+  {
+    "raw": "CAFE TORRADO ARIEL",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "BANANA PRATA",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "FEIJAO CARIOCA PILAO 2L",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "OLEO DE SOJA OMO 2L",
+    "expected": "Óleo de Soja"
+  },
+  {
+    "raw": "DETERGENTE LIQ",
+    "expected": "Detergente Líquido"
+  },
+  {
+    "raw": "CEBOLA NAC",
+    "expected": "Cebola Nacional"
+  },
+  {
+    "raw": "BATATA LAV 1KG",
+    "expected": "Batata Lavada"
+  },
+  {
+    "raw": "LEITE INTEGRAL 500G",
+    "expected": "Leite UHT Integral"
+  },
+  {
+    "raw": "FEIJAO PRETO T1 PIRACANJUCA 500ML",
+    "expected": "Feijão Preto"
+  },
+  {
+    "raw": "CERVEJA PILSEN POMAROLA 500ML",
+    "expected": "Cerveja Pilsen"
+  },
+  {
+    "raw": "MANTEIGA SAL ARIEL 500ML",
+    "expected": "Manteiga com Sal"
+  },
+  {
+    "raw": "MACARRAO PARAF LIZA 5KG",
+    "expected": "Macarrão Parafuso"
+  },
+  {
+    "raw": "PAO DE SAL YPE 900ML",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "CAFE TRADICIONAL",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "ARROZ TIPO 1 SADIA 1L",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "MACARRAO ESP QUALY",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "CAFE TORRADO RENATA 350ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "CAFE TORRADO LIMPOL 5KG",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "FEIJAO CARIOCA 473ML",
+    "expected": "Feijão Carioca"
+  },
+  {
+    "raw": "MACARRAO ESP QUALY 500ML",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "ACUCAR CRISTAL SEARA 473ML",
+    "expected": "Açúcar Cristal"
+  },
+  {
+    "raw": "ARROZ AGULHINHA DOWNY 1KG",
+    "expected": "Arroz Branco Agulhinha"
+  },
+  {
+    "raw": "FEIJAO PRETO T1 473ML",
+    "expected": "Feijão Preto"
+  },
+  {
+    "raw": "REFRIG COLA LIMPOL 900ML",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "CEBOLA NAC AVIAO 900ML",
+    "expected": "Cebola Nacional"
+  },
+  {
+    "raw": "REFRIG COLA SEARA 2L",
+    "expected": "Refrigerante Cola"
+  },
+  {
+    "raw": "SABAO PO DOWNY 900ML",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "DETERGENTE LIQ SEARA 500ML",
+    "expected": "Detergente Líquido"
+  },
+  {
+    "raw": "CARNE MOIDA T1",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "ACUCAR REFINADO PERSONAL 1KG",
+    "expected": "Açúcar Refinado"
+  },
+  {
+    "raw": "BANANA PRATA LIZA",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "SABAO EM PO SEARA 1KG",
+    "expected": "Sabão em Pó"
+  },
+  {
+    "raw": "PAO DE SAL",
+    "expected": "Pão Francês"
+  },
+  {
+    "raw": "MACARRAO ESP SEARA",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "CERVEJA PILSEN UNIAO 1KG",
+    "expected": "Cerveja Pilsen"
+  },
+  {
+    "raw": "CARNE MOIDA T1 POMAROLA 5KG",
+    "expected": "Carne Moída de Primeira"
+  },
+  {
+    "raw": "MARGARINA C/ SAL MELITTA 500G",
+    "expected": "Margarina com Sal"
+  },
+  {
+    "raw": "TOMATE CARMEM COLGATE 2L",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "CAFE TRADICIONAL MELITTA 473ML",
+    "expected": "Café Torrado e Moído"
+  },
+  {
+    "raw": "TOMATE CARMEM PILAO 500G",
+    "expected": "Tomate Carmem"
+  },
+  {
+    "raw": "PAPEL HIG F DUPLA COCA COLA 1KG",
+    "expected": "Papel Higiênico Folha Dupla"
+  },
+  {
+    "raw": "MACARRAO ESP SEARA 2L",
+    "expected": "Macarrão Espaguete"
+  },
+  {
+    "raw": "BANANA PRATA COMFORT 350ML",
+    "expected": "Banana Prata"
+  },
+  {
+    "raw": "AMACIANTE DOWNY 1L",
+    "expected": "Amaciante de Roupas"
+  },
+  {
+    "raw": "PEITO FRANGO COLGATE",
+    "expected": "Peito de Frango"
+  },
+  {
+    "raw": "CEBOLA NAC NEVE 90G",
+    "expected": "Cebola Nacional"
+  }
+]

@@ -1,0 +1,10 @@
+# Lint overrides for test files.
+# Inherits all production rules, but relaxes constraints that add noise in fixtures.
+
+include: ../analysis_options.yaml
+
+linter:
+  rules:
+    prefer_const_constructors: false
+    prefer_const_declarations: false
+    avoid_redundant_argument_values: false

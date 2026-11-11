@@ -1,0 +1,128 @@
+name: flutter
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  verify:
+    name: analyze, test e verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version-file: .fvmrc
+          cache: true
+
+      - name: dependencias
+        run: flutter pub get
+
+      - name: cache build_runner
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .dart_tool/build
+          key: build-runner-${{ runner.os }}-${{ hashFiles('pubspec.lock') }}-${{ hashFiles('lib/**/*.dart') }}
+          restore-keys: |
+            build-runner-${{ runner.os }}-${{ hashFiles('pubspec.lock') }}-
+
+      - name: codigo gerado esta em dia
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::codigo gerado desatualizado ou alteracoes nao commitadas; rode 'make gen' e commite"
+            git status --porcelain
+            exit 1
+          fi
+
+      - name: make verify
+        run: make verify
+
+  build-android:
+    name: build de release (Android)
+    runs-on: ubuntu-latest
+    steps:
+      - name: liberar espaco em disco no runner
+        run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost
+
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          channel: stable
+          flutter-version-file: .fvmrc
+          cache: true
+
+      - name: dependencias
+        run: flutter pub get
+
+      - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
+        with:
+          distribution: "temurin"
+          java-version: "17"
+          cache: "gradle"
+
+      - name: cache Android NDK e CMake
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            /usr/local/lib/android/sdk/ndk/28.2.13676358
+            /usr/local/lib/android/sdk/cmake/3.22.1
+          key: android-ndk-cmake-${{ runner.os }}-r28c-3.22.1
+
+      - name: gerar keystore efemero de release para verificacao de tamanho (CA-4.1, CA-5.10)
+        run: |
+          keytool -genkeypair -v -keystore android/upload-keystore.jks \
+            -alias upload -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass mshpassword -keypass mshpassword \
+            -dname "CN=MySweetHomeCI, OU=CI, O=Innominata, L=SaoPaulo, S=SP, C=BR"
+          cat <<EOF > android/key.properties
+          storePassword=mshpassword
+          keyPassword=mshpassword
+          keyAlias=upload
+          storeFile=upload-keystore.jks
+          EOF
+
+      - name: build de release (Android)
+        run: flutter build apk --release --split-per-abi --target-platform android-arm64
+
+      - name: tamanho do app (RNF-004)
+        run: |
+          max=$((60 * 1024 * 1024))
+          for apk in build/app/outputs/flutter-apk/*-release.apk; do
+            size=$(stat -c%s "$apk")
+            echo "$apk: $((size / 1024 / 1024)) MB"
+            [ "$size" -le "$max" ] || { echo "::error::$apk acima de 60 MB (RNF-004)"; exit 1; }
+          done
+
+      - name: limpar build e encerrar Gradle daemon antes de salvar cache
+        if: always()
+        run: |
+          ./android/gradlew -p android --stop || true
+          rm -rf build android/.gradle android/app/build
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock ~/.gradle/caches/*/plugin-resolution/ || true
+
+      - name: limpar caches orfaos de PRs fechados
+        if: always() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh cache list --limit 100 --json id,ref --jq '.[] | select(.ref | startswith("refs/pull/")) | .id' | while read -r cid; do
+            [ -n "$cid" ] && gh cache delete "$cid" || true
+          done

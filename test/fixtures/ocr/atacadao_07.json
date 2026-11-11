@@ -1,0 +1,97 @@
+{
+  "imageWidth": 400.0,
+  "imageHeight": 280.0,
+  "blocks": [
+    {
+      "text": "ATACADAO S A\nCNPJ: 00.000.004/0001-70\nDATA: 27/09/2026 12:00:00\n001 PRODUTO GENERICO 1 1 UN X 10,00 10,00\n002 PRODUTO GENERICO 2 1 UN X 10,00 10,00\n003 PRODUTO GENERICO 3 1 UN X 10,00 10,00\nTOTAL R$ 80,00\nPAGAMENTO PIX",
+      "boundingBox": {
+        "top": 10,
+        "left": 10,
+        "right": 380,
+        "bottom": 195
+      },
+      "lines": [
+        {
+          "text": "ATACADAO S A",
+          "boundingBox": {
+            "top": 10,
+            "left": 10,
+            "right": 380,
+            "bottom": 30
+          },
+          "confidence": 0.98
+        },
+        {
+          "text": "CNPJ: 00.000.004/0001-70",
+          "boundingBox": {
+            "top": 35,
+            "left": 10,
+            "right": 250,
+            "bottom": 50
+          },
+          "confidence": 0.99
+        },
+        {
+          "text": "DATA: 27/09/2026 12:00:00",
+          "boundingBox": {
+            "top": 55,
+            "left": 10,
+            "right": 250,
+            "bottom": 70
+          },
+          "confidence": 0.96
+        },
+        {
+          "text": "001 PRODUTO GENERICO 1 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 100,
+            "left": 10,
+            "right": 380,
+            "bottom": 115
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "002 PRODUTO GENERICO 2 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 120,
+            "left": 10,
+            "right": 380,
+            "bottom": 135
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "003 PRODUTO GENERICO 3 1 UN X 10,00 10,00",
+          "boundingBox": {
+            "top": 140,
+            "left": 10,
+            "right": 380,
+            "bottom": 155
+          },
+          "confidence": 0.95
+        },
+        {
+          "text": "TOTAL R$ 80,00",
+          "boundingBox": {
+            "top": 160,
+            "left": 10,
+            "right": 380,
+            "bottom": 175
+          },
+          "confidence": 0.99
+        },
+        {
+          "text": "PAGAMENTO PIX",
+          "boundingBox": {
+            "top": 180,
+            "left": 10,
+            "right": 250,
+            "bottom": 195
+          },
+          "confidence": 0.95
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+# Android app identification settings for Fastlane / Google Play Console
+
+package_name("br.com.innominata.mysweethome")
+
+# Google Play Console service account credentials
+# Optional for doctor and local verification lanes; required for deploy.
+credentials_path = ENV["PLAY_STORE_JSON_KEY_FILE"] || File.expand_path("play-store-credentials.json", __dir__)
+json_key_file(credentials_path) if File.exist?(credentials_path) || ENV["PLAY_STORE_JSON_KEY_FILE"]

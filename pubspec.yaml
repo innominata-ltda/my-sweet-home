@@ -1,0 +1,79 @@
+name: my_sweet_home
+description: "Organização financeira, doméstica e de rotina para quem mora sozinho"
+publish_to: none
+
+version: 0.1.0+2
+
+environment:
+  sdk: ">=3.13.4 <4.0.0"
+  flutter: ">=3.47.5"
+
+dependencies:
+  bonsoir: ^7.1.5
+  camera: ^0.12.1
+  cryptography: ^2.7.0
+  drift: ^2.35.0
+  file_picker: ^13.1.0
+  fl_chart: ^1.2.0
+  flutter:
+    sdk: flutter
+  flutter_local_notifications: ^22.3.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  flutter_secure_storage: ^11.2.0
+  go_router: ^18.0.1
+  google_mlkit_text_recognition: ^0.17.1
+  google_sign_in: ^6.2.2
+  googleapis: ^13.2.0
+  googleapis_auth: ^2.3.4
+  http: ^1.6.0
+  image: ^4.10.1
+  image_picker: ^1.2.3
+  intl: ^0.20.2
+  lottie: ^3.6.1
+  mobile_scanner: 7.4.2
+  path: ^1.9.1
+  path_provider: ^2.1.6
+  pdf: ^3.13.1
+  qr_flutter: 4.1.0
+  riverpod_annotation: ^4.0.7
+  share_plus: ^13.3.0
+  sqlite3_flutter_libs: ^0.6.0+eol
+  timezone: ^0.11.1
+  uuid: ^4.6.0
+  wakelock_plus: ^1.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  drift_dev: ^2.35.0
+  build_runner: ^2.16.1
+  riverpod_generator: ^4.0.9
+  mocktail: ^1.0.5
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+hooks:
+  user_defines:
+    sqlite3:
+      source: sqlite3mc
+
+  assets:
+    - assets/licenses/
+    - assets/seed/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/nunito/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/nunito/Nunito-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/nunito/Nunito-Bold.ttf
+          weight: 700

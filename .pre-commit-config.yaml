@@ -1,0 +1,49 @@
+# pip install pre-commit && pre-commit install --hook-type commit-msg --hook-type pre-push
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: no-commit-to-branch
+        args: [--branch, main]
+      - id: check-yaml
+        files: ^\.github/workflows/|^\.pre-commit-config\.yaml$
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        exclude: \.md$
+      - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: check-staged-generated
+        name: check staged generated code
+        entry: python3 scripts/check_staged_generated_code.py
+        language: system
+        pass_filenames: false
+      - id: icon-licenses
+        name: icon licenses and attribution
+        entry: python3 scripts/check_icon_licenses.py
+        language: system
+        pass_filenames: false
+      - id: dep-licenses
+        name: dependency license policy
+        entry: python3 scripts/check_licenses.py
+        language: system
+        pass_filenames: false
+      - id: verify-on-push
+        name: make check (pre-push)
+        entry: make check
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.22.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+        additional_dependencies: ["@commitlint/config-conventional"]

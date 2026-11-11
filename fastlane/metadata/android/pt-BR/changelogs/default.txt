@@ -1,0 +1,7 @@
+Versão inicial de teste interno do My Sweet Home:
+• Controle de orçamento mensal e registro de despesas
+• Gestão de contas fixas com lembretes locais
+• Histórico de preços e pesquisa por estabelecimento
+• Organização de tarefas domésticas e calendário de rotina
+• Planejamento de refeições e lista de compras
+• Funcionamento 100% offline e sem necessidade de cadastro

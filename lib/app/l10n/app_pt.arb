@@ -1,0 +1,629 @@
+{
+  "@@locale": "pt",
+  "@@last_modified": "2026-09-22",
+  "appName": "My Sweet Home",
+  "productsTitle": "Produtos",
+  "expensesTitle": "Despesas",
+  "budgetTitle": "Orçamento",
+  "billsTitle": "Contas",
+  "tasksTitle": "Tarefas",
+  "calendarTitle": "Calendário",
+  "recipesTitle": "Receitas",
+  "expenseQuickAddTitle": "Nova Despesa",
+  "expenseQuickAddSave": "Salvar",
+  "expenseQuickAddError": "Erro: {error}",
+  "recipeDraftNewTitle": "Nova Receita",
+  "recipeDraftTitleLabel": "Título",
+  "recipeDraftPrepLabel": "Modo de Preparo",
+  "recipeDraftTimeLabel": "Tempo (min)",
+  "recipeDraftServingsLabel": "Porções",
+  "recipeDraftIngredientsLabel": "Ingredientes",
+  "recipeDraftNewIngredientButton": "Adicionar Ingrediente",
+  "recipeDraftFavoriteLabel": "Favorito",
+  "recipeDraftTagsLabel": "Tags",
+  "recipeDraftAddTagButton": "Adicionar Tag",
+  "recipeDraftNewTagPlaceholder": "Nova tag",
+  "recipeDraftNewIngredientPlaceholder": "Novo Ingrediente",
+  "recipePreparationTitle": "Modo de Preparo",
+  "recipePreparationBody": "Preparo da Receita",
+  "recipeListEmpty": "Nenhuma receita ainda. Comece pela que você mais faz.",
+  "recipeListCreate": "Criar receita",
+  "recipeListError": "Falha ao carregar receitas",
+  "recipeListRetry": "Tentar de novo",
+  "recipeDetailError": "Falha ao carregar receita",
+  "recipeDetailRetry": "Tentar de novo",
+  "recipeDetailNoCost": "Custo indisponível",
+  "recipeDetailCostExplain": "Faltam preços para muitos ingredientes.",
+  "recipeDetailRegisterPrices": "Registrar preços",
+  "recipeDetailEstimatedCost": "Custo estimado: {amount}",
+  "@recipeDetailEstimatedCost": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeDetailCostMissing": "{count} ingrediente(s) sem preço",
+  "@recipeDetailCostMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeDetailTitle": "Ficha da Receita",
+  "recipeListSearchHint": "Buscar receitas",
+  "recipeListFavoriteFilter": "Favoritos",
+  "recipeDetailIngredients": "Ingredientes",
+  "recipeDetailPreparation": "Modo de preparo",
+  "recipeDetailTime": "{time} min",
+  "@recipeDetailTime": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeDetailServings": "{servings} porções",
+  "@recipeDetailServings": {
+    "placeholders": {
+      "servings": {
+        "type": "int"
+      }
+    }
+  },
+  "taskQuickAddTitle": "Nova Tarefa",
+  "taskQuickAddSave": "Salvar",
+  "taskQuickAddError": "Erro: {error}",
+  "taskQuickAddPlaceholder": "Título da tarefa",
+  "billsEmpty": "Cadastre suas contas fixas e nunca mais pague multa.",
+  "billsCreate": "Cadastrar conta",
+  "billsAllPaid": "Nada a pagar este mês",
+  "billsError": "Falha ao carregar",
+  "billsRetry": "Tentar de novo",
+  "billsNotificationWarning": "As notificações não estão chegando?",
+  "billsNotificationWarningExplanation": "Seu celular pode estar bloqueando os avisos do My Sweet Home para economizar bateria. Você pode desligar essa economia nas configurações do aparelho para garantir que vai ser lembrado no dia do vencimento. Mesmo se a notificação falhar, os vencimentos continuam visíveis aqui na tela de contas.",
+  "billsNotificationAllow": "Resolver",
+  "billsBatteryOptimizationDialogTitle": "Avisos importantes",
+  "billsStatusOverdue": "Atrasado",
+  "billsStatusPaid": "Pago",
+  "billsStatusPending": "Pendente",
+  "billsMarkAsPaid": "Marcar {billName} como pago",
+  "@billsMarkAsPaid": {
+    "placeholders": {
+      "billName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSearchHint": "Buscar produtos",
+  "productEmptyState": "Nenhum produto encontrado.",
+  "productNew": "Novo Produto",
+  "productName": "Nome",
+  "productCategory": "Categoria",
+  "productUnit": "Unidade",
+  "productAliases": "Apelidos e variações",
+  "productAddAlias": "Adicionar apelido",
+  "productAliasPlaceholder": "Novo apelido",
+  "productAliasesEmpty": "Nenhum apelido cadastrado.",
+  "productError": "Erro ao carregar produtos.",
+  "productDetailError": "Erro ao carregar detalhes.",
+  "productRemoveAliasConfirm": "Remover apelido?",
+  "productRemoveAliasA11y": "Remover apelido {alias}",
+  "@productRemoveAliasA11y": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionTitle": "Isso é o mesmo que {productName}?",
+  "@productSuggestionTitle": {
+    "placeholders": {
+      "productName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionYes": "Sim, {alias} é o mesmo que {productName}",
+  "@productSuggestionYes": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      },
+      "productName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionNo": "Não, são coisas diferentes",
+  "productSave": "Salvar",
+  "productCancel": "Cancelar",
+  "expensesEmpty": "Nenhuma despesa este mês.",
+  "expensesError": "Erro ao carregar o resumo de despesas.",
+  "expensesRetry": "Tentar novamente",
+  "expensesChartAltText": "Gráfico circular mostrando o uso do orçamento.",
+  "expensesTotal": "Realizado: {amount}",
+  "@expensesTotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesBudgetSet": "Orçamento: {amount}",
+  "@expensesBudgetSet": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesRemaining": "Restante: {amount}",
+  "@expensesRemaining": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesOverBudget": "Estourou: {amount}",
+  "@expensesOverBudget": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "billHistoryTitle": "Histórico de pagamentos",
+  "expenseDeleted": "Despesa excluída",
+  "billHistoryEmpty": "Nenhum pagamento registrado para esta conta.",
+  "billHistoryError": "Falha ao carregar o histórico.",
+  "billHistoryRetry": "Tentar de novo",
+  "billHistoryDueOn": "Vencimento: {date}",
+  "@billHistoryDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "billHistoryPaidOn": "Pago em: {date}",
+  "@billHistoryPaidOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesEmptyCallToAction": "Nenhuma despesa este mês. Que tal lançar a primeira?",
+  "expensesLaunchFirst": "lançar despesa",
+  "expensesNoBudgetInvite": "convite para definir orçamento",
+  "expensesSetBudget": "definir orçamento",
+  "expensesForecastNoHistory": "Ainda não há histórico suficiente para prever o fechamento do mês.",
+  "expensesForecastExplanation": "A previsão considera seus gastos atuais, contas fixas pendentes e a média de gastos dos últimos meses.",
+  "expensesForecastTitle": "Previsão de fechamento",
+  "expensesForecastAmount": "Previsão: {amount}",
+  "@expensesForecastAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesChartCategoryAlt": "{category}: {amount} ({percent}%)",
+  "@expensesChartCategoryAlt": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesByCategoryTitle": "Despesas por categoria",
+  "billsNotificationPermissionDeniedWarning": "Sem permissão, você não será avisado antes do vencimento e pode pagar multa.",
+  "billsNotificationPermissionDeniedSettings": "Ir para Ajustes",
+  "billsNotificationPermissionDeniedDismiss": "Entendi",
+  "shoppingListsTitle": "Listas de compras",
+  "shoppingListEmpty": "Lista vazia. Adicione o que falta em casa.",
+  "shoppingListAllDone": "Tudo comprado 🎉",
+  "shoppingListRegisterPurchase": "registrar a compra",
+  "shoppingListMarkAsBought": "Marcar {item} como comprado",
+  "@shoppingListMarkAsBought": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListUnmarkAsBought": "Desmarcar {item} como comprado",
+  "@shoppingListUnmarkAsBought": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListAddItemLabel": "Adicionar item",
+  "shoppingListAddItemHint": "Ex: 2kg de arroz",
+  "shoppingListUndo": "Desfazer",
+  "shoppingListEstimateWithUnknowns": "{total} + {count} itens sem preço",
+  "@shoppingListEstimateWithUnknowns": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingListEstimateWithOneUnknown": "{total} + 1 item sem preço",
+  "@shoppingListEstimateWithOneUnknown": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListEstimateExact": "Estimativa: {total}",
+  "@shoppingListEstimateExact": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListItemQuantity": "Qtd: {quantity} {unit}",
+  "@shoppingListItemQuantity": {
+    "placeholders": {
+      "quantity": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListError": "Falha ao carregar lista de compras",
+  "shoppingListRetry": "Tentar de novo",
+  "purchasesTitle": "Compras",
+  "purchaseNew": "Nova Compra",
+  "pricesTitle": "Histórico de Preços",
+  "pricesEmpty": "Ainda sem preços. Registre uma compra para começar.",
+  "pricesFewData": "poucas observações para concluir",
+  "pricesLoadError": "falha ao carregar histórico",
+  "pricesRetry": "tentar de novo",
+  "pricesRankingTitle": "Ranking por estabelecimento",
+  "storeTitle": "Estabelecimento",
+  "cheapestStore": "Mais barato no {store}",
+  "@cheapestStore": {
+    "placeholders": {
+      "store": {
+        "type": "String"
+      }
+    }
+  },
+  "notEnoughData": "pouca informação",
+  "priceAverage": "Costuma custar {amount}",
+  "@priceAverage": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "priceAverageObservations": "baseado em {count} observações",
+  "@priceAverageObservations": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "priceVariationAlert": "Alerta de variação",
+  "priceVariationUp": "Alta de {percent}% sobre a média de 30 dias",
+  "@priceVariationUp": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "priceVariationDown": "Baixa de {percent}% sobre a média de 30 dias",
+  "@priceVariationDown": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseTotalMismatch": "Divergência de {amount}. O sistema não ajusta automaticamente.",
+  "@purchaseTotalMismatch": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseInvalidCnpj": "CNPJ inválido. Digite um CNPJ válido.",
+  "purchaseChartA11y": "{amount} em média nos últimos 30 dias, menor valor {minAmount} no {store} em {date}",
+  "@purchaseChartA11y": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "minAmount": {
+        "type": "String"
+      },
+      "store": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrTitle": "Leitor de Nota Fiscal",
+  "ocrCameraPermissionDenied": "Permissão de câmera negada",
+  "ocrCameraPermissionSettings": "Ir para Ajustes",
+  "ocrFlashOn": "Ligar flash",
+  "ocrFlashOff": "Desligar flash",
+  "ocrReviewTitle": "Revisão",
+  "ocrReviewSave": "Salvar",
+  "ocrReviewAdd": "Adicionar",
+  "ocrReviewDelete": "Apagar",
+  "ocrTotalMismatch": "Soma dos itens difere do total",
+  "ocrItemLowConfidence": "Confira este item",
+  "ocrGalleryOption": "Galeria",
+  "purchaseDate": "Data da Compra",
+  "purchaseItemsSection": "Itens",
+  "purchaseAddItem": "Adicionar Item",
+  "purchaseNoStores": "Nenhum estabelecimento cadastrado. (Adicione um na tela de lojas)",
+  "purchaseLoadStoresError": "Erro ao carregar lojas: {error}",
+  "@purchaseLoadStoresError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseProductLabel": "Produto",
+  "purchaseLoadProductsError": "Erro ao carregar produtos",
+  "purchaseQuantityLabel": "Quantidade",
+  "purchaseTotalPriceLabel": "Preço Total",
+  "purchaseDiscountLabel": "Desconto Total",
+  "purchaseDeclaredTotalLabel": "Total Declarado (Cupom)",
+  "purchaseItemsSum": "Soma dos Itens: {amount}",
+  "@purchaseItemsSum": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseFormError": "Preencha todos os campos corretamente",
+  "priceTrendUp": "Alta de preço no período",
+  "priceTrendDown": "Baixa de preço no período",
+  "priceHistoryTitle": "Histórico de preços",
+  "checklistTitle": "Checklist da casa",
+  "checklistEmpty": "Nenhum item no checklist.",
+  "checklistCategoryAll": "Todos os cômodos",
+  "checklistSendToShoppingList": "Enviar para lista de compras",
+  "stockTitle": "Estoque doméstico",
+  "stockEmpty": "Nenhum produto no estoque.",
+  "stockLowAlert": "Está acabando",
+  "stockEstimateNotice": "Estimativa de consumo",
+  "searchGlobalTitle": "Busca",
+  "searchGlobalHint": "Buscar em todo o app...",
+  "searchGlobalNoResults": "Nenhum resultado encontrado.",
+  "economyTitle": "Modo Economia",
+  "economyMetaTitle": "Meta de economia",
+  "economyProgressLabel": "Progresso da meta",
+  "widgetsTitle": "Widgets",
+  "backupTitle": "Backup e Exportação",
+  "backupExportSection": "Exportar Dados",
+  "backupImportSection": "Importar Dados",
+  "backupClearAllSection": "Apagar Tudo",
+  "backupCloudSection": "Backup em Nuvem",
+  "mascotDefaultName": "Momo",
+  "mascotCustomizeTitle": "Personalizar Mascote",
+  "mascotCustomizeSave": "Salvar e aplicar",
+  "mascotCustomizeCancel": "Cancelar",
+  "mascotCustomizeRetry": "Tentar de novo",
+  "mascotCustomizeNameLabel": "Nome da mascote",
+  "mascotCustomizeNameHint": "Ex: Momo",
+  "mascotCustomizePreview": "Pré-visualização",
+  "mascotCustomizeAnimalSection": "Animal",
+  "mascotCustomizePaletteSection": "Paleta de cores",
+  "mascotCustomizeAccessorySection": "Acessório",
+  "mascotAnimalCat": "Gato",
+  "mascotAnimalDog": "Cachorro",
+  "mascotAnimalBunny": "Coelho",
+  "mascotPaletteRose": "Rose",
+  "mascotPaletteLavender": "Lavender",
+  "mascotPaletteMint": "Mint",
+  "mascotAccessoryNone": "Nenhum",
+  "mascotAccessoryBow": "Lacinho",
+  "mascotAccessoryCollar": "Coleira",
+  "mascotAccessoryScarf": "Lenço",
+  "mascotSaveSuccess": "Personalização salva com carinho!",
+  "mascotSaveError": "Erro ao salvar a personalização. Tente de novo.",
+  "settingsMascotOption": "Personalizar Momo",
+  "settingsMascotSubtitle": "Escolha o animal, cores e acessórios da sua companheira",
+  "settingsTutorialOption": "Ver tutorial com a Momo",
+  "settingsTutorialSubtitle": "Relembre o funcionamento do app com a mascote",
+  "onboardingSkip": "Pular introdução",
+  "onboardingNext": "Próximo",
+  "onboardingStart": "Começar",
+  "onboardingStep1Title": "Oi! Eu sou a Momo 💕",
+  "onboardingStep1Description": "Estou aqui para cuidar do seu cantinho com você e tornar tudo mais leve!",
+  "onboardingStep2Title": "Aqui a gente cuida do dinheirinho juntas",
+  "onboardingStep2Description": "Acompanhe seus gastos, registre comprinhas e mantenha o orçamento sem sustos no fim do mês.",
+  "onboardingStep3Title": "E também das comprinhas!",
+  "onboardingStep3Description": "Monte sua listinha de compras no mercado e escaneie a nota fiscal num piscar de olhos.",
+  "onboardingStep4Title": "Não esquece das tarefinhas do dia",
+  "onboardingStep4Description": "Organize tarefas de limpeza, cuidados com a casa e rotinas para manter seu lar acolhedor.",
+  "onboardingStep5Title": "Eu te aviso quando algo precisa de atenção",
+  "onboardingStep5Description": "Fique tranquila com os lembretes de contas a vencer para nunca mais pagar juros ou multas.",
+  "onboardingStep6Title": "Pode personalizar meu visual quando quiser!",
+  "onboardingStep6Description": "Você pode trocar meu animalzinho, colocar acessórios e escolher as cores que mais combinam com você.",
+  "onboardingCustomizePrompt": "Quer personalizar meu visual agora?",
+  "onboardingCustomizeButton": "Personalizar agora",
+  "dashboardMonthBalanceTitle": "Seu dinheirinho este mês",
+  "dashboardDueBillsTitle": "Contas que precisam de carinho",
+  "dashboardTodayTasksTitle": "Tarefinhas do dia",
+  "momoGreeting": "Oi! Eu sou a Momo 💕",
+  "momoShoppingAllBought": "Tudo comprado! Quer que eu anote essa comprinha?",
+  "momoDayOff": "Hoje pode ser um dia de folga ☕",
+  "momoEmptyExpenses": "Momo está pensativa — nenhuma despesa registrada ainda",
+  "momoEmptyShoppingList": "Momo pronta para as compras — nenhuma listinha criada ainda",
+  "momoEmptyShoppingListCompleted": "Momo está feliz porque você completou a lista",
+  "momoEmptyTasks": "Momo relaxada — nenhuma tarefinha para hoje",
+  "celebrationShoppingCompletedTitle": "Parabéns!",
+  "celebrationShoppingCompletedMessage": "Tudo comprado! Sua lista está completa 💕",
+  "celebrationTasksCompletedTitle": "Tudo pronto!",
+  "celebrationTasksCompletedMessage": "Você concluiu todas as tarefinhas do dia! Descanse bastante 💕",
+  "mascotSemanticsNeutral": "Momo está presente acompanhando você",
+  "mascotSemanticsHappy": "Momo está feliz",
+  "mascotSemanticsWorried": "Momo está preocupada com as continhas",
+  "mascotSemanticsSleepy": "Momo está com soninho",
+  "mascotSemanticsPointing": "Momo está apontando uma dica importante",
+  "mascotSemanticsWaving": "Momo está acenando com carinho para você",
+  "mascotSemanticsThinking": "Momo está pensativa",
+  "mascotSemanticsRelaxed": "Momo está relaxada e tranquila",
+  "mascotSemanticsShopping": "Momo está pronta para as compras",
+  "mascotSemanticsBudget": "Momo está de olho no orçamento do mês",
+  "mascotSemanticsPlaceholder": "Ilustração da mascote Momo",
+  "taskPresetsTitle": "Sugestões para a casa",
+  "taskPresetsSubtitle": "Ideias de tarefas comuns com frequências recomendadas",
+  "taskPresetsSearchHint": "Buscar sugestões...",
+  "taskPresetsEmptySearch": "Nenhuma sugestão encontrada para \"{query}\"",
+  "@taskPresetsEmptySearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "taskPresetsCustomTaskCta": "Criar tarefa personalizada",
+  "taskPresetsAreaKitchen": "Cozinha",
+  "taskPresetsAreaBathroom": "Banheiro",
+  "taskPresetsAreaBedroom": "Quarto",
+  "taskPresetsAreaLaundry": "Roupas",
+  "taskPresetsAreaGeneralCleaning": "Limpeza geral",
+  "taskPresetsAreaShopping": "Compras",
+  "taskPresetsAlreadyInRoutine": "Já na sua rotina",
+  "taskPresetsDuplicateTitle": "Tarefa já existe na rotina",
+  "taskPresetsDuplicateMessage": "Você já tem uma tarefa ativa para esta predefinição. Deseja adicionar outra mesmo assim?",
+  "taskPresetsDuplicateConfirm": "Adicionar mesmo assim",
+  "taskPresetsDuplicateCancel": "Cancelar",
+  "taskPresetsAddSelected": "Adicionar {count, plural, one{1 tarefa} other{{count} tarefas}}",
+  "@taskPresetsAddSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsSelectedCount": "{count, plural, one{1 selecionada} other{{count} selecionadas}}",
+  "@taskPresetsSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsBatchTitle": "Datas de início",
+  "taskPresetsBatchConfirm": "Confirmar rotina",
+  "taskPresetsBatchUndo": "Desfazer",
+  "taskPresetsBatchSuccess": "{count, plural, one{1 tarefa adicionada!} other{{count} tarefas adicionadas!}}",
+  "@taskPresetsBatchSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsBatchStartDateLabel": "Início de {task}",
+  "@taskPresetsBatchStartDateLabel": {
+    "placeholders": {
+      "task": {
+        "type": "String"
+      }
+    }
+  },
+  "taskPresetsEmptyStatePrompt": "Que tal ver sugestões para a rotina da sua casa?",
+  "taskPresetsEmptyStateButton": "Ver sugestões para a casa",
+  "onboardingRoutineTitle": "Monte sua rotina da casa",
+  "onboardingRoutineDescription": "Escolha tarefas comuns para começar sua rotina sem complicação. Você pode mudar tudo depois!",
+  "onboardingRoutineSkip": "Pular este passo",
+  "householdTitle": "Casa compartilhada",
+  "householdSubtitle": "Sincronize tarefas e finanças em rede local",
+  "householdEmptyTitle": "Compartilhe a sua casa",
+  "householdEmptyDescription": "Sincronize com quem mora com você sem intermediários, sem criar conta e com segurança de ponta a ponta na rede local.",
+  "householdCreateButton": "Criar casa",
+  "householdJoinButton": "Entrar numa casa",
+  "householdSyncNowButton": "Sincronizar agora",
+  "householdGenerateBundleButton": "Gerar pacote",
+  "householdInviteButton": "Convidar aparelho",
+  "householdOnlyThisDevice": "Mudanças só neste aparelho",
+  "householdAllSynced": "Tudo sincronizado",
+  "householdSyncing": "Sincronizando...",
+  "householdLastSync": "Última sincronização: {time}",
+  "@householdLastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "householdMembersTitle": "Aparelhos na casa",
+  "householdAreasTitle": "Áreas compartilhadas",
+  "householdAreaHome": "Casa (Tarefas, Estoque, Receitas)",
+  "householdAreaFinance": "Finanças (Despesas, Contas, Preços)",
+  "householdPairingTitle": "Conectar aparelho",
+  "householdPairingScanPrompt": "Aponte a câmera para o QR code no outro aparelho",
+  "householdPairingShowPrompt": "Mostre este QR code no aparelho que deseja conectar",
+  "householdPairingCodeLabel": "Código de confirmação: {code}",
+  "@householdPairingCodeLabel": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "householdLeaveButton": "Sair da casa",
+  "householdLeaveKeepData": "Manter uma cópia local",
+  "householdLeaveWipeData": "Apagar dados compartilhados",
+  "householdRemoveMemberTitle": "Remover aparelho",
+  "householdRemoveMemberConfirm": "Remover",
+  "householdRemoveMemberWarning": "O aparelho removido perderá o acesso e as futuras alterações não serão mais sincronizadas com ele.",
+  "householdErrorIncompatibleProtocol": "Aparelho usa versão incompatível do protocolo de sincronização.",
+  "householdErrorInviteExpired": "O convite expirou. Gere um novo convite para parear.",
+  "householdErrorNoNetwork": "Nenhum aparelho encontrado na rede local. Verifique se ambos estão no mesmo Wi-Fi.",
+  "customizeDashboardTitle": "Personalizar início",
+  "customizeDashboardAction": "Personalizar início",
+  "customizeDashboardAddCards": "Adicionar ao painel",
+  "customizeDashboardEmptyTitle": "Nenhum item visível no painel",
+  "customizeDashboardEmptyAction": "Adicionar itens ao painel",
+  "customizeDashboardRestoreDefault": "Restaurar padrão",
+  "customizeDashboardMoveUp": "Mover para cima",
+  "customizeDashboardMoveDown": "Mover para baixo",
+  "customizeDashboardHide": "Ocultar",
+  "customizeDashboardAdd": "Adicionar",
+  "dashboardCardMascotGreeting": "Saudação da Momo",
+  "dashboardCardMonthBalance": "Saldo do Mês",
+  "dashboardCardDueBills": "Contas a Vencer",
+  "dashboardCardTodayTasks": "Tarefas de Hoje",
+  "dashboardCardShoppingList": "Lista de Compras",
+  "dashboardCardStockAlert": "Estoque Doméstico",
+  "dashboardCardFirstHomeChecklist": "Checklist da Primeira Casa",
+  "dashboardCardEconomyGoal": "Modo Economia",
+  "dashboardCardFavoriteRecipes": "Receitas Favoritas"
+}

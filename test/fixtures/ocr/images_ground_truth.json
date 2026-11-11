@@ -1,0 +1,1154 @@
+[
+  {
+    "id": "20261003_203526.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203526.jpg",
+    "expected": {
+      "storeName": "COMERCIAL DE ALIMENTOS PEREIRA",
+      "cnpj": "03109785000123",
+      "year": 2026,
+      "month": 10,
+      "day": 1,
+      "hour": 11,
+      "minute": 44,
+      "itemCount": 18,
+      "total": 25115,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "BALA FINI SM 80G MORANGO CITRICO",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        },
+        {
+          "description": "REFRIG SPRITE FRESH LIMAO PET 510ML",
+          "total": 379,
+          "unitPrice": 379,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 478,
+          "unitPrice": 239,
+          "quantity": 2.0
+        },
+        {
+          "description": "ESCOVA RICCA P/CABELO BASIC RACKET",
+          "total": 3999,
+          "unitPrice": 3999,
+          "quantity": 1.0
+        },
+        {
+          "description": "AP BARB GILLETTE VENUS CARGA 1 UN PELE SENSIVEL",
+          "total": 3799,
+          "unitPrice": 3799,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENX BUCAL COLGATE 250ML FRESH MINT",
+          "total": 1179,
+          "unitPrice": 1179,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENX BUCAL COLGATE LV+PAG- 500ML ICE",
+          "total": 1699,
+          "unitPrice": 1699,
+          "quantity": 1.0
+        },
+        {
+          "description": "COXAO MOLE BOVINO RESFRIADO kg",
+          "total": 2152,
+          "unitPrice": 4699,
+          "quantity": 0.458
+        },
+        {
+          "description": "PINCEL SANIT C/CESTO SANTA MARIA UN",
+          "total": 3699,
+          "unitPrice": 3699,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA SANITARIA OLIMPO 1L",
+          "total": 249,
+          "unitPrice": 249,
+          "quantity": 1.0
+        },
+        {
+          "description": "LIMAO SICILIANO kg",
+          "total": 331,
+          "unitPrice": 1299,
+          "quantity": 0.255
+        },
+        {
+          "description": "ENERG MONSTER ENERGY 473ML MANGO",
+          "total": 1149,
+          "unitPrice": 1149,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENERG MONSTER ENERGY 473ML ULTRA LATA",
+          "total": 1149,
+          "unitPrice": 1149,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO PLUSVITA TRADICIONAL 480G",
+          "total": 1259,
+          "unitPrice": 1259,
+          "quantity": 1.0
+        },
+        {
+          "description": "CANELA DA CHINA EM PO MARATA 8G",
+          "total": 239,
+          "unitPrice": 239,
+          "quantity": 1.0
+        },
+        {
+          "description": "BATATA PALHA SCRUSH 80G ORIGINAL",
+          "total": 479,
+          "unitPrice": 479,
+          "quantity": 1.0
+        },
+        {
+          "description": "CROISSANT CAMPOS PEITO DE PERU UN",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        },
+        {
+          "description": "QUEIJO BURITIS PARM FRA kg",
+          "total": 1278,
+          "unitPrice": 8999,
+          "quantity": 0.142
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203537.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203537.jpg",
+    "expected": {
+      "storeName": "COMERCIAL DE ALIMENTOS PEREIRA",
+      "cnpj": "03109785000123",
+      "year": 2026,
+      "month": 9,
+      "day": 24,
+      "hour": 12,
+      "minute": 42,
+      "itemCount": 18,
+      "total": 23993,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "UVA THOMPSON RESERVA GOURMET 400G",
+          "total": 1099,
+          "unitPrice": 1099,
+          "quantity": 1.0
+        },
+        {
+          "description": "MANTEIGA DA TERRA LETICIA 200G",
+          "total": 1379,
+          "unitPrice": 1379,
+          "quantity": 1.0
+        },
+        {
+          "description": "CATCHUP HEINZ PICANTE FP 397G",
+          "total": 1999,
+          "unitPrice": 1999,
+          "quantity": 1.0
+        },
+        {
+          "description": "REFRIG PEPSI COLA PET 1L",
+          "total": 519,
+          "unitPrice": 519,
+          "quantity": 1.0
+        },
+        {
+          "description": "BISC DE ARROZ DACOLONIA INTEG 95G",
+          "total": 1399,
+          "unitPrice": 1399,
+          "quantity": 1.0
+        },
+        {
+          "description": "DESINFETANTE PATO GERMINEX 500ML LAVANDA",
+          "total": 2099,
+          "unitPrice": 2099,
+          "quantity": 1.0
+        },
+        {
+          "description": "POTE PLASUTIL TRAVA MAIS RT 1,8L C/ESCOR AZ",
+          "total": 2619,
+          "unitPrice": 2619,
+          "quantity": 1.0
+        },
+        {
+          "description": "TACA P/CERVEJA NADIR 300ML 7702 1UN",
+          "total": 1099,
+          "unitPrice": 1099,
+          "quantity": 1.0
+        },
+        {
+          "description": "TACA P/CERVEJA NADIR 300ML 7702 1UN",
+          "total": 1099,
+          "unitPrice": 1099,
+          "quantity": 1.0
+        },
+        {
+          "description": "LIMAO SICILIANO kg",
+          "total": 326,
+          "unitPrice": 1449,
+          "quantity": 0.225
+        },
+        {
+          "description": "CARNE CHARQUE D.T BELLO CHARQUE kg",
+          "total": 2904,
+          "unitPrice": 6599,
+          "quantity": 0.44
+        },
+        {
+          "description": "PAO DE QUEIJO C/CATUPIRY PACOT 390G",
+          "total": 2099,
+          "unitPrice": 2099,
+          "quantity": 1.0
+        },
+        {
+          "description": "QUEIJO MUSSARELA PIRACANJU FAT 150G",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "PEITO PERU SADIA DEFU kg PPSL",
+          "total": 978,
+          "unitPrice": 6699,
+          "quantity": 0.146
+        },
+        {
+          "description": "ALHO INT DESC CONG BOM TODO PC 300G",
+          "total": 699,
+          "unitPrice": 699,
+          "quantity": 1.0
+        },
+        {
+          "description": "ESPATULA CULINARIA YANGZI UN.",
+          "total": 1999,
+          "unitPrice": 1999,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 239,
+          "unitPrice": 239,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 239,
+          "unitPrice": 239,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203543.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203543.jpg",
+    "expected": {
+      "storeName": "CIA BRASILEIRA DE DISTRIBUICAO",
+      "cnpj": "47508411114402",
+      "year": 2026,
+      "month": 9,
+      "day": 24,
+      "hour": 10,
+      "minute": 33,
+      "itemCount": 7,
+      "total": 15039,
+      "paymentMethod": null,
+      "items": [
+        {
+          "description": "COMB SALMAO 315GR",
+          "total": 3512,
+          "unitPrice": 3512,
+          "quantity": 1.0
+        },
+        {
+          "description": "SAL COZ CISNE OVO",
+          "total": 959,
+          "unitPrice": 959,
+          "quantity": 1.0
+        },
+        {
+          "description": "REQ TRAD CAT 200G",
+          "total": 1090,
+          "unitPrice": 1090,
+          "quantity": 1.0
+        },
+        {
+          "description": "LASAN CALAB SAD 600G",
+          "total": 1890,
+          "unitPrice": 1890,
+          "quantity": 1.0
+        },
+        {
+          "description": "CR RICOTA TRAD 200G",
+          "total": 999,
+          "unitPrice": 999,
+          "quantity": 1.0
+        },
+        {
+          "description": "BAUNILHA BOMBAY 30ML",
+          "total": 4799,
+          "unitPrice": 4799,
+          "quantity": 1.0
+        },
+        {
+          "description": "TAXA DE ENTREGA",
+          "total": 1790,
+          "unitPrice": 1790,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203548.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203548.jpg",
+    "expected": {
+      "storeName": "KALUNGA",
+      "cnpj": "43283811019764",
+      "year": 2026,
+      "month": 9,
+      "day": 12,
+      "hour": 14,
+      "minute": 38,
+      "itemCount": 3,
+      "total": 17780,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "Fichário universitário 4 arg. compacto A4 Julie",
+          "total": 6800,
+          "unitPrice": 6800,
+          "quantity": 1.0
+        },
+        {
+          "description": "Headset Gamer c/fio RGB USB e P2 pt e vm YYS-8500",
+          "total": 7990,
+          "unitPrice": 7990,
+          "quantity": 1.0
+        },
+        {
+          "description": "Kit p/pintura 6 pincéis / godê plástico . BT 7 UN",
+          "total": 2990,
+          "unitPrice": 2990,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203555.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203555.jpg",
+    "expected": {
+      "storeName": "RAIADROGASIL",
+      "cnpj": "61585865239375",
+      "year": 2026,
+      "month": 9,
+      "day": 16,
+      "hour": 8,
+      "minute": 19,
+      "itemCount": 5,
+      "total": 12360,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "VENUS SPA CARGA C/2",
+          "total": 3799,
+          "unitPrice": 5299,
+          "quantity": 1.0
+        },
+        {
+          "description": "CICLOPRIMOGYNA 21S",
+          "total": 2546,
+          "unitPrice": 1591,
+          "quantity": 2.0
+        },
+        {
+          "description": "DORFLEX 1X10S",
+          "total": 1126,
+          "unitPrice": 872,
+          "quantity": 2.0
+        },
+        {
+          "description": "BLUMEL HEDERA 15MG 100",
+          "total": 4090,
+          "unitPrice": 4090,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENTREGA RAP-MULTICANAL",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203610.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203610.jpg",
+    "expected": {
+      "storeName": "MERCADINHO SEMPRE MAIS",
+      "cnpj": "12472401000123",
+      "year": 2026,
+      "month": 10,
+      "day": 2,
+      "hour": 13,
+      "minute": 40,
+      "itemCount": 1,
+      "total": 659,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "LEI EM PO IGUIN INTE",
+          "total": 659,
+          "unitPrice": 659,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203618.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203618.jpg",
+    "expected": {
+      "storeName": "COMERCIAL DE ALIMENTOS PEREIRA",
+      "cnpj": "03109785000123",
+      "year": 2026,
+      "month": 9,
+      "day": 27,
+      "hour": 8,
+      "minute": 46,
+      "itemCount": 17,
+      "total": 22771,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "UVA THOMPSON RESERVA GOURMET 400G",
+          "total": 1099,
+          "unitPrice": 1099,
+          "quantity": 1.0
+        },
+        {
+          "description": "DET LIQ OMO DELICADAS 450ML BABY",
+          "total": 1999,
+          "unitPrice": 1999,
+          "quantity": 1.0
+        },
+        {
+          "description": "AMACIANTE VIDA MACIA 1L GLIC/CAMOMILA",
+          "total": 1399,
+          "unitPrice": 1399,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 478,
+          "unitPrice": 239,
+          "quantity": 2.0
+        },
+        {
+          "description": "QUEIJO MUSSARELA PIRACANJU FAT 150G",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "QUEIJO MUSSARELA PIRACANJU FAT 150G",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "PASSATA RUSTICA PREDILECTA SC 300G",
+          "total": 569,
+          "unitPrice": 569,
+          "quantity": 1.0
+        },
+        {
+          "description": "PASSATA RUSTICA PREDILECTA SC 300G",
+          "total": 569,
+          "unitPrice": 569,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO ECONOMICA HAMBURGUER 450G",
+          "total": 689,
+          "unitPrice": 689,
+          "quantity": 1.0
+        },
+        {
+          "description": "CAFE SAO BRAZ FAMILIA 250G ALMOFADA",
+          "total": 2398,
+          "unitPrice": 1199,
+          "quantity": 2.0
+        },
+        {
+          "description": "JOGO 4 CANUDOS 6MM INOX CURVADO 1UN",
+          "total": 2299,
+          "unitPrice": 2299,
+          "quantity": 1.0
+        },
+        {
+          "description": "TOALHA UMED MAMYPOKO C/50 UN DIA & NOITE",
+          "total": 899,
+          "unitPrice": 899,
+          "quantity": 1.0
+        },
+        {
+          "description": "MIX DE LEGUMES CONG BOM TUDO 300G",
+          "total": 749,
+          "unitPrice": 749,
+          "quantity": 1.0
+        },
+        {
+          "description": "MIX DE LEGUMES CONG BOM TUDO 300G",
+          "total": 749,
+          "unitPrice": 749,
+          "quantity": 1.0
+        },
+        {
+          "description": "PATINHO BOVINO kg",
+          "total": 3119,
+          "unitPrice": 4999,
+          "quantity": 0.624
+        },
+        {
+          "description": "FILE PEITO FRG SADIA CONG IQF 1kg",
+          "total": 2099,
+          "unitPrice": 2099,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO PLUSVITA TRADICIONAL 480G",
+          "total": 1259,
+          "unitPrice": 1259,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203624.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203624.jpg",
+    "expected": {
+      "storeName": "iFood",
+      "cnpj": null,
+      "year": 2026,
+      "month": 9,
+      "day": 26,
+      "hour": 17,
+      "minute": 45,
+      "itemCount": 6,
+      "total": 9408,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "Porcao de macaxeira cozida",
+          "total": 800,
+          "unitPrice": 800,
+          "quantity": 1.0
+        },
+        {
+          "description": "Pao de alho",
+          "total": 1600,
+          "unitPrice": 800,
+          "quantity": 2.0
+        },
+        {
+          "description": "Coracao de galinha",
+          "total": 1200,
+          "unitPrice": 1200,
+          "quantity": 1.0
+        },
+        {
+          "description": "Frango com bacon ( enrolado )",
+          "total": 1400,
+          "unitPrice": 1400,
+          "quantity": 1.0
+        },
+        {
+          "description": "Picanha",
+          "total": 2800,
+          "unitPrice": 1400,
+          "quantity": 2.0
+        },
+        {
+          "description": "Carne",
+          "total": 2600,
+          "unitPrice": 1300,
+          "quantity": 2.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203632.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203632.jpg",
+    "expected": {
+      "storeName": "PANIFICADORA SAO JORGE",
+      "cnpj": "40712488000102",
+      "year": 2026,
+      "month": 9,
+      "day": 26,
+      "hour": 17,
+      "minute": 1,
+      "itemCount": 6,
+      "total": 5329,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "MONST ULTRA LT 473ML",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "MONST MANGO LT 473ML",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "SCHWEPPES CIT 1,5L",
+          "total": 850,
+          "unitPrice": 850,
+          "quantity": 1.0
+        },
+        {
+          "description": "TODDYNHO CHOC 200ML",
+          "total": 299,
+          "unitPrice": 299,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO KG",
+          "total": 382,
+          "unitPrice": 1299,
+          "quantity": 0.294
+        },
+        {
+          "description": "REQUEIJAO NESTLE CRE",
+          "total": 1400,
+          "unitPrice": 1400,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203655.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203655.jpg",
+    "expected": {
+      "storeName": "KALUNGA",
+      "cnpj": "43283811019764",
+      "year": 2026,
+      "month": 9,
+      "day": 19,
+      "hour": 20,
+      "minute": 26,
+      "itemCount": 2,
+      "total": 4190,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "Incenso anjo da guarda CX 8 UN",
+          "total": 440,
+          "unitPrice": 440,
+          "quantity": 1.0
+        },
+        {
+          "description": "Fita adesiva dupla face Fixa Forte Extrema 24mmx2m Sc",
+          "total": 3750,
+          "unitPrice": 3750,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203701.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203701.jpg",
+    "expected": {
+      "storeName": "DROGARIA DROGAVISTA",
+      "cnpj": "00958548006260",
+      "year": 2026,
+      "month": 9,
+      "day": 20,
+      "hour": 13,
+      "minute": 32,
+      "itemCount": 5,
+      "total": 16563,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "MASCARA TRIPLA C/ ELASTICO OLI",
+          "total": 999,
+          "unitPrice": 2599,
+          "quantity": 1.0
+        },
+        {
+          "description": "RINOSORO JET 0,9% SPRAY NASAL",
+          "total": 4499,
+          "unitPrice": 5418,
+          "quantity": 1.0
+        },
+        {
+          "description": "AVAMYS 27,5 MCG 120 DOSES",
+          "total": 6320,
+          "unitPrice": 7900,
+          "quantity": 1.0
+        },
+        {
+          "description": "PREDNISOLONA 20MG 10CPR PRATI",
+          "total": 1735,
+          "unitPrice": 2478,
+          "quantity": 1.0
+        },
+        {
+          "description": "BILASTINA 20MG 15CPR EUROFARMA",
+          "total": 3010,
+          "unitPrice": 5017,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203707.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203707.jpg",
+    "expected": {
+      "storeName": "RAIADROGASIL",
+      "cnpj": "61585865239375",
+      "year": 2026,
+      "month": 9,
+      "day": 21,
+      "hour": 12,
+      "minute": 54,
+      "itemCount": 3,
+      "total": 21238,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "GE R DES ROL ON",
+          "total": 1449,
+          "unitPrice": 2199,
+          "quantity": 1.0
+        },
+        {
+          "description": "VCY DESOD CREME 7DIAS",
+          "total": 18990,
+          "unitPrice": 18990,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENTREGA RAP-MULTICANAL",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203717.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203717.jpg",
+    "expected": {
+      "storeName": "Bacio di Latte",
+      "cnpj": "11950487021430",
+      "year": 2026,
+      "month": 9,
+      "day": 26,
+      "hour": 12,
+      "minute": 34,
+      "itemCount": 1,
+      "total": 5190,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "2 COPINHO M",
+          "total": 5190,
+          "unitPrice": 2595,
+          "quantity": 2.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203726.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203726.jpg",
+    "expected": {
+      "storeName": "CIA BRASILEIRA DE DISTRIBUICAO",
+      "cnpj": "47508411114402",
+      "year": 2026,
+      "month": 9,
+      "day": 30,
+      "hour": 9,
+      "minute": 56,
+      "itemCount": 20,
+      "total": 33790,
+      "paymentMethod": null,
+      "items": [
+        {
+          "description": "PAO DE QJO RECH CATU",
+          "total": 2190,
+          "unitPrice": 2190,
+          "quantity": 1.0
+        },
+        {
+          "description": "FILE SALM COM/P RESF",
+          "total": 3996,
+          "unitPrice": 9990,
+          "quantity": 0.4
+        },
+        {
+          "description": "PIMENTAO VERDE KG",
+          "total": 270,
+          "unitPrice": 900,
+          "quantity": 0.3
+        },
+        {
+          "description": "CR RICOTA TRAD 200G",
+          "total": 1090,
+          "unitPrice": 1090,
+          "quantity": 1.0
+        },
+        {
+          "description": "MANJERICAO UND",
+          "total": 599,
+          "unitPrice": 599,
+          "quantity": 1.0
+        },
+        {
+          "description": "IOG GREGO DANONE FRU",
+          "total": 878,
+          "unitPrice": 439,
+          "quantity": 2.0
+        },
+        {
+          "description": "BEB L SBU FCLA 280ML",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "MANJERICAO KITANO 7G",
+          "total": 599,
+          "unitPrice": 599,
+          "quantity": 1.0
+        },
+        {
+          "description": "ATUM GDC 170/120G",
+          "total": 2586,
+          "unitPrice": 1293,
+          "quantity": 2.0
+        },
+        {
+          "description": "MISTURA FLOCADA PANK",
+          "total": 1429,
+          "unitPrice": 1429,
+          "quantity": 1.0
+        },
+        {
+          "description": "BEB L SBU FCHO 280ML",
+          "total": 1199,
+          "unitPrice": 1199,
+          "quantity": 1.0
+        },
+        {
+          "description": "FANDANGOS PRESUNTO 1",
+          "total": 2298,
+          "unitPrice": 766,
+          "quantity": 3.0
+        },
+        {
+          "description": "CARNE P MOLHO BOV KG",
+          "total": 3395,
+          "unitPrice": 6790,
+          "quantity": 0.5
+        },
+        {
+          "description": "CENOURA GNEL KG",
+          "total": 399,
+          "unitPrice": 798,
+          "quantity": 0.5
+        },
+        {
+          "description": "CEBOLA GRANEL KG",
+          "total": 479,
+          "unitPrice": 798,
+          "quantity": 0.6
+        },
+        {
+          "description": "PATO GEL LUD AP",
+          "total": 2099,
+          "unitPrice": 2099,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO F ORIG P U 480G",
+          "total": 2498,
+          "unitPrice": 1249,
+          "quantity": 2.0
+        },
+        {
+          "description": "BATATA GRANEL KG",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        },
+        {
+          "description": "PIPICAT PERF CP 4KG",
+          "total": 3998,
+          "unitPrice": 1999,
+          "quantity": 2.0
+        },
+        {
+          "description": "TAXA DE ENTREGA",
+          "total": 1790,
+          "unitPrice": 1790,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203733.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203733.jpg",
+    "expected": {
+      "storeName": "COMERCIAL DE ALIMENTOS PEREIRA",
+      "cnpj": "03109785000123",
+      "year": 2026,
+      "month": 9,
+      "day": 29,
+      "hour": 17,
+      "minute": 18,
+      "itemCount": 15,
+      "total": 17577,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "VINHO CHI RESERVADO CC Y TORO 750ML SUAV SWEET WHI",
+          "total": 2799,
+          "unitPrice": 2799,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENERG MONSTER ENERGY 473ML ULTRA LATA",
+          "total": 1149,
+          "unitPrice": 1149,
+          "quantity": 1.0
+        },
+        {
+          "description": "ENERG MONSTER ENERGY 473ML MANGO",
+          "total": 1149,
+          "unitPrice": 1149,
+          "quantity": 1.0
+        },
+        {
+          "description": "BATATA PALHA SCRUSH 80G ORIGINAL",
+          "total": 479,
+          "unitPrice": 479,
+          "quantity": 1.0
+        },
+        {
+          "description": "XAROPE MONIN 330ML MACA VERDE",
+          "total": 3299,
+          "unitPrice": 3299,
+          "quantity": 1.0
+        },
+        {
+          "description": "PEITO PERU SADIA DEFU kg PPSL",
+          "total": 1005,
+          "unitPrice": 6699,
+          "quantity": 0.15
+        },
+        {
+          "description": "QUEIJO PIRACANJUBA REINO FAT 150G",
+          "total": 1749,
+          "unitPrice": 1749,
+          "quantity": 1.0
+        },
+        {
+          "description": "CHAMPIGNON VALE FERTIL SC 100G EM CONSERV",
+          "total": 899,
+          "unitPrice": 899,
+          "quantity": 1.0
+        },
+        {
+          "description": "AZEITONA VALE FERTIL SH 120G S/CAROCO",
+          "total": 599,
+          "unitPrice": 599,
+          "quantity": 1.0
+        },
+        {
+          "description": "CREME LEITE ITALAC TP 200G",
+          "total": 259,
+          "unitPrice": 259,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 239,
+          "unitPrice": 239,
+          "quantity": 1.0
+        },
+        {
+          "description": "AGUA MIN S BENTO CRYSTAL C/G 500ML",
+          "total": 239,
+          "unitPrice": 239,
+          "quantity": 1.0
+        },
+        {
+          "description": "REQUEIJAO CATUPIRY COPO 200G TRADICIONAL",
+          "total": 1049,
+          "unitPrice": 1049,
+          "quantity": 1.0
+        },
+        {
+          "description": "MOLHO HEINZ BARBECUE 260G",
+          "total": 2349,
+          "unitPrice": 2349,
+          "quantity": 1.0
+        },
+        {
+          "description": "PAO FRANCES OU DE SAL kg TRAD",
+          "total": 315,
+          "unitPrice": 1499,
+          "quantity": 0.21
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203739.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203739.jpg",
+    "expected": {
+      "storeName": "ZAMP S A",
+      "cnpj": "13574594133820",
+      "year": 2026,
+      "month": 9,
+      "day": 27,
+      "hour": 19,
+      "minute": 13,
+      "itemCount": 9,
+      "total": 17147,
+      "paymentMethod": null,
+      "items": [
+        {
+          "description": "Mega Stacker TP",
+          "total": 4300,
+          "unitPrice": 4300,
+          "quantity": 1.0
+        },
+        {
+          "description": "Bacon fatias",
+          "total": 400,
+          "unitPrice": 400,
+          "quantity": 1.0
+        },
+        {
+          "description": "Batata MD DLV",
+          "total": 500,
+          "unitPrice": 500,
+          "quantity": 1.0
+        },
+        {
+          "description": "Shake Morango DLV 400ML",
+          "total": 1699,
+          "unitPrice": 1699,
+          "quantity": 1.0
+        },
+        {
+          "description": "Mega Stacker TP",
+          "total": 4300,
+          "unitPrice": 4300,
+          "quantity": 1.0
+        },
+        {
+          "description": "Alface",
+          "total": 350,
+          "unitPrice": 350,
+          "quantity": 1.0
+        },
+        {
+          "description": "Onion Rings MD DLV",
+          "total": 600,
+          "unitPrice": 600,
+          "quantity": 1.0
+        },
+        {
+          "description": "Shake Galak Negresco DLV",
+          "total": 2299,
+          "unitPrice": 2299,
+          "quantity": 1.0
+        },
+        {
+          "description": "Big King",
+          "total": 3499,
+          "unitPrice": 3499,
+          "quantity": 1.0
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_203757.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_203757.jpg",
+    "expected": {
+      "storeName": "COMERCIAL DE ALIMENTOS PEREIRA",
+      "cnpj": "03109785000123",
+      "year": 2026,
+      "month": 9,
+      "day": 27,
+      "hour": 8,
+      "minute": 31,
+      "itemCount": 1,
+      "total": 824,
+      "paymentMethod": "DINHEIRO",
+      "items": [
+        {
+          "description": "PAO FRANCES OU DE SAL kg",
+          "total": 824,
+          "unitPrice": 1499,
+          "quantity": 0.55
+        }
+      ]
+    }
+  },
+  {
+    "id": "20261003_204710.jpg",
+    "imageFile": "test/fixtures/ocr/images/20261003_204710.jpg",
+    "expected": {
+      "storeName": "DROGARIA DROGAVISTA",
+      "cnpj": "00958548001463",
+      "year": 2026,
+      "month": 9,
+      "day": 12,
+      "hour": 19,
+      "minute": 22,
+      "itemCount": 1,
+      "total": 799,
+      "paymentMethod": "CARTÃO DE CRÉDITO",
+      "items": [
+        {
+          "description": "TOA UMED FLOCK BABY FIBRAS NAT",
+          "total": 799,
+          "unitPrice": 799,
+          "quantity": 1.0
+        }
+      ]
+    }
+  }
+]
