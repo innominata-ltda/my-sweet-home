@@ -1,0 +1,55 @@
+name: Bug Report
+description: Report a defect or unexpected behavior in My Sweet Home
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please search existing issues first, and never include personal financial data or sensitive credentials.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A concise description of what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Exact steps to trigger the issue.
+      placeholder: |
+        1. Open ...
+        2. Tap ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened (include error messages if any).
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: App Version
+      placeholder: "e.g. 0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: os_version
+    attributes:
+      label: Android / iOS Version
+      placeholder: "e.g. Android 14 / iOS 17.5"
+    validations:
+      required: true
