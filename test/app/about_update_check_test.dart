@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_sweet_home/app/dashboard_screen.dart';
@@ -265,6 +266,84 @@ void main() {
 
         expect(find.text('Atualização disponível'), findsOneWidget);
         expect(find.textContaining('0.3.0'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'Non-Play Store install suppresses Dashboard dialog and disables About update tile with notice',
+      (tester) async {
+        tester.view.physicalSize = const Size(800, 1600);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        fakePort.installedFromPlayStore = false;
+        fakePort.updateAvailable = true;
+
+        await tester.pumpWidget(createTestApp(home: const DashboardScreen()));
+        await tester.pump();
+        await tester.pumpAndSettle();
+
+        expect(find.text('Atualização disponível'), findsNothing);
+
+        await tester.pumpWidget(createTestApp(home: const AboutPage()));
+        await tester.pumpAndSettle();
+
+        final updateTileFinder = find.byKey(const Key('about_update_tile'));
+        expect(updateTileFinder, findsOneWidget);
+        final updateTile = tester.widget<ListTile>(updateTileFinder);
+        expect(updateTile.enabled, isFalse);
+        expect(
+          find.text(
+            'Disponível apenas para instalações feitas pela Google Play',
+          ),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'AboutPage GitHub tile opens repository URL and falls back to clipboard on failure',
+      (tester) async {
+        await tester.pumpWidget(createTestApp(home: const AboutPage()));
+        await tester.pumpAndSettle();
+
+        final githubTile = find.byKey(const Key('about_github_tile'));
+        expect(githubTile, findsOneWidget);
+        expect(find.text('Código-fonte no GitHub'), findsOneWidget);
+
+        await tester.tap(githubTile);
+        await tester.pumpAndSettle();
+
+        expect(fakePort.openedUrls, [AboutPage.githubRepoUrl]);
+
+        // Fallback: openExternalUrl fails -> copies to clipboard + SnackBar
+        String? copiedText;
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          (call) async {
+            if (call.method == 'Clipboard.setData') {
+              copiedText = (call.arguments as Map)['text'] as String?;
+            }
+            return null;
+          },
+        );
+        addTearDown(
+          () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+            SystemChannels.platform,
+            null,
+          ),
+        );
+
+        fakePort.openExternalUrlFailure = const AppUpdateFailed('No browser');
+        await tester.tap(githubTile);
+        await tester.pumpAndSettle();
+
+        expect(copiedText, AboutPage.githubRepoUrl);
+        expect(
+          find.text('Link do GitHub copiado para a área de transferência.'),
+          findsOneWidget,
+        );
       },
     );
   });

@@ -31,7 +31,8 @@ class AppUpdateService {
 
     final result = await port.checkForUpdate();
     return result.fold(
-      (info) => info.updateAvailable ? info : null,
+      (info) =>
+          (info.installedFromPlayStore && info.updateAvailable) ? info : null,
       (failure) => null, // Silently ignored when offline or store unavailable
     );
   }
@@ -64,6 +65,19 @@ class AppUpdateService {
   /// Bypasses the 24-hour cooldown and returns the full result for user feedback.
   Future<Result<AppUpdateInfo, AppUpdateFailure>> checkManually() async {
     return port.checkForUpdate();
+  }
+
+  /// Returns `true` when the app was installed from Google Play.
+  ///
+  /// Returns `false` for sideloaded APKs, unsupported platforms, or unavailable store.
+  Future<bool> isInstalledFromPlayStore() async {
+    final result = await port.checkForUpdate();
+    return result.fold((info) => info.installedFromPlayStore, (_) => false);
+  }
+
+  /// Opens an external `https://` URL via the host platform.
+  Future<Result<void, AppUpdateFailure>> openExternalUrl(String url) {
+    return port.openExternalUrl(url);
   }
 
   /// Returns recorded timestamp when update prompt was last displayed.

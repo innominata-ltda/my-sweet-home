@@ -224,6 +224,38 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     title: l10n?.onboardingStep1Title ?? 'Oi! Eu sou a Momo 💕',
                     subtitle: l10n?.onboardingStep1Description ?? 'Estou aqui para cuidar do seu cantinho com você e tornar tudo mais leve!',
                     disableAnimations: animationsDisabled,
+                    extraContent: Container(
+                      key: const Key('onboarding_open_source_badge'),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.md,
+                        vertical: Spacing.sm,
+                      ),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.secondaryContainer,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            AppIcons.openSource,
+                            size: 18,
+                            color: theme.colorScheme.onSecondaryContainer,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Flexible(
+                            child: Text(
+                              '100% gratuito, de código aberto e com dados salvos apenas no seu aparelho',
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSecondaryContainer,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   OnboardingStep(
                     expression: MascotExpression.pointing,

@@ -45,6 +45,17 @@ class MainActivity : FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, APP_UPDATE_CHANNEL).setMethodCallHandler { call, result ->
             when (call.method) {
                 "checkForUpdate" -> {
+                    if (!isInstalledFromPlayStore()) {
+                        result.success(
+                            mapOf(
+                                "updateAvailable" to false,
+                                "installedFromPlayStore" to false,
+                                "availableVersionCode" to null,
+                                "availableVersionLabel" to null
+                            )
+                        )
+                        return@setMethodCallHandler
+                    }
                     try {
                         val appUpdateManager = com.google.android.play.core.appupdate.AppUpdateManagerFactory.create(this)
                         val appUpdateInfoTask = appUpdateManager.appUpdateInfo
@@ -52,6 +63,7 @@ class MainActivity : FlutterActivity() {
                             val isAvailable = appUpdateInfo.updateAvailability() == com.google.android.play.core.install.model.UpdateAvailability.UPDATE_AVAILABLE
                             val response = mapOf(
                                 "updateAvailable" to isAvailable,
+                                "installedFromPlayStore" to true,
                                 "availableVersionCode" to appUpdateInfo.availableVersionCode(),
                                 "availableVersionLabel" to null
                             )
@@ -61,6 +73,20 @@ class MainActivity : FlutterActivity() {
                         }
                     } catch (e: Exception) {
                         result.error("STORE_UNAVAILABLE", e.message ?: "Play Store unavailable", null)
+                    }
+                }
+                "openExternalUrl" -> {
+                    val url = call.argument<String>("url")
+                    if (url == null || !url.startsWith("https://")) {
+                        result.error("INVALID_URL", "Only https:// URLs are supported", null)
+                        return@setMethodCallHandler
+                    }
+                    try {
+                        val intent = Intent(Intent.ACTION_VIEW, android.net.Uri.parse(url))
+                        startActivity(intent)
+                        result.success(null)
+                    } catch (e: Exception) {
+                        result.error("UNAVAILABLE", e.message ?: "Cannot open URL", null)
                     }
                 }
                 "startUpdate" -> {
@@ -114,6 +140,20 @@ class MainActivity : FlutterActivity() {
         val decorView = window?.decorView ?: return
         val callback = FlutterScrollCaptureCallback(decorView)
         decorView.setScrollCaptureCallback(callback)
+    }
+
+    private fun isInstalledFromPlayStore(): Boolean {
+        return try {
+            val installer = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                packageManager.getInstallSourceInfo(packageName).installingPackageName
+            } else {
+                @Suppress("DEPRECATION")
+                packageManager.getInstallerPackageName(packageName)
+            }
+            installer == "com.android.vending"
+        } catch (e: Exception) {
+            false
+        }
     }
 
     private fun openPlayStore() {
