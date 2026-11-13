@@ -18,6 +18,7 @@ class AboutPage extends ConsumerWidget {
   static const legalese = 'Feito por Innominata Ltda';
   static const githubRepoUrl =
       'https://github.com/innominata-ltda/my-sweet-home';
+  static const wikiUrl = 'https://innominata-ltda.github.io/my-sweet-home/';
 
   /// Optional callback triggered upon tapping "Open-source licenses".
   ///
@@ -66,20 +67,22 @@ class AboutPage extends ConsumerWidget {
     );
   }
 
-  Future<void> _handleOpenGitHub(BuildContext context, WidgetRef ref) async {
+  Future<void> _handleOpenExternalUrl(
+    BuildContext context,
+    WidgetRef ref, {
+    required String url,
+    required String fallbackMessage,
+  }) async {
     final service = ref.read(appUpdateServiceProvider);
-    final result = await service.openExternalUrl(githubRepoUrl);
+    final result = await service.openExternalUrl(url);
 
     if (!context.mounted) return;
 
     if (result.isErr) {
-      await Clipboard.setData(const ClipboardData(text: githubRepoUrl));
+      await Clipboard.setData(ClipboardData(text: url));
       if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Link do GitHub copiado para a área de transferência.'),
-        ),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(fallbackMessage)));
     }
   }
 
@@ -174,7 +177,26 @@ class AboutPage extends ConsumerWidget {
             leading: const Icon(AppIcons.openSource),
             title: const Text('Código-fonte no GitHub'),
             subtitle: const Text('github.com/innominata-ltda/my-sweet-home'),
-            onTap: () => _handleOpenGitHub(context, ref),
+            onTap: () => _handleOpenExternalUrl(
+              context,
+              ref,
+              url: githubRepoUrl,
+              fallbackMessage:
+                  'Link do GitHub copiado para a área de transferência.',
+            ),
+          ),
+          ListTile(
+            key: const Key('about_wiki_tile'),
+            leading: const Icon(AppIcons.info),
+            title: const Text('Documentação e privacidade'),
+            subtitle: const Text('innominata-ltda.github.io/my-sweet-home'),
+            onTap: () => _handleOpenExternalUrl(
+              context,
+              ref,
+              url: wikiUrl,
+              fallbackMessage:
+                  'Link da documentação copiado para a área de transferência.',
+            ),
           ),
           ListTile(
             key: const Key('about_update_tile'),
