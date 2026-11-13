@@ -346,5 +346,51 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'AboutPage wiki tile opens documentation URL and falls back to clipboard on failure',
+      (tester) async {
+        await tester.pumpWidget(createTestApp(home: const AboutPage()));
+        await tester.pumpAndSettle();
+
+        final wikiTile = find.byKey(const Key('about_wiki_tile'));
+        expect(wikiTile, findsOneWidget);
+        expect(find.text('Documentação e privacidade'), findsOneWidget);
+
+        await tester.tap(wikiTile);
+        await tester.pumpAndSettle();
+
+        expect(fakePort.openedUrls, [AboutPage.wikiUrl]);
+
+        String? copiedText;
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          (call) async {
+            if (call.method == 'Clipboard.setData') {
+              copiedText = (call.arguments as Map)['text'] as String?;
+            }
+            return null;
+          },
+        );
+        addTearDown(
+          () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+            SystemChannels.platform,
+            null,
+          ),
+        );
+
+        fakePort.openExternalUrlFailure = const AppUpdateFailed('No browser');
+        await tester.tap(wikiTile);
+        await tester.pumpAndSettle();
+
+        expect(copiedText, AboutPage.wikiUrl);
+        expect(
+          find.text(
+            'Link da documentação copiado para a área de transferência.',
+          ),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }
