@@ -2,6 +2,8 @@ name: deploy
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
   workflow_dispatch:
@@ -44,10 +46,10 @@ on:
         type: boolean
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: deploy-${{ github.ref }}
+  group: deploy-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -117,6 +119,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           PLAY_STORE_JSON_KEY: ${{ secrets.PLAY_STORE_JSON_KEY }}
+          EVENT_NAME: ${{ github.event_name }}
           INPUT_TRACK: ${{ inputs.track || 'internal' }}
           INPUT_ACTION: ${{ inputs.action || 'build_and_deploy' }}
           INPUT_ROLLOUT: ${{ inputs.rollout || '1.0' }}
@@ -124,6 +127,12 @@ jobs:
           INPUT_BUILD_APKS: ${{ inputs.build_apks || false }}
           INPUT_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
+          if [ "$EVENT_NAME" = "push" ]; then
+            INPUT_BUILD_APKS="true"
+            if [ -z "$PLAY_STORE_JSON_KEY" ]; then
+              INPUT_DRY_RUN="true"
+            fi
+          fi
           if [ "$INPUT_ACTION" = "promote_to_production" ]; then
             echo "Running promote_to_production (track_to: $INPUT_TRACK, rollout: $INPUT_ROLLOUT, dry_run: $INPUT_DRY_RUN)..."
             bundle exec fastlane android promote_to_production promote_to:"$INPUT_TRACK" rollout:"$INPUT_ROLLOUT" dry_run:"$INPUT_DRY_RUN"
@@ -153,6 +162,56 @@ jobs:
           path: build/app/outputs/flutter-apk/*.apk
           if-no-files-found: ignore
           retention-days: 30
+
+      - name: Publish GitHub Release and artifacts
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_REF_NAME:-}" == v* ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+            VERSION="${VERSION%%+*}"
+          else
+            VERSION="$(sed -nE 's/^version:[[:space:]]*([0-9]+\.[0-9]+\.[0-9]+).*/\1/p' pubspec.yaml | head -n1)"
+          fi
+
+          if [ -z "$VERSION" ]; then
+            echo "Error: could not determine release version from GITHUB_REF_NAME or pubspec.yaml" >&2
+            exit 1
+          fi
+
+          TAG="v${VERSION}"
+          echo "Preparing GitHub Release ${TAG}..."
+
+          awk -v ver="$VERSION" '
+            $0 ~ "^## \\[" ver "\\]" { in_section=1; next }
+            in_section && /^## \[/ { exit }
+            in_section { print }
+          ' CHANGELOG.md > release_notes.md || true
+
+          if [ ! -s release_notes.md ]; then
+            echo "Release ${TAG} (${GITHUB_SHA})" > release_notes.md
+          fi
+
+          shopt -s nullglob
+          ASSETS=(
+            build/app/outputs/flutter-apk/app-*-release.apk
+            build/app/outputs/bundle/release/*.aab
+          )
+          if [ "${#ASSETS[@]}" -eq 0 ]; then
+            echo "Error: no release APK or AAB artifacts found to upload" >&2
+            exit 1
+          fi
+
+          sha256sum "${ASSETS[@]}" > SHA256SUMS.txt
+          ASSETS+=(SHA256SUMS.txt)
+
+          gh release view "$TAG" >/dev/null 2>&1 || \
+            gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG" --notes-file release_notes.md
+
+          gh release upload "$TAG" "${ASSETS[@]}" --clobber
+          rm -f release_notes.md SHA256SUMS.txt
 
       - name: Clean build and stop Gradle daemon before saving cache
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
