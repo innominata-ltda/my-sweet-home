@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_sweet_home/app/l10n/app_localizations.dart';
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -40,6 +41,8 @@ class _SettingsPageState extends State<SettingsPage> {
   bool _deleteReceiptPhoto = true;
   bool _cloudBackup = false;
   bool _cloudOcr = false;
+  String _appLocale = AppLocaleRegistry.systemLocaleId;
+  String _receiptFormat = ReceiptFormatCatalog.autoFormatId;
   bool _loaded = false;
 
   @override
@@ -82,6 +85,12 @@ class _SettingsPageState extends State<SettingsPage> {
       });
       repo.isCloudOcrAllowed().then((v) {
         if (mounted) setState(() => _cloudOcr = v);
+      });
+      repo.getAppLocale().then((v) {
+        if (mounted) setState(() => _appLocale = v);
+      });
+      repo.getReceiptFormat().then((v) {
+        if (mounted) setState(() => _receiptFormat = v);
       });
     } catch (_) {
       // No ProviderScope found (isolated widget unit tests without Riverpod)
@@ -136,6 +145,123 @@ class _SettingsPageState extends State<SettingsPage> {
           .read(settingsRepositoryProvider)
           .setCloudOcrAllowed(value);
     } catch (_) {}
+  }
+
+  String _localeDisplayName(String localeId) {
+    if (localeId == AppLocaleRegistry.systemLocaleId) {
+      return 'Automático (sistema)';
+    }
+    return AppLocaleRegistry.findById(localeId)?.displayName ??
+        'Automático (sistema)';
+  }
+
+  String _receiptFormatDisplayName(String formatId) {
+    if (formatId == ReceiptFormatCatalog.autoFormatId) {
+      return 'Automático (melhor modelo)';
+    }
+    return ReceiptFormatCatalog.findById(formatId)?.displayName ??
+        'Automático (melhor modelo)';
+  }
+
+  Future<void> _showOptionPicker({
+    required String title,
+    required String currentId,
+    required List<({String id, String title, String? subtitle, Key key})>
+    options,
+    required Future<void> Function(String selectedId) onSelected,
+  }) async {
+    final chosen = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(title),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final option in options)
+                ListTile(
+                  key: option.key,
+                  leading: Icon(
+                    option.id == currentId
+                        ? AppIcons.radioButtonChecked
+                        : AppIcons.radioButtonOff,
+                  ),
+                  title: Text(option.title),
+                  subtitle: option.subtitle != null
+                      ? Text(option.subtitle!)
+                      : null,
+                  onTap: () => Navigator.of(dialogContext).pop(option.id),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+    if (chosen != null && mounted) {
+      await onSelected(chosen);
+    }
+  }
+
+  Future<void> _selectAppLocale() async {
+    await _showOptionPicker(
+      title: 'Idioma do aplicativo',
+      currentId: _appLocale,
+      options: [
+        (
+          id: AppLocaleRegistry.systemLocaleId,
+          title: 'Automático (sistema)',
+          subtitle: 'Segue o idioma configurado no aparelho',
+          key: const Key('settings_locale_option_system'),
+        ),
+        for (final locale in AppLocaleRegistry.supportedLocales)
+          (
+            id: locale.id,
+            title: locale.displayName,
+            subtitle: locale.id,
+            key: Key('settings_locale_option_${locale.id}'),
+          ),
+      ],
+      onSelected: (selectedId) async {
+        setState(() => _appLocale = selectedId);
+        try {
+          final container = ProviderScope.containerOf(context, listen: false);
+          await container
+              .read(appLocaleProvider.notifier)
+              .setLocale(selectedId);
+        } catch (_) {}
+      },
+    );
+  }
+
+  Future<void> _selectReceiptFormat() async {
+    await _showOptionPicker(
+      title: 'Modelo de nota fiscal (OCR)',
+      currentId: _receiptFormat,
+      options: [
+        (
+          id: ReceiptFormatCatalog.autoFormatId,
+          title: 'Automático (melhor modelo)',
+          subtitle: 'Seleciona automaticamente o formato com maior pontuação',
+          key: const Key('settings_receipt_format_option_auto'),
+        ),
+        for (final format in ReceiptFormatCatalog.descriptors)
+          (
+            id: format.id,
+            title: format.displayName,
+            subtitle: format.description,
+            key: Key('settings_receipt_format_option_${format.id}'),
+          ),
+      ],
+      onSelected: (selectedId) async {
+        setState(() => _receiptFormat = selectedId);
+        try {
+          final container = ProviderScope.containerOf(context, listen: false);
+          await container
+              .read(receiptFormatProvider.notifier)
+              .setFormat(selectedId);
+        } catch (_) {}
+      },
+    );
   }
 
   Widget _buildSectionHeader(BuildContext context, String title) {
@@ -205,6 +331,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 () {
                   context.push('/onboarding');
                 },
+          ),
+          ListTile(
+            key: const Key('settings_language_tile'),
+            leading: const Icon(AppIcons.info),
+            title: const Text('Idioma do aplicativo'),
+            subtitle: Text(_localeDisplayName(_appLocale)),
+            onTap: _selectAppLocale,
+          ),
+          ListTile(
+            key: const Key('settings_receipt_format_tile'),
+            leading: const Icon(AppIcons.ocr),
+            title: const Text('Modelo de nota fiscal (OCR)'),
+            subtitle: Text(_receiptFormatDisplayName(_receiptFormat)),
+            onTap: _selectReceiptFormat,
           ),
 
           const Divider(),

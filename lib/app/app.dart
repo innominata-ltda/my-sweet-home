@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/router.dart';
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
+import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/design_system/theme/app_palette.dart';
 import 'package:my_sweet_home/design_system/theme/app_theme.dart';
 import 'package:my_sweet_home/features/mascot/data/mascot_repository_provider.dart';
@@ -36,18 +38,34 @@ class MySweetHomeApp extends ConsumerWidget {
       palette = AppPalette.rose;
     }
 
+    Locale? activeLocale;
+    try {
+      final localeId = ref.watch(appLocaleProvider);
+      final descriptor = AppLocaleRegistry.findById(localeId);
+      if (descriptor != null) {
+        activeLocale = Locale(descriptor.languageCode, descriptor.countryCode);
+      }
+    } catch (_) {
+      activeLocale = null;
+    }
+
+    final supportedLocales = AppLocaleRegistry.supportedLocales
+        .map((d) => Locale(d.languageCode, d.countryCode))
+        .toList(growable: false);
+
     return MaterialApp.router(
       title: 'My Sweet Home',
       theme: lightTheme(palette.lightScheme),
       darkTheme: darkTheme(palette.darkScheme),
       routerConfig: effectiveRouter,
+      locale: activeLocale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('pt', 'BR')],
+      supportedLocales: supportedLocales,
     );
   }
 }
