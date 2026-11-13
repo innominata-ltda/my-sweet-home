@@ -31,6 +31,13 @@ When devices in a **Household** sync over LAN:
 - Every shared table row tracks a stable row identity and per-column UTC timestamps.
 - Concurrent offline edits on separate columns merge without conflict; edits to the same column resolve deterministically by timestamp and peer tie-breaker.
 
+## Regionalization Extensibility
+
+To keep domain boundaries clean (`test/architecture/dependency_rule_test.dart`), regionalization descriptors live in `lib/core/regionalization/regionalization_models.dart` while OCR parser implementations stay inside `lib/features/ocr/domain/`:
+
+- **App Locales (`AppLocaleRegistry`)**: Persists `app_locale` (`system` or an `AppLocaleDescriptor.id`) in SQLite via `SettingsRepository` and binds it to `MaterialApp.router`. Adding a new `app_<lang>.arb` bundle and 1 descriptor entry exposes it in Settings automatically.
+- **Receipt Formats (`ReceiptFormatRegistry`)**: Persists `receipt_format` (`auto` or a `ReceiptFormatDescriptor.id`). In `auto` mode, `CompositeReceiptParser` uses a zero-overhead fast path for a single parser and scores multiple registered parsers via `scoreReceiptDraft` when additional regional formats are contributed.
+
 ## Quality Gate (`make check`)
 
 Every pull request and release runs the automated verification pipeline:

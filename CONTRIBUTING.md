@@ -39,3 +39,17 @@ make check
 - **Commits**: Use [Conventional Commits](https://www.conventionalcommits.org/) in English, GPG-signed, with at most 200 changed lines per commit.
 - **Pull Requests**: Fill out all sections of `.github/PULL_REQUEST_TEMPLATE.md`, including `make check` evidence.
 - **Public Readiness**: Never commit secrets, `.env` files, credentials, or personal data.
+
+## Adding a Language or Receipt Format
+
+Regionalization is registry-driven so new languages and receipt parsers can be added without modifying UI plumbing:
+
+1. **New App Language**:
+   - Create `lib/app/l10n/app_<lang>.arb` matching all keys in `lib/app/l10n/app_pt.arb` and run `flutter gen-l10n`.
+   - Append an `AppLocaleDescriptor` entry in `AppLocaleRegistry.supportedLocales` (`lib/core/regionalization/regionalization_models.dart`).
+   - Verify the new option appears in Settings (`SettingsPage`) and passes `make check`.
+2. **New Regional Receipt Format (OCR)**:
+   - Implement `ReceiptParser` (`lib/features/ocr/domain/receipt_parser.dart`) in `lib/features/ocr/domain/` using pure Dart (no Flutter/Drift imports).
+   - Register its `ReceiptFormatDescriptor` in `ReceiptFormatCatalog.descriptors` (`lib/core/regionalization/regionalization_models.dart`).
+   - Register the parser instance under the same key in `ReceiptFormatRegistry.parsers` (`lib/features/ocr/domain/receipt_format_registry.dart`).
+   - Add unit tests in `test/features/ocr/` covering sample OCR documents and `CompositeReceiptParser` scoring.
