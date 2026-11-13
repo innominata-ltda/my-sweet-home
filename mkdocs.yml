@@ -1,0 +1,53 @@
+site_name: My Sweet Home
+site_description: Offline-first household management app -- finances, shopping lists, Receipt OCR, chores, recipes, and LAN P2P sync.
+site_url: https://innominata-ltda.github.io/my-sweet-home/
+repo_url: https://github.com/innominata-ltda/my-sweet-home
+repo_name: innominata-ltda/my-sweet-home
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Overview & Installation: index.md
+  - User Guide: user-guide.md
+  - Architecture & Security: architecture.md
+  - Privacy Policy: privacy.md
+  - CI/CD & Fastlane: infra/fastlane-deploy.md
