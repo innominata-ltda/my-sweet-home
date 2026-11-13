@@ -36,7 +36,48 @@ void main() {
         ),
         findsOneWidget,
       );
+      expect(
+        find.byKey(const Key('onboarding_open_source_badge')),
+        findsOneWidget,
+      );
+      expect(
+        find.text(
+          '100% gratuito, de código aberto e com dados salvos apenas no seu aparelho',
+        ),
+        findsOneWidget,
+      );
     });
+
+    testWidgets(
+      'Step 1 open-source badge renders without overflow at 200% text scale',
+      (tester) async {
+        tester.view.physicalSize = const Size(360, 640);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(
+          ProviderScope(
+            child: MaterialApp(
+              home: MediaQuery(
+                data: const MediaQueryData(
+                  textScaler: TextScaler.linear(2.0),
+                  disableAnimations: true,
+                ),
+                child: const OnboardingPage(disableAnimations: true),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+        expect(
+          find.byKey(const Key('onboarding_open_source_badge')),
+          findsOneWidget,
+        );
+      },
+    );
 
     testWidgets('Displays page indicator with 8 dots', (tester) async {
       await tester.pumpWidget(_buildSubject());
