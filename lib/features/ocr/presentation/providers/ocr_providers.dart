@@ -1,64 +1,30 @@
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/features/ocr/data/ocr_data_providers.dart';
-import 'package:my_sweet_home/features/ocr/domain/models/ocr_document.dart';
 import 'package:my_sweet_home/features/ocr/domain/models/receipt_draft.dart';
+import 'package:my_sweet_home/features/ocr/domain/receipt_format_registry.dart';
 import 'package:my_sweet_home/features/ocr/domain/receipt_item_matcher.dart';
 import 'package:my_sweet_home/features/ocr/domain/receipt_parser.dart';
 import 'package:my_sweet_home/features/products/data/product_repository_provider.dart';
 
+export 'package:my_sweet_home/features/ocr/domain/receipt_format_registry.dart'
+    show scoreReceiptDraft;
+
+final receiptFormatRegistryProvider = Provider<ReceiptFormatRegistry>((ref) {
+  return const ReceiptFormatRegistry();
+});
+
 final receiptParserProvider = Provider<ReceiptParser>((ref) {
-  return const DefaultReceiptParser();
+  final formatId = ref.watch(receiptFormatProvider);
+  final registry = ref.watch(receiptFormatRegistryProvider);
+  return registry.resolve(formatId);
 });
 
 final receiptItemMatcherProvider = Provider<ReceiptItemMatcher>((ref) {
   return const ReceiptItemMatcher();
 });
-
-/// Calculates structural quality score to choose best [ReceiptDraft]
-/// between original photo OCR and preprocessed image OCR.
-int scoreReceiptDraft(ReceiptDraft draft, OcrDocument doc) {
-  if (doc.lines.isEmpty) return -1000;
-
-  var score = 0;
-
-  if (draft.store.isCnpjValid) {
-    score += 40;
-  } else if (draft.store.cnpj != null) {
-    score += 10;
-  }
-
-  if (draft.store.name != null && draft.store.name!.trim().isNotEmpty) {
-    score += 15;
-  }
-
-  if (draft.purchasedAt != null) {
-    score += 15;
-  }
-
-  if (draft.total != null && draft.total!.cents > 0) {
-    score += 30;
-  }
-
-  final selectedItems = draft.items.where((i) => i.selected).toList();
-  score += (selectedItems.length * 10).clamp(0, 80);
-
-  // Penalize very low confidence items (likely preprocessing noise)
-  final lowConfCount = draft.items.where((i) => i.confidence < 0.6).length;
-  score -= (lowConfCount * 15);
-
-  // Big bonus when item sum matches receipt total exactly (RN-196)
-  if (draft.items.isNotEmpty &&
-      draft.total != null &&
-      draft.total!.cents > 0 &&
-      !draft.isDivergent()) {
-    score += 120;
-  }
-
-  score += (draft.confidence * 50).round();
-  return score;
-}
 
 final parseReceiptProvider = FutureProvider.family<ReceiptDraft, String>((
   ref,
