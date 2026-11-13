@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       track:
-        description: 'Faixa do Google Play para deploy (internal | production)'
+        description: 'Google Play track for deploy (internal | production)'
         required: true
         default: 'internal'
         type: choice
@@ -15,7 +15,7 @@ on:
           - internal
           - production
       action:
-        description: 'Ação a executar no Fastlane'
+        description: 'Fastlane action to run'
         required: true
         default: 'build_and_deploy'
         type: choice
@@ -23,22 +23,22 @@ on:
           - build_and_deploy
           - promote_to_production
       rollout:
-        description: 'Percentual de rollout para promoção em Produção (ex: 0.1, 0.25, 0.5, 1.0 ou 10%)'
+        description: 'Rollout percentage for production promotion (e.g. 0.1, 0.25, 0.5, 1.0 or 10%)'
         required: false
         default: '1.0'
         type: string
       build_number:
-        description: 'Build number personalizado (opcional; se omitido, usa github.run_number)'
+        description: 'Custom build number (optional; defaults to github.run_number)'
         required: false
         default: ''
         type: string
       build_apks:
-        description: 'Compilar também split APKs para download como artefato (mais lento)'
+        description: 'Also build split APKs to download as an artifact (slower)'
         required: false
         default: false
         type: boolean
       dry_run:
-        description: 'Modo simulação (não faz upload real nem promoção na Play Console)'
+        description: 'Dry-run mode (skips real upload and promotion in Play Console)'
         required: false
         default: false
         type: boolean
@@ -52,31 +52,31 @@ concurrency:
 
 jobs:
   deploy:
-    name: Build e Deploy Android (Fastlane)
+    name: Build and Deploy Android (Fastlane)
     runs-on: ubuntu-latest
     steps:
-      - name: Liberar espaço em disco no runner
+      - name: Free up disk space on runner
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost
 
-      - name: Checkout do código
+      - name: Check out repository
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
 
-      - name: Configurar Ruby e Bundler
+      - name: Set up Ruby and Bundler
         uses: ruby/setup-ruby@b3aaceaef7e0ee231b499e7b5f49c03fc1d32199 # v1
         with:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Configurar Python
+      - name: Set up Python
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
 
-      - name: Configurar Java 17
+      - name: Set up Java 17
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
@@ -84,7 +84,7 @@ jobs:
           java-version: "17"
           cache: "gradle"
 
-      - name: Cache Android NDK e CMake
+      - name: Cache Android NDK and CMake
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -93,7 +93,7 @@ jobs:
             /usr/local/lib/android/sdk/cmake/3.22.1
           key: android-ndk-cmake-${{ runner.os }}-r28c-3.22.1
 
-      - name: Configurar Flutter via .fvmrc
+      - name: Set up Flutter via .fvmrc
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
@@ -101,15 +101,15 @@ jobs:
           flutter-version-file: .fvmrc
           cache: true
 
-      - name: Instalar dependências Flutter
+      - name: Install Flutter dependencies
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         run: flutter pub get
 
-      - name: Validar integridade pré-build (make verify)
+      - name: Validate pre-build integrity (make verify)
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         run: make verify
 
-      - name: Executar Deploy ou Promoção via Fastlane
+      - name: Run Deploy or Promotion via Fastlane
         working-directory: android
         env:
           ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
@@ -125,18 +125,18 @@ jobs:
           INPUT_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
           if [ "$INPUT_ACTION" = "promote_to_production" ]; then
-            echo "🚀 Executando promote_to_production (track_to: $INPUT_TRACK, rollout: $INPUT_ROLLOUT, dry_run: $INPUT_DRY_RUN)..."
+            echo "Running promote_to_production (track_to: $INPUT_TRACK, rollout: $INPUT_ROLLOUT, dry_run: $INPUT_DRY_RUN)..."
             bundle exec fastlane android promote_to_production promote_to:"$INPUT_TRACK" rollout:"$INPUT_ROLLOUT" dry_run:"$INPUT_DRY_RUN"
           else
             if [ "$INPUT_BUILD_APKS" = "true" ]; then
-              echo "🔨 Compilando split APKs ofuscados e validando tamanho (RNF-004, CA-4.2) com build_number: $INPUT_BUILD_NUMBER..."
+              echo "Building obfuscated split APKs and validating size with build_number: $INPUT_BUILD_NUMBER..."
               bundle exec fastlane android build_apk build_number:"$INPUT_BUILD_NUMBER" obfuscate:true split_debug_info:"build/app/outputs/symbols"
             fi
-            echo "🚀 Compilando AAB ofuscado (--obfuscate --split-debug-info) e publicando na faixa $INPUT_TRACK (CA-4.2)..."
+            echo "Building obfuscated AAB (--obfuscate --split-debug-info) and publishing to track $INPUT_TRACK..."
             bundle exec fastlane android deploy_internal track:"$INPUT_TRACK" build_number:"$INPUT_BUILD_NUMBER" dry_run:"$INPUT_DRY_RUN" obfuscate:true split_debug_info:"build/app/outputs/symbols"
           fi
 
-      - name: Upload do Android App Bundle (AAB) como artefato
+      - name: Upload Android App Bundle (AAB) artifact
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -145,7 +145,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 30
 
-      - name: Upload dos Split APKs como artefatos
+      - name: Upload Split APKs artifacts
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -154,7 +154,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 30
 
-      - name: Limpar build e encerrar Gradle daemon antes de salvar cache
+      - name: Clean build and stop Gradle daemon before saving cache
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
         run: |
           ./android/gradlew -p android --stop || true
