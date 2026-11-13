@@ -26,12 +26,15 @@ class MethodChannelAppUpdateAdapter implements AppUpdatePort {
       }
 
       final updateAvailable = res['updateAvailable'] as bool? ?? false;
+      final installedFromPlayStore =
+          res['installedFromPlayStore'] as bool? ?? true;
       final availableVersionLabel = res['availableVersionLabel'] as String?;
       final availableVersionCode = res['availableVersionCode'] as int?;
 
       return Ok(
         AppUpdateInfo(
           updateAvailable: updateAvailable,
+          installedFromPlayStore: installedFromPlayStore,
           availableVersionLabel: availableVersionLabel,
           availableVersionCode: availableVersionCode,
         ),
@@ -67,6 +70,18 @@ class MethodChannelAppUpdateAdapter implements AppUpdatePort {
         );
       }
       return Err(AppUpdateFailed(e.message ?? 'Failed to start update'));
+    } catch (e) {
+      return Err(AppUpdateFailed(e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<void, AppUpdateFailure>> openExternalUrl(String url) async {
+    try {
+      await channel.invokeMethod<void>('openExternalUrl', {'url': url});
+      return const Ok(null);
+    } on PlatformException catch (e) {
+      return Err(AppUpdateFailed(e.message ?? 'Failed to open URL'));
     } catch (e) {
       return Err(AppUpdateFailed(e.toString()));
     }

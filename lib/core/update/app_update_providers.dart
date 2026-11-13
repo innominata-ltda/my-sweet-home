@@ -16,3 +16,8 @@ final appUpdateServiceProvider = Provider<AppUpdateService>((ref) {
   final db = ref.watch(databaseProvider);
   return AppUpdateService(port: port, clock: clock, db: db);
 });
+
+/// Whether the current installation originated from Google Play.
+final installedFromPlayStoreProvider = FutureProvider<bool>((ref) {
+  return ref.watch(appUpdateServiceProvider).isInstalledFromPlayStore();
+});

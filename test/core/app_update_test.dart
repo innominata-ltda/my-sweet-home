@@ -115,6 +115,31 @@ void main() {
         expect(fakePort.checkForUpdateCallCount, 1);
       },
     );
+
+    test('checkSilentlyForDashboard returns null when not installed from Play Store', () async {
+      fakePort.installedFromPlayStore = false;
+      fakePort.updateAvailable = true;
+
+      final info = await service.checkSilentlyForDashboard();
+
+      expect(info, isNull);
+      expect(await service.isInstalledFromPlayStore(), isFalse);
+    });
+
+    test('isInstalledFromPlayStore returns false on failure and true for Play installs', () async {
+      expect(await service.isInstalledFromPlayStore(), isTrue);
+
+      fakePort.failure = const AppUpdateStoreUnavailable();
+      expect(await service.isInstalledFromPlayStore(), isFalse);
+    });
+
+    test('openExternalUrl delegates to port', () async {
+      const url = 'https://github.com/innominata-ltda/my-sweet-home';
+      final result = await service.openExternalUrl(url);
+
+      expect(result.isOk, isTrue);
+      expect(fakePort.openedUrls, [url]);
+    });
   });
 
   group('MethodChannelAppUpdateAdapter Tests', () {
@@ -188,5 +213,32 @@ void main() {
         expect(result.failureOrNull, isA<AppUpdateUserCancelled>());
       },
     );
+
+    test('openExternalUrl invokes channel and maps errors', () async {
+      const url = 'https://github.com/innominata-ltda/my-sweet-home';
+      String? invokedMethod;
+      dynamic invokedArgs;
+
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (call) async {
+            invokedMethod = call.method;
+            invokedArgs = call.arguments;
+            return null;
+          });
+
+      final okResult = await adapter.openExternalUrl(url);
+      expect(okResult.isOk, isTrue);
+      expect(invokedMethod, 'openExternalUrl');
+      expect(invokedArgs, {'url': url});
+
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (call) async {
+            throw PlatformException(code: 'UNAVAILABLE', message: 'No browser');
+          });
+
+      final errResult = await adapter.openExternalUrl(url);
+      expect(errResult.isErr, isTrue);
+      expect(errResult.failureOrNull, isA<AppUpdateFailed>());
+    });
   });
 }
