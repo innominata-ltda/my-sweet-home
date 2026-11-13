@@ -109,9 +109,9 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
         run: flutter pub get
 
-      - name: Validate pre-build integrity (make verify)
+      - name: Validate pre-build integrity (make check)
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
-        run: make verify
+        run: make check
 
       - name: Run Deploy or Promotion via Fastlane
         working-directory: android
