@@ -121,5 +121,28 @@ void main() {
         expect(await repo.isHouseholdSyncRemoteAllowed(), isFalse);
       },
     );
+
+    test('app_locale defaults to system and persists valid choices', () async {
+      expect(await repository.getAppLocale(), 'system');
+
+      await repository.setAppLocale('pt_BR');
+      expect(await repository.getAppLocale(), 'pt_BR');
+
+      await repository.setAppLocale('unknown_xx');
+      expect(await repository.getAppLocale(), 'system');
+    });
+
+    test(
+      'receipt_format defaults to auto and persists valid choices',
+      () async {
+        expect(await repository.getReceiptFormat(), 'auto');
+
+        await repository.setReceiptFormat('br_nfce');
+        expect(await repository.getReceiptFormat(), 'br_nfce');
+
+        await repository.setReceiptFormat('unknown_fmt');
+        expect(await repository.getReceiptFormat(), 'auto');
+      },
+    );
   });
 }

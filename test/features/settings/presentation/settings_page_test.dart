@@ -342,5 +342,47 @@ void main() {
         expect(await fakeSettingsRepo.isCloudOcrAllowed(), isTrue);
       },
     );
+
+    testWidgets(
+      'Language and receipt format selectors persist selection in SettingsRepository',
+      (tester) async {
+        tester.view.physicalSize = const Size(1080, 2400);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(buildSubject());
+        await tester.pumpAndSettle();
+
+        // 1. Language selector
+        final languageTile = find.byKey(const Key('settings_language_tile'));
+        expect(languageTile, findsOneWidget);
+        await tester.tap(languageTile);
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('settings_locale_option_pt_BR')));
+        await tester.pumpAndSettle();
+        expect(await fakeSettingsRepo.getAppLocale(), 'pt_BR');
+        expect(find.text('Português (Brasil)'), findsOneWidget);
+
+        // 2. Receipt format selector
+        final formatTile = find.byKey(
+          const Key('settings_receipt_format_tile'),
+        );
+        expect(formatTile, findsOneWidget);
+        await tester.tap(formatTile);
+        await tester.pumpAndSettle();
+
+        await tester.tap(
+          find.byKey(const Key('settings_receipt_format_option_br_nfce')),
+        );
+        await tester.pumpAndSettle();
+        expect(await fakeSettingsRepo.getReceiptFormat(), 'br_nfce');
+        expect(
+          find.text('Brasil (NFC-e / SAT / Cupom Fiscal)'),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }
