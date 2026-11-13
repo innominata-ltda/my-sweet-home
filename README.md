@@ -63,6 +63,12 @@ All common tasks are automated via `make`:
 
 For detailed domain terms, see [GLOSSARY.md](GLOSSARY.md).
 
+## Documentation & Privacy Policy
+
+- **Project Wiki & User Guide**: [innominata-ltda.github.io/my-sweet-home](https://innominata-ltda.github.io/my-sweet-home/)
+- **Privacy Policy**: [innominata-ltda.github.io/my-sweet-home/privacy](https://innominata-ltda.github.io/my-sweet-home/privacy/)
+- **Architecture & Security**: [innominata-ltda.github.io/my-sweet-home/architecture](https://innominata-ltda.github.io/my-sweet-home/architecture/)
+
 ## License
 
 Source code is licensed under the **MIT License** (see [LICENSE](LICENSE)).
