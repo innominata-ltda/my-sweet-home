@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/core/update/app_update_providers.dart';
 import 'package:my_sweet_home/core/update/update_dialog.dart';
@@ -15,6 +16,8 @@ class AboutPage extends ConsumerWidget {
   static const appName = 'My Sweet Home';
   static const appVersion = '0.1.0';
   static const legalese = 'Feito por Innominata Ltda';
+  static const githubRepoUrl =
+      'https://github.com/innominata-ltda/my-sweet-home';
 
   /// Optional callback triggered upon tapping "Open-source licenses".
   ///
@@ -63,9 +66,33 @@ class AboutPage extends ConsumerWidget {
     );
   }
 
+  Future<void> _handleOpenGitHub(BuildContext context, WidgetRef ref) async {
+    final service = ref.read(appUpdateServiceProvider);
+    final result = await service.openExternalUrl(githubRepoUrl);
+
+    if (!context.mounted) return;
+
+    if (result.isErr) {
+      await Clipboard.setData(const ClipboardData(text: githubRepoUrl));
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Link do GitHub copiado para a área de transferência.'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    var isPlayStoreInstall = true;
+    try {
+      isPlayStoreInstall =
+          ref.watch(installedFromPlayStoreProvider).asData?.value ?? true;
+    } catch (_) {
+      // Isolated widget tests without ProviderScope default to enabled
+    }
 
     return Scaffold(
       appBar: AppBar(title: const Text('Sobre o My Sweet Home')),
@@ -143,10 +170,25 @@ class AboutPage extends ConsumerWidget {
                 },
           ),
           ListTile(
+            key: const Key('about_github_tile'),
+            leading: const Icon(AppIcons.openSource),
+            title: const Text('Código-fonte no GitHub'),
+            subtitle: const Text('github.com/innominata-ltda/my-sweet-home'),
+            onTap: () => _handleOpenGitHub(context, ref),
+          ),
+          ListTile(
+            key: const Key('about_update_tile'),
+            enabled: isPlayStoreInstall,
             leading: const Icon(AppIcons.sync),
             title: const Text('Verificar atualizações'),
-            subtitle: const Text('Buscar novas versões na loja de aplicativos'),
-            onTap: () => _handleCheckForUpdates(context, ref),
+            subtitle: Text(
+              isPlayStoreInstall
+                  ? 'Buscar novas versões na loja de aplicativos'
+                  : 'Disponível apenas para instalações feitas pela Google Play',
+            ),
+            onTap: isPlayStoreInstall
+                ? () => _handleCheckForUpdates(context, ref)
+                : null,
           ),
         ],
       ),
