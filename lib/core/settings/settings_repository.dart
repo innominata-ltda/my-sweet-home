@@ -79,4 +79,20 @@ abstract interface class SettingsRepository {
 
   /// Sets whether household shared tutorial has been completed.
   Future<void> setHouseholdTutorialCompleted(bool value);
+
+  /// Returns the preferred app locale ID (`'system'` or a registered locale ID).
+  ///
+  /// Default: `'system'`.
+  Future<String> getAppLocale();
+
+  /// Persists the preferred app locale ID (`'system'` or a registered locale ID).
+  Future<void> setAppLocale(String localeId);
+
+  /// Returns the preferred receipt OCR format ID (`'auto'` or a registered format ID).
+  ///
+  /// Default: `'auto'`.
+  Future<String> getReceiptFormat();
+
+  /// Persists the preferred receipt OCR format ID (`'auto'` or a registered format ID).
+  Future<void> setReceiptFormat(String formatId);
 }
