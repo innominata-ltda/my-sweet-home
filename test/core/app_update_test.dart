@@ -176,10 +176,33 @@ void main() {
         expect(result.isOk, isTrue);
         final info = result.valueOrNull!;
         expect(info.updateAvailable, isTrue);
+        expect(info.installedFromPlayStore, isTrue);
         expect(info.availableVersionLabel, '1.0.1');
         expect(info.availableVersionCode, 101);
       },
     );
+
+    test('checkForUpdate deserializes installedFromPlayStore false', () async {
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (call) async {
+            if (call.method == 'checkForUpdate') {
+              return {
+                'updateAvailable': false,
+                'installedFromPlayStore': false,
+                'availableVersionLabel': null,
+                'availableVersionCode': null,
+              };
+            }
+            return null;
+          });
+
+      final result = await adapter.checkForUpdate();
+
+      expect(result.isOk, isTrue);
+      final info = result.valueOrNull!;
+      expect(info.updateAvailable, isFalse);
+      expect(info.installedFromPlayStore, isFalse);
+    });
 
     test(
       'checkForUpdate mapeia STORE_UNAVAILABLE para AppUpdateStoreUnavailable',
