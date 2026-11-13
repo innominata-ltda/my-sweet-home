@@ -46,16 +46,18 @@ on:
         type: boolean
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: deploy-${{ github.sha }}
+  group: deploy-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   deploy:
     name: Build and Deploy Android (Fastlane)
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Free up disk space on runner
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production' }}
