@@ -100,6 +100,28 @@ void main() {
       expect(await scheduler.requestPermission(), PermissionState.granted);
     });
 
+    test(
+      'returns denied when both Android and iOS plugins are absent',
+      () async {
+        final plugin = _MockPlugin();
+        when(
+          () => plugin
+              .resolvePlatformSpecificImplementation<
+                AndroidFlutterLocalNotificationsPlugin
+              >(),
+        ).thenReturn(null);
+        when(
+          () => plugin
+              .resolvePlatformSpecificImplementation<
+                IOSFlutterLocalNotificationsPlugin
+              >(),
+        ).thenReturn(null);
+
+        final scheduler = LocalNotificationScheduler(plugin);
+        expect(await scheduler.requestPermission(), PermissionState.denied);
+      },
+    );
+
     test('returns denied when platform implementation throws', () async {
       final plugin = _MockPlugin();
       when(
