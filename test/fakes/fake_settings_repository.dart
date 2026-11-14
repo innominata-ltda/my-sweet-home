@@ -14,6 +14,8 @@ class FakeSettingsRepository implements SettingsRepository {
   bool householdTutorialCompleted;
   String appLocale;
   String receiptFormat;
+  bool retentionNotificationsEnabled;
+  DateTime? lastAppOpenTimestamp;
 
   FakeSettingsRepository({
     this.cloudOcrAllowed = false,
@@ -27,6 +29,8 @@ class FakeSettingsRepository implements SettingsRepository {
     this.householdTutorialCompleted = false,
     this.appLocale = AppLocaleRegistry.systemLocaleId,
     this.receiptFormat = ReceiptFormatCatalog.autoFormatId,
+    this.retentionNotificationsEnabled = true,
+    this.lastAppOpenTimestamp,
   });
 
   @override
@@ -119,5 +123,22 @@ class FakeSettingsRepository implements SettingsRepository {
   @override
   Future<void> setReceiptFormat(String formatId) async {
     receiptFormat = ReceiptFormatCatalog.normalizeFormatId(formatId);
+  }
+
+  @override
+  Future<bool> isRetentionNotificationsEnabled() async =>
+      retentionNotificationsEnabled;
+
+  @override
+  Future<void> setRetentionNotificationsEnabled(bool value) async {
+    retentionNotificationsEnabled = value;
+  }
+
+  @override
+  Future<DateTime?> getLastAppOpenTimestamp() async => lastAppOpenTimestamp;
+
+  @override
+  Future<void> setLastAppOpenTimestamp(DateTime timestamp) async {
+    lastAppOpenTimestamp = timestamp;
   }
 }

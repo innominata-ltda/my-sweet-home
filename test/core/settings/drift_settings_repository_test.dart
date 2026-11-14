@@ -144,5 +144,29 @@ void main() {
         expect(await repository.getReceiptFormat(), 'auto');
       },
     );
+
+    test(
+      'retention_notifications_enabled defaults to true and persists',
+      () async {
+        expect(await repository.isRetentionNotificationsEnabled(), isTrue);
+
+        await repository.setRetentionNotificationsEnabled(false);
+        expect(await repository.isRetentionNotificationsEnabled(), isFalse);
+
+        await repository.setRetentionNotificationsEnabled(true);
+        expect(await repository.isRetentionNotificationsEnabled(), isTrue);
+      },
+    );
+
+    test(
+      'last_app_open_timestamp defaults to null and roundtrips ISO 8601',
+      () async {
+        expect(await repository.getLastAppOpenTimestamp(), isNull);
+
+        final ts = DateTime(2026, 11, 14, 10, 30, 0);
+        await repository.setLastAppOpenTimestamp(ts);
+        expect(await repository.getLastAppOpenTimestamp(), ts);
+      },
+    );
   });
 }
