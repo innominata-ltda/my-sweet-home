@@ -43,6 +43,7 @@ class _OnboardingRoutineStepState extends ConsumerState<OnboardingRoutineStep> {
 
   bool _initialized = false;
   bool _loading = true;
+  String? _error;
   List<TaskPreset> _allPresets = [];
   Set<String> _alreadyInRoutineIds = {};
   final Set<String> _selectedIds = {};
@@ -93,9 +94,20 @@ class _OnboardingRoutineStepState extends ConsumerState<OnboardingRoutineStep> {
   Future<void> _loadData() async {
     setState(() {
       _loading = true;
+      _error = null;
     });
 
     final catRes = await _catalogPort.load();
+    if (catRes.isErr) {
+      if (mounted) {
+        setState(() {
+          _loading = false;
+          _error = catRes.failureOrNull?.toString() ?? 'Error loading catalog';
+        });
+      }
+      return;
+    }
+
     Set<String> activeIds = {};
     final activeRes = await _taskFromPresetPort.activeOriginPresetIds();
     if (activeRes.isOk) {
@@ -190,55 +202,82 @@ class _OnboardingRoutineStepState extends ConsumerState<OnboardingRoutineStep> {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-          child: TextField(
-            controller: _searchController,
-            decoration: InputDecoration(
-              hintText:
-                  l10n?.taskPresetsSearchHint ??
-                  'Buscar por título ou cômodo...',
-              prefixIcon: const Icon(AppIcons.search),
-              suffixIcon: _query.isNotEmpty
-                  ? IconButton(
-                      icon: const Icon(AppIcons.close),
-                      onPressed: _searchController.clear,
-                    )
-                  : null,
-              filled: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide.none,
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 10,
-              ),
-            ),
-          ),
-        ),
-        for (final entry in grouped.entries) ...[
+        if (_error != null) ...[
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-            child: Text(
-              entry.key.label,
-              style: theme.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.primary,
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              children: [
+                Text(
+                  _error!,
+                  key: const Key('onboarding_routine_error'),
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: theme.colorScheme.error,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                FilledButton(
+                  key: const Key('onboarding_routine_retry'),
+                  onPressed: _loadData,
+                  child: const Text('Tentar novamente'),
+                ),
+              ],
+            ),
+          ),
+        ] else ...[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText:
+                    l10n?.taskPresetsSearchHint ??
+                    'Buscar por título ou cômodo...',
+                prefixIcon: const Icon(AppIcons.search),
+                suffixIcon: _query.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(AppIcons.close),
+                        onPressed: _searchController.clear,
+                      )
+                    : null,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
               ),
             ),
           ),
-          for (final p in entry.value)
+          for (final entry in grouped.entries) ...[
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 3),
-              child: TaskPresetTile(
-                preset: p,
-                isAlreadyInRoutine: _alreadyInRoutineIds.contains(p.id),
-                isSelected: _selectedIds.contains(p.id),
-                onTap: () => _toggleSelection(p),
-                onSelectChanged: (_) => _toggleSelection(p),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+              child: Text(
+                entry.key.label,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
               ),
             ),
+            for (final p in entry.value)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 3,
+                ),
+                child: TaskPresetTile(
+                  preset: p,
+                  isAlreadyInRoutine: _alreadyInRoutineIds.contains(p.id),
+                  isSelected: _selectedIds.contains(p.id),
+                  onTap: () => _toggleSelection(p),
+                  onSelectChanged: (_) => _toggleSelection(p),
+                ),
+              ),
+          ],
         ],
       ],
     );
