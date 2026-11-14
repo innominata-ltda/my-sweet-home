@@ -625,5 +625,16 @@
   "dashboardCardStockAlert": "Estoque Doméstico",
   "dashboardCardFirstHomeChecklist": "Checklist da Primeira Casa",
   "dashboardCardEconomyGoal": "Modo Economia",
-  "dashboardCardFavoriteRecipes": "Receitas Favoritas"
+  "dashboardCardFavoriteRecipes": "Receitas Favoritas",
+  "settingsRetentionNotificationsTitle": "Lembretes gentis da Momo",
+  "settingsRetentionNotificationsSubtitle": "Avisar em intervalos espaçados se você ficar dias sem abrir o app",
+  "retentionNotificationTitle": "A Momo sentiu sua falta!",
+  "retentionNotificationBody": "Faz {days} dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?",
+  "@retentionNotificationBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  }
 }

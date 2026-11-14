@@ -384,5 +384,34 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'Retention notifications switch toggles preference in repository',
+      (tester) async {
+        tester.view.physicalSize = const Size(1080, 2400);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(buildSubject());
+        await tester.pumpAndSettle();
+
+        final retentionSwitch = find.byKey(
+          const Key('settings_retention_notifications_switch'),
+        );
+        expect(retentionSwitch, findsOneWidget);
+        expect(
+          await fakeSettingsRepo.isRetentionNotificationsEnabled(),
+          isTrue,
+        );
+
+        await tester.tap(retentionSwitch);
+        await tester.pumpAndSettle();
+        expect(
+          await fakeSettingsRepo.isRetentionNotificationsEnabled(),
+          isFalse,
+        );
+      },
+    );
   });
 }

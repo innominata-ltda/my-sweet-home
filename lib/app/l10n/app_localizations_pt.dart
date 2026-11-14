@@ -1161,4 +1161,19 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get dashboardCardFavoriteRecipes => 'Receitas Favoritas';
+
+  @override
+  String get settingsRetentionNotificationsTitle => 'Lembretes gentis da Momo';
+
+  @override
+  String get settingsRetentionNotificationsSubtitle =>
+      'Avisar em intervalos espaçados se você ficar dias sem abrir o app';
+
+  @override
+  String get retentionNotificationTitle => 'A Momo sentiu sua falta!';
+
+  @override
+  String retentionNotificationBody(int days) {
+    return 'Faz $days dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?';
+  }
 }

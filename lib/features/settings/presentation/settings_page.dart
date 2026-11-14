@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_sweet_home/app/l10n/app_localizations.dart';
+import 'package:my_sweet_home/core/notifications/notification_providers.dart';
 import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
@@ -41,6 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
   bool _deleteReceiptPhoto = true;
   bool _cloudBackup = false;
   bool _cloudOcr = false;
+  bool _retentionNotifications = true;
   String _appLocale = AppLocaleRegistry.systemLocaleId;
   String _receiptFormat = ReceiptFormatCatalog.autoFormatId;
   bool _loaded = false;
@@ -85,6 +87,9 @@ class _SettingsPageState extends State<SettingsPage> {
       });
       repo.isCloudOcrAllowed().then((v) {
         if (mounted) setState(() => _cloudOcr = v);
+      });
+      repo.isRetentionNotificationsEnabled().then((v) {
+        if (mounted) setState(() => _retentionNotifications = v);
       });
       repo.getAppLocale().then((v) {
         if (mounted) setState(() => _appLocale = v);
@@ -144,6 +149,16 @@ class _SettingsPageState extends State<SettingsPage> {
       await container
           .read(settingsRepositoryProvider)
           .setCloudOcrAllowed(value);
+    } catch (_) {}
+  }
+
+  Future<void> _toggleRetentionNotifications(bool value) async {
+    setState(() => _retentionNotifications = value);
+    try {
+      final container = ProviderScope.containerOf(context, listen: false);
+      await container
+          .read(retentionNotificationCoordinatorProvider)
+          .onSettingChanged(value);
     } catch (_) {}
   }
 
@@ -315,6 +330,19 @@ class _SettingsPageState extends State<SettingsPage> {
             subtitle: const Text('Partículas, confetes e animações contínuas'),
             value: _visualEffects,
             onChanged: _toggleVisualEffects,
+          ),
+          SwitchListTile(
+            key: const Key('settings_retention_notifications_switch'),
+            secondary: const Icon(AppIcons.catPets),
+            title: Text(
+              l10n?.settingsRetentionNotificationsTitle ??
+                  'Lembretes gentis da Momo',
+            ),
+            subtitle: Text(
+              l10n?.settingsRetentionNotificationsSubtitle ?? 'Avisar em intervalos espaçados se você ficar dias sem abrir o app',
+            ),
+            value: _retentionNotifications,
+            onChanged: _toggleRetentionNotifications,
           ),
           ListTile(
             key: const Key('settings_tutorial_tile'),
