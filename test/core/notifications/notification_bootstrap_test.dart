@@ -1,7 +1,9 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:my_sweet_home/core/notifications/adapters/exact_alarm_permission_adapter.dart';
 import 'package:my_sweet_home/core/notifications/local_notification_scheduler.dart';
 import 'package:my_sweet_home/core/notifications/notification_bootstrap.dart';
 import 'package:my_sweet_home/core/notifications/notification_providers.dart';
@@ -145,6 +147,64 @@ void main() {
         container.read(notificationSchedulerProvider),
         isA<LocalNotificationScheduler>(),
       );
+    });
+  });
+
+  group('ExactAlarmPermissionAdapter', () {
+    test(
+      'returns true and no-ops openSettings on non-Android platforms',
+      () async {
+        final adapter = ExactAlarmPermissionAdapter(isAndroidOverride: false);
+        expect(await adapter.canScheduleExact(), isTrue);
+        await expectLater(adapter.openSettings(), completes);
+      },
+    );
+
+    test(
+      'queries Android plugin for exact alarms and opens settings',
+      () async {
+        final plugin = _MockPlugin();
+        final android = _MockAndroidPlugin();
+        when(
+          () => plugin
+              .resolvePlatformSpecificImplementation<
+                AndroidFlutterLocalNotificationsPlugin
+              >(),
+        ).thenReturn(android);
+        when(() => android.canScheduleExactNotifications())
+            .thenAnswer((_) async => false);
+        when(() => android.requestExactAlarmsPermission())
+            .thenAnswer((_) async => true);
+
+        final adapter = ExactAlarmPermissionAdapter(
+          plugin: plugin,
+          isAndroidOverride: true,
+        );
+        expect(await adapter.canScheduleExact(), isFalse);
+        await adapter.openSettings();
+        verify(() => android.requestExactAlarmsPermission()).called(1);
+      },
+    );
+
+    test('falls back to MethodChannel when plugin is null', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      const channel = MethodChannel('test/exact_alarm');
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(channel, (call) async {
+            if (call.method == 'canScheduleExact') return false;
+            return null;
+          });
+      addTearDown(
+        () => TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMethodCallHandler(channel, null),
+      );
+
+      final adapter = ExactAlarmPermissionAdapter(
+        channel: channel,
+        isAndroidOverride: true,
+      );
+      expect(await adapter.canScheduleExact(), isFalse);
+      await expectLater(adapter.openSettings(), completes);
     });
   });
 }
