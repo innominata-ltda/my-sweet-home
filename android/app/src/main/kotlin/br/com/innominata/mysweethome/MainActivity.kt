@@ -33,6 +33,7 @@ class MainActivity : FlutterActivity() {
     private val BATTERY_CHANNEL = "br.com.innominata.mysweethome/battery"
     private val SCROLL_CAPTURE_CHANNEL = "br.com.innominata.mysweethome/scroll_capture"
     private val APP_UPDATE_CHANNEL = "br.com.innominata.mysweethome/app_update"
+    private val TIMEZONE_CHANNEL = "br.com.innominata.mysweethome/timezone"
     private var scrollCaptureChannel: MethodChannel? = null
     private val appUpdateManager: AppUpdateManager by lazy { AppUpdateManagerFactory.create(this) }
     private var pendingUpdateResult: MethodChannel.Result? = null
@@ -44,6 +45,14 @@ class MainActivity : FlutterActivity() {
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, TIMEZONE_CHANNEL).setMethodCallHandler { call, result ->
+            if (call.method == "getLocalTimezone") {
+                result.success(java.util.TimeZone.getDefault().id)
+            } else {
+                result.notImplemented()
+            }
+        }
+
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, BATTERY_CHANNEL).setMethodCallHandler { call, result ->
             if (call.method == "openBatteryOptimizationSettings") {
                 try {

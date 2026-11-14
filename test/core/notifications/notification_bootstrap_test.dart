@@ -8,6 +8,7 @@ import 'package:my_sweet_home/core/notifications/local_notification_scheduler.da
 import 'package:my_sweet_home/core/notifications/notification_bootstrap.dart';
 import 'package:my_sweet_home/core/notifications/notification_providers.dart';
 import 'package:my_sweet_home/core/notifications/scheduled_notification.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 class _MockPlugin extends Mock implements FlutterLocalNotificationsPlugin {}
 
@@ -27,23 +28,70 @@ void main() {
   });
 
   group('initializeLocalNotifications', () {
-    test('initializes plugin and timezones without throwing', () async {
+    test('initializes plugin and sets tz.local via timezoneLoader', () async {
       final plugin = _MockPlugin();
-      when(() => plugin.initialize(settings: any(named: 'settings')))
-          .thenAnswer((_) async => true);
+      NotificationResponse? tapped;
+      when(
+        () => plugin.initialize(
+          settings: any(named: 'settings'),
+          onDidReceiveNotificationResponse: any(
+            named: 'onDidReceiveNotificationResponse',
+          ),
+        ),
+      ).thenAnswer((_) async => true);
 
-      await initializeLocalNotifications(plugin);
+      await initializeLocalNotifications(
+        plugin,
+        timezoneLoader: () async => 'America/Sao_Paulo',
+        onNotificationTap: (r) => tapped = r,
+      );
 
-      verify(() => plugin.initialize(settings: any(named: 'settings')))
-          .called(1);
+      expect(tz.local.name, 'America/Sao_Paulo');
+      expect(tapped, isNull);
+      verify(
+        () => plugin.initialize(
+          settings: any(named: 'settings'),
+          onDidReceiveNotificationResponse: any(
+            named: 'onDidReceiveNotificationResponse',
+          ),
+        ),
+      ).called(1);
+    });
+
+    test('falls back to offset matching when timezoneLoader fails', () async {
+      final plugin = _MockPlugin();
+      when(
+        () => plugin.initialize(
+          settings: any(named: 'settings'),
+          onDidReceiveNotificationResponse: any(
+            named: 'onDidReceiveNotificationResponse',
+          ),
+        ),
+      ).thenAnswer((_) async => true);
+
+      await initializeLocalNotifications(
+        plugin,
+        timezoneLoader: () async => throw Exception('Channel missing'),
+      );
+
+      expect(tz.local.name, isNotEmpty);
     });
 
     test('degrades gracefully when plugin.initialize throws', () async {
       final plugin = _MockPlugin();
-      when(() => plugin.initialize(settings: any(named: 'settings')))
-          .thenThrow(Exception('Platform unavailable'));
+      when(
+        () => plugin.initialize(
+          settings: any(named: 'settings'),
+          onDidReceiveNotificationResponse: any(
+            named: 'onDidReceiveNotificationResponse',
+          ),
+        ),
+      ).thenThrow(Exception('Platform unavailable'));
 
-      await expectLater(initializeLocalNotifications(plugin), completes);
+      await expectLater(
+        initializeLocalNotifications(plugin, timezoneLoader: () async => 'UTC'),
+        completes,
+      );
     });
   });
 
