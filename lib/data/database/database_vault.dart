@@ -211,12 +211,16 @@ final class DefaultDatabaseVault implements DatabaseVaultPort {
   }
 }
 
-void Function(sqlite3.Database) _buildEncryptedDbSetup(String hexKey) {
-  return (sqlite3.Database rawDb) {
+final class _EncryptedDbSetup {
+  const _EncryptedDbSetup(this.hexKey);
+
+  final String hexKey;
+
+  void call(sqlite3.Database rawDb) {
     rawDb.execute('PRAGMA key = "x\'$hexKey\'";');
     rawDb.select('SELECT count(*) FROM sqlite_master;');
     rawDb.execute('PRAGMA foreign_keys = ON;');
-  };
+  }
 }
 
 LazyDatabase _buildEncryptedLazyDb(
@@ -224,8 +228,8 @@ LazyDatabase _buildEncryptedLazyDb(
   String hexKey, {
   required bool inBackground,
 }) {
-  return LazyDatabase(() async {
-    final setup = _buildEncryptedDbSetup(hexKey);
+  final setup = _EncryptedDbSetup(hexKey).call;
+  return LazyDatabase(() {
     if (inBackground) {
       return NativeDatabase.createInBackground(file, setup: setup);
     }
@@ -234,7 +238,7 @@ LazyDatabase _buildEncryptedLazyDb(
 }
 
 LazyDatabase _buildPlaintextLazyDb(File file, {required bool inBackground}) {
-  return LazyDatabase(() async {
+  return LazyDatabase(() {
     if (inBackground) {
       return NativeDatabase.createInBackground(file);
     }
