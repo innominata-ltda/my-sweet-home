@@ -140,7 +140,7 @@ jobs:
             bundle exec fastlane android promote_to_production promote_to:"$INPUT_TRACK" rollout:"$INPUT_ROLLOUT" dry_run:"$INPUT_DRY_RUN"
           else
             if [ -z "$INPUT_BUILD_NUMBER" ]; then
-              RESOLVED_LINE=$(bundle exec fastlane android resolve_next_build_number min_build_number:"$GITHUB_RUN_NUMBER" | grep '^NEXT_BUILD_NUMBER=' | tail -n1 || true)
+              RESOLVED_LINE=$(bundle exec fastlane android resolve_next_build_number min_build_number:"$GITHUB_RUN_NUMBER" | grep -oE 'NEXT_BUILD_NUMBER=[0-9]+' | tail -n1 || true)
               INPUT_BUILD_NUMBER="${RESOLVED_LINE#NEXT_BUILD_NUMBER=}"
               if [ -z "$INPUT_BUILD_NUMBER" ]; then
                 INPUT_BUILD_NUMBER="$GITHUB_RUN_NUMBER"
