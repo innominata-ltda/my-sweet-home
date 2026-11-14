@@ -56,11 +56,13 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
+final initialRouteProvider = Provider<String>((ref) => '/');
+
 @riverpod
 GoRouter appRouter(Ref ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: '/',
+    initialLocation: ref.watch(initialRouteProvider),
     routes: [
       ShellRoute(
         navigatorKey: _shellNavigatorKey,

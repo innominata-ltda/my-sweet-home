@@ -5,8 +5,10 @@ import 'package:my_sweet_home/app/bootstrap.dart';
 import 'package:my_sweet_home/app/database_recovery_screen.dart';
 import 'package:my_sweet_home/app/error_boundary.dart';
 import 'package:my_sweet_home/app/providers.dart';
+import 'package:my_sweet_home/app/router.dart';
 import 'package:my_sweet_home/core/id/id_generator.dart';
 import 'package:my_sweet_home/core/recurrence/materializer.dart';
+import 'package:my_sweet_home/core/settings/drift_settings_repository.dart';
 import 'package:my_sweet_home/core/time/clock.dart';
 import 'package:my_sweet_home/core/trash/trash_policy.dart';
 import 'package:my_sweet_home/data/database/database.dart';
@@ -76,9 +78,21 @@ Future<void> _runAppWithDatabase(AppDatabase db) async {
 
   await bootstrap(materializerUseCase, trashPolicy: trashPolicy);
 
+  var initialRoute = '/';
+  try {
+    final onboardingCompleted = await DriftSettingsRepository(db)
+        .isOnboardingCompleted();
+    if (!onboardingCompleted) {
+      initialRoute = '/onboarding';
+    }
+  } catch (_) {}
+
   runApp(
     ProviderScope(
-      overrides: [databaseProvider.overrideWithValue(db)],
+      overrides: [
+        databaseProvider.overrideWithValue(db),
+        initialRouteProvider.overrideWithValue(initialRoute),
+      ],
       child: const MySweetHomeApp(),
     ),
   );
