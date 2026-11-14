@@ -1,20 +1,67 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/components/app_empty_state.dart';
 import 'package:my_sweet_home/design_system/components/app_undo_snack_bar.dart';
 import 'package:my_sweet_home/features/expenses/data/expense_providers.dart';
+import 'package:my_sweet_home/features/expenses/domain/services/expense_exporter.dart';
 import 'package:my_sweet_home/features/expenses/presentation/providers/current_month_provider.dart';
 import 'package:my_sweet_home/features/expenses/presentation/providers/dashboard_provider.dart';
 import 'package:my_sweet_home/features/expenses/presentation/providers/expense_list_provider.dart';
 import 'package:my_sweet_home/core/trash/trash_policy.dart';
 import 'package:my_sweet_home/features/expenses/domain/models/year_month.dart';
 import 'package:my_sweet_home/features/expenses/presentation/widgets/expenses_dashboard.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+
+typedef ShareExportedFileCallback = Future<void> Function(ExportedFile file);
 
 class ExpensesScreen extends ConsumerWidget {
-  const ExpensesScreen({super.key});
+  const ExpensesScreen({super.key, this.shareExportedFile});
+
+  final ShareExportedFileCallback? shareExportedFile;
+
+  Future<void> _defaultShareExportedFile(ExportedFile exported) async {
+    final dir = await getTemporaryDirectory();
+    final file = File('${dir.path}/${exported.name}');
+    await file.writeAsBytes(exported.bytes, flush: true);
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(file.path, mimeType: exported.mimeType)],
+        text: exported.name,
+      ),
+    );
+  }
+
+  Future<void> _exportMonth(
+    BuildContext context,
+    WidgetRef ref,
+    YearMonth currentMonth,
+    String format,
+  ) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final exporter = ref.read(expenseExporterProvider);
+    final range = currentMonth.bounds;
+
+    final result = format == 'pdf'
+        ? await exporter.toPdf(range)
+        : await exporter.toCsv(range);
+
+    switch (result) {
+      case Err(:final failure):
+        messenger.showSnackBar(
+          SnackBar(content: Text('Erro ao exportar despesas: $failure')),
+        );
+      case Ok(:final value):
+        final share = shareExportedFile ?? _defaultShareExportedFile;
+        await share(value);
+    }
+  }
 
   String _formatMonthYear(YearMonth ym) {
     final parts = ym.iso.split('-');
@@ -102,6 +149,25 @@ class ExpensesScreen extends ConsumerWidget {
             icon: const Icon(AppIcons.bill),
             tooltip: 'Compras e Notas Fiscais',
             onPressed: () => context.push('/compras'),
+          ),
+          PopupMenuButton<String>(
+            key: const Key('expenses_export_button'),
+            icon: const Icon(AppIcons.fileExport),
+            tooltip: 'Exportar despesas',
+            onSelected: (format) =>
+                _exportMonth(context, ref, currentMonth, format),
+            itemBuilder: (context) => const [
+              PopupMenuItem(
+                key: Key('expenses_export_csv'),
+                value: 'csv',
+                child: Text('Exportar CSV'),
+              ),
+              PopupMenuItem(
+                key: Key('expenses_export_pdf'),
+                value: 'pdf',
+                child: Text('Exportar PDF'),
+              ),
+            ],
           ),
         ],
       ),

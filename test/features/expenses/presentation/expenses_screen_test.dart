@@ -268,4 +268,58 @@ void main() {
       expect(find.byTooltip('Editar Orçamento'), findsOneWidget);
     },
   );
+
+  testWidgets(
+    'Export menu exports CSV and PDF for selected month via expenseExporterProvider',
+    (tester) async {
+      final exportedFiles = <String>[];
+      final summary = MonthSummary(
+        month: testMonth,
+        actual: Money.zero,
+        budget: Money.zero,
+        remaining: Money.zero,
+        byCategory: const [],
+        monthsOfHistory: 0,
+      );
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            currentMonthProvider.overrideWithValue(testMonth),
+            monthSummaryRepositoryProvider.overrideWithValue(
+              _FakeMonthSummaryRepo(summary),
+            ),
+            expenseRepositoryProvider.overrideWithValue(_FakeExpenseRepo([])),
+            categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
+          ],
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: ExpensesScreen(
+              shareExportedFile: (file) async {
+                exportedFiles.add('${file.name}:${file.mimeType}');
+              },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const Key('expenses_export_button')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('expenses_export_csv')));
+      await tester.pumpAndSettle();
+
+      expect(exportedFiles, hasLength(1));
+      expect(exportedFiles.first, contains('.csv'));
+
+      await tester.tap(find.byKey(const Key('expenses_export_button')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('expenses_export_pdf')));
+      await tester.pumpAndSettle();
+
+      expect(exportedFiles, hasLength(2));
+      expect(exportedFiles.last, contains('.pdf'));
+    },
+  );
 }
