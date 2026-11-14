@@ -9,6 +9,8 @@ import 'package:my_sweet_home/features/expenses/domain/repositories/category_rep
 import 'package:my_sweet_home/features/expenses/domain/repositories/expense_repository.dart';
 import 'package:my_sweet_home/features/expenses/domain/repositories/month_summary_repository.dart';
 import 'package:my_sweet_home/features/expenses/domain/models/category.dart';
+import 'package:my_sweet_home/features/expenses/domain/services/default_expense_exporter.dart';
+import 'package:my_sweet_home/features/expenses/domain/services/expense_exporter.dart';
 
 final budgetRepositoryProvider = Provider<BudgetRepository>((ref) {
   return DriftBudgetRepository(ref.watch(databaseProvider));
@@ -41,4 +43,11 @@ final expenseRepositoryProvider = Provider<ExpenseRepository>((ref) {
 
 final monthSummaryRepositoryProvider = Provider<MonthSummaryRepository>((ref) {
   return DriftMonthSummaryRepository(ref.watch(databaseProvider));
+});
+
+final expenseExporterProvider = Provider<ExpenseExporter>((ref) {
+  return DefaultExpenseExporter(
+    expenseRepository: ref.watch(expenseRepositoryProvider),
+    categoryRepository: ref.watch(categoryRepositoryProvider),
+  );
 });
