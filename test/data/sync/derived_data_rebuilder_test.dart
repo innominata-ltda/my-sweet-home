@@ -35,6 +35,9 @@ class _MockNotificationScheduler implements NotificationSchedulerPort {
   Future<PermissionState> permission() async => PermissionState.granted;
 
   @override
+  Future<PermissionState> requestPermission() async => PermissionState.granted;
+
+  @override
   Future<Result<void, Failure>> rescheduleAllAfterBoot() async =>
       const Ok(null);
 }
