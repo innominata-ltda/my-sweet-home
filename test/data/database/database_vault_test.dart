@@ -161,5 +161,21 @@ void main() {
         expect(populatedKeyStore.currentKey, isNull);
       },
     );
+
+    test('inBackground: true opens encrypted database in background isolate without SendPort error', () async {
+      final vault = DefaultDatabaseVault(
+        keyStore: keyStore,
+        dbFileProvider: () async => dbFile,
+        inBackground: true,
+      );
+
+      final opening = await vault.open();
+      expect(opening, isA<VaultReady>());
+
+      final ready = opening as VaultReady;
+      final row = await ready.db.customSelect('SELECT 1 AS ok;').getSingle();
+      expect(row.read<int>('ok'), 1);
+      await ready.db.close();
+    }, timeout: const Timeout(Duration(seconds: 90)));
   });
 }
