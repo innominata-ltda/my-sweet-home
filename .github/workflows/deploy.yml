@@ -125,7 +125,7 @@ jobs:
           INPUT_TRACK: ${{ inputs.track || 'internal' }}
           INPUT_ACTION: ${{ inputs.action || 'build_and_deploy' }}
           INPUT_ROLLOUT: ${{ inputs.rollout || '1.0' }}
-          INPUT_BUILD_NUMBER: ${{ inputs.build_number || github.run_number }}
+          INPUT_BUILD_NUMBER: ${{ inputs.build_number || '' }}
           INPUT_BUILD_APKS: ${{ inputs.build_apks || false }}
           INPUT_DRY_RUN: ${{ inputs.dry_run || false }}
         run: |
@@ -139,6 +139,14 @@ jobs:
             echo "Running promote_to_production (track_to: $INPUT_TRACK, rollout: $INPUT_ROLLOUT, dry_run: $INPUT_DRY_RUN)..."
             bundle exec fastlane android promote_to_production promote_to:"$INPUT_TRACK" rollout:"$INPUT_ROLLOUT" dry_run:"$INPUT_DRY_RUN"
           else
+            if [ -z "$INPUT_BUILD_NUMBER" ]; then
+              RESOLVED_LINE=$(bundle exec fastlane android resolve_next_build_number min_build_number:"$GITHUB_RUN_NUMBER" | grep '^NEXT_BUILD_NUMBER=' | tail -n1 || true)
+              INPUT_BUILD_NUMBER="${RESOLVED_LINE#NEXT_BUILD_NUMBER=}"
+              if [ -z "$INPUT_BUILD_NUMBER" ]; then
+                INPUT_BUILD_NUMBER="$GITHUB_RUN_NUMBER"
+              fi
+              echo "Resolved automatic build_number: $INPUT_BUILD_NUMBER"
+            fi
             if [ "$INPUT_BUILD_APKS" = "true" ]; then
               echo "Building obfuscated split APKs and validating size with build_number: $INPUT_BUILD_NUMBER..."
               bundle exec fastlane android build_apk build_number:"$INPUT_BUILD_NUMBER" obfuscate:true split_debug_info:"build/app/outputs/symbols"
