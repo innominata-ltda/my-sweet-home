@@ -27,5 +27,41 @@ import UserNotifications
         result(FlutterMethodNotImplemented)
       }
     }
+
+    let appUpdateChannel = FlutterMethodChannel(
+      name: "br.com.innominata.mysweethome/app_update",
+      binaryMessenger: engineBridge.applicationRegistrar.messenger()
+    )
+    appUpdateChannel.setMethodCallHandler { call, result in
+      switch call.method {
+      case "checkForUpdate":
+        result([
+          "updateAvailable": false,
+          "installedFromPlayStore": false,
+        ])
+      case "startUpdate":
+        result(FlutterError(code: "UNAVAILABLE", message: "Play Store updates unavailable on iOS", details: nil))
+      case "openExternalUrl":
+        guard
+          let args = call.arguments as? [String: Any],
+          let urlString = args["url"] as? String,
+          let url = URL(string: urlString)
+        else {
+          result(FlutterError(code: "INVALID_URL", message: "Missing or invalid URL", details: nil))
+          return
+        }
+        DispatchQueue.main.async {
+          UIApplication.shared.open(url, options: [:]) { success in
+            if success {
+              result(true)
+            } else {
+              result(FlutterError(code: "UNAVAILABLE", message: "Failed to open URL", details: nil))
+            }
+          }
+        }
+      default:
+        result(FlutterMethodNotImplemented)
+      }
+    }
   }
 }

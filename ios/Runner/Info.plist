@@ -70,6 +70,12 @@
 	<string>A câmera é necessária para ler as notas fiscais.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>O acesso à galeria é necessário para escolher as fotos das notas fiscais.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Local network access is required to sync household tasks and finances with nearby devices.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_mshsync._tcp</string>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
