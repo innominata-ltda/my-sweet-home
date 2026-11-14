@@ -18,30 +18,12 @@ import 'package:my_sweet_home/features/bills/presentation/bills_list_screen.dart
 import 'package:my_sweet_home/features/bills/presentation/bill_history_controller.dart';
 import 'package:my_sweet_home/features/bills/presentation/bill_history_screen.dart';
 import 'package:my_sweet_home/features/bills/presentation/create_bill_dialog.dart';
-import 'package:my_sweet_home/core/notifications/notification_scheduler_port.dart';
-import 'package:my_sweet_home/core/notifications/scheduled_notification.dart';
+import 'package:my_sweet_home/core/notifications/notification_providers.dart';
 import 'package:my_sweet_home/features/expenses/domain/models/year_month.dart';
 import 'package:my_sweet_home/core/money/money.dart';
 import 'package:my_sweet_home/features/bills/domain/bill_materializer.dart';
 import 'package:my_sweet_home/features/bills/domain/pay_bill_use_case.dart';
 import 'package:my_sweet_home/features/bills/domain/reminder_planner.dart';
-
-class _FakeNotificationScheduler implements NotificationSchedulerPort {
-  @override
-  Future<Result<void, Failure>> cancel(String id) async => const Ok(null);
-
-  @override
-  Future<List<ScheduledNotification>> pending() async => [];
-  @override
-  Future<PermissionState> permission() async => PermissionState.granted;
-  @override
-  Future<Result<void, Failure>> rescheduleAllAfterBoot() async =>
-      const Ok(null);
-  @override
-  Future<Result<void, Failure>> schedule(
-    ScheduledNotification notification,
-  ) async => const Ok(null);
-}
 
 class BillsPageContainer extends ConsumerStatefulWidget {
   const BillsPageContainer({super.key});
@@ -59,7 +41,7 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
     _controller = BillsListController(
       billRepository: ref.read(billRepositoryProvider),
       paymentRepository: ref.read(billPaymentRepositoryProvider),
-      notificationScheduler: _FakeNotificationScheduler(),
+      notificationScheduler: ref.read(notificationSchedulerProvider),
       preferences: ref.read(billsPreferencesProvider),
       statusPolicy: DefaultBillStatusPolicy(),
       batteryWarningService: ref.read(batteryWarningServiceProvider),
@@ -178,7 +160,7 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
           ref.read(billPaymentRepositoryProvider),
           ref.read(billRepositoryProvider),
           ref.read(expenseRepositoryProvider),
-          _FakeNotificationScheduler(),
+          ref.read(notificationSchedulerProvider),
         );
         final res = await useCase(
           item.payment.id,
@@ -201,7 +183,7 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
           ref.read(billRepositoryProvider),
           ref.read(expenseRepositoryProvider),
           const DefaultReminderPlanner(),
-          _FakeNotificationScheduler(),
+          ref.read(notificationSchedulerProvider),
           ref.read(clockProvider),
         );
         final res = await useCase(item.payment.id);

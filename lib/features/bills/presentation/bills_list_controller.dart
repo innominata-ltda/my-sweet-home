@@ -134,9 +134,7 @@ class BillsListController extends ValueNotifier<BillsListState> {
   }
 
   Future<void> requestNotificationPermission() async {
-    // Usually the port has a request method. Wait, does NotificationSchedulerPort have a request method?
-    // Let's assume we can re-evaluate permission. In a real app we'd trigger a request.
-    // For now we just load again.
+    await _notificationScheduler.requestPermission();
     await load();
   }
 

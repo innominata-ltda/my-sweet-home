@@ -36,6 +36,11 @@ class RecordingScheduler implements NotificationSchedulerPort {
   }
 
   @override
+  Future<PermissionState> requestPermission() async {
+    return _permission;
+  }
+
+  @override
   Future<Result<void, Failure>> rescheduleAllAfterBoot() async {
     return const Ok(null);
   }

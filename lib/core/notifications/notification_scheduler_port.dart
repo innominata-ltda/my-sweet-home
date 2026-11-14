@@ -7,5 +7,6 @@ abstract interface class NotificationSchedulerPort {
   Future<Result<void, Failure>> cancel(String id);
   Future<List<ScheduledNotification>> pending();
   Future<PermissionState> permission();
+  Future<PermissionState> requestPermission();
   Future<Result<void, Failure>> rescheduleAllAfterBoot();
 }

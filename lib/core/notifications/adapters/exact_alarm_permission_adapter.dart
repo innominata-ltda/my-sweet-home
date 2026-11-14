@@ -8,17 +8,21 @@ import 'package:my_sweet_home/core/notifications/exact_alarm_permission_port.dar
 class ExactAlarmPermissionAdapter implements ExactAlarmPermissionPort {
   final FlutterLocalNotificationsPlugin? plugin;
   final MethodChannel channel;
+  final bool? isAndroidOverride;
 
   ExactAlarmPermissionAdapter({
     this.plugin,
     this.channel = const MethodChannel(
       'br.com.innominata.mysweethome/exact_alarm',
     ),
+    this.isAndroidOverride,
   });
+
+  bool get _isAndroid => isAndroidOverride ?? Platform.isAndroid;
 
   @override
   Future<bool> canScheduleExact() async {
-    if (!Platform.isAndroid) return true;
+    if (!_isAndroid) return true;
 
     try {
       if (plugin != null) {
@@ -41,7 +45,7 @@ class ExactAlarmPermissionAdapter implements ExactAlarmPermissionPort {
 
   @override
   Future<void> openSettings() async {
-    if (!Platform.isAndroid) return;
+    if (!_isAndroid) return;
 
     try {
       if (plugin != null) {
