@@ -43,7 +43,7 @@ updates:
           - "patch"
 
   - package-ecosystem: "bundler"
-    directory: "/android"
+    directory: "/"
     target-branch: "develop"
     schedule:
       interval: "weekly"
