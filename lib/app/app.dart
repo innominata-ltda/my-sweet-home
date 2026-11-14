@@ -31,13 +31,26 @@ class _MySweetHomeAppState extends ConsumerState<MySweetHomeApp> {
   void initState() {
     super.initState();
     _lifecycleListener = AppLifecycleListener(onResume: _scheduleRetention);
-    WidgetsBinding.instance.addPostFrameCallback((_) => _scheduleRetention());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _rescheduleOnBoot();
+      _scheduleRetention();
+    });
   }
 
   @override
   void dispose() {
     _lifecycleListener.dispose();
     super.dispose();
+  }
+
+  void _rescheduleOnBoot() {
+    try {
+      unawaited(
+        ref.read(notificationSchedulerProvider).rescheduleAllAfterBoot(),
+      );
+    } catch (_) {
+      // Ignored in isolated widget tests without database overrides.
+    }
   }
 
   void _scheduleRetention() {
