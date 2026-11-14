@@ -1,10 +1,17 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/data/backup_service_provider.dart';
 import 'package:my_sweet_home/features/backup/domain/backup_service.dart';
 import 'package:my_sweet_home/features/backup/presentation/import_backup_controller.dart';
+
+typedef PickBackupContent = Future<String?> Function();
 
 /// Backup import screen with preview and mode selection (RN-232).
 ///
@@ -16,11 +23,13 @@ class ImportBackupScreen extends ConsumerStatefulWidget {
     this.jsonContent,
     this.backupService,
     this.controller,
+    this.pickBackupContent,
   });
 
   final String? jsonContent;
   final BackupService? backupService;
   final ImportBackupController? controller;
+  final PickBackupContent? pickBackupContent;
 
   @override
   ConsumerState<ImportBackupScreen> createState() => _ImportBackupScreenState();
@@ -314,11 +323,104 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
             );
           }
 
-          return const Center(
-            child: Text('Nenhum backup selecionado para pré-visualização.'),
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(AppIcons.restore, size: 64, color: Colors.blue),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Nenhum backup selecionado para pré-visualização.',
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 24),
+                  ElevatedButton.icon(
+                    key: const Key('import_backup_pick_file_button'),
+                    onPressed: _pickAndLoadBackup,
+                    icon: const Icon(AppIcons.fileExport),
+                    label: const Text('Selecionar arquivo de backup'),
+                  ),
+                ],
+              ),
+            ),
           );
         },
       ),
     );
+  }
+
+  Future<String?> _defaultPickBackupContent() async {
+    final files = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['json', 'mshbackup', 'txt'],
+    );
+    if (files.isEmpty) return null;
+    final path = files.single.path;
+    if (path != null) {
+      return File(path).readAsString();
+    }
+    return null;
+  }
+
+  bool _isEncryptedEnvelope(String raw) {
+    try {
+      final decoded = jsonDecode(raw);
+      return decoded is Map<String, dynamic> &&
+          decoded.containsKey('salt') &&
+          decoded.containsKey('ciphertext');
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<void> _pickAndLoadBackup() async {
+    final picker = widget.pickBackupContent ?? _defaultPickBackupContent;
+    final content = await picker();
+    if (content == null || content.isEmpty || !mounted) return;
+
+    if (!_isEncryptedEnvelope(content)) {
+      await _controller.loadPreview(content);
+      return;
+    }
+
+    var passwordInput = '';
+    final password = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Backup Criptografado'),
+        content: TextField(
+          key: const Key('import_encrypted_password_field'),
+          onChanged: (v) => passwordInput = v,
+          obscureText: true,
+          decoration: const InputDecoration(labelText: 'Senha do backup'),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            key: const Key('import_encrypted_confirm_button'),
+            onPressed: () => Navigator.of(ctx).pop(passwordInput),
+            child: const Text('Restaurar'),
+          ),
+        ],
+      ),
+    );
+    if (password == null || password.isEmpty || !mounted) return;
+
+    final res = await _controller.backupService.importEncryptedBackup(
+      content,
+      password,
+    );
+    if (!mounted) return;
+    final message = switch (res) {
+      Ok() => 'Backup restaurado com sucesso!',
+      Err(:final failure) => 'Falha ao restaurar backup: $failure',
+    };
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 }
