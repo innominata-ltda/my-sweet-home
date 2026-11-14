@@ -2112,6 +2112,30 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Receitas Favoritas'**
   String get dashboardCardFavoriteRecipes;
+
+  /// No description provided for @settingsRetentionNotificationsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lembretes gentis da Momo'**
+  String get settingsRetentionNotificationsTitle;
+
+  /// No description provided for @settingsRetentionNotificationsSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Avisar em intervalos espaçados se você ficar dias sem abrir o app'**
+  String get settingsRetentionNotificationsSubtitle;
+
+  /// No description provided for @retentionNotificationTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'A Momo sentiu sua falta!'**
+  String get retentionNotificationTitle;
+
+  /// No description provided for @retentionNotificationBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Faz {days} dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?'**
+  String retentionNotificationBody(int days);
 }
 
 class _AppLocalizationsDelegate

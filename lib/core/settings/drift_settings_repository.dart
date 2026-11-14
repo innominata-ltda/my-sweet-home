@@ -246,4 +246,49 @@ class DriftSettingsRepository implements SettingsRepository {
           ),
         );
   }
+
+  @override
+  Future<bool> isRetentionNotificationsEnabled() async {
+    final setting =
+        await (_db.select(_db.settings)..where(
+              (tbl) => tbl.key.equals('retention_notifications_enabled'),
+            ))
+            .getSingleOrNull();
+    if (setting == null) return true;
+    return setting.value == 'true';
+  }
+
+  @override
+  Future<void> setRetentionNotificationsEnabled(bool value) async {
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('retention_notifications_enabled'),
+            value: Value(value.toString()),
+          ),
+        );
+  }
+
+  @override
+  Future<DateTime?> getLastAppOpenTimestamp() async {
+    final setting =
+        await (_db.select(_db.settings)
+              ..where((tbl) => tbl.key.equals('last_app_open_timestamp')))
+            .getSingleOrNull();
+    if (setting == null || setting.value.isEmpty) return null;
+    return DateTime.tryParse(setting.value);
+  }
+
+  @override
+  Future<void> setLastAppOpenTimestamp(DateTime timestamp) async {
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('last_app_open_timestamp'),
+            value: Value(timestamp.toIso8601String()),
+          ),
+        );
+  }
 }
