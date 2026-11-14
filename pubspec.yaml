@@ -59,11 +59,6 @@ flutter:
   uses-material-design: true
   generate: true
 
-hooks:
-  user_defines:
-    sqlite3:
-      source: sqlite3mc
-
   assets:
     - assets/licenses/
     - assets/seed/
@@ -77,3 +72,8 @@ hooks:
           weight: 500
         - asset: assets/fonts/nunito/Nunito-Bold.ttf
           weight: 700
+
+hooks:
+  user_defines:
+    sqlite3:
+      source: sqlite3mc
