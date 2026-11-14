@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/app/app.dart';
 import 'package:my_sweet_home/app/bootstrap.dart';
@@ -7,6 +8,7 @@ import 'package:my_sweet_home/app/error_boundary.dart';
 import 'package:my_sweet_home/app/providers.dart';
 import 'package:my_sweet_home/app/router.dart';
 import 'package:my_sweet_home/core/id/id_generator.dart';
+import 'package:my_sweet_home/core/notifications/notification_bootstrap.dart';
 import 'package:my_sweet_home/core/recurrence/materializer.dart';
 import 'package:my_sweet_home/core/settings/drift_settings_repository.dart';
 import 'package:my_sweet_home/core/time/clock.dart';
@@ -22,6 +24,7 @@ import 'package:my_sweet_home/features/expenses/data/recurrence/expense_material
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeLocalNotifications(FlutterLocalNotificationsPlugin());
 
   setupGlobalErrorHandling();
 

@@ -1,8 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/app/providers.dart';
+import 'package:my_sweet_home/core/notifications/notification_providers.dart';
 import 'package:my_sweet_home/core/trash/trash_policy.dart';
 import 'package:my_sweet_home/features/tasks/data/task_dao.dart';
+import 'package:my_sweet_home/features/tasks/domain/notifying_task_repository.dart';
 import 'package:my_sweet_home/features/tasks/domain/repositories.dart';
+import 'package:my_sweet_home/features/tasks/domain/task_reminder_planner.dart';
 import 'package:my_sweet_home/features/tasks/domain/task_sync_service.dart';
 import 'package:my_sweet_home/features/tasks/domain/calendar_gateway_port.dart';
 import 'package:my_sweet_home/features/tasks/domain/sync_executor.dart';
@@ -10,14 +13,21 @@ import 'package:my_sweet_home/features/tasks/data/adapters/google_calendar_adapt
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 
 final taskRepositoryProvider = Provider<TaskRepository>((ref) {
-  return TaskDao(
+  final clock = ref.watch(clockProvider);
+  final dao = TaskDao(
     db: ref.watch(databaseProvider),
-    clock: ref.watch(clockProvider),
+    clock: clock,
     idGenerator: ref.watch(idGeneratorProvider),
     trashPolicy: DriftTrashPolicy(
       db: ref.watch(databaseProvider),
-      clock: ref.watch(clockProvider),
+      clock: clock,
     ),
+  );
+  return NotifyingTaskRepository(
+    inner: dao,
+    scheduler: ref.watch(notificationSchedulerProvider),
+    planner: const DefaultTaskReminderPlanner(),
+    clock: clock,
   );
 });
 
