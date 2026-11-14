@@ -31,7 +31,9 @@ import 'package:share_plus/share_plus.dart';
 
 /// Shared household management screen (P2P sync) (RF-120..127, CA-4.1..4.4).
 class HouseholdScreen extends ConsumerStatefulWidget {
-  const HouseholdScreen({super.key});
+  const HouseholdScreen({super.key, this.initialInviteUri});
+
+  final String? initialInviteUri;
 
   @override
   ConsumerState<HouseholdScreen> createState() => _HouseholdScreenState();
@@ -48,6 +50,10 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _startLanTransportIfActive();
+      final invite = widget.initialInviteUri;
+      if (mounted && invite != null && invite.isNotEmpty) {
+        _showJoinHouseholdDialog(context, null, initialInvite: invite);
+      }
     });
   }
 
@@ -620,8 +626,12 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     );
   }
 
-  void _showJoinHouseholdDialog(BuildContext context, AppLocalizations? l10n) {
-    final inviteController = TextEditingController();
+  void _showJoinHouseholdDialog(
+    BuildContext context,
+    AppLocalizations? l10n, {
+    String? initialInvite,
+  }) {
+    final inviteController = TextEditingController(text: initialInvite ?? '');
     final deviceNameController = TextEditingController(text: 'Meu celular');
 
     showDialog<void>(

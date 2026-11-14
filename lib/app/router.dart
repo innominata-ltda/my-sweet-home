@@ -63,6 +63,12 @@ GoRouter appRouter(Ref ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: ref.watch(initialRouteProvider),
+    redirect: (context, state) {
+      if (state.uri.scheme == 'mshsync') {
+        return '/ajustes/casa?invite=${Uri.encodeComponent(state.uri.toString())}';
+      }
+      return null;
+    },
     routes: [
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
@@ -233,7 +239,19 @@ GoRouter appRouter(Ref ref) {
       ),
       GoRoute(
         path: '/ajustes/casa',
-        builder: (context, state) => const HouseholdScreen(),
+        builder: (context, state) => HouseholdScreen(
+          initialInviteUri: state.uri.queryParameters['invite'],
+        ),
+      ),
+      GoRoute(
+        path: '/invite',
+        redirect: (context, state) {
+          final query = state.uri.query;
+          final raw = query.isNotEmpty
+              ? 'mshsync://invite?$query'
+              : 'mshsync://invite';
+          return '/ajustes/casa?invite=${Uri.encodeComponent(raw)}';
+        },
       ),
       GoRoute(path: '/about', builder: (context, state) => const AboutPage()),
 
