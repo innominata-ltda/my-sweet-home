@@ -61,9 +61,9 @@ Future<void> _configureLocalTimezone({
     return;
   }
 
-  final offsetMs = clock.nowLocal().timeZoneOffset.inMilliseconds;
+  final offset = clock.nowLocal().timeZoneOffset;
   for (final location in tz.timeZoneDatabase.locations.values) {
-    if (location.currentTimeZone.offset == offsetMs) {
+    if (location.currentTimeZone.offset == offset) {
       tz.setLocalLocation(location);
       return;
     }
