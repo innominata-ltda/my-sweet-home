@@ -39,7 +39,7 @@ abstract final class AppIcons {
   static const bill = Icons.receipt_long_outlined;
   static const product = Icons.inventory_2_outlined;
   static const store = Icons.store_outlined;
-  static const budget = Icons.savings_outlined;
+  static const budget = Icons.account_balance_wallet_outlined;
   static const notification = Icons.notifications_outlined;
   static const calendar = Icons.calendar_today_outlined;
   static const time = Icons.access_time_outlined;
@@ -80,7 +80,7 @@ abstract final class AppIcons {
   static const radioButtonOff = Icons.radio_button_off;
 
   // 005
-  static const expense = Icons.money_off_outlined;
+  static const expense = Icons.payments_outlined;
   static const category = Icons.category_outlined;
   static const recurring = Icons.repeat;
   static const export = Icons.import_export;
