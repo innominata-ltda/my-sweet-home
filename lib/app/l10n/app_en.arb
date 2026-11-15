@@ -1118,3 +1118,163 @@
         "type": "String"
       }
     }
+  },
+  "checklistDefaultListName": "Home List (Checklist)",
+  "checklistExportBody": "Create a shopping list with the {count} pending checklist items.",
+  "@checklistExportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListNameLabel": "List name *",
+  "checklistListCreated": "List \"{name}\" created with {count} items!",
+  "@checklistListCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListCreateError": "Failed to create list: {error}",
+  "@checklistListCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistGenerateListButton": "Generate list",
+  "checklistCardSemantics": "{title}, {percent}% completed, tap to view details",
+  "@checklistCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeVisibleCardsCount": "Visible cards ({count})",
+  "@customizeVisibleCardsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customizeReorderHint": "Drag to reorder or use the accessible buttons.",
+  "customizeNoVisibleCards": "No cards visible right now.",
+  "customizeAvailableModulesHint": "Modules available to add to your home screen.",
+  "customizeAllCardsVisible": "All cards are already visible on the dashboard.",
+  "customizeDragSemantics": "Drag {title} to reorder",
+  "@customizeDragSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveUpSemantics": "Move {title} up",
+  "@customizeMoveUpSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveDownSemantics": "Move {title} down",
+  "@customizeMoveDownSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeHideSemantics": "Hide {title}",
+  "@customizeHideSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeAddSemantics": "Add {title} to dashboard",
+  "@customizeAddSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsWidgetSemantics": "Due bills widget",
+  "dueBillsDefaultTitle": "Due bills",
+  "dueBillsEmptyTitle": "No bills due",
+  "dueBillsEmptyDescription": "All your bills this month are up to date.",
+  "dueBillsVariableAmount": "Variable",
+  "dueBillsItemSemanticsHidden": "{title}, {dueLabel}, amount hidden",
+  "@dueBillsItemSemanticsHidden": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsItemSemanticsVisible": "{title}, {dueLabel}, amount {amount}",
+  "@dueBillsItemSemanticsVisible": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsViewAll": "View all bills",
+  "economySetGoalTitle": "Set Savings Goal",
+  "economySetGoalFieldLabel": "Monthly Savings Goal",
+  "economySaveGoalButton": "Save Goal",
+  "economyLoadError": "Error loading data: {error}",
+  "@economyLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "economyMonthGoalTitle": "Month Goal ({month})",
+  "@economyMonthGoalTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "economySetGoalFallback": "Set savings goal",
+  "economyCardSemantics": "{title}, {goalText}, tap to view details",
+  "@economyCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "goalText": {
+        "type": "String"
+      }
+    }
+  },
+  "searchGlobalScreenTitle": "Global Search",
+  "searchGlobalLabel": "Search across the app",
+  "searchGlobalInputHint": "Type products, expenses, tasks...",
+  "searchGlobalEmptyTitle": "App search",
