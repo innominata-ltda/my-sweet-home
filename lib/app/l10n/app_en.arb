@@ -1918,3 +1918,163 @@
   "ocrSubtotalInputLabel": "Subtotal",
   "ocrDiscountInputLabel": "Discount",
   "ocrReadTotalInputLabel": "Read total",
+  "ocrRegisterNewProductTitle": "Register new product",
+  "ocrCanonicalNameRequiredLabel": "Canonical name *",
+  "ocrCanonicalNameHint": "E.g.: Whole Milk 1L",
+  "ocrCanonicalNameRequiredError": "Enter the canonical name",
+  "ocrCategoryRequiredLabel": "Category *",
+  "ocrCategoryHint": "E.g.: Food, Cleaning, etc.",
+  "ocrCategoryRequiredError": "Enter the category",
+  "ocrDefaultUnitRequiredLabel": "Default unit *",
+  "ocrAliasesOptionalLabel": "Aliases / Synonyms (optional)",
+  "ocrAliasesHint": "Comma-separated",
+  "ocrLinkProductTitle": "Link product",
+  "ocrProductNameSearchLabel": "Product name",
+  "ocrProductNameSearchHint": "Type product name",
+  "ocrRegisterNamedAsNew": "Register \"{name}\" as new product",
+  "@ocrRegisterNamedAsNew": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrSuggestedProductsLabel": "Suggested products:",
+  "ocrProductMetaRow": "Category: {category} | Unit: {unit}",
+  "@ocrProductMetaRow": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNoExistingProductFound": "No existing product found with that name.",
+  "ocrNoneLinked": "None",
+  "ocrItemDescriptionLabel": "Read description / Name *",
+  "ocrItemDescriptionError": "Enter name or description",
+  "ocrQuantityRequiredLabel": "Quantity *",
+  "ocrQuantityRequiredError": "Enter qty",
+  "ocrQuantityInvalidError": "Invalid qty",
+  "ocrUnitRequiredLabel": "Unit *",
+  "ocrUnitPriceRequiredLabel": "Unit price *",
+  "ocrTotalPriceRequiredLabel": "Total price *",
+  "ocrIncludeItemInPurchase": "Include item in purchase",
+  "ocrLinkedProductLabel": "Linked product:",
+  "ocrChangeOrLinkButton": "Change / Link",
+  "ocrRegisterProductButton": "Register product",
+  "ocrUnlinkTooltip": "Remove link",
+  "ocrUnnamedItemFallback": "Unnamed item",
+  "ocrTotalReadColonLabel": "Receipt total read:",
+  "ocrSelectedItemsSumColonLabel": "Selected items sum:",
+  "ocrItemSelectHint": "Select {title}",
+  "@ocrItemSelectHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncFailure": "Sync failed: {error}",
+  "@householdSyncFailure": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncAppliedSuffix": " ({count} changes applied).",
+  "@householdSyncAppliedSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncSentSuffix": " ({count} changes sent).",
+  "@householdSyncSentSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncCompleted": "Sync completed: {sent} changes sent, {applied} applied.",
+  "@householdSyncCompleted": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdCloudSyncNoChanges": "Cloud sync completed. No pending changes.",
+  "householdSyncUnexpectedError": "Unexpected sync error: {error}",
+  "@householdSyncUnexpectedError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHowSyncWorksTooltip": "How sync works",
+  "householdImportBundleButton": "Import bundle",
+  "householdCloudSyncTitle": "Allow remote household sync (cloud)",
+  "householdCloudSyncSubtitle": "Sync outside home Wi-Fi with end-to-end encryption",
+  "householdCalendarLocalTitle": "Sync calendar on this device",
+  "householdCalendarLocalSubtitle": "Avoids duplicates by syncing Google Calendar tasks only here",
+  "householdMembersLoadError": "Error loading members: {error}",
+  "@householdMembersLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdThisDevice": "This device",
+  "householdLastSeen": "Last seen: {time}",
+  "@householdLastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "householdNeverSynced": "Never synced",
+  "householdRemoveMemberTooltip": "Remove member",
+  "householdDefaultDeviceName": "My phone",
+  "householdJoinDialogTitle": "Join a household",
+  "householdScanQrButton": "Scan QR Code with camera",
+  "householdInviteCodeLabel": "Invite code or link",
+  "householdInviteCodeHint": "Paste the mshsync:// link or scan the QR Code",
+  "householdPasteCodeTooltip": "Paste code",
+  "householdDeviceNameLabel": "Name of this device",
+  "householdInvalidInviteError": "Invalid invite code. Check the link or QR Code.",
+  "householdHostDeviceFallback": "Host Device",
+  "householdInviteGenerateError": "Could not generate pairing invite.",
+  "householdInviteDialogTitle": "Invite device",
+  "householdInviteDialogPrompt": "Scan this QR Code on the other device or send the link below:",
+  "householdCopyLinkButton": "Copy link",
+  "householdInviteLinkCopied": "Invite link copied!",
+  "householdSasCodeLabel": "SAS authentication code (6 digits):",
+  "householdRemoveMemberDialogTitle": "Remove \"{name}\"?",
+  "@householdRemoveMemberDialogTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdRemoveMemberDialogBody": "When removing the device, the household key will be rotated and it will no longer be able to sync new data.",
+  "householdDefaultHouseName": "My Home",
+  "householdDefaultDeviceNameAlt": "My Device",
+  "householdEmptyHouseNameError": "Household name cannot be empty.",
+  "householdEmptyDeviceNameError": "Device name cannot be empty.",
+  "householdUnexpectedErrorWithDetail": "Unexpected error: {error}",
+  "@householdUnexpectedErrorWithDetail": {
+    "placeholders": {
+      "error": {
