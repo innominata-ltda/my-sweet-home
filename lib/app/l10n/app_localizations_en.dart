@@ -3518,3 +3518,104 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get householdLeaveKeepLocalTitle => 'Keep a local copy (recommended)';
 
+  @override
+  String get householdLeaveKeepLocalSubtitle =>
+      'You keep all expenses and tasks created so far.';
+
+  @override
+  String get householdQrCloseTooltip => 'Close camera';
+
+  @override
+  String get householdQrScanPrompt =>
+      'Point the camera at the QR Code displayed on the other device.';
+
+  @override
+  String get householdQrCameraUnavailable =>
+      'Camera unavailable on this device/emulator.\nUse the option to paste the invite link.';
+
+  @override
+  String get householdQrManualEntry => 'Type or paste code manually';
+
+  @override
+  String get householdBundleAlreadyApplied =>
+      'This bundle has already been applied';
+
+  @override
+  String get householdBundleAppliedSuccess => 'Bundle applied successfully!';
+
+  @override
+  String get householdBundleImportTitle => 'Import .mshsync bundle';
+
+  @override
+  String get householdBundleContentLabel => 'Bundle content or path';
+
+  @override
+  String get householdBundleContentHint => 'Paste the .mshsync file data';
+
+  @override
+  String get householdBundleImportAction => 'Import';
+
+  @override
+  String get householdBundleShareTitle => 'Sync bundle';
+
+  @override
+  String get householdBundleShareDescription =>
+      'Generate an encrypted file with this device\'s changes to send via WhatsApp, Telegram, or email.';
+
+  @override
+  String get householdBundleShareAction => 'Share';
+
+  @override
+  String householdBundleGeneratedSuccess(int bytes) {
+    return 'Bundle generated successfully! ($bytes bytes)';
+  }
+
+  @override
+  String get householdQrScanTitle => 'Scan household QR Code';
+
+  @override
+  String get householdLeaveDeleteConfirmBody =>
+      'Are you sure you want to delete all shared household data on this device?\n\nThis action cannot be undone.';
+
+  @override
+  String get householdLeaveWipeSubtitle =>
+      'Removes shared expenses, bills, and tasks from this device.';
+
+  @override
+  String householdTutorialStepOf(int current, int total) {
+    return 'Step $current of $total';
+  }
+
+  @override
+  String get householdJoinPreviewEmptyDeviceError => 'Enter the device name';
+
+  @override
+  String householdJoinPreviewTitle(String name) {
+    return 'Join \"$name\"';
+  }
+
+  @override
+  String get householdJoinPreviewLocalRecordsTitle => 'Local records to merge:';
+
+  @override
+  String get householdJoinPreviewHomeLabel => 'Home (lists, tasks, recipes):';
+
+  @override
+  String householdSyncBothSuffix(int sent, int applied) {
+    return ' ($sent sent, $applied applied).';
+  }
+
+  @override
+  String householdSyncPeersCompleted(int peers, String summary) {
+    return 'Synced with $peers device(s)$summary';
+  }
+
+  @override
+  String get householdSyncNoPeersFound =>
+      'No other devices found on the local network right now.';
+
+  @override
+  String householdLoadError(String error) {
+    return 'Error loading household data: $error';
+  }
+}
