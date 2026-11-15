@@ -5660,6 +5660,166 @@ abstract class AppLocalizations {
   /// No description provided for @ocrTotalPriceRequiredLabel.
   ///
   /// In pt, this message translates to:
+  /// **'Preço total (R\$) *'**
+  String get ocrTotalPriceRequiredLabel;
+
+  /// No description provided for @ocrIncludeItemInPurchase.
+  ///
+  /// In pt, this message translates to:
+  /// **'Incluir item na compra'**
+  String get ocrIncludeItemInPurchase;
+
+  /// No description provided for @ocrLinkedProductLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produto vinculado:'**
+  String get ocrLinkedProductLabel;
+
+  /// No description provided for @ocrChangeOrLinkButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Trocar / Vincular'**
+  String get ocrChangeOrLinkButton;
+
+  /// No description provided for @ocrRegisterProductButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar produto'**
+  String get ocrRegisterProductButton;
+
+  /// No description provided for @ocrUnlinkTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover vínculo'**
+  String get ocrUnlinkTooltip;
+
+  /// No description provided for @ocrUnnamedItemFallback.
+  ///
+  /// In pt, this message translates to:
+  /// **'Item sem nome'**
+  String get ocrUnnamedItemFallback;
+
+  /// No description provided for @ocrTotalReadColonLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Total lido do cupom:'**
+  String get ocrTotalReadColonLabel;
+
+  /// No description provided for @ocrSelectedItemsSumColonLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Soma dos itens selecionados:'**
+  String get ocrSelectedItemsSumColonLabel;
+
+  /// No description provided for @ocrItemSelectHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecionar {title}'**
+  String ocrItemSelectHint(String title);
+
+  /// No description provided for @householdSyncFailure.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha na sincronização: {error}'**
+  String householdSyncFailure(String error);
+
+  /// No description provided for @householdSyncAppliedSuffix.
+  ///
+  /// In pt, this message translates to:
+  /// **' ({count} alterações aplicadas).'**
+  String householdSyncAppliedSuffix(int count);
+
+  /// No description provided for @householdSyncSentSuffix.
+  ///
+  /// In pt, this message translates to:
+  /// **' ({count} alterações enviadas).'**
+  String householdSyncSentSuffix(int count);
+
+  /// No description provided for @householdSyncCompleted.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronização concluída: {sent} alterações enviadas, {applied} aplicadas.'**
+  String householdSyncCompleted(int sent, int applied);
+
+  /// No description provided for @householdCloudSyncNoChanges.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronização em nuvem concluída. Nenhuma alteração pendente.'**
+  String get householdCloudSyncNoChanges;
+
+  /// No description provided for @householdSyncUnexpectedError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro inesperado na sincronização: {error}'**
+  String householdSyncUnexpectedError(String error);
+
+  /// No description provided for @householdHowSyncWorksTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Como funciona a sincronização'**
+  String get householdHowSyncWorksTooltip;
+
+  /// No description provided for @householdImportBundleButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar pacote'**
+  String get householdImportBundleButton;
+
+  /// No description provided for @householdCloudSyncTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Permitir sincronização remota da casa (nuvem)'**
+  String get householdCloudSyncTitle;
+
+  /// No description provided for @householdCloudSyncSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronizar fora do Wi-Fi doméstico com criptografia de ponta a ponta'**
+  String get householdCloudSyncSubtitle;
+
+  /// No description provided for @householdCalendarLocalTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronizar agenda neste aparelho'**
+  String get householdCalendarLocalTitle;
+
+  /// No description provided for @householdCalendarLocalSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Evita duplicação sincronizando tarefas do Google Calendar só aqui'**
+  String get householdCalendarLocalSubtitle;
+
+  /// No description provided for @householdMembersLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar membros: {error}'**
+  String householdMembersLoadError(String error);
+
+  /// No description provided for @householdThisDevice.
+  ///
+  /// In pt, this message translates to:
+  /// **'Este aparelho'**
+  String get householdThisDevice;
+
+  /// No description provided for @householdLastSeen.
+  ///
+  /// In pt, this message translates to:
+  /// **'Visto por último: {time}'**
+  String householdLastSeen(String time);
+
+  /// No description provided for @householdNeverSynced.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nunca sincronizou'**
+  String get householdNeverSynced;
+
+  /// No description provided for @householdRemoveMemberTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover membro'**
+  String get householdRemoveMemberTooltip;
+
+  /// No description provided for @householdDefaultDeviceName.
 }
 
 class _AppLocalizationsDelegate
