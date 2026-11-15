@@ -18,9 +18,11 @@ class EconomyDashboardCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final EconomyController effectiveController =
         controller ?? ref.watch(economyControllerProvider);
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
-    final title = l10n?.dashboardCardEconomyGoal ?? 'Modo Economia';
+    final title = l10n.dashboardCardEconomyGoal;
 
     return ValueListenableBuilder<EconomyState>(
       valueListenable: effectiveController,
@@ -29,13 +31,13 @@ class EconomyDashboardCard extends ConsumerWidget {
         final hasGoal = goal != null && goal.target.cents > 0;
         final goalText = hasGoal
             ? goal.target.formatPtBr()
-            : 'Definir meta de economia';
+            : l10n.economySetGoalFallback;
         final message = state.assessment?.statusMessage;
 
         return Semantics(
           container: true,
           button: true,
-          label: '$title, $goalText, toque para ver detalhes',
+          label: l10n.economyCardSemantics(title, goalText),
           child: AppCard(
             key: const Key('economy_dashboard_card'),
             onTap: onTap,

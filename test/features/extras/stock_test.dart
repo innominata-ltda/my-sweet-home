@@ -133,7 +133,7 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        expect(find.text('Estoque Doméstico'), findsOneWidget);
+        expect(find.text('Estoque doméstico'), findsOneWidget);
         expect(find.text('Produto: prod-sabao'), findsOneWidget);
         expect(
           find.textContaining('Quantidade informada: 3.0 un'),
@@ -214,7 +214,7 @@ void main() {
 
         await tester.pumpAndSettle();
 
-        expect(find.text('Estoque Doméstico'), findsOneWidget);
+        expect(find.text('Estoque doméstico'), findsOneWidget);
         expect(find.text('Produto: prod-cafe'), findsOneWidget);
         expect(find.text('Está acabando'), findsOneWidget);
       },
