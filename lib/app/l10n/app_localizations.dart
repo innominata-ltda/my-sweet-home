@@ -4220,6 +4220,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Erro ao carregar contas a vencer: {error}'**
   String dueBillsWidgetLoadError(String error);
+
+  /// No description provided for @shoppingListCompletedCelebration.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você completou a lista de compras! 💕'**
+  String get shoppingListCompletedCelebration;
+
+  /// No description provided for @shoppingListRegisterPurchaseTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Registrar compra'**
+  String get shoppingListRegisterPurchaseTitle;
+
+  /// No description provided for @shoppingListManageLists.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gerenciar listas'**
+  String get shoppingListManageLists;
+
+  /// No description provided for @shoppingListClearPurchased.
+  ///
+  /// In pt, this message translates to:
+  /// **'Limpar comprados'**
+  String get shoppingListClearPurchased;
+
+  /// No description provided for @shoppingListItemsMarkedCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'{marked} de {total} itens marcados'**
+  String shoppingListItemsMarkedCount(int marked, int total);
+
+  /// No description provided for @shoppingListEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicione itens para não esquecer nada no mercado.'**
+  String get shoppingListEmptyDescription;
+
+  /// No description provided for @shoppingShortcutPurchases.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compras'**
+  String get shoppingShortcutPurchases;
+
+  /// No description provided for @shoppingShortcutPrices.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preços'**
+  String get shoppingShortcutPrices;
+
+  /// No description provided for @shoppingShortcutStock.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estoque'**
+  String get shoppingShortcutStock;
+
+  /// No description provided for @shoppingQuantitySemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade'**
+  String get shoppingQuantitySemantics;
+
+  /// No description provided for @shoppingQuantityShortLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Qtd'**
+  String get shoppingQuantityShortLabel;
+
+  /// No description provided for @shoppingUnitSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unidade de medida'**
+  String get shoppingUnitSemantics;
+
+  /// No description provided for @shoppingUnitUnShort.
+  ///
+  /// In pt, this message translates to:
+  /// **'Un'**
+  String get shoppingUnitUnShort;
+
+  /// No description provided for @shoppingErrorSaveChange.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao salvar alteração'**
+  String get shoppingErrorSaveChange;
+
+  /// No description provided for @shoppingErrorAddItem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao adicionar item'**
+  String get shoppingErrorAddItem;
+
+  /// No description provided for @shoppingErrorRemoveItem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao remover item'**
+  String get shoppingErrorRemoveItem;
+
+  /// No description provided for @shoppingErrorClearCompleted.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao limpar itens concluídos'**
+  String get shoppingErrorClearCompleted;
+
+  /// No description provided for @shoppingTileRegisterSingle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Registrar compra deste item'**
+  String get shoppingTileRegisterSingle;
+
+  /// No description provided for @shoppingTileRemoveItem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover item'**
+  String get shoppingTileRemoveItem;
+
+  /// No description provided for @shoppingSheetsMyListsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Minhas Listas de Compras'**
+  String get shoppingSheetsMyListsTitle;
+
+  /// No description provided for @shoppingSheetsNewList.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova Lista'**
+  String get shoppingSheetsNewList;
+
+  /// No description provided for @shoppingSheetsNoLists.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma lista encontrada.'**
+  String get shoppingSheetsNoLists;
+
+  /// No description provided for @shoppingSheetsArchivedCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Arquivada • {count} itens'**
+  String shoppingSheetsArchivedCount(int count);
+
+  /// No description provided for @shoppingSheetsItemsCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'{count} itens'**
+  String shoppingSheetsItemsCount(int count);
+
+  /// No description provided for @shoppingSheetsListOptions.
+  ///
+  /// In pt, this message translates to:
+  /// **'Opções da lista'**
+  String get shoppingSheetsListOptions;
+
+  /// No description provided for @shoppingSheetsDuplicate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Duplicar'**
+  String get shoppingSheetsDuplicate;
+
+  /// No description provided for @shoppingSheetsRename.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
