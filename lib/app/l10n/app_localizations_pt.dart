@@ -3416,4 +3416,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String householdErrorPermissionRequired(String permission) {
+    return 'Permissão necessária: $permission.';
+  }
+
+  @override
+  String get householdErrorCancelled => 'Operação cancelada.';
+
+  @override
+  String get householdErrorGeneric => 'Ocorreu um erro inesperado.';
+
+  @override
+  String get householdTutorialWelcomeTitle => 'Bem-vindo à Casa Compartilhada!';
+
+  @override
+  String get householdTutorialWelcomeBody =>
+      'Aqui você divide listas de compras, tarefas, estoque, receitas e finanças com quem mora com você, sem criar conta em servidor e com criptografia de ponta a ponta.';
+
+  @override
+  String get householdTutorialPairingTitle =>
+      'Pareamento seguro com QR Code e 6 dígitos';
+
+  @override
+  String get householdTutorialPairingBody =>
+      'O novo aparelho lê o QR Code pela câmera (ou usa o link de convite) e ambos confirmam o mesmo código de autenticação de 6 dígitos.';
+
+  @override
+  String get householdTutorialWifiTitle =>
+      'Sincronização no Wi-Fi e por Pacotes';
+
+  @override
+  String get householdTutorialWifiBody =>
+      'Quando os aparelhos estão no mesmo Wi-Fi com o app aberto, as mudanças sincronizam direto na rede local. Você também pode tocar em \"Gerar pacote\" para enviar atualizações por qualquer app de mensagens.';
+
+  @override
+  String get householdTutorialCloudTitle =>
+      'Sincronização fora de casa (Nuvem)';
+
+  @override
+  String get householdTutorialCloudBody =>
+      'Quando vocês não estão no mesmo Wi-Fi (ex.: alguém no mercado), o app pode usar uma caixa postal criptografada na sua nuvem para entregar as mudanças com segurança.';
+
+  @override
+  String get householdTutorialCloseTooltip => 'Fechar tutorial';
+
+  @override
+  String get householdTutorialRemoteQuestion =>
+      'Deseja habilitar a sincronização remota agora?';
+
+  @override
+  String get householdTutorialRemoteYesTitle =>
+      'Sim, habilitar sincronização remota';
+
+  @override
+  String get householdTutorialRemoteYesSubtitle =>
+      'Sincroniza fora do Wi-Fi com criptografia de ponta a ponta';
+
+  @override
+  String get householdTutorialRemoteNoTitle =>
+      'Não, usar apenas Wi-Fi local e pacotes';
+
+  @override
+  String get householdTutorialRemoteNoSubtitle =>
+      'Você poderá ativar depois dentro da tela da Casa Compartilhada';
+
+  @override
+  String get householdTutorialPrevious => 'Anterior';
+
+  @override
+  String get householdTutorialFinish => 'Concluir';
+
+  @override
+  String get householdTutorialNext => 'Próximo';
+
+  @override
+  String householdJoinPreviewError(String error) {
+    return 'Falha ao carregar prévia: $error';
+  }
+
+  @override
+  String get householdJoinPreviewMergeInfo =>
+      'Ao entrar na casa, seus dados locais serão unidos com os da casa. Nenhum dado seu será apagado ou duplicado.';
+
+  @override
+  String get householdJoinPreviewSasLabel =>
+      'Código de autenticação (6 dígitos):';
+
+  @override
+  String get householdJoinPreviewSasHint =>
+      'Confira se este código é idêntico ao exibido no outro aparelho.';
+
+  @override
+  String get householdJoinPreviewFinanceLabel => 'Finanças (despesas, contas):';
+
+  @override
+  String get householdJoinPreviewProductsLabel => 'Catálogo de produtos:';
+
+  @override
+  String get householdJoinPreviewBackupNotice =>
+      'Um backup automático de segurança será gerado antes da adesão.';
+
+  @override
+  String get householdJoinPreviewDeviceNameLabel =>
+      'Nome deste aparelho na casa';
+
+  @override
+  String get householdJoinPreviewDeviceNameHint => 'Ex.: Celular do Alex';
+
+  @override
+  String get householdJoinPreviewJoining => 'Entrando...';
+
+  @override
+  String get householdJoinPreviewJoinButton => 'Entrar na casa';
+
+  @override
+  String get householdLeaveDeleteConfirmTitle => 'Confirmar exclusão dos dados';
+
+  @override
+  String get householdLeaveDeleteIrreversible =>
+      'Esta ação não pode ser desfeita.';
+
+  @override
+  String get householdLeaveDeleteAndExit => 'Apagar e sair';
+
+  @override
+  String get householdLeaveDialogTitle => 'Sair da casa compartilhada';
+
+  @override
+  String get householdLeaveDialogBody =>
+      'Ao sair da casa, este aparelho não receberá nem enviará mais atualizações de sincronização.';
+
+  @override
+  String get householdLeaveKeepLocalTitle =>
+      'Manter uma cópia local (recomendado)';
+
+  @override
+  String get householdLeaveKeepLocalSubtitle =>
+      'Você continua com todas as despesas e tarefas criadas até agora.';
+
+  @override
+  String get householdQrCloseTooltip => 'Fechar câmera';
+
+  @override
+  String get householdQrScanPrompt =>
+      'Aponte a câmera para o QR Code exibido no outro aparelho.';
+
+  @override
+  String get householdQrCameraUnavailable =>
+      'Câmera indisponível neste dispositivo/emulador.\nUse a opção de colar o link de convite.';
+
+  @override
+  String get householdQrManualEntry => 'Digitar ou colar código manualmente';
+
+  @override
+  String get householdBundleAlreadyApplied => 'Este pacote já foi aplicado';
+
+  @override
+  String get householdBundleAppliedSuccess => 'Pacote aplicado com sucesso!';
+
+  @override
+  String get householdBundleImportTitle => 'Importar pacote .mshsync';
+
 }
