@@ -638,3 +638,163 @@
     }
   },
   "commonCancel": "Cancel",
+  "commonContinue": "Continue",
+  "commonSave": "Save",
+  "commonDelete": "Delete",
+  "commonRetry": "Try again",
+  "commonClose": "Close",
+  "commonBack": "Back",
+  "commonDone": "Done",
+  "commonConfirm": "Confirm",
+  "navHome": "Home",
+  "navShopping": "Shopping",
+  "navTasks": "Tasks",
+  "navBills": "Bills",
+  "navExpenses": "Expenses",
+  "navScanReceipt": "Scan Receipt",
+  "pageNotFound": "Page not found",
+  "dashboardSearchTooltip": "Global search",
+  "settingsTitle": "Settings",
+  "dashboardEmptyDescription": "Customize your home dashboard by adding the modules you want.",
+  "mascotGreetingNamed": "Hi! I'm {name} 💕",
+  "@mascotGreetingNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotGreetingSubtitleDefault": "I'm here to help take care of your cozy home with you!",
+  "mascotGreetingSubtitleOverBudget": "Watch out for the bills this month! We're in this together 💕",
+  "mascotGreetingSubtitleNearBudget": "Almost at the budget limit! Let's take care of spending gently 💕",
+  "mascotGreetingSemantics": "Mascot {name}: {title}. {subtitle}",
+  "@mascotGreetingSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "recoveryResetConfirmTitle": "Start from scratch?",
+  "recoveryResetConfirmBody": "All existing local data will be permanently deleted.",
+  "recoveryResetFinalTitle": "Final confirmation",
+  "recoveryResetFinalBody": "This action is irreversible. Are you absolutely sure you want to delete all data and start over?",
+  "recoveryResetFinalConfirm": "Confirm and delete",
+  "recoveryKeyUnavailableAppBar": "Database key unavailable",
+  "recoverySecurityFailureAppBar": "Database security failure",
+  "recoveryKeyUnavailableTitle": "Security key unavailable",
+  "recoveryConversionFailedTitle": "Security conversion failed",
+  "recoveryKeyUnavailableBody": "Could not access the security key on this device. To protect your data, no empty database was created.\n\nYou can restore a previous backup or start from scratch.",
+  "recoveryConversionFailedBody": "Converting the existing database to encrypted format failed, but your data remains intact in the original database.\n\nWe recommend exporting a backup before continuing.",
+  "recoveryImportBackup": "Import backup",
+  "recoveryStartFromScratch": "Start from scratch",
+  "recoveryExportBackup": "Export backup",
+  "recoveryContinuePlaintextSemantics": "Continue in original format",
+  "celebrationDefaultTitle": "Congratulations!",
+  "celebrationDefaultMessage": "You completed everything successfully! 💕",
+  "celebrationMascotSemantics": "Happy Momo celebrating your achievement",
+  "mascotNameFieldSemantics": "Field to change the mascot's name",
+  "mascotNameBlankHelper": "If left blank, we'll use \"{name}\" 💕",
+  "@mascotNameBlankHelper": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotPreviewSemantics": "Preview of mascot {name} in {palette} palette",
+  "@mascotPreviewSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "palette": {
+        "type": "String"
+      }
+    }
+  },
+  "splashInitError": "Oops! Something went wrong during startup.",
+  "onboardingOpenSourceBadge": "Open source, ad-free, and with data saved only on your device",
+  "onboardingFirstHomeTitle": "Setting up your new home?",
+  "onboardingFirstHomeDescription": "If you just moved or are organizing your place for the first time, I can activate a special checklist with essential items to get started!",
+  "onboardingFirstHomeEnable": "Yes, enable first home checklist",
+  "onboardingFirstHomeSkip": "I have everything / Skip",
+  "onboardingPageIndicatorSemantics": "Page {current} of {total}",
+  "@onboardingPageIndicatorSemantics": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutTitle": "About My Sweet Home",
+  "aboutVersionLabel": "Version ",
+  "aboutUpToDate": "You are already on the latest version.",
+  "aboutUpdateCheckFailed": "Could not check for updates right now.",
+  "aboutLicensesTitle": "Open-source licenses",
+  "aboutLicensesSubtitle": "Package and dependency licenses",
+  "aboutAttributionsTitle": "Attributions",
+  "aboutAttributionsSubtitle": "Asset and third-party attributions",
+  "aboutGithubTitle": "Source code on GitHub",
+  "aboutGithubCopied": "GitHub link copied to clipboard.",
+  "aboutDocsTitle": "Documentation and privacy",
+  "aboutDocsCopied": "Documentation link copied to clipboard.",
+  "aboutCheckUpdatesTitle": "Check for updates",
+  "aboutCheckUpdatesSubtitle": "Search for new versions in the app store",
+  "aboutCheckUpdatesPlayStoreOnly": "Available only for Google Play installations",
+  "aboutAttributionsError": "Error loading attributions: {error}",
+  "@aboutAttributionsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsSectionAppearance": "Appearance & Experience",
+  "settingsMascotShortSubtitle": "Animal, color palette, and accessory",
+  "settingsVisualEffectsTitle": "Visual effects and particles",
+  "settingsVisualEffectsSubtitle": "Particles, confetti, and continuous animations",
+  "settingsLanguageTitle": "App language",
+  "settingsLanguageSystem": "Automatic (system)",
+  "settingsLanguageSystemSubtitle": "Follows the language set on your device",
+  "settingsOcrFormatTitle": "Receipt model (OCR)",
+  "settingsOcrFormatAuto": "Automatic (best model)",
+  "settingsOcrFormatAutoSubtitle": "Automatically selects the highest-scoring format",
+  "settingsSectionModules": "Your Home & Modules",
+  "settingsRecipesSubtitle": "Recipe book and ingredients",
+  "settingsStockTitle": "Stock",
+  "settingsStockSubtitle": "Pantry and essential items",
+  "settingsEconomySubtitle": "Savings tips and goals",
+  "settingsChecklistTitle": "1st Home Checklist",
+  "settingsChecklistSubtitle": "Essential items for a new home",
+  "settingsSuggestionsTitle": "Maintenance Suggestions",
+  "settingsSuggestionsSubtitle": "Catalog of suggested home tasks",
+  "settingsProductsTitle": "Products & Aliases",
+  "settingsProductsSubtitle": "Manage product catalog",
+  "settingsSectionPrivacy": "Privacy, Security & Data",
+  "settingsDeleteReceiptPhotoTitle": "Delete receipt photo after scanning",
+  "settingsDeleteReceiptPhotoSubtitle": "Delete image file after OCR processing",
+  "settingsBackupSubtitle": "Export, import, and manage data",
+  "settingsSectionHelp": "Help & About",
+  "settingsAboutTitle": "About",
+  "settingsAboutSubtitle": "Information about the app",
+  "backupMenuExportTitle": "Export Backup",
+  "backupMenuExportSubtitle": "Generate an encrypted file with your data",
+  "backupMenuImportTitle": "Import Backup",
+  "backupMenuImportSubtitle": "Restore or merge data from a backup file",
+  "backupMenuWipeSubtitle": "Permanently delete all stored data",
+  "backupExportShareText": "My Sweet Home encrypted backup",
+  "backupExportEncryptedTitle": "Export Encrypted Data",
+  "backupExportEncryptedSubtitle": "Generate a secure backup file of all your data and photos to save locally or share.",
+  "backupExportError": "Error generating backup: {error}",
+  "@backupExportError": {
+    "placeholders": {
