@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_empty_state.dart';
 import 'package:my_sweet_home/design_system/components/app_loading.dart';
 import 'package:my_sweet_home/design_system/components/app_scaffold.dart';
@@ -26,18 +27,18 @@ class _GlobalSearchScreenState extends ConsumerState<GlobalSearchScreen> {
     super.dispose();
   }
 
-  String _typeTitle(GlobalSearchResultType type) {
+  String _typeTitle(GlobalSearchResultType type, AppLocalizations l10n) {
     switch (type) {
       case GlobalSearchResultType.product:
-        return 'Produtos';
+        return l10n.productsTitle;
       case GlobalSearchResultType.expense:
-        return 'Despesas';
+        return l10n.navExpenses;
       case GlobalSearchResultType.task:
-        return 'Tarefas';
+        return l10n.navTasks;
       case GlobalSearchResultType.recipe:
-        return 'Receitas';
+        return l10n.recipesTitle;
       case GlobalSearchResultType.shoppingList:
-        return 'Listas de Compras';
+        return l10n.shoppingListsTitle;
     }
   }
 
@@ -58,10 +59,13 @@ class _GlobalSearchScreenState extends ConsumerState<GlobalSearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final controller = ref.watch(globalSearchControllerProvider);
 
     return AppScaffold(
-      title: 'Busca Global',
+      title: l10n.searchGlobalScreenTitle,
       body: ValueListenableBuilder<GlobalSearchState>(
         valueListenable: controller,
         builder: (context, state, child) {
@@ -74,8 +78,8 @@ class _GlobalSearchScreenState extends ConsumerState<GlobalSearchScreen> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: AppTextField(
-                  label: 'Buscar em todo o app',
-                  hint: 'Digite produtos, despesas, tarefas...',
+                  label: l10n.searchGlobalLabel,
+                  hint: l10n.searchGlobalInputHint,
                   controller: _searchFieldController,
                   prefixIcon: const Icon(AppIcons.search),
                   onChanged: controller.search,
@@ -84,19 +88,20 @@ class _GlobalSearchScreenState extends ConsumerState<GlobalSearchScreen> {
               if (state.isLoading)
                 const Expanded(child: AppLoading())
               else if (!hasQuery)
-                const Expanded(
+                Expanded(
                   child: AppEmptyState(
-                    title: 'Busca no app',
-                    description: 'Busque por produtos, despesas, tarefas, receitas e listas.',
+                    title: l10n.searchGlobalEmptyTitle,
+                    description: l10n.searchGlobalEmptyDescription,
                     icon: AppIcons.search,
                   ),
                 )
               else if (totalResults == 0)
                 Expanded(
                   child: AppEmptyState(
-                    title: 'Nenhum resultado',
-                    description:
-                        'Não encontramos nada para "${state.query}". Tente outro termo.',
+                    title: l10n.searchGlobalNoResultsTitle,
+                    description: l10n.searchGlobalNoResultsForQuery(
+                      state.query,
+                    ),
                     icon: AppIcons.search,
                   ),
                 )
@@ -118,7 +123,7 @@ class _GlobalSearchScreenState extends ConsumerState<GlobalSearchScreen> {
                                 ),
                                 const SizedBox(width: 8),
                                 Text(
-                                  _typeTitle(type),
+                                  _typeTitle(type, l10n),
                                   style: Theme.of(context).textTheme.titleMedium
                                       ?.copyWith(fontWeight: FontWeight.bold),
                                 ),

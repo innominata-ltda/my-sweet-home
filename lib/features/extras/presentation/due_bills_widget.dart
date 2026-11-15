@@ -35,23 +35,29 @@ class DueBillsWidget extends StatelessWidget {
         }
 
         if (state is DueBillsWidgetError) {
+          final l10n =
+              Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+              lookupAppLocalizations(const Locale('pt'));
           return AppCard(
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                'Erro ao carregar contas a vencer: ${state.failure}',
+                l10n.dueBillsWidgetLoadError('${state.failure}'),
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),
           );
         }
 
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final successState = state as DueBillsWidgetSuccess;
         final theme = Theme.of(context);
 
         return Semantics(
           container: true,
-          label: 'Widget de contas a vencer',
+          label: l10n.dueBillsWidgetSemantics,
           child: AppCard(
             key: const Key('due_bills_widget_card'),
             child: Column(
@@ -72,12 +78,7 @@ class DueBillsWidget extends StatelessWidget {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              title ??
-                                  Localizations.of<AppLocalizations>(
-                                    context,
-                                    AppLocalizations,
-                                  )?.dashboardDueBillsTitle ??
-                                  'Contas a vencer',
+                              title ?? l10n.dueBillsDefaultTitle,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -111,16 +112,10 @@ class DueBillsWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: AppEmptyState.mascot(
-                      title: 'Nenhuma conta a vencer',
-                      description:
-                          'Todas as suas contas deste mês estão em dia.',
+                      title: l10n.dueBillsEmptyTitle,
+                      description: l10n.dueBillsEmptyDescription,
                       mascotExpression: MascotExpression.relaxed,
-                      mascotSemanticLabel:
-                          Localizations.of<AppLocalizations>(
-                            context,
-                            AppLocalizations,
-                          )?.mascotSemanticsRelaxed ??
-                          'Momo está relaxada e tranquila',
+                      mascotSemanticLabel: l10n.mascotSemanticsRelaxed,
                     ),
                   )
                 else
@@ -144,13 +139,21 @@ class DueBillsWidget extends StatelessWidget {
                       } else if (item.amount != null) {
                         amountText = item.amount!.formatPtBr();
                       } else {
-                        amountText = 'Variável';
+                        amountText = l10n.dueBillsVariableAmount;
                       }
 
                       return Semantics(
                         container: true,
-                        label:
-                            '${item.bill.title}, ${item.dueLabel}, ${successState.hideValues ? "valor oculto" : "valor $amountText"}',
+                        label: successState.hideValues
+                            ? l10n.dueBillsItemSemanticsHidden(
+                                item.bill.title,
+                                item.dueLabel,
+                              )
+                            : l10n.dueBillsItemSemanticsVisible(
+                                item.bill.title,
+                                item.dueLabel,
+                                amountText,
+                              ),
                         button: onTapBill != null,
                         child: Container(
                           key: Key('due_bill_item_${item.bill.id}'),
@@ -223,7 +226,7 @@ class DueBillsWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: onTapViewAll,
-                      child: const Text('Ver todas as contas'),
+                      child: Text(l10n.dueBillsViewAll),
                     ),
                   ),
                 ],
