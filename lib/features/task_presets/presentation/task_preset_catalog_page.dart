@@ -292,10 +292,7 @@ class _TaskPresetCatalogPageState extends ConsumerState<TaskPresetCatalogPage> {
           children: [
             Text(_error!),
             const SizedBox(height: 12),
-            FilledButton(
-              onPressed: _loadData,
-              child: Text(l10n?.commonRetry ?? 'Tentar novamente'),
-            ),
+            FilledButton(onPressed: _loadData, child: Text(l10n.commonRetry)),
           ],
         ),
       );

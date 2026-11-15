@@ -132,7 +132,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
         // Ignore absence of lanTransport in environments without socket/Drift
       }
 
-      final l10n = AppLocalizations.of(context)!;
+      final l10n = AppLocalizations.of(context);
       final useCase = ref.read(syncNowUseCaseProvider);
       final report = await useCase.execute();
       if (mounted) {
@@ -191,7 +191,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
       }
     } catch (e) {
       if (mounted) {
-        final l10n = AppLocalizations.of(context)!;
+        final l10n = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.householdSyncUnexpectedError('$e'))),
         );
@@ -477,7 +477,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
         // 3. Section: Household members
         Text(
-          l10n?.householdMembersTitle ?? 'Aparelhos na casa',
+          l10n.householdMembersTitle,
           style: Theme.of(context).textTheme.titleMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
@@ -540,7 +540,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
         // 4. Section: Shared areas
         Text(
-          l10n?.householdAreasTitle ?? 'Áreas compartilhadas',
+          l10n.householdAreasTitle,
           style: Theme.of(context).textTheme.titleMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
@@ -551,10 +551,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
             children: [
               SwitchListTile(
                 key: const Key('area_toggle_home'),
-                title: Text(
-                  l10n?.householdAreaHome ??
-                      'Casa (Tarefas, Estoque, Receitas)',
-                ),
+                title: Text(l10n.householdAreaHome),
                 value: household.sharedAreas.contains(SyncArea.home),
                 onChanged: (val) {
                   final newAreas = Set<SyncArea>.from(household.sharedAreas);
@@ -571,10 +568,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               const Divider(height: 1),
               SwitchListTile(
                 key: const Key('area_toggle_finance'),
-                title: Text(
-                  l10n?.householdAreaFinance ??
-                      'Finanças (Despesas, Contas, Preços)',
-                ),
+                title: Text(l10n.householdAreaFinance),
                 value: household.sharedAreas.contains(SyncArea.finance),
                 onChanged: (val) {
                   final newAreas = Set<SyncArea>.from(household.sharedAreas);
@@ -596,7 +590,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
         // 5. Leave household button (T-15, RF-126)
         AppButton.danger(
           key: const Key('leave_household_button'),
-          label: l10n?.householdLeaveButton ?? 'Sair da casa',
+          label: l10n.householdLeaveButton,
           icon: const Icon(AppIcons.deleteForever),
           fullWidth: true,
           onPressed: () {
@@ -634,7 +628,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     AppLocalizations? l10n, {
     String? initialInvite,
   }) {
-    final loc = l10n ?? AppLocalizations.of(context)!;
+    final loc = l10n ?? AppLocalizations.of(context);
     final inviteController = TextEditingController(text: initialInvite ?? '');
     final deviceNameController = TextEditingController(
       text: loc.householdDefaultDeviceName,
@@ -873,7 +867,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
       invite = res.valueOrNull;
     } catch (_) {
       if (context.mounted) {
-        final loc = AppLocalizations.of(context)!;
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(loc.householdInviteGenerateError)),
         );
@@ -883,7 +877,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
     if (invite == null) {
       if (context.mounted) {
-        final loc = AppLocalizations.of(context)!;
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(loc.householdInviteGenerateError)),
         );
@@ -895,7 +889,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     final sasCode = invite.sasCode;
 
     if (!context.mounted) return;
-    final loc = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context);
 
     await showDialog<void>(
       context: context,
@@ -1003,7 +997,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
   }
 
   void _confirmRemoveMember(BuildContext context, Member member) {
-    final loc = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (ctx) {
@@ -1071,7 +1065,7 @@ class _CreateHouseholdDialogState
     super.didChangeDependencies();
     if (!_initialized) {
       _initialized = true;
-      final loc = widget.l10n ?? AppLocalizations.of(context)!;
+      final loc = widget.l10n ?? AppLocalizations.of(context);
       _houseNameController.text = loc.householdDefaultHouseName;
       _deviceNameController.text = loc.householdDefaultDeviceNameAlt;
     }
@@ -1085,7 +1079,7 @@ class _CreateHouseholdDialogState
   }
 
   Future<void> _submit() async {
-    final loc = widget.l10n ?? AppLocalizations.of(context)!;
+    final loc = widget.l10n ?? AppLocalizations.of(context);
     final houseName = _houseNameController.text.trim();
     final deviceName = _deviceNameController.text.trim();
 
@@ -1135,7 +1129,7 @@ class _CreateHouseholdDialogState
 
   @override
   Widget build(BuildContext context) {
-    final loc = widget.l10n ?? AppLocalizations.of(context)!;
+    final loc = widget.l10n ?? AppLocalizations.of(context);
     return PopScope(
       canPop: !_isSubmitting,
       child: AlertDialog(
