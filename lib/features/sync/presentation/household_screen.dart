@@ -845,12 +845,18 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     BuildContext context,
     Household household,
   ) async {
-    Invite? invite;
+    String? ip;
+    int? port;
     try {
       final transport = ref.read(lanSyncTransportProvider);
-      final port = transport.listeningPort;
-      final ip = await _findLocalIpAddress();
+      port = transport.listeningPort;
+      ip = await _findLocalIpAddress();
+    } catch (_) {
+      // LAN transport info is optional when generating a pairing invite.
+    }
 
+    Invite? invite;
+    try {
       final channel = ref.read(pairingChannelProvider);
       final res = await channel.openInvite(lanHost: ip, lanPort: port);
       if (res.isErr) {
