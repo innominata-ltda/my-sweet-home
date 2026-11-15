@@ -1438,3 +1438,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsSectionModules => 'Your Home & Modules';
+
+  @override
+  String get settingsRecipesSubtitle => 'Recipe book and ingredients';
+
+  @override
+  String get settingsStockTitle => 'Stock';
+
+  @override
+  String get settingsStockSubtitle => 'Pantry and essential items';
+
+  @override
+  String get settingsEconomySubtitle => 'Savings tips and goals';
+
+  @override
+  String get settingsChecklistTitle => '1st Home Checklist';
+
+  @override
+  String get settingsChecklistSubtitle => 'Essential items for a new home';
+
+  @override
+  String get settingsSuggestionsTitle => 'Maintenance Suggestions';
+
+  @override
+  String get settingsSuggestionsSubtitle => 'Catalog of suggested home tasks';
+
+  @override
+  String get settingsProductsTitle => 'Products & Aliases';
+
+  @override
+  String get settingsProductsSubtitle => 'Manage product catalog';
+
+  @override
+  String get settingsSectionPrivacy => 'Privacy, Security & Data';
+
+  @override
+  String get settingsDeleteReceiptPhotoTitle =>
+      'Delete receipt photo after scanning';
+
+  @override
+  String get settingsDeleteReceiptPhotoSubtitle =>
+      'Delete image file after OCR processing';
+
+  @override
+  String get settingsBackupSubtitle => 'Export, import, and manage data';
+
+  @override
+  String get settingsSectionHelp => 'Help & About';
+
+  @override
+  String get settingsAboutTitle => 'About';
+
+  @override
+  String get settingsAboutSubtitle => 'Information about the app';
+
+  @override
+  String get backupMenuExportTitle => 'Export Backup';
+
+  @override
+  String get backupMenuExportSubtitle =>
+      'Generate an encrypted file with your data';
+
+  @override
+  String get backupMenuImportTitle => 'Import Backup';
+
+  @override
+  String get backupMenuImportSubtitle =>
+      'Restore or merge data from a backup file';
+
+  @override
+  String get backupMenuWipeSubtitle => 'Permanently delete all stored data';
+
+  @override
+  String get backupExportShareText => 'My Sweet Home encrypted backup';
+
+  @override
+  String get backupExportEncryptedTitle => 'Export Encrypted Data';
+
+  @override
+  String get backupExportEncryptedSubtitle =>
+      'Generate a secure backup file of all your data and photos to save locally or share.';
+
+  @override
+  String backupExportError(String error) {
+    return 'Error generating backup: $error';
+  }
+
+  @override
+  String get backupExportSuccess =>
+      'Backup generated and exported successfully!';
+
+  @override
+  String get backupExportCreateButton => 'Create & Export Backup';
+
+  @override
+  String get backupStageCollecting => 'Collecting app data...';
+
+  @override
+  String get backupStageEncrypting => 'Encrypting with AES-256 and Argon2id...';
+
+  @override
+  String get backupStageWriting => 'Finalizing backup file...';
+
+  @override
+  String get backupStageDone => 'Done!';
+
+  @override
+  String get backupEncryptedTitle => 'Encrypted Backup';
+
+  @override
+  String get backupWarningTitle => 'Important Warning (RN-234)';
+
+  @override
+  String get backupWarningLostPassword =>
+      'If you lose the password, the backup is lost.';
+
+  @override
+  String get backupWarningNoRecovery =>
+      'The app does not save your password and cannot read the backup without it. There is no recovery option.';
+
+  @override
+  String get backupPasswordLabel => 'Backup Password *';
+
+  @override
+  String get backupPasswordRequired => 'Enter a password to protect the backup';
+
+  @override
+  String get backupPasswordMinLength =>
+      'Password must be at least 4 characters';
+
+  @override
+  String get backupConfirmPasswordLabel => 'Confirm Password *';
+
+  @override
+  String get backupPasswordsMismatch => 'Passwords do not match';
+
+  @override
+  String get backupIncludePhotosTitle => 'Include photos in backup (RN-237)';
+
+  @override
+  String backupIncludePhotosWithSize(String size) {
+    return 'Receipt and recipe photos (Estimated size: $size)';
+  }
+
+  @override
+  String get backupIncludePhotosDefault =>
+      'Receipt and recipe photos are excluded from backup by default';
+
+  @override
+  String get backupExportEncryptedButton => 'Export Encrypted';
+
+  @override
+  String get backupRestoreEncryptedTitle => 'Restore Encrypted Backup';
+
+  @override
+  String get backupRestoreEncryptedBody =>
+      'This backup file is password-protected. Enter the password set during export to continue.';
+
+  @override
+  String get backupRestorePasswordRequired => 'Enter the backup password';
+
