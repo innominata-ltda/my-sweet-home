@@ -1496,4 +1496,164 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get settingsSectionHelp => 'Ajuda e Sobre';
 
+  @override
+  String get settingsAboutTitle => 'Sobre';
+
+  @override
+  String get settingsAboutSubtitle => 'Informações sobre o aplicativo';
+
+  @override
+  String get backupMenuExportTitle => 'Exportar Backup';
+
+  @override
+  String get backupMenuExportSubtitle =>
+      'Gere um arquivo criptografado com seus dados';
+
+  @override
+  String get backupMenuImportTitle => 'Importar Backup';
+
+  @override
+  String get backupMenuImportSubtitle =>
+      'Restaurar ou mesclar dados de um arquivo de backup';
+
+  @override
+  String get backupMenuWipeSubtitle =>
+      'Excluir permanentemente todos os dados armazenados';
+
+  @override
+  String get backupExportShareText => 'Backup criptografado My Sweet Home';
+
+  @override
+  String get backupExportEncryptedTitle => 'Exportar Dados Criptografados';
+
+  @override
+  String get backupExportEncryptedSubtitle =>
+      'Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.';
+
+  @override
+  String backupExportError(String error) {
+    return 'Erro ao gerar backup: $error';
+  }
+
+  @override
+  String get backupExportSuccess => 'Backup gerado e exportado com sucesso!';
+
+  @override
+  String get backupExportCreateButton => 'Criar e Exportar Backup';
+
+  @override
+  String get backupStageCollecting => 'Coletando dados do aplicativo...';
+
+  @override
+  String get backupStageEncrypting =>
+      'Criptografando com AES-256 e Argon2id...';
+
+  @override
+  String get backupStageWriting => 'Finalizando arquivo de backup...';
+
+  @override
+  String get backupStageDone => 'Concluído!';
+
+  @override
+  String get backupEncryptedTitle => 'Backup Criptografado';
+
+  @override
+  String get backupWarningTitle => 'Aviso Importante (RN-234)';
+
+  @override
+  String get backupWarningLostPassword =>
+      'Se você perder a senha, o backup é perdido.';
+
+  @override
+  String get backupWarningNoRecovery =>
+      'O aplicativo não salva sua senha nem consegue ler o backup sem ela. Não há opção de recuperação.';
+
+  @override
+  String get backupPasswordLabel => 'Senha do Backup *';
+
+  @override
+  String get backupPasswordRequired =>
+      'Informe uma senha para proteger o backup';
+
+  @override
+  String get backupPasswordMinLength =>
+      'A senha deve ter pelo menos 4 caracteres';
+
+  @override
+  String get backupConfirmPasswordLabel => 'Confirmar Senha *';
+
+  @override
+  String get backupPasswordsMismatch => 'As senhas não coincidem';
+
+  @override
+  String get backupIncludePhotosTitle => 'Incluir fotos no backup (RN-237)';
+
+  @override
+  String backupIncludePhotosWithSize(String size) {
+    return 'Fotos de cupons e receitas (Tamanho estimado: $size)';
+  }
+
+  @override
+  String get backupIncludePhotosDefault =>
+      'Fotos de cupons e receitas ficam fora do backup por padrão';
+
+  @override
+  String get backupExportEncryptedButton => 'Exportar Criptografado';
+
+  @override
+  String get backupRestoreEncryptedTitle => 'Restaurar Backup Criptografado';
+
+  @override
+  String get backupRestoreEncryptedBody =>
+      'Este arquivo de backup está protegido por senha. Informe a senha definida durante a exportação para continuar.';
+
+  @override
+  String get backupRestorePasswordRequired => 'Digite a senha do backup';
+
+  @override
+  String get backupRestoreEncryptedButton => 'Descriptografar e Restaurar';
+
+  @override
+  String get backupImportProcessing => 'Processando backup...';
+
+  @override
+  String get backupImportReplacedTitle => 'Backup restaurado com sucesso!';
+
+  @override
+  String get backupImportMergedTitle => 'Dados mesclados com sucesso!';
+
+  @override
+  String get backupImportReplacedBody =>
+      'Os dados do aplicativo foram totalmente substituídos pelos do backup.';
+
+  @override
+  String get backupImportMergedBody =>
+      'Os registros do backup foram mesclados aos dados existentes.';
+
+  @override
+  String get backupImportFailedTitle => 'Falha na importação';
+
+  @override
+  String get backupPreviewTitle => 'Pré-visualização do Backup';
+
+  @override
+  String backupPreviewAffectedRecords(int count) {
+    return '$count registros afetados';
+  }
+
+  @override
+  String backupPreviewSchemaVersion(int version) {
+    return 'Versão do schema: v$version';
+  }
+
+  @override
+  String backupPreviewExportedAt(String date) {
+    return 'Data da exportação: $date';
+  }
+
+  @override
+  String get backupImportModeTitle => 'Escolha a forma de importação:';
+
+  @override
+  String get backupImportModeReplace => 'Substituir tudo';
 }
