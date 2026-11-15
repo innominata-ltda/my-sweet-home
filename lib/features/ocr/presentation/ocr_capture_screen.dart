@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/ocr/data/adapters/image_picker_adapter.dart';
@@ -150,14 +151,17 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             onPressed: _toggleFlash,
           ),
-          IconButton(
-            icon: const Icon(AppIcons.priceHistory, color: Colors.white),
-            tooltip: 'Benchmark de Precisão OCR',
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const OcrBenchmarkPage()),
+          if (kDebugMode)
+            IconButton(
+              icon: const Icon(AppIcons.priceHistory, color: Colors.white),
+              tooltip: 'Benchmark de Precisão OCR',
+              constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const OcrBenchmarkPage(),
+                ),
+              ),
             ),
-          ),
         ],
       ),
       body: Stack(
