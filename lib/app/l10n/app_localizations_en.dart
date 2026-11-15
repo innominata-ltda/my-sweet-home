@@ -478,3 +478,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String priceAverageObservations(int count) {
     return 'based on $count observations';
+  }
+
+  @override
+  String get priceVariationAlert => 'Price variation alert';
+
+  @override
+  String priceVariationUp(String percent) {
+    return 'Up $percent% above the 30-day average';
+  }
+
+  @override
+  String priceVariationDown(String percent) {
+    return 'Down $percent% below the 30-day average';
+  }
+
+  @override
+  String purchaseTotalMismatch(String amount) {
+    return 'Difference of $amount. The system does not adjust automatically.';
+  }
+
+  @override
+  String get purchaseInvalidCnpj => 'Invalid CNPJ. Enter a valid CNPJ.';
+
+  @override
+  String purchaseChartA11y(
+    String amount,
+    String minAmount,
+    String store,
+    String date,
+  ) {
+    return '$amount on average in the last 30 days, lowest price $minAmount at $store on $date';
+  }
+
+  @override
+  String get ocrTitle => 'Receipt Scanner';
+
+  @override
+  String get ocrCameraPermissionDenied => 'Camera permission denied';
+
+  @override
+  String get ocrCameraPermissionSettings => 'Go to Settings';
+
+  @override
+  String get ocrFlashOn => 'Turn flash on';
+
+  @override
+  String get ocrFlashOff => 'Turn flash off';
+
+  @override
+  String get ocrReviewTitle => 'Review';
+
+  @override
+  String get ocrReviewSave => 'Save';
+
+  @override
+  String get ocrReviewAdd => 'Add';
+
+  @override
+  String get ocrReviewDelete => 'Delete';
+
+  @override
+  String get ocrTotalMismatch => 'Sum of items differs from total';
+
+  @override
+  String get ocrItemLowConfidence => 'Check this item';
+
+  @override
+  String get ocrGalleryOption => 'Gallery';
+
+  @override
+  String get purchaseDate => 'Purchase Date';
+
+  @override
+  String get purchaseItemsSection => 'Items';
+
+  @override
+  String get purchaseAddItem => 'Add Item';
+
+  @override
+  String get purchaseNoStores =>
+      'No stores registered. (Add one on the stores screen)';
+
+  @override
+  String purchaseLoadStoresError(String error) {
+    return 'Error loading stores: $error';
+  }
+
+  @override
+  String get purchaseProductLabel => 'Product';
+
+  @override
+  String get purchaseLoadProductsError => 'Error loading products';
+
+  @override
+  String get purchaseQuantityLabel => 'Quantity';
+
+  @override
+  String get purchaseTotalPriceLabel => 'Total Price';
+
+  @override
+  String get purchaseDiscountLabel => 'Total Discount';
+
+  @override
+  String get purchaseDeclaredTotalLabel => 'Declared Total (Receipt)';
+
+  @override
+  String purchaseItemsSum(String amount) {
+    return 'Items Sum: $amount';
+  }
+
+  @override
+  String get purchaseFormError => 'Fill in all fields correctly';
+
+  @override
+  String get priceTrendUp => 'Price increase in the period';
+
+  @override
+  String get priceTrendDown => 'Price decrease in the period';
+
+  @override
+  String get priceHistoryTitle => 'Price history';
+
+  @override
+  String get checklistTitle => 'Home checklist';
+
+  @override
+  String get checklistEmpty => 'No items in checklist.';
+
+  @override
+  String get checklistCategoryAll => 'All rooms';
+
+  @override
+  String get checklistSendToShoppingList => 'Send to shopping list';
+
+  @override
+  String get stockTitle => 'Home stock';
+
+  @override
+  String get stockEmpty => 'No products in stock.';
+
+  @override
+  String get stockLowAlert => 'Running low';
+
+  @override
+  String get stockEstimateNotice => 'Consumption estimate';
+
+  @override
+  String get searchGlobalTitle => 'Search';
+
+  @override
+  String get searchGlobalHint => 'Search across the app...';
+
+  @override
+  String get searchGlobalNoResults => 'No results found.';
+
+  @override
+  String get economyTitle => 'Economy Mode';
+
+  @override
+  String get economyMetaTitle => 'Savings goal';
