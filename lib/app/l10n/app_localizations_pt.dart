@@ -2936,4 +2936,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get ocrNoItemsPlaceholder => 'Nenhum item. Toque em Adicionar item.';
+
+  @override
+  String get ocrCloudConsentBody =>
+      'A leitura no aparelho teve baixa precisão. Como você permitiu o OCR na nuvem nas configurações, deseja tentar melhorar a leitura enviando esta nota para o serviço em nuvem nesta operação?';
+
+  @override
+  String get ocrRetakePhotoButton => 'Tirar outra foto';
+
+  @override
+  String get ocrContinueWithoutCloud => 'Continuar sem nuvem';
+
+  @override
+  String get ocrUseCloudOcr => 'Usar OCR na nuvem';
+
+  @override
+  String get ocrLowPrecisionTitle => 'Leitura com baixa precisão';
+
+  @override
+  String get ocrLowPrecisionBody =>
+      'A leitura da nota fiscal no aparelho teve baixa precisão. Recomendamos tirar uma nova foto com melhor iluminação e enquadramento.';
+
+  @override
+  String get ocrContinueWithData => 'Continuar com estes dados';
+
+  @override
+  String ocrFramingGuideSemantics(String instruction) {
+    return 'Guia de enquadramento de nota fiscal. $instruction';
+  }
+
+  @override
+  String get ocrFramingDefaultInstruction =>
+      'Posicione a nota fiscal na vertical dentro do guia';
+
+  @override
+  String get ocrTotalFailureTitle => 'Não foi possível ler a nota';
+
+  @override
+  String ocrAttachedPhoto(String path) {
+    return 'Foto anexada: $path';
+  }
+
+  @override
+  String get ocrQualityContinueAnyway => 'Continuar mesmo assim';
+
+  @override
+  String get ocrQualityBlur =>
+      'Imagem desfocada. Tente segurar a câmera com firmeza.';
+
+  @override
+  String get ocrQualityTooDark =>
+      'Iluminação muito baixa. Ligue o flash ou ilumine a nota.';
+
+  @override
+  String get ocrQualityTooBright =>
+      'Excesso de iluminação ou reflexo brilhante na imagem.';
+
+  @override
+  String get ocrQualityBadFraming =>
+      'Enquadramento ruim ou foto muito pequena.';
+
+  @override
+  String get ocrQualityInvalidImage =>
+      'Não foi possível decodificar os dados da imagem.';
+
+  @override
+  String get ocrStoreUnknown => 'Estabelecimento não identificado';
+
+  @override
+  String get ocrEditStoreTooltip => 'Editar estabelecimento';
+
+  @override
+  String ocrCnpjLabel(String cnpj) {
+    return 'CNPJ: $cnpj';
+  }
+
+  @override
+  String get ocrNotInformed => 'Não informado';
+
+  @override
+  String get ocrCnpjUnconfirmed => 'CNPJ não confirmado';
+
+  @override
+  String get ocrTotalDivergenceCardTitle => 'Divergência no valor total';
+
+  @override
+  String ocrTotalDivergenceCardBody(
+    String absDiv,
+    String itemsSum,
+    String total,
+  ) {
+    return 'Divergência de $absDiv. O sistema não ajusta automaticamente.\nSoma dos itens: $itemsSum | Total lido: $total';
+  }
+
+  @override
+  String ocrLowConfidenceBanner(int count) {
+    return 'Há $count item(ns) com baixa confiança lidos do cupom. Verifique e marque os corretos.';
+  }
+
+  @override
+  String get ocrReceiptTotalsTitle => 'Totais da Nota';
+
+  @override
+  String get ocrEditTotalsTooltip => 'Editar totais';
+
+  @override
+  String get ocrSubtotalLabel => 'Subtotal:';
+
+  @override
+  String get ocrDiscountLabel => 'Desconto:';
+
+  @override
+  String get ocrOriginExactAlias => 'exato (apelido)';
+
+  @override
+  String get ocrOriginSeed => 'semente';
+
+  @override
+  String ocrOriginFuzzy(int percent) {
+    return 'aproximado ($percent%)';
+  }
+
+  @override
+  String get ocrOriginUnknown => 'não identificado';
+
+  @override
+  String get ocrItemSelectedStatus => 'selecionado';
+
+  @override
+  String get ocrItemUnselectedStatus => 'desmarcado';
+
+  @override
+  String get ocrItemLowConfidenceHint => ', baixa confiança, confira este item';
+
+  @override
+  String ocrItemDetectedAs(String raw) {
+    return 'detectado como $raw';
+  }
+
+  @override
+  String ocrItemUncheckHint(String title) {
+    return 'Desmarcar $title';
+  }
+
+  @override
+  String ocrItemLinkOrigin(String origin) {
+    return 'Vínculo: $origin';
+  }
+
+  @override
+  String get ocrEditItemTooltip => 'Editar item';
+
+  @override
+  String get ocrDeleteItemTooltip => 'Apagar item';
+
+  @override
+  String get ocrEditHeaderTitle => 'Editar cabeçalho';
+
+  @override
+  String get ocrStoreRequiredLabel => 'Estabelecimento *';
+
 }
