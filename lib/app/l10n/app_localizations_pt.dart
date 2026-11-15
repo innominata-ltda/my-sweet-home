@@ -1336,4 +1336,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get onboardingOpenSourceBadge =>
+      'Código aberto, sem anúncios e com dados salvos apenas no seu aparelho';
+
+  @override
+  String get onboardingFirstHomeTitle => 'Está montando sua casa nova?';
+
+  @override
+  String get onboardingFirstHomeDescription =>
+      'Se você acabou de se mudar ou está organizando seu cantinho pela primeira vez, posso ativar um checklist especial com itens essenciais no seu início!';
+
+  @override
+  String get onboardingFirstHomeEnable =>
+      'Sim, ativar checklist da primeira casa';
+
+  @override
+  String get onboardingFirstHomeSkip => 'Já tenho tudo / Pular';
+
+  @override
+  String onboardingPageIndicatorSemantics(int current, int total) {
+    return 'Página $current de $total';
+  }
+
+  @override
+  String get aboutTitle => 'Sobre o My Sweet Home';
+
+  @override
+  String get aboutVersionLabel => 'Versão ';
+
+  @override
+  String get aboutUpToDate => 'Você já está na versão mais recente.';
+
+  @override
+  String get aboutUpdateCheckFailed =>
+      'Não foi possível verificar atualizações no momento.';
+
+  @override
+  String get aboutLicensesTitle => 'Licenças de código aberto';
+
+  @override
+  String get aboutLicensesSubtitle => 'Licenças de pacotes e dependências';
+
+  @override
+  String get aboutAttributionsTitle => 'Atribuições';
+
+  @override
+  String get aboutAttributionsSubtitle => 'Atribuições de ativos e terceiros';
+
+  @override
+  String get aboutGithubTitle => 'Código-fonte no GitHub';
+
+  @override
+  String get aboutGithubCopied =>
+      'Link do GitHub copiado para a área de transferência.';
+
+  @override
+  String get aboutDocsTitle => 'Documentação e privacidade';
+
+  @override
+  String get aboutDocsCopied =>
+      'Link da documentação copiado para a área de transferência.';
+
+  @override
+  String get aboutCheckUpdatesTitle => 'Verificar atualizações';
+
+  @override
+  String get aboutCheckUpdatesSubtitle =>
+      'Buscar novas versões na loja de aplicativos';
+
+  @override
+  String get aboutCheckUpdatesPlayStoreOnly =>
+      'Disponível apenas para instalações feitas pela Google Play';
+
+  @override
+  String aboutAttributionsError(String error) {
+    return 'Erro ao carregar atribuições: $error';
+  }
+
+  @override
+  String get settingsSectionAppearance => 'Aparência e Experiência';
+
+  @override
+  String get settingsMascotShortSubtitle => 'Animal, paleta de cor e acessório';
+
+  @override
+  String get settingsVisualEffectsTitle => 'Efeitos visuais e partículas';
+
+  @override
+  String get settingsVisualEffectsSubtitle =>
+      'Partículas, confetes e animações contínuas';
+
+  @override
+  String get settingsLanguageTitle => 'Idioma do aplicativo';
+
+  @override
+  String get settingsLanguageSystem => 'Automático (sistema)';
+
+  @override
+  String get settingsLanguageSystemSubtitle =>
+      'Segue o idioma configurado no aparelho';
+
+  @override
+  String get settingsOcrFormatTitle => 'Modelo de nota fiscal (OCR)';
+
+  @override
+  String get settingsOcrFormatAuto => 'Automático (melhor modelo)';
+
+  @override
+  String get settingsOcrFormatAutoSubtitle =>
+      'Seleciona automaticamente o formato com maior pontuação';
+
+  @override
+  String get settingsSectionModules => 'Sua Casa e Módulos';
+
+  @override
+  String get settingsRecipesSubtitle => 'Livro de receitas e ingredientes';
+
+  @override
+  String get settingsStockTitle => 'Estoque';
+
+  @override
+  String get settingsStockSubtitle => 'Despensa e itens essenciais';
+
+  @override
+  String get settingsEconomySubtitle => 'Dicas e metas de economia';
+
+  @override
+  String get settingsChecklistTitle => 'Checklist da 1ª Casa';
+
+  @override
+  String get settingsChecklistSubtitle => 'Itens essenciais para a casa nova';
+
+  @override
+  String get settingsSuggestionsTitle => 'Sugestões de Manutenção';
+
+  @override
+  String get settingsSuggestionsSubtitle =>
+      'Catálogo de tarefas sugeridas para o lar';
+
+  @override
+  String get settingsProductsTitle => 'Produtos e Sinônimos';
+
+  @override
+  String get settingsProductsSubtitle => 'Gerenciar catálogo de produtos';
+
+  @override
+  String get settingsSectionPrivacy => 'Privacidade, Segurança e Dados';
+
+  @override
+  String get settingsDeleteReceiptPhotoTitle =>
+      'Apagar foto do cupom após leitura';
+
+  @override
+  String get settingsDeleteReceiptPhotoSubtitle =>
+      'Excluir arquivo de imagem após processamento do OCR';
+
+  @override
+  String get settingsBackupSubtitle => 'Exportar, importar e gerenciar dados';
+
+  @override
+  String get settingsSectionHelp => 'Ajuda e Sobre';
+
 }
