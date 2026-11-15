@@ -121,6 +121,7 @@ void main() {
             ),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ShoppingListScreen(listId: 'list-scroll-1'),
@@ -244,6 +245,7 @@ void main() {
                 ),
               ],
               child: const MaterialApp(
+                locale: const Locale('pt'),
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
                 home: ShoppingListScreen(listId: 'list-empty'),

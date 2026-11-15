@@ -101,7 +101,12 @@ class ShoppingItemTile extends StatelessWidget {
                       if (onRegisterSingle != null)
                         IconButton(
                           icon: const Icon(AppIcons.purchase, size: 20),
-                          tooltip: 'Registrar compra deste item',
+                          tooltip:
+                              Localizations.of<AppLocalizations>(
+                                context,
+                                AppLocalizations,
+                              )?.shoppingTileRegisterSingle ??
+                              'Registrar compra deste item',
                           constraints: const BoxConstraints(
                             minWidth: 48,
                             minHeight: 48,
@@ -111,7 +116,12 @@ class ShoppingItemTile extends StatelessWidget {
                       if (onDelete != null)
                         IconButton(
                           icon: const Icon(AppIcons.delete, size: 20),
-                          tooltip: 'Remover item',
+                          tooltip:
+                              Localizations.of<AppLocalizations>(
+                                context,
+                                AppLocalizations,
+                              )?.shoppingTileRemoveItem ??
+                              'Remover item',
                           constraints: const BoxConstraints(
                             minWidth: 48,
                             minHeight: 48,

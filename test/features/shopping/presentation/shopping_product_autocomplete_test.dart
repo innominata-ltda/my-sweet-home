@@ -230,6 +230,7 @@ void main() {
           clockProvider.overrideWithValue(FakeClock(fixedDate)),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ShoppingListScreen(listId: 'list-auto-1'),

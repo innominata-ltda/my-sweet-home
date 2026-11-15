@@ -258,6 +258,7 @@ void main() {
               ),
             ],
             child: MaterialApp(
+              locale: const Locale('pt'),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               home: ShoppingListScreen(listId: initialList.id),

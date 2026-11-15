@@ -112,6 +112,7 @@ void main() {
               ),
             ],
             child: const MaterialApp(
+              locale: const Locale('pt'),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               home: ShoppingListScreen(listId: 'list-300'),
@@ -162,6 +163,7 @@ void main() {
               ),
             ],
             child: const MaterialApp(
+              locale: const Locale('pt'),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               home: ShoppingListScreen(listId: 'list-300'),
