@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/main_shell_page.dart';
 import 'package:my_sweet_home/design_system/theme/app_theme.dart';
 
@@ -105,6 +106,9 @@ void main() {
 
       return MaterialApp.router(
         theme: lightTheme(),
+        locale: const Locale('pt'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         routerConfig: testRouter,
         builder: (context, child) {
           return MediaQuery(

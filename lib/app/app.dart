@@ -102,7 +102,7 @@ class _MySweetHomeAppState extends ConsumerState<MySweetHomeApp> {
         .toList(growable: false);
 
     return MaterialApp.router(
-      title: 'My Sweet Home',
+      onGenerateTitle: (context) => AppLocalizations.of(context).appName,
       theme: lightTheme(palette.lightScheme),
       darkTheme: darkTheme(palette.darkScheme),
       routerConfig: effectiveRouter,

@@ -144,6 +144,7 @@ void main() {
         ],
         child: MaterialApp(
           theme: lightTheme(),
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: home,

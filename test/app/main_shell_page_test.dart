@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/main_shell_page.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/app_theme.dart';
@@ -56,7 +57,13 @@ void main() {
         ],
       );
 
-      return MaterialApp.router(theme: lightTheme(), routerConfig: testRouter);
+      return MaterialApp.router(
+        theme: lightTheme(),
+        locale: const Locale('pt'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        routerConfig: testRouter,
+      );
     }
 
     testWidgets('/ selects tab 0 and displays camera FAB', (tester) async {
@@ -147,6 +154,9 @@ void main() {
         ],
         child: MaterialApp.router(
           theme: lightTheme(),
+          locale: const Locale('pt'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           routerConfig: budgetRouter,
         ),
       );

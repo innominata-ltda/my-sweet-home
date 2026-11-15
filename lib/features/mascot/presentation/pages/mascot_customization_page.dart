@@ -177,7 +177,7 @@ class _MascotCustomizationPageState
           ),
           const SizedBox(height: Spacing.xs),
           Semantics(
-            label: 'Campo para alterar o nome da mascote',
+            label: l10n.mascotNameFieldSemantics,
             child: TextField(
               key: const Key('mascot_name_field'),
               controller: _nameController,
@@ -185,8 +185,9 @@ class _MascotCustomizationPageState
               textCapitalization: TextCapitalization.words,
               decoration: InputDecoration(
                 hintText: l10n.mascotCustomizeNameHint,
-                helperText:
-                    'Se deixar em branco, usaremos "${MascotConfig.defaultMomo.name}" 💕',
+                helperText: l10n.mascotNameBlankHelper(
+                  MascotConfig.defaultMomo.name,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(Radius.card),
                 ),
@@ -297,8 +298,10 @@ class _MascotCustomizationPageState
             expression: MascotExpression.happy,
             size: 140,
             resolver: widget.resolver,
-            semanticLabel:
-                'Pré-visualização da mascote ${config.displayName} na paleta ${config.palette.label}',
+            semanticLabel: l10n.mascotPreviewSemantics(
+              config.displayName,
+              config.palette.label,
+            ),
           ),
           const SizedBox(height: Spacing.xs),
           Text(

@@ -84,6 +84,7 @@ void main() {
   testWidgets('OcrReviewScreen golden test', (tester) async {
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('pt'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: OcrReviewScreen(draft: sampleDraft),
@@ -117,6 +118,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: draftLowConf),
@@ -162,6 +164,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: draftMatched),
@@ -205,6 +208,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(
@@ -259,6 +263,7 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        locale: const Locale('pt'),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: OcrReviewScreen(draft: draftInvalidCnpj),
@@ -275,6 +280,7 @@ void main() {
     (tester) async {
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: sampleDraft),
@@ -291,6 +297,7 @@ void main() {
     (tester) async {
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: sampleDraft),
@@ -325,6 +332,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: draftLowConf),
@@ -368,6 +376,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: OcrReviewScreen(draft: draftAlerts),
