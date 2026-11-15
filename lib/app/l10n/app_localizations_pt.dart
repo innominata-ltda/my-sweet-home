@@ -1976,4 +1976,164 @@ class AppLocalizationsPt extends AppLocalizations {
     return 'Orçamento Total de $month';
   }
 
+  @override
+  String get budgetBaseIncomeLabel => 'Receita base recorrente *';
+
+  @override
+  String get budgetBaseIncomeHint => 'ex: 3000,00';
+
+  @override
+  String get budgetIncomeRequired => 'Informe ao menos uma receita';
+
+  @override
+  String get budgetExtraIncomeLabel => 'Receitas adicionais avulsas no mês';
+
+  @override
+  String get budgetExtraIncomeHint => 'ex: 500,00';
+
+  @override
+  String get budgetTotalSumLabel => 'Soma total do orçamento:';
+
+  @override
+  String get budgetMonthTotalCardTitle => 'Orçamento Total do Mês';
+
+  @override
+  String get budgetEditIncomeTooltip => 'Editar receita e orçamento';
+
+  @override
+  String get budgetNoCategories => 'Nenhuma categoria cadastrada.';
+
+  @override
+  String get commonAdd => 'Adicionar';
+
+  @override
+  String get checklistGenerateShoppingList => 'Gerar lista de compras';
+
+  @override
+  String get checklistNewItem => 'Novo item';
+
+  @override
+  String checklistLoadError(String error) {
+    return 'Erro ao carregar checklist: $error';
+  }
+
+  @override
+  String get checklistEmptyDescription =>
+      'Adicione itens ou selecione outro cômodo.';
+
+  @override
+  String get checklistProgressTitle => 'Progresso da casa';
+
+  @override
+  String checklistMarkedCount(int marked, int total) {
+    return '$marked de $total itens marcados';
+  }
+
+  @override
+  String checklistCreateListCount(int count) {
+    return 'Criar lista ($count)';
+  }
+
+  @override
+  String get checklistAddItemTitle => 'Adicionar item ao checklist';
+
+  @override
+  String get checklistItemLabel => 'Item *';
+
+  @override
+  String get checklistItemHint => 'Ex: Toalha de rosto';
+
+  @override
+  String get checklistRoomLabel => 'Cômodo / Categoria *';
+
+  @override
+  String get checklistRoomHint => 'Ex: Banheiro';
+
+  @override
+  String get checklistEditItemTitle => 'Editar item';
+
+  @override
+  String get checklistItemTitleLabel => 'Título do item *';
+
+  @override
+  String get checklistDeleteItemTitle => 'Excluir item?';
+
+  @override
+  String checklistDeleteItemBody(String title) {
+    return 'Deseja remover \"$title\" do checklist?';
+  }
+
+  @override
+  String checklistDefaultListNameCategory(String category) {
+    return 'Lista da Casa - $category';
+  }
+
+  @override
+  String get checklistDefaultListName => 'Lista da Casa (Checklist)';
+
+  @override
+  String checklistExportBody(int count) {
+    return 'Criar uma lista de compras com os $count itens pendentes do checklist.';
+  }
+
+  @override
+  String get checklistListNameLabel => 'Nome da lista *';
+
+  @override
+  String checklistListCreated(String name, int count) {
+    return 'Lista \"$name\" criada com $count itens!';
+  }
+
+  @override
+  String checklistListCreateError(String error) {
+    return 'Falha ao criar lista: $error';
+  }
+
+  @override
+  String get checklistGenerateListButton => 'Gerar lista';
+
+  @override
+  String checklistCardSemantics(String title, String percent) {
+    return '$title, $percent% concluído, toque para ver detalhes';
+  }
+
+  @override
+  String customizeVisibleCardsCount(int count) {
+    return 'Cards exibidos ($count)';
+  }
+
+  @override
+  String get customizeReorderHint =>
+      'Arraste para reordenar ou utilize os botões acessíveis.';
+
+  @override
+  String get customizeNoVisibleCards => 'Nenhum card visível no momento.';
+
+  @override
+  String get customizeAvailableModulesHint =>
+      'Módulos disponíveis para inclusão na sua tela inicial.';
+
+  @override
+  String get customizeAllCardsVisible =>
+      'Todos os cards já estão visíveis no painel.';
+
+  @override
+  String customizeDragSemantics(String title) {
+    return 'Arrastar $title para reordenar';
+  }
+
+  @override
+  String customizeMoveUpSemantics(String title) {
+    return 'Mover $title para cima';
+  }
+
+  @override
+  String customizeMoveDownSemantics(String title) {
+    return 'Mover $title para baixo';
+  }
+
+  @override
+  String customizeHideSemantics(String title) {
+    return 'Ocultar $title';
+  }
 }
