@@ -958,3 +958,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get taskPresetsBatchTitle => 'Start dates';
+
+  @override
+  String get taskPresetsBatchConfirm => 'Confirm routine';
+
+  @override
+  String get taskPresetsBatchUndo => 'Undo';
+
+  @override
+  String taskPresetsBatchSuccess(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tasks added!',
+      one: '1 task added!',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String taskPresetsBatchStartDateLabel(String task) {
+    return 'Start of $task';
+  }
+
+  @override
+  String get taskPresetsEmptyStatePrompt =>
+      'How about seeing suggestions for your home routine?';
+
+  @override
+  String get taskPresetsEmptyStateButton => 'See home suggestions';
+
+  @override
+  String get onboardingRoutineTitle => 'Build your home routine';
+
+  @override
+  String get onboardingRoutineDescription =>
+      'Pick common tasks to start your routine effortlessly. You can change everything later!';
+
+  @override
+  String get onboardingRoutineSkip => 'Skip this step';
+
+  @override
+  String get householdTitle => 'Shared home';
+
+  @override
+  String get householdSubtitle => 'Sync tasks and finances over local network';
+
+  @override
+  String get householdEmptyTitle => 'Share your home';
+
+  @override
+  String get householdEmptyDescription =>
+      'Sync with the people you live with—no middlemen, no account needed, and end-to-end encrypted on your local network.';
+
+  @override
+  String get householdCreateButton => 'Create home';
+
+  @override
+  String get householdJoinButton => 'Join a home';
+
+  @override
+  String get householdSyncNowButton => 'Sync now';
+
+  @override
+  String get householdGenerateBundleButton => 'Generate bundle';
+
+  @override
+  String get householdInviteButton => 'Invite device';
+
+  @override
+  String get householdOnlyThisDevice => 'Changes only on this device';
+
+  @override
+  String get householdAllSynced => 'All synced';
+
+  @override
+  String get householdSyncing => 'Syncing...';
+
+  @override
+  String householdLastSync(String time) {
+    return 'Last sync: $time';
+  }
+
+  @override
+  String get householdMembersTitle => 'Devices in home';
+
+  @override
+  String get householdAreasTitle => 'Shared areas';
+
+  @override
+  String get householdAreaHome => 'Home (Tasks, Stock, Recipes)';
+
+  @override
+  String get householdAreaFinance => 'Finances (Expenses, Bills, Prices)';
+
+  @override
+  String get householdPairingTitle => 'Connect device';
+
+  @override
+  String get householdPairingScanPrompt =>
+      'Point the camera at the QR code on the other device';
+
+  @override
+  String get householdPairingShowPrompt =>
+      'Show this QR code on the device you want to connect';
+
+  @override
+  String householdPairingCodeLabel(String code) {
+    return 'Confirmation code: $code';
+  }
+
+  @override
+  String get householdLeaveButton => 'Leave home';
+
+  @override
+  String get householdLeaveKeepData => 'Keep a local copy';
+
+  @override
+  String get householdLeaveWipeData => 'Delete shared data';
+
+  @override
+  String get householdRemoveMemberTitle => 'Remove device';
+
+  @override
+  String get householdRemoveMemberConfirm => 'Remove';
+
+  @override
+  String get householdRemoveMemberWarning =>
+      'The removed device will lose access and future changes will no longer sync with it.';
+
+  @override
+  String get householdErrorIncompatibleProtocol =>
+      'Device uses an incompatible sync protocol version.';
+
+  @override
+  String get householdErrorInviteExpired =>
+      'The invite has expired. Generate a new invite to pair.';
+
+  @override
+  String get householdErrorNoNetwork =>
+      'No device found on the local network. Check that both are on the same Wi-Fi.';
+
+  @override
+  String get customizeDashboardTitle => 'Customize home';
+
+  @override
+  String get customizeDashboardAction => 'Customize home';
+
+  @override
+  String get customizeDashboardAddCards => 'Add to dashboard';
+
+  @override
+  String get customizeDashboardEmptyTitle => 'No visible items on dashboard';
+
+  @override
+  String get customizeDashboardEmptyAction => 'Add items to dashboard';
+
+  @override
+  String get customizeDashboardRestoreDefault => 'Restore default';
+
+  @override
