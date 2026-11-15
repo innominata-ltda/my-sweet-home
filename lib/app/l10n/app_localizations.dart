@@ -3580,6 +3580,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Soma total do orçamento:'**
   String get budgetTotalSumLabel;
+
+  /// No description provided for @budgetMonthTotalCardTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Orçamento Total do Mês'**
+  String get budgetMonthTotalCardTitle;
+
+  /// No description provided for @budgetEditIncomeTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar receita e orçamento'**
+  String get budgetEditIncomeTooltip;
+
+  /// No description provided for @budgetNoCategories.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma categoria cadastrada.'**
+  String get budgetNoCategories;
+
+  /// No description provided for @commonAdd.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar'**
+  String get commonAdd;
+
+  /// No description provided for @checklistGenerateShoppingList.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gerar lista de compras'**
+  String get checklistGenerateShoppingList;
+
+  /// No description provided for @checklistNewItem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novo item'**
+  String get checklistNewItem;
+
+  /// No description provided for @checklistLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar checklist: {error}'**
+  String checklistLoadError(String error);
+
+  /// No description provided for @checklistEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicione itens ou selecione outro cômodo.'**
+  String get checklistEmptyDescription;
+
+  /// No description provided for @checklistProgressTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Progresso da casa'**
+  String get checklistProgressTitle;
+
+  /// No description provided for @checklistMarkedCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'{marked} de {total} itens marcados'**
+  String checklistMarkedCount(int marked, int total);
+
+  /// No description provided for @checklistCreateListCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criar lista ({count})'**
+  String checklistCreateListCount(int count);
+
+  /// No description provided for @checklistAddItemTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar item ao checklist'**
+  String get checklistAddItemTitle;
+
+  /// No description provided for @checklistItemLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Item *'**
+  String get checklistItemLabel;
+
+  /// No description provided for @checklistItemHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Toalha de rosto'**
+  String get checklistItemHint;
+
+  /// No description provided for @checklistRoomLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cômodo / Categoria *'**
+  String get checklistRoomLabel;
+
+  /// No description provided for @checklistRoomHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Banheiro'**
+  String get checklistRoomHint;
+
+  /// No description provided for @checklistEditItemTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar item'**
+  String get checklistEditItemTitle;
+
+  /// No description provided for @checklistItemTitleLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Título do item *'**
+  String get checklistItemTitleLabel;
+
+  /// No description provided for @checklistDeleteItemTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir item?'**
+  String get checklistDeleteItemTitle;
+
+  /// No description provided for @checklistDeleteItemBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja remover \"{title}\" do checklist?'**
+  String checklistDeleteItemBody(String title);
+
+  /// No description provided for @checklistDefaultListNameCategory.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista da Casa - {category}'**
+  String checklistDefaultListNameCategory(String category);
+
+  /// No description provided for @checklistDefaultListName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista da Casa (Checklist)'**
+  String get checklistDefaultListName;
+
+  /// No description provided for @checklistExportBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criar uma lista de compras com os {count} itens pendentes do checklist.'**
+  String checklistExportBody(int count);
+
+  /// No description provided for @checklistListNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome da lista *'**
+  String get checklistListNameLabel;
+
+  /// No description provided for @checklistListCreated.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista \"{name}\" criada com {count} itens!'**
+  String checklistListCreated(String name, int count);
+
+  /// No description provided for @checklistListCreateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao criar lista: {error}'**
+  String checklistListCreateError(String error);
+
+  /// No description provided for @checklistGenerateListButton.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
