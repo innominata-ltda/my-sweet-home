@@ -3198,3 +3198,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ocrChangeOrLinkButton => 'Change / Link';
+
+  @override
+  String get ocrRegisterProductButton => 'Register product';
+
+  @override
+  String get ocrUnlinkTooltip => 'Remove link';
+
+  @override
+  String get ocrUnnamedItemFallback => 'Unnamed item';
+
+  @override
+  String get ocrTotalReadColonLabel => 'Receipt total read:';
+
+  @override
+  String get ocrSelectedItemsSumColonLabel => 'Selected items sum:';
+
+  @override
+  String ocrItemSelectHint(String title) {
+    return 'Select $title';
+  }
+
+  @override
+  String householdSyncFailure(String error) {
+    return 'Sync failed: $error';
+  }
+
+  @override
+  String householdSyncAppliedSuffix(int count) {
+    return ' ($count changes applied).';
+  }
+
+  @override
+  String householdSyncSentSuffix(int count) {
+    return ' ($count changes sent).';
+  }
+
+  @override
+  String householdSyncCompleted(int sent, int applied) {
+    return 'Sync completed: $sent changes sent, $applied applied.';
+  }
+
+  @override
+  String get householdCloudSyncNoChanges =>
+      'Cloud sync completed. No pending changes.';
+
+  @override
+  String householdSyncUnexpectedError(String error) {
+    return 'Unexpected sync error: $error';
+  }
+
+  @override
+  String get householdHowSyncWorksTooltip => 'How sync works';
+
+  @override
+  String get householdImportBundleButton => 'Import bundle';
+
+  @override
+  String get householdCloudSyncTitle => 'Allow remote household sync (cloud)';
+
+  @override
+  String get householdCloudSyncSubtitle =>
+      'Sync outside home Wi-Fi with end-to-end encryption';
+
+  @override
+  String get householdCalendarLocalTitle => 'Sync calendar on this device';
+
+  @override
+  String get householdCalendarLocalSubtitle =>
+      'Avoids duplicates by syncing Google Calendar tasks only here';
+
+  @override
+  String householdMembersLoadError(String error) {
+    return 'Error loading members: $error';
+  }
+
+  @override
+  String get householdThisDevice => 'This device';
+
+  @override
+  String householdLastSeen(String time) {
+    return 'Last seen: $time';
+  }
+
+  @override
+  String get householdNeverSynced => 'Never synced';
+
+  @override
+  String get householdRemoveMemberTooltip => 'Remove member';
+
+  @override
+  String get householdDefaultDeviceName => 'My phone';
+
+  @override
+  String get householdJoinDialogTitle => 'Join a household';
+
+  @override
+  String get householdScanQrButton => 'Scan QR Code with camera';
+
+  @override
+  String get householdInviteCodeLabel => 'Invite code or link';
+
+  @override
+  String get householdInviteCodeHint =>
+      'Paste the mshsync:// link or scan the QR Code';
+
+  @override
+  String get householdPasteCodeTooltip => 'Paste code';
+
+  @override
+  String get householdDeviceNameLabel => 'Name of this device';
+
+  @override
+  String get householdInvalidInviteError =>
+      'Invalid invite code. Check the link or QR Code.';
+
+  @override
+  String get householdHostDeviceFallback => 'Host Device';
+
+  @override
+  String get householdInviteGenerateError =>
+      'Could not generate pairing invite.';
+
+  @override
+  String get householdInviteDialogTitle => 'Invite device';
+
+  @override
+  String get householdInviteDialogPrompt =>
+      'Scan this QR Code on the other device or send the link below:';
+
+  @override
+  String get householdCopyLinkButton => 'Copy link';
+
+  @override
+  String get householdInviteLinkCopied => 'Invite link copied!';
+
+  @override
+  String get householdSasCodeLabel => 'SAS authentication code (6 digits):';
+
+  @override
+  String householdRemoveMemberDialogTitle(String name) {
+    return 'Remove \"$name\"?';
+  }
+
+  @override
+  String get householdRemoveMemberDialogBody =>
+      'When removing the device, the household key will be rotated and it will no longer be able to sync new data.';
+
+  @override
+  String get householdDefaultHouseName => 'My Home';
+
+  @override
+  String get householdDefaultDeviceNameAlt => 'My Device';
+
+  @override
+  String get householdEmptyHouseNameError => 'Household name cannot be empty.';
+
+  @override
+  String get householdEmptyDeviceNameError => 'Device name cannot be empty.';
+
+  @override
