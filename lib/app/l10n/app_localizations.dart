@@ -3100,6 +3100,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Janeiro'**
   String get monthJanuary;
+
+  /// No description provided for @monthFebruary.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fevereiro'**
+  String get monthFebruary;
+
+  /// No description provided for @monthMarch.
+  ///
+  /// In pt, this message translates to:
+  /// **'Março'**
+  String get monthMarch;
+
+  /// No description provided for @monthApril.
+  ///
+  /// In pt, this message translates to:
+  /// **'Abril'**
+  String get monthApril;
+
+  /// No description provided for @monthMay.
+  ///
+  /// In pt, this message translates to:
+  /// **'Maio'**
+  String get monthMay;
+
+  /// No description provided for @monthJune.
+  ///
+  /// In pt, this message translates to:
+  /// **'Junho'**
+  String get monthJune;
+
+  /// No description provided for @monthJuly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Julho'**
+  String get monthJuly;
+
+  /// No description provided for @monthAugust.
+  ///
+  /// In pt, this message translates to:
+  /// **'Agosto'**
+  String get monthAugust;
+
+  /// No description provided for @monthSeptember.
+  ///
+  /// In pt, this message translates to:
+  /// **'Setembro'**
+  String get monthSeptember;
+
+  /// No description provided for @monthOctober.
+  ///
+  /// In pt, this message translates to:
+  /// **'Outubro'**
+  String get monthOctober;
+
+  /// No description provided for @monthNovember.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novembro'**
+  String get monthNovember;
+
+  /// No description provided for @monthDecember.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dezembro'**
+  String get monthDecember;
+
+  /// No description provided for @monthYearFormat.
+  ///
+  /// In pt, this message translates to:
+  /// **'{month} de {year}'**
+  String monthYearFormat(String month, String year);
+
+  /// No description provided for @commonPreviousMonth.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mês anterior'**
+  String get commonPreviousMonth;
+
+  /// No description provided for @commonNextMonth.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próximo mês'**
+  String get commonNextMonth;
+
+  /// No description provided for @commonInvalidValue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Valor inválido'**
+  String get commonInvalidValue;
+
+  /// No description provided for @commonEnterAmount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o valor'**
+  String get commonEnterAmount;
+
+  /// No description provided for @commonNotesOptional.
+  ///
+  /// In pt, this message translates to:
+  /// **'Observações (opcional)'**
+  String get commonNotesOptional;
+
+  /// No description provided for @commonRepeatDaily.
+  ///
+  /// In pt, this message translates to:
+  /// **'Diariamente'**
+  String get commonRepeatDaily;
+
+  /// No description provided for @commonRepeatWeekly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Semanalmente'**
+  String get commonRepeatWeekly;
+
+  /// No description provided for @commonRepeatMonthly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mensalmente'**
+  String get commonRepeatMonthly;
+
+  /// No description provided for @commonRepeatCustomDays.
+  ///
+  /// In pt, this message translates to:
+  /// **'A cada X dias'**
+  String get commonRepeatCustomDays;
+
+  /// No description provided for @commonDaysCountLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade de dias *'**
+  String get commonDaysCountLabel;
+
+  /// No description provided for @billsUnpayTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desmarcar pagamento de {title}'**
+  String billsUnpayTooltip(String title);
+
+  /// No description provided for @billsOptionsTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Opções da conta'**
+  String get billsOptionsTooltip;
+
+  /// No description provided for @billsDeleteConfirmTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir conta?'**
+  String get billsDeleteConfirmTitle;
+
+  /// No description provided for @billsDeleteConfirmBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir a conta \"{title}\"?'**
+  String billsDeleteConfirmBody(String title);
+
+  /// No description provided for @billsMarkUnpaid.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
