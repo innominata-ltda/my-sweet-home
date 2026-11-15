@@ -27,6 +27,7 @@ class FakeBillHistoryController extends ValueNotifier<BillHistoryState>
 void main() {
   Widget buildApp(BillHistoryController controller) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: BillHistoryScreen(controller: controller),
