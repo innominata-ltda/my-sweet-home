@@ -5500,6 +5500,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Desconto (R\$)'**
   String get ocrDiscountInputLabel;
+
+  /// No description provided for @ocrReadTotalInputLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Total lido (R\$)'**
+  String get ocrReadTotalInputLabel;
+
+  /// No description provided for @ocrRegisterNewProductTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar novo produto'**
+  String get ocrRegisterNewProductTitle;
+
+  /// No description provided for @ocrCanonicalNameRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome canônico *'**
+  String get ocrCanonicalNameRequiredLabel;
+
+  /// No description provided for @ocrCanonicalNameHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Leite Integral 1L'**
+  String get ocrCanonicalNameHint;
+
+  /// No description provided for @ocrCanonicalNameRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o nome canônico'**
+  String get ocrCanonicalNameRequiredError;
+
+  /// No description provided for @ocrCategoryRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Categoria *'**
+  String get ocrCategoryRequiredLabel;
+
+  /// No description provided for @ocrCategoryHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Alimentos, Limpeza, etc.'**
+  String get ocrCategoryHint;
+
+  /// No description provided for @ocrCategoryRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a categoria'**
+  String get ocrCategoryRequiredError;
+
+  /// No description provided for @ocrDefaultUnitRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unidade padrão *'**
+  String get ocrDefaultUnitRequiredLabel;
+
+  /// No description provided for @ocrAliasesOptionalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sinônimos / Apelidos (opcional)'**
+  String get ocrAliasesOptionalLabel;
+
+  /// No description provided for @ocrAliasesHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Separados por vírgula'**
+  String get ocrAliasesHint;
+
+  /// No description provided for @ocrLinkProductTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Vincular produto'**
+  String get ocrLinkProductTitle;
+
+  /// No description provided for @ocrProductNameSearchLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do produto'**
+  String get ocrProductNameSearchLabel;
+
+  /// No description provided for @ocrProductNameSearchHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digite o nome do produto'**
+  String get ocrProductNameSearchHint;
+
+  /// No description provided for @ocrRegisterNamedAsNew.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cadastrar \"{name}\" como novo produto'**
+  String ocrRegisterNamedAsNew(String name);
+
+  /// No description provided for @ocrSuggestedProductsLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produtos sugeridos:'**
+  String get ocrSuggestedProductsLabel;
+
+  /// No description provided for @ocrProductMetaRow.
+  ///
+  /// In pt, this message translates to:
+  /// **'Categoria: {category} | Unidade: {unit}'**
+  String ocrProductMetaRow(String category, String unit);
+
+  /// No description provided for @ocrNoExistingProductFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum produto existente encontrado com esse nome.'**
+  String get ocrNoExistingProductFound;
+
+  /// No description provided for @ocrNoneLinked.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum'**
+  String get ocrNoneLinked;
+
+  /// No description provided for @ocrItemDescriptionLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Descrição lida / Nome *'**
+  String get ocrItemDescriptionLabel;
+
+  /// No description provided for @ocrItemDescriptionError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o nome ou descrição'**
+  String get ocrItemDescriptionError;
+
+  /// No description provided for @ocrQuantityRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade *'**
+  String get ocrQuantityRequiredLabel;
+
+  /// No description provided for @ocrQuantityRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a qtd'**
+  String get ocrQuantityRequiredError;
+
+  /// No description provided for @ocrQuantityInvalidError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Qtd inválida'**
+  String get ocrQuantityInvalidError;
+
+  /// No description provided for @ocrUnitRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unidade *'**
+  String get ocrUnitRequiredLabel;
+
+  /// No description provided for @ocrUnitPriceRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Preço unitário (R\$) *'**
+  String get ocrUnitPriceRequiredLabel;
+
+  /// No description provided for @ocrTotalPriceRequiredLabel.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
