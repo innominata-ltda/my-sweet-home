@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -29,41 +30,6 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
   late bool _enableRemoteSync;
   bool _submitting = false;
 
-  static const _steps = <_TutorialStepInfo>[
-    _TutorialStepInfo(
-      icon: AppIcons.household,
-      title: 'Bem-vindo à Casa Compartilhada!',
-      description:
-          'Aqui você divide listas de compras, tarefas, estoque, receitas e finanças '
-          'com quem mora com você, sem criar conta em servidor e com criptografia '
-          'de ponta a ponta (chave secreta de 256 bits).',
-    ),
-    _TutorialStepInfo(
-      icon: AppIcons.qrCode,
-      title: 'Pareamento seguro com QR Code e 6 dígitos',
-      description:
-          'Para adicionar outro celular, toque em "Convidar aparelho". '
-          'O novo aparelho lê o QR Code pela câmera (ou usa o link de convite) e '
-          'ambos confirmam o mesmo código de autenticação de 6 dígitos.',
-    ),
-    _TutorialStepInfo(
-      icon: AppIcons.wifi,
-      title: 'Sincronização no Wi-Fi e por Pacotes',
-      description:
-          'Quando os aparelhos estão no mesmo Wi-Fi com o app aberto, as mudanças '
-          'sincronizam direto na rede local. Você também pode tocar em "Gerar pacote" '
-          'para enviar atualizações por qualquer app de mensagens.',
-    ),
-    _TutorialStepInfo(
-      icon: AppIcons.sync,
-      title: 'Sincronização fora de casa (Nuvem)',
-      description:
-          'Quando vocês não estão no mesmo Wi-Fi (ex.: alguém no mercado), o app pode '
-          'usar uma caixa postal criptografada na sua nuvem para entregar as mudanças '
-          'automaticamente.',
-    ),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -81,8 +47,31 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final step = _steps[_currentStep];
-    final isLastStep = _currentStep == _steps.length - 1;
+    final l10n = AppLocalizations.of(context);
+    final steps = <_TutorialStepInfo>[
+      _TutorialStepInfo(
+        icon: AppIcons.household,
+        title: l10n.householdTutorialWelcomeTitle,
+        description: l10n.householdTutorialWelcomeBody,
+      ),
+      _TutorialStepInfo(
+        icon: AppIcons.qrCode,
+        title: l10n.householdTutorialPairingTitle,
+        description: l10n.householdTutorialPairingBody,
+      ),
+      _TutorialStepInfo(
+        icon: AppIcons.wifi,
+        title: l10n.householdTutorialWifiTitle,
+        description: l10n.householdTutorialWifiBody,
+      ),
+      _TutorialStepInfo(
+        icon: AppIcons.sync,
+        title: l10n.householdTutorialCloudTitle,
+        description: l10n.householdTutorialCloudBody,
+      ),
+    ];
+    final step = steps[_currentStep];
+    final isLastStep = _currentStep == steps.length - 1;
     final theme = Theme.of(context);
 
     return Dialog(
@@ -100,7 +89,10 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Passo ${_currentStep + 1} de ${_steps.length}',
+                    l10n.householdTutorialStepOf(
+                      _currentStep + 1,
+                      steps.length,
+                    ),
                     style: theme.textTheme.labelMedium?.copyWith(
                       color: theme.colorScheme.primary,
                       fontWeight: FontWeight.bold,
@@ -109,7 +101,7 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                   IconButton(
                     key: const Key('tutorial_close_button'),
                     icon: const Icon(AppIcons.close),
-                    tooltip: 'Fechar tutorial',
+                    tooltip: l10n.householdTutorialCloseTooltip,
                     onPressed: _finish,
                   ),
                 ],
@@ -141,7 +133,7 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
               if (isLastStep) ...[
                 const SizedBox(height: Spacing.lg),
                 Text(
-                  'Deseja habilitar a sincronização remota agora?',
+                  l10n.householdTutorialRemoteQuestion,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -151,8 +143,8 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                 _RemoteSyncOptionTile(
                   tileKey: const Key('tutorial_remote_sync_enable_option'),
                   selected: _enableRemoteSync,
-                  title: 'Sim, habilitar sincronização remota',
-                  subtitle: 'Sincroniza fora do Wi-Fi com criptografia de ponta a ponta',
+                  title: l10n.householdTutorialRemoteYesTitle,
+                  subtitle: l10n.householdTutorialRemoteYesSubtitle,
                   icon: AppIcons.sync,
                   onTap: () => setState(() => _enableRemoteSync = true),
                 ),
@@ -160,8 +152,8 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                 _RemoteSyncOptionTile(
                   tileKey: const Key('tutorial_remote_sync_disable_option'),
                   selected: !_enableRemoteSync,
-                  title: 'Não, usar apenas Wi-Fi local e pacotes',
-                  subtitle: 'Você poderá ativar depois dentro da tela da Casa Compartilhada',
+                  title: l10n.householdTutorialRemoteNoTitle,
+                  subtitle: l10n.householdTutorialRemoteNoSubtitle,
                   icon: AppIcons.wifi,
                   onTap: () => setState(() => _enableRemoteSync = false),
                 ),
@@ -169,7 +161,7 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
               const SizedBox(height: Spacing.lg),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(_steps.length, (index) {
+                children: List.generate(steps.length, (index) {
                   final active = index == _currentStep;
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 4),
@@ -191,7 +183,7 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                     Expanded(
                       child: AppButton.secondary(
                         key: const Key('tutorial_back_button'),
-                        label: 'Anterior',
+                        label: l10n.householdTutorialPrevious,
                         onPressed: () => setState(() => _currentStep--),
                       ),
                     ),
@@ -204,7 +196,9 @@ class _HouseholdTutorialDialogState extends State<HouseholdTutorialDialog> {
                             ? 'tutorial_finish_button'
                             : 'tutorial_next_button',
                       ),
-                      label: isLastStep ? 'Concluir' : 'Próximo',
+                      label: isLastStep
+                          ? l10n.householdTutorialFinish
+                          : l10n.householdTutorialNext,
                       onPressed: isLastStep
                           ? _finish
                           : () => setState(() => _currentStep++),

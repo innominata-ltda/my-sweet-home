@@ -43,12 +43,15 @@ class ShoppingListWidget extends StatelessWidget {
           );
         }
 
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final successState = state as ShoppingListWidgetSuccess;
         final theme = Theme.of(context);
 
         return Semantics(
           container: true,
-          label: 'Widget de listas de compras',
+          label: l10n.shoppingWidgetSemantics,
           child: AppCard(
             key: const Key('shopping_list_widget_card'),
             child: Column(
@@ -69,7 +72,7 @@ class ShoppingListWidget extends StatelessWidget {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              'Listas de compras',
+                              l10n.shoppingListsTitle,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -103,16 +106,10 @@ class ShoppingListWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: AppEmptyState.mascot(
-                      title: 'Nenhuma lista de compras',
-                      description:
-                          'Crie uma lista para acompanhar suas compras.',
+                      title: l10n.shoppingWidgetEmptyTitle,
+                      description: l10n.shoppingWidgetEmptyDescription,
                       mascotExpression: MascotExpression.shopping,
-                      mascotSemanticLabel:
-                          Localizations.of<AppLocalizations>(
-                            context,
-                            AppLocalizations,
-                          )?.momoEmptyShoppingList ??
-                          'Momo pronta para as compras — nenhuma listinha criada ainda',
+                      mascotSemanticLabel: l10n.momoEmptyShoppingList,
                     ),
                   )
                 else
@@ -120,8 +117,11 @@ class ShoppingListWidget extends StatelessWidget {
                     children: successState.lists.map((item) {
                       final list = item.list;
                       final pendingText = item.pendingItems == 1
-                          ? '1 item pendente'
-                          : '${item.pendingItems} de ${item.totalItems} itens pendentes';
+                          ? l10n.shoppingWidgetOnePending
+                          : l10n.shoppingWidgetPendingOfTotal(
+                              item.pendingItems,
+                              item.totalItems,
+                            );
 
                       return Semantics(
                         container: true,
@@ -190,7 +190,7 @@ class ShoppingListWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: onTapViewAll,
-                      child: const Text('Ver todas as listas'),
+                      child: Text(l10n.shoppingWidgetViewAll),
                     ),
                   ),
                 ],

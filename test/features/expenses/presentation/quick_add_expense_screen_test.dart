@@ -31,6 +31,7 @@ void main() {
 
   Widget buildScreen({Expense? initialExpense}) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: QuickAddExpenseScreen(

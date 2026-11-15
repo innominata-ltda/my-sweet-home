@@ -17,6 +17,7 @@ Widget _buildTestApp({
   return ProviderScope(
     child: MaterialApp(
       theme: theme,
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: MediaQuery(

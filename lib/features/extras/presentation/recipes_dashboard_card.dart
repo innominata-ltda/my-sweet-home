@@ -56,15 +56,17 @@ class _RecipesDashboardCardState extends ConsumerState<RecipesDashboardCard> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
-    final title = l10n?.dashboardCardFavoriteRecipes ?? 'Receitas Favoritas';
+    final title = l10n.dashboardCardFavoriteRecipes;
     final count = _recipes?.length ?? 0;
 
     return Semantics(
       container: true,
       button: true,
-      label: '$title, $count receitas favoritas, toque para ver detalhes',
+      label: l10n.recipesCardSemantics(title, count),
       child: AppCard(
         key: const Key('recipes_dashboard_card'),
         onTap: widget.onTap,

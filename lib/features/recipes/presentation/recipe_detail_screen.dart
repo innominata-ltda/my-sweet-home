@@ -95,13 +95,14 @@ class RecipeDetailScreen extends StatelessWidget {
     Recipe recipe,
     int servings,
   ) async {
+    final loc = AppLocalizations.of(context);
     final useCase = sendIngredientsUseCase;
     final repo = shoppingListRepository;
 
     if (useCase == null || repo == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Serviço de listas não disponível')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(loc.recipeListServiceUnavailable)));
       return;
     }
 
@@ -111,11 +112,9 @@ class RecipeDetailScreen extends StatelessWidget {
 
     String? targetListId;
     if (lists.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Nenhuma lista de compras ativa encontrada.'),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(loc.recipeNoActiveShoppingLists)));
       return;
     } else if (lists.length == 1) {
       targetListId = lists.first.id;
@@ -123,7 +122,7 @@ class RecipeDetailScreen extends StatelessWidget {
       targetListId = await showDialog<String>(
         context: context,
         builder: (ctx) => SimpleDialog(
-          title: const Text('Selecione a lista de compras'),
+          title: Text(loc.recipeSelectShoppingListTitle),
           children: lists
               .map(
                 (l) => SimpleDialogOption(
@@ -146,15 +145,13 @@ class RecipeDetailScreen extends StatelessWidget {
 
     if (!context.mounted) return;
     if (res.isOk) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Ingredientes enviados para a lista de compras!'),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(loc.recipeIngredientsSentSuccess)));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Falha ao enviar ingredientes: ${res.failureOrNull}'),
+          content: Text(loc.recipeIngredientsSentError('${res.failureOrNull}')),
         ),
       );
     }
@@ -184,12 +181,12 @@ class RecipeDetailScreen extends StatelessWidget {
             Text(loc.recipeDetailTime(recipe.timeMinutes)),
             const Spacer(),
             Semantics(
-              label: 'Diminuir porções',
+              label: loc.recipeDecreaseServingsTooltip,
               button: true,
               child: IconButton(
                 key: const Key('decrease_servings_button'),
                 icon: const Icon(AppIcons.removeCircle),
-                tooltip: 'Diminuir porções',
+                tooltip: loc.recipeDecreaseServingsTooltip,
                 onPressed: servings > 1
                     ? () => controller.updateServings(servings - 1)
                     : null,
@@ -200,12 +197,12 @@ class RecipeDetailScreen extends StatelessWidget {
               key: const Key('portions_servings_text'),
             ),
             Semantics(
-              label: 'Aumentar porções',
+              label: loc.recipeIncreaseServingsTooltip,
               button: true,
               child: IconButton(
                 key: const Key('increase_servings_button'),
                 icon: const Icon(AppIcons.addCircle),
-                tooltip: 'Aumentar porções',
+                tooltip: loc.recipeIncreaseServingsTooltip,
                 onPressed: () => controller.updateServings(servings + 1),
               ),
             ),
@@ -237,7 +234,7 @@ class RecipeDetailScreen extends StatelessWidget {
         FilledButton.icon(
           key: const Key('send_ingredients_to_shopping_button'),
           icon: const Icon(AppIcons.sendToList),
-          label: const Text('Enviar ingredientes para lista de compras'),
+          label: Text(loc.recipeSendIngredientsButton),
           onPressed: () =>
               _sendIngredientsToShopping(context, recipe, servings),
         ),

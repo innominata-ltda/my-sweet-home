@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/features/ocr/data/ocr_data_providers.dart';
 import 'package:my_sweet_home/features/ocr/domain/models/receipt_draft.dart';
@@ -82,8 +84,13 @@ final parseReceiptProvider = FutureProvider.family<ReceiptDraft, String>((
   }
 
   if (bestDraft == null) {
+    final l10n = lookupAppLocalizations(
+      PlatformDispatcher.instance.locale.languageCode == 'en'
+          ? const Locale('en')
+          : const Locale('pt'),
+    );
     throw Exception(
-      origResult.failureOrNull?.message ?? 'Falha ao reconhecer nota fiscal.',
+      origResult.failureOrNull?.message ?? l10n.ocrRecognizeError,
     );
   }
 

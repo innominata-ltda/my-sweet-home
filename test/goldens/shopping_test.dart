@@ -92,6 +92,7 @@ void main() {
           ),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ShoppingListScreen(listId: 'list-empty'),
@@ -141,6 +142,7 @@ void main() {
           ),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ShoppingListScreen(listId: 'list-loaded'),
@@ -183,6 +185,7 @@ void main() {
           ),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ShoppingListScreen(listId: 'list-done'),
@@ -209,6 +212,7 @@ void main() {
           ),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ShoppingListScreen(listId: 'non-existent-id'),
@@ -250,6 +254,7 @@ void main() {
             ),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ShoppingListScreen(listId: 'list-a11y'),
@@ -289,6 +294,7 @@ void main() {
             ),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ShoppingListScreen(listId: 'list-undo'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/providers.dart';
 import 'package:my_sweet_home/core/id/deterministic_id.dart';
 import 'package:my_sweet_home/core/recurrence/recurrence_rule.dart';
@@ -134,17 +135,29 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
 
                 await _controller.load();
                 if (!mounted) return;
+                final l10n =
+                    Localizations.of<AppLocalizations>(
+                      context,
+                      AppLocalizations,
+                    ) ??
+                    lookupAppLocalizations(const Locale('pt'));
                 scaffoldMessenger.showSnackBar(
-                  SnackBar(
-                    content: Text('Conta "$title" cadastrada com sucesso!'),
-                  ),
+                  SnackBar(content: Text(l10n.billsCreateSuccess(title))),
                 );
               } else if (newBillResult is Err<Bill, Failure>) {
                 if (!mounted) return;
+                final l10n =
+                    Localizations.of<AppLocalizations>(
+                      context,
+                      AppLocalizations,
+                    ) ??
+                    lookupAppLocalizations(const Locale('pt'));
                 scaffoldMessenger.showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Erro ao cadastrar conta: ${userMessageFor(newBillResult.failure)}',
+                      l10n.billsCreateError(
+                        userMessageFor(newBillResult.failure),
+                      ),
                     ),
                   ),
                 );
@@ -155,6 +168,9 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
       },
       onPayBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final amount = item.bill.amount ?? const Money(0);
         final useCase = DefaultPayBillUseCase(
           ref.read(billPaymentRepositoryProvider),
@@ -170,14 +186,15 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
         if (res.isOk) {
           await _controller.load();
           messenger.showSnackBar(
-            SnackBar(
-              content: Text('Conta "${item.bill.title}" marcada como paga!'),
-            ),
+            SnackBar(content: Text(l10n.billsPaidSuccess(item.bill.title))),
           );
         }
       },
       onUnpayBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final useCase = DefaultUnpayBillUseCase(
           ref.read(billPaymentRepositoryProvider),
           ref.read(billRepositoryProvider),
@@ -190,38 +207,36 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
         if (res.isOk) {
           await _controller.load();
           messenger.showSnackBar(
-            SnackBar(
-              content: Text(
-                'Conta "${item.bill.title}" marcada como não paga!',
-              ),
-            ),
+            SnackBar(content: Text(l10n.billsUnpaidSuccess(item.bill.title))),
           );
         }
       },
       onPauseBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         await _controller.pauseBill(item.bill.id);
         messenger.showSnackBar(
-          SnackBar(
-            content: Text('Conta "${item.bill.title}" pausada com sucesso!'),
-          ),
+          SnackBar(content: Text(l10n.billsPausedSuccess(item.bill.title))),
         );
       },
       onDeleteBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final res = await _controller.deleteBill(item.bill.id);
         if (!context.mounted) return;
         if (res.isOk) {
           messenger.showSnackBar(
-            SnackBar(
-              content: Text('Conta "${item.bill.title}" excluída com sucesso!'),
-            ),
+            SnackBar(content: Text(l10n.billsDeletedSuccess(item.bill.title))),
           );
         } else {
           messenger.showSnackBar(
             SnackBar(
               content: Text(
-                'Erro ao excluir conta: ${res.failureOrNull?.toString() ?? ''}',
+                l10n.billsDeleteError(res.failureOrNull?.toString() ?? ''),
               ),
             ),
           );

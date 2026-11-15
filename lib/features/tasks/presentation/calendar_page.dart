@@ -149,11 +149,11 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
           mainAxisSize: MainAxisSize.min,
           children: [
             Semantics(
-              label: 'Mês anterior',
+              label: AppLocalizations.of(context).commonPreviousMonth,
               button: true,
               child: IconButton(
                 icon: const Icon(AppIcons.chevronLeft),
-                tooltip: 'Mês anterior',
+                tooltip: AppLocalizations.of(context).commonPreviousMonth,
                 onPressed: () {
                   setState(() {
                     _currentDate = DateTime.utc(
@@ -197,11 +197,11 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
               ),
             ),
             Semantics(
-              label: 'Próximo mês',
+              label: AppLocalizations.of(context).commonNextMonth,
               button: true,
               child: IconButton(
                 icon: const Icon(AppIcons.chevronRight),
-                tooltip: 'Próximo mês',
+                tooltip: AppLocalizations.of(context).commonNextMonth,
                 onPressed: () {
                   setState(() {
                     _currentDate = DateTime.utc(
@@ -217,36 +217,38 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
         ),
         bottom: TabBar(
           controller: _tabController,
-          tabs: const [
-            Tab(text: 'Dia'),
-            Tab(text: 'Semana'),
-            Tab(text: 'Mês'),
+          tabs: [
+            Tab(text: AppLocalizations.of(context).calendarTabDay),
+            Tab(text: AppLocalizations.of(context).calendarTabWeek),
+            Tab(text: AppLocalizations.of(context).calendarTabMonth),
           ],
         ),
         actions: [
           IconButton(
             key: const Key('tasks_suggestions_button'),
             icon: const Icon(AppIcons.info),
-            tooltip: 'Sugestões de manutenção',
+            tooltip: AppLocalizations.of(context)
+                .calendarMaintenanceSuggestions,
             onPressed: () => context.push('/tarefas/sugestoes'),
           ),
           IconButton(
             key: const Key('tasks_checklist_button'),
             icon: const Icon(AppIcons.checklist),
-            tooltip: 'Checklist da casa',
+            tooltip: AppLocalizations.of(context).checklistTitle,
             onPressed: () => context.push('/checklist'),
           ),
           IconButton(
             icon: const Icon(AppIcons.google),
-            tooltip: 'Sincronizar com Google',
+            tooltip: AppLocalizations.of(context).calendarSyncGoogle,
             onPressed: () async {
+              final l10n = AppLocalizations.of(context);
               final settings = ref.read(settingsRepositoryProvider);
               await settings.setCloudBackupAllowed(true);
 
               if (!context.mounted) return;
               final syncService = ref.read(taskSyncServiceProvider);
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Iniciando sincronização...')),
+                SnackBar(content: Text(l10n.calendarSyncStarting)),
               );
 
               final now = ref.read(clockProvider).nowUtc();
@@ -259,14 +261,16 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
               if (!context.mounted) return;
 
               if (res.isOk) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Sincronização concluída!')),
-                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(l10n.calendarSyncDone)));
                 ref.invalidate(calendarTasksProvider);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text('Erro: ${res.failureOrNull.toString()}'),
+                    content: Text(
+                      l10n.taskQuickAddError(res.failureOrNull.toString()),
+                    ),
                   ),
                 );
               }
@@ -274,16 +278,18 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
           ),
           IconButton(
             icon: const Icon(AppIcons.today),
-            tooltip: 'Hoje',
+            tooltip: AppLocalizations.of(context).calendarTodayTooltip,
             onPressed: () {
               setState(() {
                 _currentDate = ref.read(clockProvider).todayUtc();
               });
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Exibindo hoje'),
-                  duration: Duration(milliseconds: 1000),
+                SnackBar(
+                  content: Text(
+                    AppLocalizations.of(context).calendarShowingToday,
+                  ),
+                  duration: const Duration(milliseconds: 1000),
                 ),
               );
             },
@@ -291,10 +297,10 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
         ],
       ),
       floatingActionButton: Semantics(
-        label: 'Nova tarefa',
+        label: AppLocalizations.of(context).calendarNewTask,
         button: true,
         child: FloatingActionButton(
-          tooltip: 'Nova tarefa',
+          tooltip: AppLocalizations.of(context).calendarNewTask,
           onPressed: () async {
             final repository = ref.read(taskRepositoryProvider);
             final clock = ref.read(clockProvider);
@@ -463,34 +469,35 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
     final titleController = TextEditingController(text: task.title);
     final notesController = TextEditingController(text: task.notes ?? '');
 
+    final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Editar Tarefa'),
+        title: Text(l10n.calendarEditTaskTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Título *'),
+              decoration: InputDecoration(
+                labelText: l10n.calendarTaskTitleLabel,
+              ),
             ),
             const SizedBox(height: 12),
             TextField(
               controller: notesController,
-              decoration: const InputDecoration(
-                labelText: 'Observações (opcional)',
-              ),
+              decoration: InputDecoration(labelText: l10n.commonNotesOptional),
             ),
           ],
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Salvar'),
+            child: Text(l10n.commonSave),
           ),
         ],
       ),

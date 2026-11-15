@@ -25,6 +25,9 @@ class MonthBalanceWidget extends StatelessWidget {
     return ValueListenableBuilder<MonthBalanceWidgetState>(
       valueListenable: controller,
       builder: (context, state, child) {
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         if (state is MonthBalanceWidgetLoading) {
           return const AppCard(
             child: SizedBox(height: 100, child: Center(child: AppLoading())),
@@ -36,7 +39,7 @@ class MonthBalanceWidget extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                'Erro ao carregar saldo do mês: ${state.failure}',
+                l10n.monthBalanceLoadError('${state.failure}'),
                 style: TextStyle(color: Theme.of(context).colorScheme.error),
               ),
             ),
@@ -55,7 +58,7 @@ class MonthBalanceWidget extends StatelessWidget {
             ? (successState.hideValues
                   ? 'R\$ ***'
                   : summary.budget!.formatPtBr())
-            : 'Não definido';
+            : l10n.monthBalanceNotSet;
 
         final String remainingText = summary.remaining != null
             ? (successState.hideValues
@@ -70,8 +73,9 @@ class MonthBalanceWidget extends StatelessWidget {
 
         return Semantics(
           container: true,
-          label:
-              'Widget de saldo do mês, ${successState.hideValues ? "valor oculto" : "gasto $actualText de $budgetText"}',
+          label: successState.hideValues
+              ? l10n.monthBalanceSemanticsHidden
+              : l10n.monthBalanceSemanticsVisible(actualText, budgetText),
           child: AppCard(
             key: const Key('month_balance_widget_card'),
             child: Column(
@@ -92,12 +96,7 @@ class MonthBalanceWidget extends StatelessWidget {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              title ??
-                                  Localizations.of<AppLocalizations>(
-                                    context,
-                                    AppLocalizations,
-                                  )?.dashboardMonthBalanceTitle ??
-                                  'Saldo do mês',
+                              title ?? l10n.monthBalanceDefaultTitle,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -126,7 +125,7 @@ class MonthBalanceWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Gasto no mês',
+                          l10n.monthBalanceSpentLabel,
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -186,7 +185,7 @@ class MonthBalanceWidget extends StatelessWidget {
                     runSpacing: 4,
                     children: [
                       Text(
-                        'Orçado: $budgetText',
+                        l10n.monthBalanceBudgetedLabel(budgetText),
                         key: const Key('month_balance_budget_text'),
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
@@ -208,7 +207,7 @@ class MonthBalanceWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: onTapViewDetails,
-                      child: const Text('Ver resumo financeiro'),
+                      child: Text(l10n.monthBalanceViewDetails),
                     ),
                   ),
                 ],

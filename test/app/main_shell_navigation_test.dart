@@ -78,6 +78,7 @@ void main() {
         overrides: [...extraOverrides.cast()],
         child: MaterialApp.router(
           theme: lightTheme(),
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           routerConfig: router,

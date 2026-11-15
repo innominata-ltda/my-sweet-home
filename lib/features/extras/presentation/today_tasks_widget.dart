@@ -48,12 +48,15 @@ class TodayTasksWidget extends StatelessWidget {
           );
         }
 
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final successState = state as TodayTasksWidgetSuccess;
         final theme = Theme.of(context);
 
         return Semantics(
           container: true,
-          label: 'Widget de tarefas do dia',
+          label: l10n.todayTasksWidgetSemantics,
           child: AppCard(
             key: const Key('today_tasks_widget_card'),
             child: Column(
@@ -74,12 +77,7 @@ class TodayTasksWidget extends StatelessWidget {
                           const SizedBox(width: 8),
                           Expanded(
                             child: Text(
-                              title ??
-                                  Localizations.of<AppLocalizations>(
-                                    context,
-                                    AppLocalizations,
-                                  )?.dashboardTodayTasksTitle ??
-                                  'Tarefas de hoje',
+                              title ?? l10n.todayTasksDefaultTitle,
                               style: theme.textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -113,15 +111,10 @@ class TodayTasksWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: AppEmptyState.mascot(
-                      title: 'Nenhuma tarefa para hoje',
-                      description: 'Você não tem tarefas agendadas para hoje.',
+                      title: l10n.todayTasksEmptyTitle,
+                      description: l10n.todayTasksEmptyDescription,
                       mascotExpression: MascotExpression.relaxed,
-                      mascotSemanticLabel:
-                          Localizations.of<AppLocalizations>(
-                            context,
-                            AppLocalizations,
-                          )?.momoEmptyTasks ??
-                          'Momo relaxada — nenhuma tarefinha para hoje',
+                      mascotSemanticLabel: l10n.momoEmptyTasks,
                     ),
                   )
                 else
@@ -132,7 +125,7 @@ class TodayTasksWidget extends StatelessWidget {
                       return Semantics(
                         container: true,
                         label:
-                            '${task.title}, ${isDone ? "concluída" : "pendente"}',
+                            '${task.title}, ${isDone ? l10n.todayTasksDoneStatus : l10n.todayTasksPendingStatus}',
                         button: onTapTask != null,
                         child: Container(
                           key: Key('today_task_item_${task.id}'),
@@ -167,7 +160,7 @@ class TodayTasksWidget extends StatelessWidget {
                                         successState.tasks.isNotEmpty) {
                                       CelebrationOverlay.show(
                                         context,
-                                        message: 'Todas as tarefas de hoje foram concluídas! 🎉',
+                                        message: l10n.todayTasksAllDoneMessage,
                                       );
                                     }
                                   }
@@ -233,7 +226,7 @@ class TodayTasksWidget extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: onTapViewAll,
-                      child: const Text('Ver todas as tarefas'),
+                      child: Text(l10n.todayTasksViewAll),
                     ),
                   ),
                 ],

@@ -132,6 +132,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
         // Ignore absence of lanTransport in environments without socket/Drift
       }
 
+      final l10n = AppLocalizations.of(context);
       final useCase = ref.read(syncNowUseCaseProvider);
       final report = await useCase.execute();
       if (mounted) {
@@ -139,7 +140,9 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
           final err = report.failureOrNull;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Falha na sincronização: ${_formatFailure(err)}'),
+              content: Text(
+                l10n.householdSyncFailure(_formatFailure(err, l10n)),
+              ),
             ),
           );
         } else {
@@ -147,14 +150,20 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
           if (r.peersContactedCount > 0) {
             final summary =
                 (r.appliedChangesCount > 0 && r.sentChangesCount > 0)
-                ? ' (${r.sentChangesCount} enviadas, ${r.appliedChangesCount} aplicadas).'
+                ? l10n.householdSyncBothSuffix(
+                    r.sentChangesCount,
+                    r.appliedChangesCount,
+                  )
                 : (r.appliedChangesCount > 0)
-                ? ' (${r.appliedChangesCount} alterações aplicadas).'
-                : ' (${r.sentChangesCount} alterações enviadas).';
+                ? l10n.householdSyncAppliedSuffix(r.appliedChangesCount)
+                : l10n.householdSyncSentSuffix(r.sentChangesCount);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  'Sincronizado com ${r.peersContactedCount} aparelho(s)$summary',
+                  l10n.householdSyncPeersCompleted(
+                    r.peersContactedCount,
+                    summary,
+                  ),
                 ),
               ),
             );
@@ -162,33 +171,29 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  'Sincronização concluída: ${r.sentChangesCount} alterações enviadas, ${r.appliedChangesCount} aplicadas.',
+                  l10n.householdSyncCompleted(
+                    r.sentChangesCount,
+                    r.appliedChangesCount,
+                  ),
                 ),
               ),
             );
           } else if (_householdSyncRemote) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text(
-                  'Sincronização em nuvem concluída. Nenhuma alteração pendente.',
-                ),
-              ),
+              SnackBar(content: Text(l10n.householdCloudSyncNoChanges)),
             );
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text(
-                  'Nenhum outro aparelho encontrado na rede local no momento.',
-                ),
-              ),
+              SnackBar(content: Text(l10n.householdSyncNoPeersFound)),
             );
           }
         }
       }
     } catch (e) {
       if (mounted) {
+        final l10n = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Erro inesperado na sincronização: $e')),
+          SnackBar(content: Text(l10n.householdSyncUnexpectedError('$e'))),
         );
       }
     }
@@ -251,7 +256,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
           IconButton(
             key: const Key('household_tutorial_button'),
             icon: const Icon(AppIcons.info),
-            tooltip: 'Como funciona a sincronização',
+            tooltip: l10n?.householdHowSyncWorksTooltip,
             onPressed: () => _showTutorialDialog(context),
           ),
         ],
@@ -260,7 +265,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
         loading: () => const Center(child: AppLoading()),
         error: (err, _) => Center(
           child: Text(
-            'Erro ao carregar dados da casa: $err',
+            l10n!.householdLoadError('$err'),
             style: const TextStyle(color: Colors.red),
           ),
         ),
@@ -391,7 +396,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               child: AppButton.primary(
                 key: const Key('sync_now_button'),
                 label: _syncing
-                    ? 'Sincronizando...'
+                    ? (l10n?.householdSyncing ?? 'Sincronizando...')
                     : (l10n?.householdSyncNowButton ?? 'Sincronizar agora'),
                 icon: const Icon(AppIcons.sync),
                 onPressed: _syncNow,
@@ -434,7 +439,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
             Expanded(
               child: AppButton.secondary(
                 key: const Key('import_bundle_button'),
-                label: 'Importar pacote',
+                label: l10n!.householdImportBundleButton,
                 icon: const Icon(AppIcons.fileImport),
                 onPressed: () => _showImportBundleDialog(context),
               ),
@@ -451,12 +456,8 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               SwitchListTile(
                 key: const Key('household_sync_remote_switch'),
                 secondary: const Icon(AppIcons.sync),
-                title: const Text(
-                  'Permitir sincronização remota da casa (nuvem)',
-                ),
-                subtitle: const Text(
-                  'Sincronizar fora do Wi-Fi doméstico com criptografia de ponta a ponta',
-                ),
+                title: Text(l10n.householdCloudSyncTitle),
+                subtitle: Text(l10n.householdCloudSyncSubtitle),
                 value: _householdSyncRemote,
                 onChanged: _toggleRemoteSync,
               ),
@@ -464,10 +465,8 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               SwitchListTile(
                 key: const Key('calendar_owner_switch'),
                 secondary: const Icon(AppIcons.calendar),
-                title: const Text('Sincronizar agenda neste aparelho'),
-                subtitle: const Text(
-                  'Evita duplicação sincronizando tarefas do Google Calendar só aqui',
-                ),
+                title: Text(l10n.householdCalendarLocalTitle),
+                subtitle: Text(l10n.householdCalendarLocalSubtitle),
                 value: _calendarOwner,
                 onChanged: _toggleCalendarOwner,
               ),
@@ -478,7 +477,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
         // 3. Section: Household members
         Text(
-          l10n?.householdMembersTitle ?? 'Aparelhos na casa',
+          l10n.householdMembersTitle,
           style: Theme.of(context).textTheme.titleMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
@@ -488,7 +487,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
             padding: EdgeInsets.all(Spacing.md),
             child: AppLoading(),
           ),
-          error: (err, _) => Text('Erro ao carregar membros: $err'),
+          error: (err, _) => Text(l10n.householdMembersLoadError('$err')),
           data: (members) {
             return Column(
               children: members.map((member) {
@@ -507,8 +506,12 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                     title: Text(member.name),
                     subtitle: Text(
                       isSelf
-                          ? 'Este aparelho'
-                          : 'Visto por último: ${member.lastSeenAt != null ? member.lastSeenAt!.toIso8601String() : 'Nunca sincronizou'}',
+                          ? l10n.householdThisDevice
+                          : l10n.householdLastSeen(
+                              member.lastSeenAt != null
+                                  ? member.lastSeenAt!.toIso8601String()
+                                  : l10n.householdNeverSynced,
+                            ),
                       style: TextStyle(
                         color: isSelf
                             ? Theme.of(context).colorScheme.primary
@@ -523,7 +526,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                         : IconButton(
                             key: Key('remove_member_button_${member.id}'),
                             icon: const Icon(AppIcons.delete),
-                            tooltip: 'Remover membro',
+                            tooltip: l10n.householdRemoveMemberTooltip,
                             onPressed: () =>
                                 _confirmRemoveMember(context, member),
                           ),
@@ -537,7 +540,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
         // 4. Section: Shared areas
         Text(
-          l10n?.householdAreasTitle ?? 'Áreas compartilhadas',
+          l10n.householdAreasTitle,
           style: Theme.of(context).textTheme.titleMedium
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
@@ -548,10 +551,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
             children: [
               SwitchListTile(
                 key: const Key('area_toggle_home'),
-                title: Text(
-                  l10n?.householdAreaHome ??
-                      'Casa (Tarefas, Estoque, Receitas)',
-                ),
+                title: Text(l10n.householdAreaHome),
                 value: household.sharedAreas.contains(SyncArea.home),
                 onChanged: (val) {
                   final newAreas = Set<SyncArea>.from(household.sharedAreas);
@@ -568,10 +568,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               const Divider(height: 1),
               SwitchListTile(
                 key: const Key('area_toggle_finance'),
-                title: Text(
-                  l10n?.householdAreaFinance ??
-                      'Finanças (Despesas, Contas, Preços)',
-                ),
+                title: Text(l10n.householdAreaFinance),
                 value: household.sharedAreas.contains(SyncArea.finance),
                 onChanged: (val) {
                   final newAreas = Set<SyncArea>.from(household.sharedAreas);
@@ -593,7 +590,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
         // 5. Leave household button (T-15, RF-126)
         AppButton.danger(
           key: const Key('leave_household_button'),
-          label: l10n?.householdLeaveButton ?? 'Sair da casa',
+          label: l10n.householdLeaveButton,
           icon: const Icon(AppIcons.deleteForever),
           fullWidth: true,
           onPressed: () {
@@ -631,14 +628,17 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     AppLocalizations? l10n, {
     String? initialInvite,
   }) {
+    final loc = l10n ?? AppLocalizations.of(context);
     final inviteController = TextEditingController(text: initialInvite ?? '');
-    final deviceNameController = TextEditingController(text: 'Meu celular');
+    final deviceNameController = TextEditingController(
+      text: loc.householdDefaultDeviceName,
+    );
 
     showDialog<void>(
       context: context,
       builder: (ctx) {
         return AlertDialog(
-          title: const Text('Entrar em uma casa'),
+          title: Text(loc.householdJoinDialogTitle),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -646,7 +646,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
               children: [
                 AppButton.secondary(
                   key: const Key('scan_qr_invite_button'),
-                  label: 'Ler QR Code com a câmera',
+                  label: loc.householdScanQrButton,
                   icon: const Icon(AppIcons.qrScanner),
                   fullWidth: true,
                   onPressed: () async {
@@ -664,12 +664,12 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                   key: const Key('join_invite_code_input'),
                   controller: inviteController,
                   decoration: InputDecoration(
-                    labelText: 'Código ou link de convite',
-                    hintText: 'Cole o link mshsync:// ou escaneie o QR Code',
+                    labelText: loc.householdInviteCodeLabel,
+                    hintText: loc.householdInviteCodeHint,
                     suffixIcon: IconButton(
                       key: const Key('paste_invite_code_button'),
                       icon: const Icon(AppIcons.paste),
-                      tooltip: 'Colar código',
+                      tooltip: loc.householdPasteCodeTooltip,
                       onPressed: () async {
                         final data = await Clipboard.getData('text/plain');
                         if (data?.text != null && data!.text!.isNotEmpty) {
@@ -683,8 +683,8 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                 TextField(
                   key: const Key('join_device_name_input'),
                   controller: deviceNameController,
-                  decoration: const InputDecoration(
-                    labelText: 'Nome deste aparelho',
+                  decoration: InputDecoration(
+                    labelText: loc.householdDeviceNameLabel,
                   ),
                 ),
               ],
@@ -693,7 +693,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Cancelar'),
+              child: Text(loc.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_join_preview_button'),
@@ -710,11 +710,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                 } catch (_) {
                   if (context.mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Código de convite inválido. Verifique o link ou QR Code.',
-                        ),
-                      ),
+                      SnackBar(content: Text(loc.householdInvalidInviteError)),
                     );
                   }
                   return;
@@ -802,7 +798,9 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                           id: 'mem_${invite.hostSiteId}',
                           householdId: invite.householdId,
                           siteId: invite.hostSiteId!,
-                          name: invite.hostDeviceName ?? 'Aparelho Anfitrião',
+                          name:
+                              invite.hostDeviceName ??
+                              loc.householdHostDeviceFallback,
                           joinedAt: ref.read(clockProvider).nowUtc(),
                           lastSeenAt: ref.read(clockProvider).nowUtc(),
                         ),
@@ -817,7 +815,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                   ),
                 );
               },
-              child: const Text('Continuar'),
+              child: Text(loc.commonContinue),
             ),
           ],
         );
@@ -869,10 +867,9 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
       invite = res.valueOrNull;
     } catch (_) {
       if (context.mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Não foi possível gerar o convite de pareamento.'),
-          ),
+          SnackBar(content: Text(loc.householdInviteGenerateError)),
         );
       }
       return;
@@ -880,10 +877,9 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
     if (invite == null) {
       if (context.mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Não foi possível gerar o convite de pareamento.'),
-          ),
+          SnackBar(content: Text(loc.householdInviteGenerateError)),
         );
       }
       return;
@@ -893,19 +889,20 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
     final sasCode = invite.sasCode;
 
     if (!context.mounted) return;
+    final loc = AppLocalizations.of(context);
 
     await showDialog<void>(
       context: context,
       builder: (ctx) {
         return AlertDialog(
           key: const Key('pairing_invite_dialog'),
-          title: const Text('Convidar dispositivo'),
+          title: Text(loc.householdInviteDialogTitle),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Escaneie este QR Code no outro aparelho ou envie o link abaixo:',
+                Text(
+                  loc.householdInviteDialogPrompt,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: Spacing.md),
@@ -940,13 +937,13 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                     TextButton.icon(
                       key: const Key('copy_invite_link_button'),
                       icon: const Icon(AppIcons.copy, size: 18),
-                      label: const Text('Copiar link'),
+                      label: Text(loc.householdCopyLinkButton),
                       onPressed: () async {
                         await Clipboard.setData(ClipboardData(text: qrData));
                         if (ctx.mounted) {
                           ScaffoldMessenger.of(ctx).showSnackBar(
-                            const SnackBar(
-                              content: Text('Link de convite copiado!'),
+                            SnackBar(
+                              content: Text(loc.householdInviteLinkCopied),
                             ),
                           );
                         }
@@ -956,7 +953,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                     TextButton.icon(
                       key: const Key('share_invite_link_button'),
                       icon: const Icon(AppIcons.share, size: 18),
-                      label: const Text('Compartilhar'),
+                      label: Text(loc.householdBundleShareAction),
                       onPressed: () async {
                         try {
                           await SharePlus.instance.share(
@@ -968,7 +965,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                   ],
                 ),
                 const SizedBox(height: Spacing.md),
-                const Text('Código de autenticação SAS (6 dígitos):'),
+                Text(loc.householdSasCodeLabel),
                 Text(
                   sasCode,
                   key: const Key('pairing_sas_code'),
@@ -984,7 +981,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
           actions: [
             FilledButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Fechar'),
+              child: Text(loc.commonClose),
             ),
           ],
         );
@@ -1000,19 +997,18 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
   }
 
   void _confirmRemoveMember(BuildContext context, Member member) {
+    final loc = AppLocalizations.of(context);
     showDialog<void>(
       context: context,
       builder: (ctx) {
         return AlertDialog(
           key: const Key('confirm_remove_member_dialog'),
-          title: Text('Remover "${member.name}"?'),
-          content: const Text(
-            'Ao remover o aparelho, a chave da casa será rotacionada e ele não poderá mais sincronizar novos dados.',
-          ),
+          title: Text(loc.householdRemoveMemberDialogTitle(member.name)),
+          content: Text(loc.householdRemoveMemberDialogBody),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(ctx).pop(),
-              child: const Text('Cancelar'),
+              child: Text(loc.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_remove_member_button'),
@@ -1025,7 +1021,7 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                   ref.invalidate(householdMembersStreamProvider);
                 } catch (_) {}
               },
-              child: const Text('Remover'),
+              child: Text(loc.householdRemoveMemberConfirm),
             ),
           ],
         );
@@ -1053,14 +1049,26 @@ class _CreateHouseholdDialogState
     extends ConsumerState<_CreateHouseholdDialog> {
   late final TextEditingController _houseNameController;
   late final TextEditingController _deviceNameController;
+  bool _initialized = false;
   bool _isSubmitting = false;
   String? _errorMessage;
 
   @override
   void initState() {
     super.initState();
-    _houseNameController = TextEditingController(text: 'Minha Casa');
-    _deviceNameController = TextEditingController(text: 'Meu Aparelho');
+    _houseNameController = TextEditingController();
+    _deviceNameController = TextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      _initialized = true;
+      final loc = widget.l10n ?? AppLocalizations.of(context);
+      _houseNameController.text = loc.householdDefaultHouseName;
+      _deviceNameController.text = loc.householdDefaultDeviceNameAlt;
+    }
   }
 
   @override
@@ -1071,15 +1079,16 @@ class _CreateHouseholdDialogState
   }
 
   Future<void> _submit() async {
+    final loc = widget.l10n ?? AppLocalizations.of(context);
     final houseName = _houseNameController.text.trim();
     final deviceName = _deviceNameController.text.trim();
 
     if (houseName.isEmpty) {
-      setState(() => _errorMessage = 'O nome da casa não pode ser vazio.');
+      setState(() => _errorMessage = loc.householdEmptyHouseNameError);
       return;
     }
     if (deviceName.isEmpty) {
-      setState(() => _errorMessage = 'O nome do aparelho não pode ser vazio.');
+      setState(() => _errorMessage = loc.householdEmptyDeviceNameError);
       return;
     }
 
@@ -1101,7 +1110,7 @@ class _CreateHouseholdDialogState
       if (result.isErr) {
         setState(() {
           _isSubmitting = false;
-          _errorMessage = _formatFailure(result.failureOrNull);
+          _errorMessage = _formatFailure(result.failureOrNull, loc);
         });
         return;
       }
@@ -1112,7 +1121,7 @@ class _CreateHouseholdDialogState
       if (mounted) {
         setState(() {
           _isSubmitting = false;
-          _errorMessage = 'Erro inesperado: $e';
+          _errorMessage = loc.householdUnexpectedErrorWithDetail('$e');
         });
       }
     }
@@ -1120,10 +1129,11 @@ class _CreateHouseholdDialogState
 
   @override
   Widget build(BuildContext context) {
+    final loc = widget.l10n ?? AppLocalizations.of(context);
     return PopScope(
       canPop: !_isSubmitting,
       child: AlertDialog(
-        title: Text(widget.l10n?.householdCreateButton ?? 'Criar casa'),
+        title: Text(loc.householdCreateButton),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -1133,7 +1143,9 @@ class _CreateHouseholdDialogState
                 key: const Key('household_name_input'),
                 controller: _houseNameController,
                 enabled: !_isSubmitting,
-                decoration: const InputDecoration(labelText: 'Nome da casa'),
+                decoration: InputDecoration(
+                  labelText: loc.householdHouseNameLabel,
+                ),
                 onChanged: (_) {
                   if (_errorMessage != null) {
                     setState(() => _errorMessage = null);
@@ -1145,8 +1157,8 @@ class _CreateHouseholdDialogState
                 key: const Key('device_name_input'),
                 controller: _deviceNameController,
                 enabled: !_isSubmitting,
-                decoration: const InputDecoration(
-                  labelText: 'Nome deste aparelho',
+                decoration: InputDecoration(
+                  labelText: loc.householdDeviceNameLabel,
                 ),
                 onChanged: (_) {
                   if (_errorMessage != null) {
@@ -1174,7 +1186,7 @@ class _CreateHouseholdDialogState
                     const SizedBox(width: Spacing.sm),
                     Flexible(
                       child: Text(
-                        'Criando casa e preparando dados...',
+                        loc.householdCreatingProgress,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -1188,7 +1200,7 @@ class _CreateHouseholdDialogState
           TextButton(
             key: const Key('cancel_create_household_button'),
             onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           FilledButton(
             key: const Key('confirm_create_household_button'),
@@ -1199,7 +1211,7 @@ class _CreateHouseholdDialogState
                     height: 16,
                     child: AppLoading.spinner(size: 16),
                   )
-                : const Text('Criar'),
+                : Text(loc.householdCreateShortButton),
           ),
         ],
       ),
@@ -1207,8 +1219,8 @@ class _CreateHouseholdDialogState
   }
 }
 
-String _formatFailure(Failure? err) {
-  if (err == null) return 'Erro desconhecido.';
+String _formatFailure(Failure? err, AppLocalizations l10n) {
+  if (err == null) return l10n.householdErrorUnknown;
   if (err is HouseholdFailure) return err.message;
   if (err is StorageFailure) {
     final detail = err.detail.trim();
@@ -1216,21 +1228,21 @@ String _formatFailure(Failure? err) {
         detail.contains(r'\') ||
         detail.contains('Exception') ||
         detail.contains('Sqlite')) {
-      return 'Não foi possível salvar ou carregar os dados. Tente novamente.';
+      return l10n.householdErrorStorageDetail;
     }
-    return detail.isNotEmpty
-        ? detail
-        : 'Não foi possível acessar o armazenamento.';
+    return detail.isNotEmpty ? detail : l10n.householdErrorStorageAccess;
   }
   if (err is ValidationFailure) return err.fields.values.join('; ');
   if (err is NetworkFailure) {
     return err.isOffline
-        ? 'Sem conexão com a internet.'
-        : 'Falha de comunicação na rede.';
+        ? l10n.householdErrorNoInternet
+        : l10n.householdErrorNetwork;
   }
   if (err is PermissionFailure) {
-    return 'Permissão necessária: ${err.permission}.';
+    return l10n.householdErrorPermissionRequired(err.permission);
   }
-  if (err is CancelledFailure) return err.reason ?? 'Operação cancelada.';
-  return 'Ocorreu um erro inesperado.';
+  if (err is CancelledFailure) {
+    return err.reason ?? l10n.householdErrorCancelled;
+  }
+  return l10n.householdErrorGeneric;
 }

@@ -74,6 +74,7 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp.router(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: router,
@@ -198,6 +199,7 @@ Bater tudo no liquidificador e assar por 40 minutos em banho-maria.
 
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: RecipeDetailScreen(
@@ -310,6 +312,7 @@ Bater tudo no liquidificador e assar por 40 minutos em banho-maria.
 
         await tester.pumpWidget(
           MaterialApp.router(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: router,

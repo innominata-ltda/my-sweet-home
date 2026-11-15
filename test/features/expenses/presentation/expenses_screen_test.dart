@@ -162,6 +162,7 @@ void main() {
           categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: ExpensesScreen(),
@@ -210,6 +211,7 @@ void main() {
             categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ExpensesScreen(),
@@ -252,6 +254,7 @@ void main() {
             categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ExpensesScreen(),
@@ -293,6 +296,7 @@ void main() {
             categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
           ],
           child: MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ExpensesScreen(
@@ -352,6 +356,7 @@ void main() {
             categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: ExpensesScreen(),

@@ -94,7 +94,7 @@ class ExpensesDashboard extends ConsumerWidget {
                       ),
                       IconButton(
                         icon: const Icon(AppIcons.edit),
-                        tooltip: 'Editar Orçamento',
+                        tooltip: loc.expensesEditBudget,
                         onPressed: () async {
                           await context.push('/orcamento');
                           ref.invalidate(

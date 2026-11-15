@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/money/money.dart';
 import 'package:my_sweet_home/design_system/components/app_card.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
@@ -107,24 +108,27 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
 
     final formKey = GlobalKey<FormState>();
 
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Orçamento para $categoryName'),
+        title: Text(l10n.budgetCategoryDialogTitle(categoryName ?? '')),
         content: Form(
           key: formKey,
           child: TextFormField(
             controller: textController,
             autofocus: true,
-            decoration: const InputDecoration(
-              labelText: 'Limite em R\$ * (ex: 500,00)',
+            decoration: InputDecoration(
+              labelText: l10n.budgetCategoryLimitLabel,
               prefixText: 'R\$ ',
             ),
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             validator: (v) {
-              if (v == null || v.trim().isEmpty) return 'Informe o valor';
+              if (v == null || v.trim().isEmpty) return l10n.commonEnterAmount;
               final parsed = double.tryParse(v.trim().replaceAll(',', '.'));
-              if (parsed == null || parsed < 0) return 'Valor inválido';
+              if (parsed == null || parsed < 0) return l10n.commonInvalidValue;
               return null;
             },
           ),
@@ -132,7 +136,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           ElevatedButton(
             onPressed: () {
@@ -140,7 +144,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                 Navigator.of(ctx).pop(true);
               }
             },
-            child: const Text('Salvar'),
+            child: Text(l10n.commonSave),
           ),
         ],
       ),
@@ -221,8 +225,11 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
           final totalCents = ((baseVal + extraVal) * 100).round();
           final totalMoney = Money(totalCents);
 
+          final l10n =
+              Localizations.of<AppLocalizations>(ctx, AppLocalizations) ??
+              lookupAppLocalizations(const Locale('pt'));
           return AlertDialog(
-            title: Text('Orçamento Total de ${_selectedMonth.iso}'),
+            title: Text(l10n.budgetTotalDialogTitle(_selectedMonth.iso)),
             content: SingleChildScrollView(
               child: Form(
                 key: formKey,
@@ -233,9 +240,9 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                     TextFormField(
                       key: const Key('baseIncomeField'),
                       controller: baseController,
-                      decoration: const InputDecoration(
-                        labelText: 'Receita base recorrente *',
-                        hintText: 'ex: 3000,00',
+                      decoration: InputDecoration(
+                        labelText: l10n.budgetBaseIncomeLabel,
+                        hintText: l10n.budgetBaseIncomeHint,
                         prefixText: 'R\$ ',
                       ),
                       keyboardType: const TextInputType.numberWithOptions(
@@ -245,14 +252,14 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                       validator: (v) {
                         if ((v == null || v.trim().isEmpty) &&
                             extraController.text.trim().isEmpty) {
-                          return 'Informe ao menos uma receita';
+                          return l10n.budgetIncomeRequired;
                         }
                         if (v != null && v.trim().isNotEmpty) {
                           final parsed = double.tryParse(
                             v.trim().replaceAll(',', '.'),
                           );
                           if (parsed == null || parsed < 0) {
-                            return 'Valor inválido';
+                            return l10n.commonInvalidValue;
                           }
                         }
                         return null;
@@ -262,9 +269,9 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                     TextFormField(
                       key: const Key('extraIncomeField'),
                       controller: extraController,
-                      decoration: const InputDecoration(
-                        labelText: 'Receitas adicionais avulsas no mês',
-                        hintText: 'ex: 500,00',
+                      decoration: InputDecoration(
+                        labelText: l10n.budgetExtraIncomeLabel,
+                        hintText: l10n.budgetExtraIncomeHint,
                         prefixText: 'R\$ ',
                       ),
                       keyboardType: const TextInputType.numberWithOptions(
@@ -277,7 +284,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                             v.trim().replaceAll(',', '.'),
                           );
                           if (parsed == null || parsed < 0) {
-                            return 'Valor inválido';
+                            return l10n.commonInvalidValue;
                           }
                         }
                         return null;
@@ -298,7 +305,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Soma total do orçamento:',
+                            l10n.budgetTotalSumLabel,
                             style: Theme.of(ctx).textTheme.bodySmall,
                           ),
                           const SizedBox(height: 4),
@@ -320,7 +327,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(ctx).pop(false),
-                child: const Text('Cancelar'),
+                child: Text(l10n.commonCancel),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -328,7 +335,7 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                     Navigator.of(ctx).pop(true);
                   }
                 },
-                child: const Text('Salvar'),
+                child: Text(l10n.commonSave),
               ),
             ],
           );
@@ -382,17 +389,20 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
     final budgets = budgetsAsync.asData?.value ?? [];
     final categories = categoriesAsync.asData?.value ?? [];
 
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final overallBudget = budgets.where((b) => b.category == null).firstOrNull;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Orçamento'),
+        title: Text(l10n.budgetTitle),
         leading: Semantics(
-          label: 'Voltar',
+          label: l10n.commonBack,
           button: true,
           child: IconButton(
             icon: const Icon(AppIcons.back),
-            tooltip: 'Voltar',
+            tooltip: l10n.commonBack,
             onPressed: () {
               if (Navigator.of(context).canPop()) {
                 Navigator.of(context).pop();
@@ -422,11 +432,11 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Semantics(
-                    label: 'Mês anterior',
+                    label: l10n.commonPreviousMonth,
                     button: true,
                     child: IconButton(
                       icon: const Icon(AppIcons.chevronLeft),
-                      tooltip: 'Mês anterior',
+                      tooltip: l10n.commonPreviousMonth,
                       onPressed: _previousMonth,
                     ),
                   ),
@@ -437,11 +447,11 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                     ),
                   ),
                   Semantics(
-                    label: 'Próximo mês',
+                    label: l10n.commonNextMonth,
                     button: true,
                     child: IconButton(
                       icon: const Icon(AppIcons.chevronRight),
-                      tooltip: 'Próximo mês',
+                      tooltip: l10n.commonNextMonth,
                       onPressed: _nextMonth,
                     ),
                   ),
@@ -468,14 +478,14 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Orçamento Total do Mês',
+                          l10n.budgetMonthTotalCardTitle,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         IconButton(
                           icon: const Icon(AppIcons.edit, size: 20),
-                          tooltip: 'Editar receita e orçamento',
+                          tooltip: l10n.budgetEditIncomeTooltip,
                           onPressed: () => _setTotalBudgetWithIncome(
                             context: context,
                             currentLimit: overallBudget?.limit,
@@ -554,9 +564,9 @@ class _BudgetScreenState extends ConsumerState<BudgetScreen> {
               ),
             )
           else if (categories.isEmpty)
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('Nenhuma categoria cadastrada.'),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(l10n.budgetNoCategories),
             )
           else
             ...categories.map((cat) {

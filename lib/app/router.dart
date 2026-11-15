@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
+
 import 'package:my_sweet_home/app/dashboard_screen.dart';
 import 'package:my_sweet_home/app/main_shell_page.dart';
 import 'package:my_sweet_home/features/onboarding/presentation/onboarding_page.dart';
@@ -383,7 +385,8 @@ GoRouter appRouter(Ref ref) {
         ],
       ),
     ],
-    errorBuilder: (context, state) =>
-        const Scaffold(body: Center(child: Text('Página não encontrada'))),
+    errorBuilder: (context, state) => Scaffold(
+      body: Center(child: Text(AppLocalizations.of(context).pageNotFound)),
+    ),
   );
 }

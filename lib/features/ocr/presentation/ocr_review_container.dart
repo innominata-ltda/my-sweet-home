@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/features/ocr/domain/save_receipt_use_case.dart';
 import 'package:my_sweet_home/features/ocr/presentation/ocr_review_screen.dart';
 import 'package:my_sweet_home/features/ocr/presentation/providers/ocr_providers.dart';
@@ -59,14 +60,28 @@ class OcrReviewContainer extends ConsumerWidget {
                   .read(selectedYearMonthProvider.notifier)
                   .setMonth(purchaseMonth);
 
+              final l10n =
+                  Localizations.of<AppLocalizations>(
+                    context,
+                    AppLocalizations,
+                  ) ??
+                  lookupAppLocalizations(const Locale('pt'));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Nota Fiscal salva com sucesso!')),
+                SnackBar(content: Text(l10n.ocrReceiptSavedSuccess)),
               );
               context.go('/despesas');
             } else {
+              final l10n =
+                  Localizations.of<AppLocalizations>(
+                    context,
+                    AppLocalizations,
+                  ) ??
+                  lookupAppLocalizations(const Locale('pt'));
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text('Erro ao salvar nota: ${result.failureOrNull}'),
+                  content: Text(
+                    l10n.ocrReceiptSaveError('${result.failureOrNull}'),
+                  ),
                 ),
               );
             }
@@ -77,6 +92,9 @@ class OcrReviewContainer extends ConsumerWidget {
 
             if (!context.mounted) return;
 
+            final l10n =
+                Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                lookupAppLocalizations(const Locale('pt'));
             if (result.isOk) {
               final purchase = result.valueOrNull!;
               final purchaseMonth = YearMonth.of(purchase.date.toLocal());
@@ -91,13 +109,15 @@ class OcrReviewContainer extends ConsumerWidget {
                   .setMonth(purchaseMonth);
 
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Nota Fiscal salva com sucesso!')),
+                SnackBar(content: Text(l10n.ocrReceiptSavedSuccess)),
               );
               context.go('/despesas');
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text('Erro ao salvar nota: ${result.failureOrNull}'),
+                  content: Text(
+                    l10n.ocrReceiptSaveError('${result.failureOrNull}'),
+                  ),
                 ),
               );
             }
@@ -146,7 +166,14 @@ class OcrReviewContainer extends ConsumerWidget {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () => context.pop(),
-                  child: const Text('Voltar'),
+                  child: Text(
+                    (Localizations.of<AppLocalizations>(
+                              context,
+                              AppLocalizations,
+                            ) ??
+                            lookupAppLocalizations(const Locale('pt')))
+                        .commonBack,
+                  ),
                 ),
               ],
             ),

@@ -119,15 +119,19 @@ class RecipeListScreen extends StatelessWidget {
                 itemCount: recipes.length,
                 itemBuilder: (context, index) {
                   final recipe = recipes[index];
+                  final l10n = AppLocalizations.of(context);
                   return ListTile(
                     title: Text(recipe.title),
                     subtitle: Text(
-                      '${recipe.timeMinutes} min • ${recipe.servings} porções',
+                      l10n.recipeListTimeAndServings(
+                        recipe.timeMinutes,
+                        recipe.servings,
+                      ),
                     ),
                     trailing: Semantics(
                       label: recipe.isFavorite
-                          ? 'Desmarcar favorito'
-                          : 'Marcar como favorito',
+                          ? l10n.recipeUnfavoriteTooltip
+                          : l10n.recipeFavoriteTooltip,
                       button: true,
                       child: IconButton(
                         icon: Icon(

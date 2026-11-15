@@ -13,12 +13,13 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
     );
     final accessKeyCtrl = TextEditingController(text: _draft.accessKey ?? '');
 
+    final loc = AppLocalizations.of(context);
     final formKey = GlobalKey<FormState>();
 
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogCtx) => AlertDialog(
-        title: const Text('Editar cabeçalho'),
+        title: Text(loc.ocrEditHeaderTitle),
         content: Form(
           key: formKey,
           child: SingleChildScrollView(
@@ -27,35 +28,35 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               children: [
                 TextFormField(
                   controller: storeNameCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'Estabelecimento *',
-                    hintText: 'Nome do supermercado ou loja',
+                  decoration: InputDecoration(
+                    labelText: loc.ocrStoreRequiredLabel,
+                    hintText: loc.ocrStoreHint,
                   ),
                   validator: (v) => (v == null || v.trim().isEmpty)
-                      ? 'Informe o nome do estabelecimento'
+                      ? loc.ocrStoreError
                       : null,
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
                   controller: cnpjCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'CNPJ (opcional)',
+                  decoration: InputDecoration(
+                    labelText: loc.ocrCnpjOptionalLabel,
                     hintText: '00.000.000/0000-00',
                   ),
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
                   controller: dateCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'Data/Hora (dd/MM/yyyy HH:mm) *',
+                  decoration: InputDecoration(
+                    labelText: loc.ocrDateTimeRequiredLabel,
                     hintText: '21/09/2026 14:30',
                   ),
                   validator: (v) {
                     if (v == null || v.trim().isEmpty) {
-                      return 'Informe a data da compra';
+                      return loc.ocrDateTimeRequiredError;
                     }
                     if (_tryParseDateTime(v.trim()) == null) {
-                      return 'Formato inválido (ex: 21/09/2026 14:30)';
+                      return loc.ocrDateTimeInvalidError;
                     }
                     return null;
                   },
@@ -63,9 +64,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                 const SizedBox(height: 12),
                 TextFormField(
                   controller: accessKeyCtrl,
-                  decoration: const InputDecoration(
-                    labelText: 'Chave da NFC-e (opcional)',
-                    hintText: '44 dígitos da nota fiscal',
+                  decoration: InputDecoration(
+                    labelText: loc.ocrNfceKeyOptionalLabel,
+                    hintText: loc.ocrNfceKeyHint,
                   ),
                 ),
               ],
@@ -75,7 +76,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogCtx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           ElevatedButton(
             onPressed: () {
@@ -83,7 +84,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                 Navigator.of(dialogCtx).pop(true);
               }
             },
-            child: const Text('Salvar'),
+            child: Text(loc.commonSave),
           ),
         ],
       ),
@@ -137,17 +138,20 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
           : '',
     );
 
+    final loc = AppLocalizations.of(context);
     final result = await showDialog<bool>(
       context: context,
       builder: (dialogCtx) => AlertDialog(
-        title: const Text('Editar totais'),
+        title: Text(loc.ocrEditTotalsTooltip),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 controller: subtotalCtrl,
-                decoration: const InputDecoration(labelText: 'Subtotal (R\$)'),
+                decoration: InputDecoration(
+                  labelText: loc.ocrSubtotalInputLabel,
+                ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
@@ -155,7 +159,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               const SizedBox(height: 12),
               TextField(
                 controller: discountCtrl,
-                decoration: const InputDecoration(labelText: 'Desconto (R\$)'),
+                decoration: InputDecoration(
+                  labelText: loc.ocrDiscountInputLabel,
+                ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
@@ -163,8 +169,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               const SizedBox(height: 12),
               TextField(
                 controller: totalCtrl,
-                decoration: const InputDecoration(
-                  labelText: 'Total lido (R\$)',
+                decoration: InputDecoration(
+                  labelText: loc.ocrReadTotalInputLabel,
                 ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
@@ -176,11 +182,11 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogCtx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(dialogCtx).pop(true),
-            child: const Text('Salvar'),
+            child: Text(loc.commonSave),
           ),
         ],
       ),
@@ -222,6 +228,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
     );
     final aliasesCtrl = TextEditingController();
     Unit selectedUnit = initialUnit ?? Unit.un;
+    final loc = AppLocalizations.of(context);
     final formKey = GlobalKey<FormState>();
 
     final createdMatch = await showDialog<ProductMatch>(
@@ -230,7 +237,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             return AlertDialog(
-              title: const Text('Cadastrar novo produto'),
+              title: Text(loc.ocrRegisterNewProductTitle),
               content: Form(
                 key: formKey,
                 child: SingleChildScrollView(
@@ -240,31 +247,31 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                     children: [
                       TextFormField(
                         controller: nameCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Nome canônico *',
-                          hintText: 'Ex: Leite Integral 1L',
+                        decoration: InputDecoration(
+                          labelText: loc.ocrCanonicalNameRequiredLabel,
+                          hintText: loc.ocrCanonicalNameHint,
                         ),
                         validator: (v) => (v == null || v.trim().isEmpty)
-                            ? 'Informe o nome canônico'
+                            ? loc.ocrCanonicalNameRequiredError
                             : null,
                         autofocus: true,
                       ),
                       const SizedBox(height: 12),
                       TextFormField(
                         controller: categoryCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Categoria *',
-                          hintText: 'Ex: Alimentos, Limpeza, etc.',
+                        decoration: InputDecoration(
+                          labelText: loc.ocrCategoryRequiredLabel,
+                          hintText: loc.ocrCategoryHint,
                         ),
                         validator: (v) => (v == null || v.trim().isEmpty)
-                            ? 'Informe a categoria'
+                            ? loc.ocrCategoryRequiredError
                             : null,
                       ),
                       const SizedBox(height: 12),
                       DropdownButtonFormField<Unit>(
                         initialValue: selectedUnit,
-                        decoration: const InputDecoration(
-                          labelText: 'Unidade padrão *',
+                        decoration: InputDecoration(
+                          labelText: loc.ocrDefaultUnitRequiredLabel,
                         ),
                         items: Unit.values.map((u) {
                           return DropdownMenuItem(
@@ -281,9 +288,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       const SizedBox(height: 12),
                       TextFormField(
                         controller: aliasesCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Sinônimos / Apelidos (opcional)',
-                          hintText: 'Separados por vírgula',
+                        decoration: InputDecoration(
+                          labelText: loc.ocrAliasesOptionalLabel,
+                          hintText: loc.ocrAliasesHint,
                         ),
                       ),
                     ],
@@ -293,7 +300,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: const Text('Cancelar'),
+                  child: Text(loc.commonCancel),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -336,7 +343,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       );
                     }
                   },
-                  child: const Text('Salvar'),
+                  child: Text(loc.commonSave),
                 ),
               ],
             );
@@ -375,8 +382,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                     return false;
                   }).toList();
 
+            final loc = AppLocalizations.of(context);
             return AlertDialog(
-              title: const Text('Vincular produto'),
+              title: Text(loc.ocrLinkProductTitle),
               content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -384,9 +392,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                   children: [
                     TextField(
                       controller: queryCtrl,
-                      decoration: const InputDecoration(
-                        labelText: 'Nome do produto',
-                        hintText: 'Digite o nome do produto',
+                      decoration: InputDecoration(
+                        labelText: loc.ocrProductNameSearchLabel,
+                        hintText: loc.ocrProductNameSearchHint,
                       ),
                       onChanged: (_) => setDialogState(() {}),
                     ),
@@ -396,8 +404,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       leading: const Icon(AppIcons.add, color: Colors.blue),
                       title: Text(
                         queryCtrl.text.trim().isNotEmpty
-                            ? 'Cadastrar "${queryCtrl.text.trim()}" como novo produto'
-                            : 'Cadastrar novo produto',
+                            ? loc.ocrRegisterNamedAsNew(queryCtrl.text.trim())
+                            : loc.ocrRegisterNewProductTitle,
                         style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       onTap: () async {
@@ -412,9 +420,9 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                     ),
                     const Divider(),
                     if (filtered.isNotEmpty) ...[
-                      const Text(
-                        'Produtos sugeridos:',
-                        style: TextStyle(
+                      Text(
+                        loc.ocrSuggestedProductsLabel,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
                         ),
@@ -425,7 +433,10 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                           dense: true,
                           title: Text(p.canonicalName),
                           subtitle: Text(
-                            'Categoria: ${p.categoryId} | Unidade: ${p.defaultUnit.name}',
+                            loc.ocrProductMetaRow(
+                              p.categoryId,
+                              p.defaultUnit.name,
+                            ),
                             style: const TextStyle(fontSize: 11),
                           ),
                           onTap: () {
@@ -440,11 +451,14 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                         ),
                       ),
                     ] else ...[
-                      const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: Text(
-                          'Nenhum produto existente encontrado com esse nome.',
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                          loc.ocrNoExistingProductFound,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ],
@@ -454,7 +468,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(),
-                  child: const Text('Cancelar'),
+                  child: Text(loc.commonCancel),
                 ),
               ],
             );
@@ -518,6 +532,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
     bool selected = item?.selected ?? true;
     ProductMatch? currentMatch = item?.match;
     bool clearMatch = false;
+    final loc = AppLocalizations.of(context);
 
     final formKey = GlobalKey<FormState>();
 
@@ -527,11 +542,13 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             final matchedName = clearMatch
-                ? 'Nenhum'
-                : (currentMatch?.product.canonicalName ?? 'Nenhum');
+                ? loc.ocrNoneLinked
+                : (currentMatch?.product.canonicalName ?? loc.ocrNoneLinked);
 
             return AlertDialog(
-              title: Text(isEditing ? 'Editar item' : 'Adicionar item'),
+              title: Text(
+                isEditing ? loc.ocrEditItemTooltip : loc.ocrAddItemButton,
+              ),
               content: Form(
                 key: formKey,
                 child: SingleChildScrollView(
@@ -541,11 +558,11 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                     children: [
                       TextFormField(
                         controller: descCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Descrição lida / Nome *',
+                        decoration: InputDecoration(
+                          labelText: loc.ocrItemDescriptionLabel,
                         ),
                         validator: (v) => (v == null || v.trim().isEmpty)
-                            ? 'Informe o nome ou descrição'
+                            ? loc.ocrItemDescriptionError
                             : null,
                       ),
                       const SizedBox(height: 12),
@@ -555,8 +572,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             flex: 2,
                             child: TextFormField(
                               controller: qtyCtrl,
-                              decoration: const InputDecoration(
-                                labelText: 'Quantidade *',
+                              decoration: InputDecoration(
+                                labelText: loc.ocrQuantityRequiredLabel,
                               ),
                               keyboardType:
                                   const TextInputType.numberWithOptions(
@@ -564,13 +581,13 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                                   ),
                               validator: (v) {
                                 if (v == null || v.trim().isEmpty) {
-                                  return 'Informe a qtd';
+                                  return loc.ocrQuantityRequiredError;
                                 }
                                 final n = double.tryParse(
                                   v.replaceAll(',', '.'),
                                 );
                                 if (n == null || n <= 0) {
-                                  return 'Qtd inválida';
+                                  return loc.ocrQuantityInvalidError;
                                 }
                                 return null;
                               },
@@ -598,8 +615,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             flex: 3,
                             child: DropdownButtonFormField<Unit>(
                               initialValue: selectedUnit,
-                              decoration: const InputDecoration(
-                                labelText: 'Unidade *',
+                              decoration: InputDecoration(
+                                labelText: loc.ocrUnitRequiredLabel,
                               ),
                               items: Unit.values.map((u) {
                                 return DropdownMenuItem(
@@ -622,8 +639,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                           Expanded(
                             child: TextFormField(
                               controller: unitPriceCtrl,
-                              decoration: const InputDecoration(
-                                labelText: 'Preço unitário (R\$) *',
+                              decoration: InputDecoration(
+                                labelText: loc.ocrUnitPriceRequiredLabel,
                               ),
                               keyboardType:
                                   const TextInputType.numberWithOptions(
@@ -652,8 +669,8 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                           Expanded(
                             child: TextFormField(
                               controller: totalPriceCtrl,
-                              decoration: const InputDecoration(
-                                labelText: 'Preço total (R\$) *',
+                              decoration: InputDecoration(
+                                labelText: loc.ocrTotalPriceRequiredLabel,
                               ),
                               keyboardType:
                                   const TextInputType.numberWithOptions(
@@ -661,11 +678,11 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                                   ),
                               validator: (v) {
                                 if (v == null || v.trim().isEmpty) {
-                                  return 'Informe o valor';
+                                  return loc.commonEnterAmount;
                                 }
                                 final p = Money.tryParsePtBr(v);
                                 if (p == null || p.cents <= 0) {
-                                  return 'Valor inválido';
+                                  return loc.commonInvalidValue;
                                 }
                                 return null;
                               },
@@ -676,16 +693,16 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       const SizedBox(height: 12),
                       CheckboxListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: const Text('Incluir item na compra'),
+                        title: Text(loc.ocrIncludeItemInPurchase),
                         value: selected,
                         onChanged: (val) {
                           setDialogState(() => selected = val ?? true);
                         },
                       ),
                       const Divider(),
-                      const Text(
-                        'Produto vinculado:',
-                        style: TextStyle(
+                      Text(
+                        loc.ocrLinkedProductLabel,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),
@@ -706,7 +723,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                           Expanded(
                             child: OutlinedButton.icon(
                               icon: const Icon(AppIcons.search, size: 16),
-                              label: const Text('Trocar / Vincular'),
+                              label: Text(loc.ocrChangeOrLinkButton),
                               onPressed: () async {
                                 final newMatch =
                                     await _showProductSelectionDialog(
@@ -727,7 +744,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             Expanded(
                               child: OutlinedButton.icon(
                                 icon: const Icon(AppIcons.add, size: 16),
-                                label: const Text('Cadastrar produto'),
+                                label: Text(loc.ocrRegisterProductButton),
                                 onPressed: () async {
                                   final createdMatch =
                                       await _showCreateNewProductDialog(
@@ -749,7 +766,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             const SizedBox(width: 8),
                             IconButton(
                               icon: const Icon(AppIcons.close, size: 20),
-                              tooltip: 'Remover vínculo',
+                              tooltip: loc.ocrUnlinkTooltip,
                               onPressed: () {
                                 setDialogState(() {
                                   clearMatch = true;
@@ -767,7 +784,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(false),
-                  child: const Text('Cancelar'),
+                  child: Text(loc.commonCancel),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -775,7 +792,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       Navigator.of(dialogCtx).pop(true);
                     }
                   },
-                  child: const Text('Salvar'),
+                  child: Text(loc.commonSave),
                 ),
               ],
             );
@@ -806,7 +823,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
       final updatedItem = ReceiptItemDraft(
         rawDescription: rawDesc.isNotEmpty
             ? rawDesc
-            : (item?.rawDescription ?? 'Item sem nome'),
+            : (item?.rawDescription ?? loc.ocrUnnamedItemFallback),
         ean: item?.ean,
         quantity: quantity,
         unitPrice: unitPrice,

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../../app/l10n/app_localizations.dart';
 import '../../../../core/errors/user_message.dart';
 import '../../../../core/result/result.dart';
 import '../providers/household_providers.dart';
@@ -30,6 +31,7 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
     if (text.isEmpty) return;
 
     setState(() => _isImporting = true);
+    final l10n = AppLocalizations.of(context);
     final messenger = ScaffoldMessenger.of(context);
     final nav = Navigator.of(context);
 
@@ -43,16 +45,16 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
         if (result case Ok(:final value)) {
           if (value.alreadyApplied) {
             messenger.showSnackBar(
-              const SnackBar(
-                key: Key('bundle_already_applied_snack'),
-                content: Text('Este pacote já foi aplicado'),
+              SnackBar(
+                key: const Key('bundle_already_applied_snack'),
+                content: Text(l10n.householdBundleAlreadyApplied),
               ),
             );
           } else {
             messenger.showSnackBar(
-              const SnackBar(
-                key: Key('bundle_applied_snack'),
-                content: Text('Pacote aplicado com sucesso!'),
+              SnackBar(
+                key: const Key('bundle_applied_snack'),
+                content: Text(l10n.householdBundleAppliedSuccess),
               ),
             );
           }
@@ -74,9 +76,10 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return AlertDialog(
       key: const Key('import_bundle_dialog'),
-      title: const Text('Importar pacote .mshsync'),
+      title: Text(l10n.householdBundleImportTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -84,9 +87,9 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
             key: const Key('bundle_input_field'),
             controller: _controller,
             maxLines: 4,
-            decoration: const InputDecoration(
-              labelText: 'Conteúdo ou caminho do pacote',
-              hintText: 'Cole os dados do arquivo .mshsync',
+            decoration: InputDecoration(
+              labelText: l10n.householdBundleContentLabel,
+              hintText: l10n.householdBundleContentHint,
             ),
           ),
         ],
@@ -94,7 +97,7 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
       actions: [
         TextButton(
           onPressed: _isImporting ? null : () => Navigator.of(context).pop(),
-          child: const Text('Cancelar'),
+          child: Text(l10n.commonCancel),
         ),
         FilledButton(
           key: const Key('confirm_import_button'),
@@ -105,7 +108,7 @@ class _BundleImportDialogState extends ConsumerState<BundleImportDialog> {
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Text('Importar'),
+              : Text(l10n.householdBundleImportAction),
         ),
       ],
     );

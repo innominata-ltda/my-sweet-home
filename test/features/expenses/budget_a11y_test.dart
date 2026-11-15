@@ -71,6 +71,7 @@ void main() {
             categoryRepositoryProvider.overrideWithValue(fakeCatRepo),
           ],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: BudgetScreen(),

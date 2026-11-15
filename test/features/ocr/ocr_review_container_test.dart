@@ -74,6 +74,7 @@ void main() {
           saveReceiptUseCaseProvider.overrideWithValue(mockSave),
         ],
         child: MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: const OcrReviewContainer(imagePath: 'dummy.jpg'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/recurrence/recurrence_rule.dart';
 import 'package:my_sweet_home/features/expenses/domain/models/category.dart';
 
@@ -74,8 +75,11 @@ class _CreateBillDialogState extends State<CreateBillDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return AlertDialog(
-      title: const Text('Nova Conta a Vencer'),
+      title: Text(l10n.billsNewDialogTitle),
       content: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -84,35 +88,37 @@ class _CreateBillDialogState extends State<CreateBillDialog> {
             children: [
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Título * (ex: Aluguel, Luz, Internet)',
+                decoration: InputDecoration(
+                  labelText: l10n.billsTitleFieldLabel,
                 ),
-                validator: (v) =>
-                    (v == null || v.trim().isEmpty) ? 'Informe o título' : null,
+                validator: (v) => (v == null || v.trim().isEmpty)
+                    ? l10n.billsTitleRequired
+                    : null,
               ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _amountController,
-                decoration: const InputDecoration(
-                  labelText: 'Valor em R\$ * (ex: 150.00)',
+                decoration: InputDecoration(
+                  labelText: l10n.billsAmountFieldLabel,
                 ),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
-                validator: (v) =>
-                    (v == null || v.trim().isEmpty) ? 'Informe o valor' : null,
+                validator: (v) => (v == null || v.trim().isEmpty)
+                    ? l10n.commonEnterAmount
+                    : null,
               ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _dueDayController,
-                decoration: const InputDecoration(
-                  labelText: 'Dia do Vencimento * (1 a 31)',
+                decoration: InputDecoration(
+                  labelText: l10n.billsDueDayFieldLabel,
                 ),
                 keyboardType: TextInputType.number,
                 validator: (v) {
                   final day = int.tryParse(v ?? '');
                   if (day == null || day < 1 || day > 31) {
-                    return 'Informe um dia entre 1 e 31';
+                    return l10n.billsDueDayInvalid;
                   }
                   return null;
                 },
@@ -120,25 +126,25 @@ class _CreateBillDialogState extends State<CreateBillDialog> {
               const SizedBox(height: 12),
               DropdownButtonFormField<String>(
                 initialValue: _recurrenceCycle,
-                decoration: const InputDecoration(
-                  labelText: 'Frequência da Conta',
+                decoration: InputDecoration(
+                  labelText: l10n.billsFrequencyLabel,
                 ),
-                items: const [
+                items: [
                   DropdownMenuItem(
                     value: 'FREQ=MONTHLY;INTERVAL=1',
-                    child: Text('Mensal'),
+                    child: Text(l10n.billsFrequencyMonthly),
                   ),
                   DropdownMenuItem(
                     value: 'FREQ=WEEKLY;INTERVAL=2',
-                    child: Text('Quinzenal'),
+                    child: Text(l10n.billsFrequencyBiweekly),
                   ),
                   DropdownMenuItem(
                     value: 'FREQ=WEEKLY;INTERVAL=1',
-                    child: Text('Semanal'),
+                    child: Text(l10n.billsFrequencyWeekly),
                   ),
                   DropdownMenuItem(
                     value: 'FREQ=YEARLY;INTERVAL=1',
-                    child: Text('Anual'),
+                    child: Text(l10n.billsFrequencyAnnual),
                   ),
                 ],
                 onChanged: (val) {
@@ -156,7 +162,9 @@ class _CreateBillDialogState extends State<CreateBillDialog> {
                       widget.categories.any((c) => c.id == _selectedCategoryId)
                       ? _selectedCategoryId
                       : widget.categories.first.id,
-                  decoration: const InputDecoration(labelText: 'Categoria *'),
+                  decoration: InputDecoration(
+                    labelText: l10n.billsCategoryLabel,
+                  ),
                   items: widget.categories.map((c) {
                     return DropdownMenuItem(value: c.id, child: Text(c.name));
                   }).toList(),
@@ -176,9 +184,9 @@ class _CreateBillDialogState extends State<CreateBillDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Cancelar'),
+          child: Text(l10n.commonCancel),
         ),
-        ElevatedButton(onPressed: _submit, child: const Text('Salvar Conta')),
+        ElevatedButton(onPressed: _submit, child: Text(l10n.billsSaveButton)),
       ],
     );
   }

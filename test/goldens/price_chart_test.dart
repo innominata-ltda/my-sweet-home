@@ -34,6 +34,7 @@ PricePoint _makePoint({
 );
 
 Widget _wrap(Widget child) => MaterialApp(
+  locale: const Locale('pt'),
   localizationsDelegates: AppLocalizations.localizationsDelegates,
   supportedLocales: AppLocalizations.supportedLocales,
   home: Scaffold(

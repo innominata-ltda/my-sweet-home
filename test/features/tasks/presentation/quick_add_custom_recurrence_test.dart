@@ -43,6 +43,7 @@ void main() {
     Task? initialTask,
   }) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
