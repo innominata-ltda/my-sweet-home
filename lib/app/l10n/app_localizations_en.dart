@@ -2878,3 +2878,163 @@ class AppLocalizationsEn extends AppLocalizations {
     String itemsSum,
     String total,
     String divergence,
+  ) {
+    return 'The sum of selected items ($itemsSum) differs from the read total ($total).\n\nDivergence of $divergence. Save anyway?';
+  }
+
+  @override
+  String get ocrWriteOffTitle => 'Check off shopping list items';
+
+  @override
+  String ocrWriteOffSingleConfirm(String listName) {
+    return 'Check off items from this purchase in shopping list \"$listName\"?';
+  }
+
+  @override
+  String get commonNo => 'No';
+
+  @override
+  String get ocrWriteOffYes => 'Yes, check off';
+
+  @override
+  String get ocrWriteOffSelectPrompt =>
+      'Select the shopping list to check off purchased items:';
+
+  @override
+  String get ocrSaveWithoutWriteOff => 'Save without checking off';
+
+  @override
+  String get ocrWriteOffButton => 'Check off';
+
+  @override
+  String ocrCouponItemsHeader(int selected, int total) {
+    return 'Receipt items ($selected/$total)';
+  }
+
+  @override
+  String get ocrAddItemButton => 'Add item';
+
+  @override
+  String get ocrNoItemsPlaceholder => 'No items. Tap Add item.';
+
+  @override
+  String get ocrCloudConsentBody =>
+      'On-device reading had low accuracy. Since you allowed cloud OCR in settings, do you want to improve the reading by sending this receipt to the cloud service for this operation?';
+
+  @override
+  String get ocrRetakePhotoButton => 'Take another photo';
+
+  @override
+  String get ocrContinueWithoutCloud => 'Continue without cloud';
+
+  @override
+  String get ocrUseCloudOcr => 'Use cloud OCR';
+
+  @override
+  String get ocrLowPrecisionTitle => 'Low accuracy reading';
+
+  @override
+  String get ocrLowPrecisionBody =>
+      'On-device receipt reading had low accuracy. We recommend taking a new photo with better lighting and framing.';
+
+  @override
+  String get ocrContinueWithData => 'Continue with this data';
+
+  @override
+  String ocrFramingGuideSemantics(String instruction) {
+    return 'Receipt framing guide. $instruction';
+  }
+
+  @override
+  String get ocrFramingDefaultInstruction =>
+      'Position the receipt vertically inside the guide';
+
+  @override
+  String get ocrTotalFailureTitle => 'Could not read receipt';
+
+  @override
+  String ocrAttachedPhoto(String path) {
+    return 'Attached photo: $path';
+  }
+
+  @override
+  String get ocrQualityContinueAnyway => 'Continue anyway';
+
+  @override
+  String get ocrQualityBlur => 'Blurry image. Try holding the camera steady.';
+
+  @override
+  String get ocrQualityTooDark =>
+      'Lighting too low. Turn on flash or light up the receipt.';
+
+  @override
+  String get ocrQualityTooBright =>
+      'Too much light or bright glare in the image.';
+
+  @override
+  String get ocrQualityBadFraming => 'Poor framing or photo too small.';
+
+  @override
+  String get ocrQualityInvalidImage => 'Could not decode image data.';
+
+  @override
+  String get ocrStoreUnknown => 'Unidentified store';
+
+  @override
+  String get ocrEditStoreTooltip => 'Edit store';
+
+  @override
+  String ocrCnpjLabel(String cnpj) {
+    return 'CNPJ: $cnpj';
+  }
+
+  @override
+  String get ocrNotInformed => 'Not informed';
+
+  @override
+  String get ocrCnpjUnconfirmed => 'Unconfirmed CNPJ';
+
+  @override
+  String get ocrTotalDivergenceCardTitle => 'Total amount divergence';
+
+  @override
+  String ocrTotalDivergenceCardBody(
+    String absDiv,
+    String itemsSum,
+    String total,
+  ) {
+    return 'Divergence of $absDiv. The system does not adjust automatically.\nItems sum: $itemsSum | Read total: $total';
+  }
+
+  @override
+  String ocrLowConfidenceBanner(int count) {
+    return 'There are $count low-confidence item(s) read from the receipt. Check and mark the correct ones.';
+  }
+
+  @override
+  String get ocrReceiptTotalsTitle => 'Receipt Totals';
+
+  @override
+  String get ocrEditTotalsTooltip => 'Edit totals';
+
+  @override
+  String get ocrSubtotalLabel => 'Subtotal:';
+
+  @override
+  String get ocrDiscountLabel => 'Discount:';
+
+  @override
+  String get ocrOriginExactAlias => 'exact (alias)';
+
+  @override
+  String get ocrOriginSeed => 'seed';
+
+  @override
+  String ocrOriginFuzzy(int percent) {
+    return 'fuzzy ($percent%)';
+  }
+
+  @override
+  String get ocrOriginUnknown => 'unidentified';
+
+  @override
