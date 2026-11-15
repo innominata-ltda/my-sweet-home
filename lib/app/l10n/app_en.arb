@@ -1,0 +1,160 @@
+{
+  "@@locale": "en",
+  "@@last_modified": "2026-09-22",
+  "appName": "My Sweet Home",
+  "productsTitle": "Products",
+  "expensesTitle": "Expenses",
+  "budgetTitle": "Budget",
+  "billsTitle": "Bills",
+  "tasksTitle": "Tasks",
+  "calendarTitle": "Calendar",
+  "recipesTitle": "Recipes",
+  "expenseQuickAddTitle": "New Expense",
+  "expenseQuickAddSave": "Save",
+  "expenseQuickAddError": "Error: {error}",
+  "recipeDraftNewTitle": "New Recipe",
+  "recipeDraftTitleLabel": "Title",
+  "recipeDraftPrepLabel": "Instructions",
+  "recipeDraftTimeLabel": "Time (min)",
+  "recipeDraftServingsLabel": "Servings",
+  "recipeDraftIngredientsLabel": "Ingredients",
+  "recipeDraftNewIngredientButton": "Add Ingredient",
+  "recipeDraftFavoriteLabel": "Favorite",
+  "recipeDraftTagsLabel": "Tags",
+  "recipeDraftAddTagButton": "Add Tag",
+  "recipeDraftNewTagPlaceholder": "New tag",
+  "recipeDraftNewIngredientPlaceholder": "New Ingredient",
+  "recipePreparationTitle": "Instructions",
+  "recipePreparationBody": "Recipe Preparation",
+  "recipeListEmpty": "No recipes yet. Start with the one you make most.",
+  "recipeListCreate": "Create recipe",
+  "recipeListError": "Failed to load recipes",
+  "recipeListRetry": "Try again",
+  "recipeDetailError": "Failed to load recipe",
+  "recipeDetailRetry": "Try again",
+  "recipeDetailNoCost": "Cost unavailable",
+  "recipeDetailCostExplain": "Missing prices for too many ingredients.",
+  "recipeDetailRegisterPrices": "Register prices",
+  "recipeDetailEstimatedCost": "Estimated cost: {amount}",
+  "@recipeDetailEstimatedCost": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeDetailCostMissing": "{count} ingredient(s) without price",
+  "@recipeDetailCostMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeDetailTitle": "Recipe Card",
+  "recipeListSearchHint": "Search recipes",
+  "recipeListFavoriteFilter": "Favorites",
+  "recipeDetailIngredients": "Ingredients",
+  "recipeDetailPreparation": "Instructions",
+  "recipeDetailTime": "{time} min",
+  "@recipeDetailTime": {
+    "placeholders": {
+      "time": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeDetailServings": "{servings} servings",
+  "@recipeDetailServings": {
+    "placeholders": {
+      "servings": {
+        "type": "int"
+      }
+    }
+  },
+  "taskQuickAddTitle": "New Task",
+  "taskQuickAddSave": "Save",
+  "taskQuickAddError": "Error: {error}",
+  "taskQuickAddPlaceholder": "Task title",
+  "billsEmpty": "Add your recurring bills and never pay a late fee again.",
+  "billsCreate": "Add bill",
+  "billsAllPaid": "Nothing to pay this month",
+  "billsError": "Failed to load",
+  "billsRetry": "Try again",
+  "billsNotificationWarning": "Notifications aren't arriving?",
+  "billsNotificationWarningExplanation": "Your phone may be blocking My Sweet Home alerts to save battery. You can turn off battery optimization in your device settings to make sure you're reminded on the due date. Even if a notification fails, due dates remain visible here on the bills screen.",
+  "billsNotificationAllow": "Fix",
+  "billsBatteryOptimizationDialogTitle": "Important notices",
+  "billsStatusOverdue": "Overdue",
+  "billsStatusPaid": "Paid",
+  "billsStatusPending": "Pending",
+  "billsMarkAsPaid": "Mark {billName} as paid",
+  "@billsMarkAsPaid": {
+    "placeholders": {
+      "billName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSearchHint": "Search products",
+  "productEmptyState": "No products found.",
+  "productNew": "New Product",
+  "productName": "Name",
+  "productCategory": "Category",
+  "productUnit": "Unit",
+  "productAliases": "Aliases and variations",
+  "productAddAlias": "Add alias",
+  "productAliasPlaceholder": "New alias",
+  "productAliasesEmpty": "No aliases registered.",
+  "productError": "Error loading products.",
+  "productDetailError": "Error loading details.",
+  "productRemoveAliasConfirm": "Remove alias?",
+  "productRemoveAliasA11y": "Remove alias {alias}",
+  "@productRemoveAliasA11y": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionTitle": "Is this the same as {productName}?",
+  "@productSuggestionTitle": {
+    "placeholders": {
+      "productName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionYes": "Yes, {alias} is the same as {productName}",
+  "@productSuggestionYes": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      },
+      "productName": {
+        "type": "String"
+      }
+    }
+  },
+  "productSuggestionNo": "No, they are different things",
+  "productSave": "Save",
+  "productCancel": "Cancel",
+  "expensesEmpty": "No expenses this month.",
+  "expensesError": "Error loading expense summary.",
+  "expensesRetry": "Try again",
+  "expensesChartAltText": "Donut chart showing budget usage.",
+  "expensesTotal": "Spent: {amount}",
+  "@expensesTotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesBudgetSet": "Budget: {amount}",
+  "@expensesBudgetSet": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
