@@ -2136,4 +2136,164 @@ class AppLocalizationsPt extends AppLocalizations {
   String customizeHideSemantics(String title) {
     return 'Ocultar $title';
   }
+
+  @override
+  String customizeAddSemantics(String title) {
+    return 'Adicionar $title ao painel';
+  }
+
+  @override
+  String get dueBillsWidgetSemantics => 'Widget de contas a vencer';
+
+  @override
+  String get dueBillsDefaultTitle => 'Contas a vencer';
+
+  @override
+  String get dueBillsEmptyTitle => 'Nenhuma conta a vencer';
+
+  @override
+  String get dueBillsEmptyDescription =>
+      'Todas as suas contas deste mês estão em dia.';
+
+  @override
+  String get dueBillsVariableAmount => 'Variável';
+
+  @override
+  String dueBillsItemSemanticsHidden(String title, String dueLabel) {
+    return '$title, $dueLabel, valor oculto';
+  }
+
+  @override
+  String dueBillsItemSemanticsVisible(
+    String title,
+    String dueLabel,
+    String amount,
+  ) {
+    return '$title, $dueLabel, valor $amount';
+  }
+
+  @override
+  String get dueBillsViewAll => 'Ver todas as contas';
+
+  @override
+  String get economySetGoalTitle => 'Definir Meta de Economia';
+
+  @override
+  String get economySetGoalFieldLabel => 'Meta de Economia do Mês';
+
+  @override
+  String get economySaveGoalButton => 'Salvar Meta';
+
+  @override
+  String economyLoadError(String error) {
+    return 'Erro ao carregar dados: $error';
+  }
+
+  @override
+  String economyMonthGoalTitle(String month) {
+    return 'Meta do Mês ($month)';
+  }
+
+  @override
+  String get economySetGoalFallback => 'Definir meta de economia';
+
+  @override
+  String economyCardSemantics(String title, String goalText) {
+    return '$title, $goalText, toque para ver detalhes';
+  }
+
+  @override
+  String get searchGlobalScreenTitle => 'Busca Global';
+
+  @override
+  String get searchGlobalLabel => 'Buscar em todo o app';
+
+  @override
+  String get searchGlobalInputHint => 'Digite produtos, despesas, tarefas...';
+
+  @override
+  String get searchGlobalEmptyTitle => 'Busca no app';
+
+  @override
+  String get searchGlobalEmptyDescription =>
+      'Busque por produtos, despesas, tarefas, receitas e listas.';
+
+  @override
+  String get searchGlobalNoResultsTitle => 'Nenhum resultado';
+
+  @override
+  String searchGlobalNoResultsForQuery(String query) {
+    return 'Não encontramos nada para \"$query\". Tente outro termo.';
+  }
+
+  @override
+  String monthBalanceLoadError(String error) {
+    return 'Erro ao carregar saldo do mês: $error';
+  }
+
+  @override
+  String get monthBalanceNotSet => 'Não definido';
+
+  @override
+  String get monthBalanceSemanticsHidden =>
+      'Widget de saldo do mês, valor oculto';
+
+  @override
+  String monthBalanceSemanticsVisible(String actual, String budget) {
+    return 'Widget de saldo do mês, gasto $actual de $budget';
+  }
+
+  @override
+  String get monthBalanceDefaultTitle => 'Saldo do mês';
+
+  @override
+  String get monthBalanceSpentLabel => 'Gasto no mês';
+
+  @override
+  String monthBalanceBudgetedLabel(String budget) {
+    return 'Orçado: $budget';
+  }
+
+  @override
+  String get monthBalanceViewDetails => 'Ver resumo financeiro';
+
+  @override
+  String recipesCardSemantics(String title, int count) {
+    return '$title, $count receitas favoritas, toque para ver detalhes';
+  }
+
+  @override
+  String get shoppingWidgetSemantics => 'Widget de listas de compras';
+
+  @override
+  String get shoppingWidgetEmptyTitle => 'Nenhuma lista de compras';
+
+  @override
+  String get shoppingWidgetEmptyDescription =>
+      'Crie uma lista para acompanhar suas compras.';
+
+  @override
+  String get shoppingWidgetOnePending => '1 item pendente';
+
+  @override
+  String shoppingWidgetPendingOfTotal(int pending, int total) {
+    return '$pending de $total itens pendentes';
+  }
+
+  @override
+  String get shoppingWidgetViewAll => 'Ver todas as listas';
+
+  @override
+  String stockCardSemantics(String title) {
+    return '$title, toque para ver detalhes';
+  }
+
+  @override
+  String get stockCardEmpty => 'Nenhum produto monitorado no estoque.';
+
+  @override
+  String stockCardCount(int count) {
+    return '$count produto(s) no estoque doméstico';
+  }
+
 }
