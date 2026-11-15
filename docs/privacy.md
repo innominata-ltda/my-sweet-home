@@ -1,7 +1,7 @@
 # Privacy Policy
 
 **Effective Date**: 2026-11-13
-**Application**: My Sweet Home (`com.innominata.my_sweet_home`)
+**Application**: My Sweet Home (`br.com.innominata.mysweethome`)
 **Publisher**: Innominata Ltda
 
 ## 1. Summary

@@ -8,7 +8,10 @@
 [![Tests](https://img.shields.io/badge/Tests-2048%20passing-2ea44f)](#quality--test-coverage)
 [![License](https://img.shields.io/badge/License-MIT%20%2F%20CC%20BY%204.0-blue)](#license)
 
-Mobile application **100% free, no ads, and no subscriptions** designed for people living on their own: personal finances, grocery shopping, price comparison, chores, recurring bills, and recipes -- **offline-first** with all personal data stored directly on the device.
+Mobile application **open-source, ad-free, and subscription-free** designed for people living on their own: personal finances, grocery shopping, price comparison, chores, recurring bills, and recipes -- **offline-first** with all personal data stored directly on the device.
+
+- **Free Open-Source & GitHub Releases**: Source code is MIT-licensed and signed APKs are published free of charge on [GitHub Releases](https://github.com/innominata-ltda/my-sweet-home/releases).
+- **Google Play Store (Symbolic One-Time Purchase)**: Available on Google Play for a symbolic one-time fee (no ads, no subscriptions, no in-app purchases) to help cover store fees and ongoing maintenance.
 
 ---
 
