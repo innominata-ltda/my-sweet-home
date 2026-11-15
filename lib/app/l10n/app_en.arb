@@ -158,3 +158,163 @@
         "type": "String"
       }
     }
+  },
+  "expensesRemaining": "Remaining: {amount}",
+  "@expensesRemaining": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesOverBudget": "Over budget: {amount}",
+  "@expensesOverBudget": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "billHistoryTitle": "Payment history",
+  "expenseDeleted": "Expense deleted",
+  "billHistoryEmpty": "No payments recorded for this bill.",
+  "billHistoryError": "Failed to load history.",
+  "billHistoryRetry": "Try again",
+  "billHistoryDueOn": "Due date: {date}",
+  "@billHistoryDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "billHistoryPaidOn": "Paid on: {date}",
+  "@billHistoryPaidOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesEmptyCallToAction": "No expenses this month. How about adding your first one?",
+  "expensesLaunchFirst": "add expense",
+  "expensesNoBudgetInvite": "prompt to set a budget",
+  "expensesSetBudget": "set budget",
+  "expensesForecastNoHistory": "Not enough history yet to forecast month-end.",
+  "expensesForecastExplanation": "The forecast considers your current spending, pending recurring bills, and average spending from recent months.",
+  "expensesForecastTitle": "Month-end forecast",
+  "expensesForecastAmount": "Forecast: {amount}",
+  "@expensesForecastAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesChartCategoryAlt": "{category}: {amount} ({percent}%)",
+  "@expensesChartCategoryAlt": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesByCategoryTitle": "Expenses by category",
+  "billsNotificationPermissionDeniedWarning": "Without permission, you won't be notified before the due date and may incur late fees.",
+  "billsNotificationPermissionDeniedSettings": "Go to Settings",
+  "billsNotificationPermissionDeniedDismiss": "Got it",
+  "shoppingListsTitle": "Shopping lists",
+  "shoppingListEmpty": "Empty list. Add what you need at home.",
+  "shoppingListAllDone": "All bought 🎉",
+  "shoppingListRegisterPurchase": "record purchase",
+  "shoppingListMarkAsBought": "Mark {item} as bought",
+  "@shoppingListMarkAsBought": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListUnmarkAsBought": "Unmark {item} as bought",
+  "@shoppingListUnmarkAsBought": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListAddItemLabel": "Add item",
+  "shoppingListAddItemHint": "e.g. 2kg of rice",
+  "shoppingListUndo": "Undo",
+  "shoppingListEstimateWithUnknowns": "{total} + {count} items without price",
+  "@shoppingListEstimateWithUnknowns": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingListEstimateWithOneUnknown": "{total} + 1 item without price",
+  "@shoppingListEstimateWithOneUnknown": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListEstimateExact": "Estimate: {total}",
+  "@shoppingListEstimateExact": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListItemQuantity": "Qty: {quantity} {unit}",
+  "@shoppingListItemQuantity": {
+    "placeholders": {
+      "quantity": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListError": "Failed to load shopping list",
+  "shoppingListRetry": "Try again",
+  "purchasesTitle": "Purchases",
+  "purchaseNew": "New Purchase",
+  "pricesTitle": "Price History",
+  "pricesEmpty": "No prices yet. Record a purchase to get started.",
+  "pricesFewData": "too few observations to conclude",
+  "pricesLoadError": "failed to load history",
+  "pricesRetry": "try again",
+  "pricesRankingTitle": "Store ranking",
+  "storeTitle": "Store",
+  "cheapestStore": "Cheapest at {store}",
+  "@cheapestStore": {
+    "placeholders": {
+      "store": {
+        "type": "String"
+      }
+    }
+  },
+  "notEnoughData": "not enough data",
+  "priceAverage": "Usually costs {amount}",
+  "@priceAverage": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
