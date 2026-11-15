@@ -6140,6 +6140,166 @@ abstract class AppLocalizations {
   /// No description provided for @householdJoinPreviewSasHint.
   ///
   /// In pt, this message translates to:
+  /// **'Confira se este código é idêntico ao exibido no outro aparelho.'**
+  String get householdJoinPreviewSasHint;
+
+  /// No description provided for @householdJoinPreviewFinanceLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Finanças (despesas, contas):'**
+  String get householdJoinPreviewFinanceLabel;
+
+  /// No description provided for @householdJoinPreviewProductsLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Catálogo de produtos:'**
+  String get householdJoinPreviewProductsLabel;
+
+  /// No description provided for @householdJoinPreviewBackupNotice.
+  ///
+  /// In pt, this message translates to:
+  /// **'Um backup automático de segurança será gerado antes da adesão.'**
+  String get householdJoinPreviewBackupNotice;
+
+  /// No description provided for @householdJoinPreviewDeviceNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome deste aparelho na casa'**
+  String get householdJoinPreviewDeviceNameLabel;
+
+  /// No description provided for @householdJoinPreviewDeviceNameHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex.: Celular do Alex'**
+  String get householdJoinPreviewDeviceNameHint;
+
+  /// No description provided for @householdJoinPreviewJoining.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrando...'**
+  String get householdJoinPreviewJoining;
+
+  /// No description provided for @householdJoinPreviewJoinButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrar na casa'**
+  String get householdJoinPreviewJoinButton;
+
+  /// No description provided for @householdLeaveDeleteConfirmTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar exclusão dos dados'**
+  String get householdLeaveDeleteConfirmTitle;
+
+  /// No description provided for @householdLeaveDeleteIrreversible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Esta ação não pode ser desfeita.'**
+  String get householdLeaveDeleteIrreversible;
+
+  /// No description provided for @householdLeaveDeleteAndExit.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagar e sair'**
+  String get householdLeaveDeleteAndExit;
+
+  /// No description provided for @householdLeaveDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sair da casa compartilhada'**
+  String get householdLeaveDialogTitle;
+
+  /// No description provided for @householdLeaveDialogBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ao sair da casa, este aparelho não receberá nem enviará mais atualizações de sincronização.'**
+  String get householdLeaveDialogBody;
+
+  /// No description provided for @householdLeaveKeepLocalTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Manter uma cópia local (recomendado)'**
+  String get householdLeaveKeepLocalTitle;
+
+  /// No description provided for @householdLeaveKeepLocalSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você continua com todas as despesas e tarefas criadas até agora.'**
+  String get householdLeaveKeepLocalSubtitle;
+
+  /// No description provided for @householdQrCloseTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fechar câmera'**
+  String get householdQrCloseTooltip;
+
+  /// No description provided for @householdQrScanPrompt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aponte a câmera para o QR Code exibido no outro aparelho.'**
+  String get householdQrScanPrompt;
+
+  /// No description provided for @householdQrCameraUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Câmera indisponível neste dispositivo/emulador.\nUse a opção de colar o link de convite.'**
+  String get householdQrCameraUnavailable;
+
+  /// No description provided for @householdQrManualEntry.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digitar ou colar código manualmente'**
+  String get householdQrManualEntry;
+
+  /// No description provided for @householdBundleAlreadyApplied.
+  ///
+  /// In pt, this message translates to:
+  /// **'Este pacote já foi aplicado'**
+  String get householdBundleAlreadyApplied;
+
+  /// No description provided for @householdBundleAppliedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pacote aplicado com sucesso!'**
+  String get householdBundleAppliedSuccess;
+
+  /// No description provided for @householdBundleImportTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar pacote .mshsync'**
+  String get householdBundleImportTitle;
+
+  /// No description provided for @householdBundleContentLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conteúdo ou caminho do pacote'**
+  String get householdBundleContentLabel;
+
+  /// No description provided for @householdBundleContentHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cole os dados do arquivo .mshsync'**
+  String get householdBundleContentHint;
+
+  /// No description provided for @householdBundleImportAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar'**
+  String get householdBundleImportAction;
+
+  /// No description provided for @householdBundleShareTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pacote de sincronização'**
+  String get householdBundleShareTitle;
+
+  /// No description provided for @householdBundleShareDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gere um arquivo criptografado com as alterações deste aparelho para enviar por WhatsApp, Telegram ou e-mail.'**
+  String get householdBundleShareDescription;
+
+  /// No description provided for @householdBundleShareAction.
 }
 
 class _AppLocalizationsDelegate
