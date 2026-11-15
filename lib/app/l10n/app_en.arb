@@ -1438,3 +1438,163 @@
   },
   "dueBillsWidgetLoadError": "Error loading due bills: {error}",
   "@dueBillsWidgetLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListCompletedCelebration": "You completed the shopping list! 💕",
+  "shoppingListRegisterPurchaseTitle": "Register purchase",
+  "shoppingListManageLists": "Manage lists",
+  "shoppingListClearPurchased": "Clear purchased",
+  "shoppingListItemsMarkedCount": "{marked} of {total} items marked",
+  "@shoppingListItemsMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingListEmptyDescription": "Add items so you don't forget anything at the store.",
+  "shoppingShortcutPurchases": "Purchases",
+  "shoppingShortcutPrices": "Prices",
+  "shoppingShortcutStock": "Stock",
+  "shoppingQuantitySemantics": "Quantity",
+  "shoppingQuantityShortLabel": "Qty",
+  "shoppingUnitSemantics": "Unit of measure",
+  "shoppingUnitUnShort": "Un",
+  "shoppingErrorSaveChange": "Failed to save change",
+  "shoppingErrorAddItem": "Failed to add item",
+  "shoppingErrorRemoveItem": "Failed to remove item",
+  "shoppingErrorClearCompleted": "Failed to clear completed items",
+  "shoppingTileRegisterSingle": "Register purchase of this item",
+  "shoppingTileRemoveItem": "Remove item",
+  "shoppingSheetsMyListsTitle": "My Shopping Lists",
+  "shoppingSheetsNewList": "New List",
+  "shoppingSheetsNoLists": "No lists found.",
+  "shoppingSheetsArchivedCount": "Archived • {count} items",
+  "@shoppingSheetsArchivedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsItemsCount": "{count} items",
+  "@shoppingSheetsItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsListOptions": "List options",
+  "shoppingSheetsDuplicate": "Duplicate",
+  "shoppingSheetsRename": "Rename",
+  "shoppingSheetsDuplicateSuccess": "List duplicated successfully.",
+  "shoppingSheetsDuplicateError": "Failed to duplicate list.",
+  "shoppingSheetsRenameTitle": "Rename List",
+  "shoppingSheetsListNameLabel": "List name *",
+  "shoppingSheetsArchivedSuccess": "List archived successfully.",
+  "shoppingSheetsUnarchivedSuccess": "List unarchived successfully.",
+  "shoppingSheetsCreateTitle": "New Shopping List",
+  "shoppingSheetsCreateHint": "e.g.: Market, Pharmacy, BBQ",
+  "shoppingSheetsCreateButton": "Create",
+  "taskPresetsAreaSemantics": "area {area}",
+  "@taskPresetsAreaSemantics": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "calendarTabDay": "Day",
+  "calendarTabWeek": "Week",
+  "calendarTabMonth": "Month",
+  "calendarMaintenanceSuggestions": "Maintenance suggestions",
+  "calendarSyncGoogle": "Sync with Google",
+  "calendarSyncStarting": "Starting sync...",
+  "calendarSyncDone": "Sync complete!",
+  "calendarTodayTooltip": "Today",
+  "calendarShowingToday": "Showing today",
+  "calendarNewTask": "New task",
+  "calendarEditTaskTitle": "Edit Task",
+  "calendarTaskTitleLabel": "Title *",
+  "calendarDayBillsCount": "{count} bill(s)",
+  "@calendarDayBillsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillsDueToday": "Bills due today ({count}):",
+  "@calendarBillsDueToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillPaidStatus": "(Paid)",
+  "calendarBillPendingStatus": "(Pending)",
+  "calendarDeleteTaskTitle": "Delete task?",
+  "calendarDeleteTaskConfirm": "Are you sure you want to delete \"{title}\"?",
+  "@calendarDeleteTaskConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "commonEdit": "Edit",
+  "taskAllDayLabel": "All day",
+  "taskRepeatLabel": "Repeat",
+  "taskRepeatNone": "Does not repeat",
+  "calendarEditTaskAction": "Edit task",
+  "calendarDeleteTaskAction": "Delete task",
+  "priceSearchProductLabel": "Search product",
+  "priceSearchProductHint": "Type to search for a product...",
+  "priceClearSearchTooltip": "Clear search",
+  "purchaseSaveTooltip": "Save purchase",
+  "purchaseNewProductTooltip": "New product",
+  "purchaseRemoveItemTooltip": "Remove item",
+  "purchasesHistoryTitle": "Purchases and Receipts",
+  "purchasesPriceHistoryTooltip": "Price History",
+  "purchasesLoadError": "Error loading purchases: {error}",
+  "@purchasesLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchasesEmptyTitle": "No purchases recorded",
+  "purchasesRegisterButton": "Register Purchase",
+  "purchasesDeleteTooltip": "Delete purchase",
+  "purchasesNewTooltip": "New Purchase",
+  "purchasesDeleteDialogTitle": "Delete purchase?",
+  "purchasesDeleteDialogBody": "This purchase and its price points will be deleted.",
+  "purchasesDeleteSuccess": "Purchase deleted successfully",
+  "purchasesDeleteError": "Error deleting purchase",
+  "purchasesTotalLabel": "Total",
+  "purchasesDiscountLabel": "Discount",
+  "purchasesItemsCount": "Items ({count})",
+  "@purchasesItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "purchasesNoDetailedItems": "No detailed items in this purchase.",
+  "purchasesProductFallback": "Product",
+  "purchasesItemPriceHistoryTooltip": "Price history",
+  "priceChartSemantics": "{price} at {store} on {date}",
+  "@priceChartSemantics": {
+    "placeholders": {
+      "price": {
