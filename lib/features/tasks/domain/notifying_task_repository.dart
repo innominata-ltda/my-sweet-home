@@ -109,6 +109,8 @@ class NotifyingTaskRepository implements TaskRepository {
       now: clock.nowUtc(),
       quiet: quietHours,
     );
+    if (notifications.isEmpty) return;
+    await scheduler.requestPermission();
     for (final n in notifications) {
       await scheduler.schedule(n);
     }
