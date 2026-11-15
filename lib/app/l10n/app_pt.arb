@@ -1916,5 +1916,165 @@
   "ocrNfceKeyOptionalLabel": "Chave da NFC-e (opcional)",
   "ocrNfceKeyHint": "44 dígitos da nota fiscal",
   "ocrSubtotalInputLabel": "Subtotal (R$)",
+  "ocrDiscountInputLabel": "Desconto (R$)",
+  "ocrReadTotalInputLabel": "Total lido (R$)",
+  "ocrRegisterNewProductTitle": "Cadastrar novo produto",
+  "ocrCanonicalNameRequiredLabel": "Nome canônico *",
+  "ocrCanonicalNameHint": "Ex: Leite Integral 1L",
+  "ocrCanonicalNameRequiredError": "Informe o nome canônico",
+  "ocrCategoryRequiredLabel": "Categoria *",
+  "ocrCategoryHint": "Ex: Alimentos, Limpeza, etc.",
+  "ocrCategoryRequiredError": "Informe a categoria",
+  "ocrDefaultUnitRequiredLabel": "Unidade padrão *",
+  "ocrAliasesOptionalLabel": "Sinônimos / Apelidos (opcional)",
+  "ocrAliasesHint": "Separados por vírgula",
+  "ocrLinkProductTitle": "Vincular produto",
+  "ocrProductNameSearchLabel": "Nome do produto",
+  "ocrProductNameSearchHint": "Digite o nome do produto",
+  "ocrRegisterNamedAsNew": "Cadastrar \"{name}\" como novo produto",
+  "@ocrRegisterNamedAsNew": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrSuggestedProductsLabel": "Produtos sugeridos:",
+  "ocrProductMetaRow": "Categoria: {category} | Unidade: {unit}",
+  "@ocrProductMetaRow": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNoExistingProductFound": "Nenhum produto existente encontrado com esse nome.",
+  "ocrNoneLinked": "Nenhum",
+  "ocrItemDescriptionLabel": "Descrição lida / Nome *",
+  "ocrItemDescriptionError": "Informe o nome ou descrição",
+  "ocrQuantityRequiredLabel": "Quantidade *",
+  "ocrQuantityRequiredError": "Informe a qtd",
+  "ocrQuantityInvalidError": "Qtd inválida",
+  "ocrUnitRequiredLabel": "Unidade *",
+  "ocrUnitPriceRequiredLabel": "Preço unitário (R$) *",
+  "ocrTotalPriceRequiredLabel": "Preço total (R$) *",
+  "ocrIncludeItemInPurchase": "Incluir item na compra",
+  "ocrLinkedProductLabel": "Produto vinculado:",
+  "ocrChangeOrLinkButton": "Trocar / Vincular",
+  "ocrRegisterProductButton": "Cadastrar produto",
+  "ocrUnlinkTooltip": "Remover vínculo",
+  "ocrUnnamedItemFallback": "Item sem nome",
+  "ocrTotalReadColonLabel": "Total lido do cupom:",
+  "ocrSelectedItemsSumColonLabel": "Soma dos itens selecionados:",
+  "ocrItemSelectHint": "Selecionar {title}",
+  "@ocrItemSelectHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncFailure": "Falha na sincronização: {error}",
+  "@householdSyncFailure": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncAppliedSuffix": " ({count} alterações aplicadas).",
+  "@householdSyncAppliedSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncSentSuffix": " ({count} alterações enviadas).",
+  "@householdSyncSentSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncCompleted": "Sincronização concluída: {sent} alterações enviadas, {applied} aplicadas.",
+  "@householdSyncCompleted": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdCloudSyncNoChanges": "Sincronização em nuvem concluída. Nenhuma alteração pendente.",
+  "householdSyncUnexpectedError": "Erro inesperado na sincronização: {error}",
+  "@householdSyncUnexpectedError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHowSyncWorksTooltip": "Como funciona a sincronização",
+  "householdImportBundleButton": "Importar pacote",
+  "householdCloudSyncTitle": "Permitir sincronização remota da casa (nuvem)",
+  "householdCloudSyncSubtitle": "Sincronizar fora do Wi-Fi doméstico com criptografia de ponta a ponta",
+  "householdCalendarLocalTitle": "Sincronizar agenda neste aparelho",
+  "householdCalendarLocalSubtitle": "Evita duplicação sincronizando tarefas do Google Calendar só aqui",
+  "householdMembersLoadError": "Erro ao carregar membros: {error}",
+  "@householdMembersLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdThisDevice": "Este aparelho",
+  "householdLastSeen": "Visto por último: {time}",
+  "@householdLastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "householdNeverSynced": "Nunca sincronizou",
+  "householdRemoveMemberTooltip": "Remover membro",
+  "householdDefaultDeviceName": "Meu celular",
+  "householdJoinDialogTitle": "Entrar em uma casa",
+  "householdScanQrButton": "Ler QR Code com a câmera",
+  "householdInviteCodeLabel": "Código ou link de convite",
+  "householdInviteCodeHint": "Cole o link mshsync:// ou escaneie o QR Code",
+  "householdPasteCodeTooltip": "Colar código",
+  "householdDeviceNameLabel": "Nome deste aparelho",
+  "householdInvalidInviteError": "Código de convite inválido. Verifique o link ou QR Code.",
+  "householdHostDeviceFallback": "Aparelho Anfitrião",
+  "householdInviteGenerateError": "Não foi possível gerar o convite de pareamento.",
+  "householdInviteDialogTitle": "Convidar dispositivo",
+  "householdInviteDialogPrompt": "Escaneie este QR Code no outro aparelho ou envie o link abaixo:",
+  "householdCopyLinkButton": "Copiar link",
+  "householdInviteLinkCopied": "Link de convite copiado!",
+  "householdSasCodeLabel": "Código de autenticação SAS (6 dígitos):",
+  "householdRemoveMemberDialogTitle": "Remover \"{name}\"?",
+  "@householdRemoveMemberDialogTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdRemoveMemberDialogBody": "Ao remover o aparelho, a chave da casa será rotacionada e ele não poderá mais sincronizar novos dados.",
+  "householdDefaultHouseName": "Minha Casa",
+  "householdDefaultDeviceNameAlt": "Meu Aparelho",
+  "householdEmptyHouseNameError": "O nome da casa não pode ser vazio.",
+  "householdEmptyDeviceNameError": "O nome do aparelho não pode ser vazio.",
+  "householdUnexpectedErrorWithDetail": "Erro inesperado: {error}",
+  "@householdUnexpectedErrorWithDetail": {
   }
 }
