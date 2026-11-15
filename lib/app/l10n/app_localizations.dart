@@ -5820,6 +5820,166 @@ abstract class AppLocalizations {
   String get householdRemoveMemberTooltip;
 
   /// No description provided for @householdDefaultDeviceName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Meu celular'**
+  String get householdDefaultDeviceName;
+
+  /// No description provided for @householdJoinDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrar em uma casa'**
+  String get householdJoinDialogTitle;
+
+  /// No description provided for @householdScanQrButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ler QR Code com a câmera'**
+  String get householdScanQrButton;
+
+  /// No description provided for @householdInviteCodeLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código ou link de convite'**
+  String get householdInviteCodeLabel;
+
+  /// No description provided for @householdInviteCodeHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cole o link mshsync:// ou escaneie o QR Code'**
+  String get householdInviteCodeHint;
+
+  /// No description provided for @householdPasteCodeTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Colar código'**
+  String get householdPasteCodeTooltip;
+
+  /// No description provided for @householdDeviceNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome deste aparelho'**
+  String get householdDeviceNameLabel;
+
+  /// No description provided for @householdInvalidInviteError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código de convite inválido. Verifique o link ou QR Code.'**
+  String get householdInvalidInviteError;
+
+  /// No description provided for @householdHostDeviceFallback.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aparelho Anfitrião'**
+  String get householdHostDeviceFallback;
+
+  /// No description provided for @householdInviteGenerateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível gerar o convite de pareamento.'**
+  String get householdInviteGenerateError;
+
+  /// No description provided for @householdInviteDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Convidar dispositivo'**
+  String get householdInviteDialogTitle;
+
+  /// No description provided for @householdInviteDialogPrompt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escaneie este QR Code no outro aparelho ou envie o link abaixo:'**
+  String get householdInviteDialogPrompt;
+
+  /// No description provided for @householdCopyLinkButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Copiar link'**
+  String get householdCopyLinkButton;
+
+  /// No description provided for @householdInviteLinkCopied.
+  ///
+  /// In pt, this message translates to:
+  /// **'Link de convite copiado!'**
+  String get householdInviteLinkCopied;
+
+  /// No description provided for @householdSasCodeLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código de autenticação SAS (6 dígitos):'**
+  String get householdSasCodeLabel;
+
+  /// No description provided for @householdRemoveMemberDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover \"{name}\"?'**
+  String householdRemoveMemberDialogTitle(String name);
+
+  /// No description provided for @householdRemoveMemberDialogBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ao remover o aparelho, a chave da casa será rotacionada e ele não poderá mais sincronizar novos dados.'**
+  String get householdRemoveMemberDialogBody;
+
+  /// No description provided for @householdDefaultHouseName.
+  ///
+  /// In pt, this message translates to:
+  /// **'Minha Casa'**
+  String get householdDefaultHouseName;
+
+  /// No description provided for @householdDefaultDeviceNameAlt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Meu Aparelho'**
+  String get householdDefaultDeviceNameAlt;
+
+  /// No description provided for @householdEmptyHouseNameError.
+  ///
+  /// In pt, this message translates to:
+  /// **'O nome da casa não pode ser vazio.'**
+  String get householdEmptyHouseNameError;
+
+  /// No description provided for @householdEmptyDeviceNameError.
+  ///
+  /// In pt, this message translates to:
+  /// **'O nome do aparelho não pode ser vazio.'**
+  String get householdEmptyDeviceNameError;
+
+  /// No description provided for @householdUnexpectedErrorWithDetail.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro inesperado: {error}'**
+  String householdUnexpectedErrorWithDetail(String error);
+
+  /// No description provided for @householdHouseNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome da casa'**
+  String get householdHouseNameLabel;
+
+  /// No description provided for @householdCreatingProgress.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criando casa e preparando dados...'**
+  String get householdCreatingProgress;
+
+  /// No description provided for @householdCreateShortButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criar'**
+  String get householdCreateShortButton;
+
+  /// No description provided for @householdErrorUnknown.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro desconhecido.'**
+  String get householdErrorUnknown;
+
+  /// No description provided for @householdErrorStorageDetail.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível salvar ou carregar os dados. Tente novamente.'**
+  String get householdErrorStorageDetail;
 }
 
 class _AppLocalizationsDelegate
