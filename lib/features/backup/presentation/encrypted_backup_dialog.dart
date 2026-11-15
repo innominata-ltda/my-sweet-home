@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/domain/backup_service.dart';
 
@@ -69,16 +70,16 @@ class _EncryptedBackupExportDialogState
     return '$mb MB';
   }
 
-  String _stageLabel(BackupStage stage) {
+  String _stageLabel(AppLocalizations l10n, BackupStage stage) {
     switch (stage) {
       case BackupStage.collecting:
-        return 'Coletando dados do aplicativo...';
+        return l10n.backupStageCollecting;
       case BackupStage.encrypting:
-        return 'Criptografando com AES-256 e Argon2id...';
+        return l10n.backupStageEncrypting;
       case BackupStage.writing:
-        return 'Finalizando arquivo de backup...';
+        return l10n.backupStageWriting;
       case BackupStage.done:
-        return 'Concluído!';
+        return l10n.backupStageDone;
     }
   }
 
@@ -112,12 +113,15 @@ class _EncryptedBackupExportDialogState
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return AlertDialog(
-      title: const Row(
+      title: Row(
         children: [
-          Icon(AppIcons.lockBackup),
-          SizedBox(width: 8),
-          Expanded(child: Text('Backup Criptografado')),
+          const Icon(AppIcons.lockBackup),
+          const SizedBox(width: 8),
+          Expanded(child: Text(l10n.backupEncryptedTitle)),
         ],
       ),
       content: SingleChildScrollView(
@@ -145,7 +149,7 @@ class _EncryptedBackupExportDialogState
                           ),
                           const SizedBox(width: 6),
                           Text(
-                            'Aviso Importante (RN-234)',
+                            l10n.backupWarningTitle,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Theme.of(context)
@@ -157,7 +161,7 @@ class _EncryptedBackupExportDialogState
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Se você perder a senha, o backup é perdido.',
+                        l10n.backupWarningLostPassword,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).colorScheme.onErrorContainer,
@@ -165,7 +169,7 @@ class _EncryptedBackupExportDialogState
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'O aplicativo não salva sua senha nem consegue ler o backup sem ela. Não há opção de recuperação.',
+                        l10n.backupWarningNoRecovery,
                         style: TextStyle(
                           fontSize: 13,
                           color: Theme.of(context).colorScheme.onErrorContainer,
@@ -179,17 +183,17 @@ class _EncryptedBackupExportDialogState
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Senha do Backup *',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(AppIcons.lockBackup),
+                decoration: InputDecoration(
+                  labelText: l10n.backupPasswordLabel,
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(AppIcons.lockBackup),
                 ),
                 validator: (val) {
                   if (val == null || val.trim().isEmpty) {
-                    return 'Informe uma senha para proteger o backup';
+                    return l10n.backupPasswordRequired;
                   }
                   if (val.length < 4) {
-                    return 'A senha deve ter pelo menos 4 caracteres';
+                    return l10n.backupPasswordMinLength;
                   }
                   return null;
                 },
@@ -198,14 +202,14 @@ class _EncryptedBackupExportDialogState
               TextFormField(
                 controller: _confirmPasswordController,
                 obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Confirmar Senha *',
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(AppIcons.lockBackup),
+                decoration: InputDecoration(
+                  labelText: l10n.backupConfirmPasswordLabel,
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(AppIcons.lockBackup),
                 ),
                 validator: (val) {
                   if (val != _passwordController.text) {
-                    return 'As senhas não coincidem';
+                    return l10n.backupPasswordsMismatch;
                   }
                   return null;
                 },
@@ -220,11 +224,13 @@ class _EncryptedBackupExportDialogState
                           _includePhotos = val ?? false;
                         });
                       },
-                title: const Text('Incluir fotos no backup (RN-237)'),
+                title: Text(l10n.backupIncludePhotosTitle),
                 subtitle: Text(
                   widget.estimatedPhotosSizeBytes != null
-                      ? 'Fotos de cupons e receitas (Tamanho estimado: ${_formatBytes(widget.estimatedPhotosSizeBytes!)})'
-                      : 'Fotos de cupons e receitas ficam fora do backup por padrão',
+                      ? l10n.backupIncludePhotosWithSize(
+                          _formatBytes(widget.estimatedPhotosSizeBytes!),
+                        )
+                      : l10n.backupIncludePhotosDefault,
                   style: const TextStyle(fontSize: 12),
                 ),
                 controlAffinity: ListTileControlAffinity.leading,
@@ -239,7 +245,7 @@ class _EncryptedBackupExportDialogState
                       const LinearProgressIndicator(),
                       const SizedBox(height: 8),
                       Text(
-                        _stageLabel(_stage!),
+                        _stageLabel(l10n, _stage!),
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.center,
                       ),
@@ -261,7 +267,7 @@ class _EncryptedBackupExportDialogState
       actions: [
         TextButton(
           onPressed: _isLoading ? null : () => Navigator.of(context).pop(false),
-          child: const Text('Cancelar'),
+          child: Text(l10n.commonCancel),
         ),
         FilledButton(
           onPressed: _isLoading ? null : _submit,
@@ -271,7 +277,7 @@ class _EncryptedBackupExportDialogState
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Text('Exportar Criptografado'),
+              : Text(l10n.backupExportEncryptedButton),
         ),
       ],
     );
@@ -331,12 +337,15 @@ class _EncryptedBackupImportDialogState
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return AlertDialog(
-      title: const Row(
+      title: Row(
         children: [
-          Icon(AppIcons.lockBackup),
-          SizedBox(width: 8),
-          Expanded(child: Text('Restaurar Backup Criptografado')),
+          const Icon(AppIcons.lockBackup),
+          const SizedBox(width: 8),
+          Expanded(child: Text(l10n.backupRestoreEncryptedTitle)),
         ],
       ),
       content: Form(
@@ -345,21 +354,19 @@ class _EncryptedBackupImportDialogState
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'Este arquivo de backup está protegido por senha. Informe a senha definida durante a exportação para continuar.',
-            ),
+            Text(l10n.backupRestoreEncryptedBody),
             const SizedBox(height: 16),
             TextFormField(
               controller: _passwordController,
               obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Senha do Backup *',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(AppIcons.lockBackup),
+              decoration: InputDecoration(
+                labelText: l10n.backupPasswordLabel,
+                border: const OutlineInputBorder(),
+                prefixIcon: const Icon(AppIcons.lockBackup),
               ),
               validator: (val) {
                 if (val == null || val.trim().isEmpty) {
-                  return 'Digite a senha do backup';
+                  return l10n.backupRestorePasswordRequired;
                 }
                 return null;
               },
@@ -380,7 +387,7 @@ class _EncryptedBackupImportDialogState
       actions: [
         TextButton(
           onPressed: _isLoading ? null : () => Navigator.of(context).pop(false),
-          child: const Text('Cancelar'),
+          child: Text(l10n.commonCancel),
         ),
         FilledButton(
           onPressed: _isLoading ? null : _submit,
@@ -390,7 +397,7 @@ class _EncryptedBackupImportDialogState
                   height: 16,
                   child: CircularProgressIndicator(strokeWidth: 2),
                 )
-              : const Text('Descriptografar e Restaurar'),
+              : Text(l10n.backupRestoreEncryptedButton),
         ),
       ],
     );
