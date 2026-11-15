@@ -1598,3 +1598,163 @@
   "@priceChartSemantics": {
     "placeholders": {
       "price": {
+        "type": "String"
+      },
+      "store": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "productTrackPricesTooltip": "Track prices",
+  "productMergeTooltip": "Merge with another product",
+  "productTrackPriceHistoryButton": "Track price history",
+  "productPreferredNameSet": "\"{alias}\" set as default display name.",
+  "@productPreferredNameSet": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasDescription": "You can separate \"{alias}\" as an independent product (with its own price history) or just remove the alias.",
+  "@productSeparateAliasDescription": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasAction": "Separate as another product",
+  "productNoMergeCandidates": "No other product available to merge.",
+  "productMergeSearchLabel": "Search target product",
+  "productMergeNoneFound": "No product found.",
+  "productMergeConfirmTitle": "Confirm merge",
+  "productMergeConfirmBody": "Do you want to merge \"{source}\" with \"{target}\"?\n\nAll purchases, items, prices, and aliases will be transferred to \"{target}\" and this product will be archived.",
+  "@productMergeConfirmBody": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productMergeConfirmButton": "Merge products",
+  "productMergeSuccess": "Product merged with \"{target}\".",
+  "@productMergeSuccess": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productNewDialogTitle": "New Product",
+  "productCanonicalNameRequiredLabel": "Canonical Name *",
+  "productCanonicalNameError": "Enter the name",
+  "productDefaultUnitRequiredLabel": "Default Unit *",
+  "productAliasesLabel": "Aliases / Synonyms",
+  "productAliasesHint": "Comma-separated (optional)",
+  "productCreateError": "Error creating product",
+  "recipeListServiceUnavailable": "Lists service unavailable",
+  "recipeNoActiveShoppingLists": "No active shopping lists found.",
+  "recipeSelectShoppingListTitle": "Select shopping list",
+  "recipeIngredientsSentSuccess": "Ingredients sent to shopping list!",
+  "recipeIngredientsSentError": "Failed to send ingredients: {error}",
+  "@recipeIngredientsSentError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeDecreaseServingsTooltip": "Decrease servings",
+  "recipeIncreaseServingsTooltip": "Increase servings",
+  "recipeSendIngredientsButton": "Send ingredients to shopping list",
+  "recipeDraftTitleRequiredError": "Title is required.",
+  "recipeDraftIngredientsRequiredError": "Add at least one ingredient.",
+  "recipeDraftSaveError": "Failed to save recipe: {error}",
+  "@recipeDraftSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipePasteTitle": "Paste recipe",
+  "recipePasteHint": "Paste the recipe here (title, ingredients, preparation)...",
+  "recipeImportButton": "Import",
+  "recipeIngredientNameLabel": "Ingredient name",
+  "recipeIngredientNameHint": "E.g.: 2 cups of flour",
+  "recipeTagNameLabel": "Tag name",
+  "recipeTagNameHint": "E.g.: Dessert, Quick, Vegan",
+  "recipeSaveTooltip": "Save recipe",
+  "recipeRemoveIngredientSemantics": "Remove ingredient {name}",
+  "@recipeRemoveIngredientSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeRemoveIngredientTooltip": "Remove ingredient",
+  "recipeAddPhotoButton": "Add photo",
+  "recipePhotoAttached": "Photo attached to recipe.",
+  "recipeSpinDecrease": "Decrease {label}",
+  "@recipeSpinDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeSpinIncrease": "Increase {label}",
+  "@recipeSpinIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeListTimeAndServings": "{minutes} min • {servings} servings",
+  "@recipeListTimeAndServings": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "servings": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeUnfavoriteTooltip": "Unfavorite",
+  "recipeFavoriteTooltip": "Favorite",
+  "recipeRepoUnavailable": "Recipes repository unavailable",
+  "recipeNotFound": "Recipe not found",
+  "recipeNoInstructions": "No instructions registered.",
+  "ocrScanReceiptTitle": "Scan receipt",
+  "ocrDisableFlashTooltip": "Disable flash",
+  "ocrEnableFlashTooltip": "Enable flash",
+  "ocrBenchmarkTooltip": "OCR Accuracy Benchmark",
+  "ocrGalleryTooltip": "Choose photo from gallery",
+  "ocrGalleryLabel": "Gallery",
+  "ocrTakePhotoSemantics": "Take photo of receipt",
+  "ocrManualEntryTooltip": "Enter manually",
+  "ocrReceiptSavedSuccess": "Receipt saved successfully!",
+  "ocrReceiptSaveError": "Error saving receipt: {error}",
+  "@ocrReceiptSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrRecognizeError": "Failed to recognize receipt.",
+  "ocrTotalDivergenceTitle": "Total divergence",
+  "ocrTotalDivergenceBody": "The sum of selected items ({itemsSum}) differs from the read total ({total}).\n\nDivergence of {divergence}. Save anyway?",
+  "@ocrTotalDivergenceBody": {
+    "placeholders": {
+      "itemsSum": {
