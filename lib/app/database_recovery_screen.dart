@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/data/database/database_vault.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 
@@ -28,25 +29,39 @@ class DatabaseRecoveryScreen extends StatefulWidget {
 class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
   bool _isProcessing = false;
 
+  AppLocalizations _resolveL10n(BuildContext context) {
+    final existing = Localizations.of<AppLocalizations>(
+      context,
+      AppLocalizations,
+    );
+    if (existing != null) return existing;
+    final platformLocale = WidgetsBinding.instance.platformDispatcher.locale;
+    final isSupported = AppLocalizations.supportedLocales.any(
+      (l) => l.languageCode == platformLocale.languageCode,
+    );
+    return lookupAppLocalizations(
+      isSupported ? Locale(platformLocale.languageCode) : const Locale('pt'),
+    );
+  }
+
   Future<void> _handleResetAndRestart() async {
+    final l10n = _resolveL10n(context);
     // First confirmation
     final firstConfirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Recomeçar do zero?'),
-        content: const Text(
-          'Todos os dados locais existentes serão permanentemente apagados.',
-        ),
+        title: Text(l10n.recoveryResetConfirmTitle),
+        content: Text(l10n.recoveryResetConfirmBody),
         actions: [
           TextButton(
             key: const Key('recovery_confirm_cancel_1'),
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             key: const Key('recovery_confirm_proceed_1'),
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Continuar'),
+            child: Text(l10n.commonContinue),
           ),
         ],
       ),
@@ -58,15 +73,13 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
     final secondConfirmed = await showDialog<bool>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Confirmação definitiva'),
-        content: const Text(
-          'Esta ação é irreversível. Tem certeza absoluta que deseja apagar todos os dados e recomeçar?',
-        ),
+        title: Text(l10n.recoveryResetFinalTitle),
+        content: Text(l10n.recoveryResetFinalBody),
         actions: [
           TextButton(
             key: const Key('recovery_confirm_cancel_2'),
             onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             key: const Key('recovery_confirm_proceed_2'),
@@ -75,7 +88,7 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
               foregroundColor: Theme.of(context).colorScheme.onError,
             ),
             onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: const Text('Confirmar e apagar'),
+            child: Text(l10n.recoveryResetFinalConfirm),
           ),
         ],
       ),
@@ -98,6 +111,7 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = _resolveL10n(context);
     final theme = Theme.of(context);
     final isKeyUnavailable = widget.opening is VaultKeyUnavailable;
 
@@ -105,8 +119,8 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
       appBar: AppBar(
         title: Text(
           isKeyUnavailable
-              ? 'Chave do banco inacessível'
-              : 'Falha na segurança do banco',
+              ? l10n.recoveryKeyUnavailableAppBar
+              : l10n.recoverySecurityFailureAppBar,
         ),
         centerTitle: true,
       ),
@@ -130,8 +144,8 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                   const SizedBox(height: 24),
                   Text(
                     isKeyUnavailable
-                        ? 'Chave de segurança inacessível'
-                        : 'Conversão de segurança falhou',
+                        ? l10n.recoveryKeyUnavailableTitle
+                        : l10n.recoveryConversionFailedTitle,
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -140,12 +154,8 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                   const SizedBox(height: 16),
                   Text(
                     isKeyUnavailable
-                        ? 'Não foi possível acessar a chave de segurança no dispositivo. '
-                              'Para proteger seus dados, nenhum banco vazio foi criado.\n\n'
-                              'Você pode restaurar um backup anterior ou recomeçar do zero.'
-                        : 'A conversão do banco existente para o formato cifrado falhou, '
-                              'mas seus dados continuam intactos no banco original.\n\n'
-                              'Recomendamos exportar um backup antes de prosseguir.',
+                        ? l10n.recoveryKeyUnavailableBody
+                        : l10n.recoveryConversionFailedBody,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                       height: 1.5,
@@ -158,7 +168,7 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                   else if (isKeyUnavailable) ...[
                     Semantics(
                       button: true,
-                      label: 'Importar backup',
+                      label: l10n.recoveryImportBackup,
                       child: SizedBox(
                         height: 48,
                         child: FilledButton.icon(
@@ -176,21 +186,21 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                                 }
                               : null,
                           icon: const Icon(AppIcons.fileImport, size: 20),
-                          label: const Text('Importar backup'),
+                          label: Text(l10n.recoveryImportBackup),
                         ),
                       ),
                     ),
                     const SizedBox(height: 16),
                     Semantics(
                       button: true,
-                      label: 'Recomeçar do zero',
+                      label: l10n.recoveryStartFromScratch,
                       child: SizedBox(
                         height: 48,
                         child: OutlinedButton.icon(
                           key: const Key('recovery_restart_button'),
                           onPressed: _handleResetAndRestart,
                           icon: const Icon(AppIcons.deleteForever, size: 20),
-                          label: const Text('Recomeçar do zero'),
+                          label: Text(l10n.recoveryStartFromScratch),
                           style: OutlinedButton.styleFrom(
                             foregroundColor: theme.colorScheme.error,
                             side: BorderSide(color: theme.colorScheme.error),
@@ -201,7 +211,7 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                   ] else ...[
                     Semantics(
                       button: true,
-                      label: 'Exportar backup',
+                      label: l10n.recoveryExportBackup,
                       child: SizedBox(
                         height: 48,
                         child: FilledButton.icon(
@@ -219,20 +229,20 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
                                 }
                               : null,
                           icon: const Icon(AppIcons.fileExport, size: 20),
-                          label: const Text('Exportar backup'),
+                          label: Text(l10n.recoveryExportBackup),
                         ),
                       ),
                     ),
                     const SizedBox(height: 16),
                     Semantics(
                       button: true,
-                      label: 'Continuar no formato original',
+                      label: l10n.recoveryContinuePlaintextSemantics,
                       child: SizedBox(
                         height: 48,
                         child: TextButton(
                           key: const Key('recovery_continue_button'),
                           onPressed: widget.onContinueWithPlaintext,
-                          child: const Text('Continuar'),
+                          child: Text(l10n.commonContinue),
                         ),
                       ),
                     ),
@@ -249,6 +259,8 @@ class _DatabaseRecoveryScreenState extends State<DatabaseRecoveryScreen> {
         context.findAncestorWidgetOfExactType<Directionality>() == null) {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(useMaterial3: true),
         home: scaffold,
       );
