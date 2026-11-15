@@ -798,3 +798,163 @@
   "backupExportError": "Error generating backup: {error}",
   "@backupExportError": {
     "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupExportSuccess": "Backup generated and exported successfully!",
+  "backupExportCreateButton": "Create & Export Backup",
+  "backupStageCollecting": "Collecting app data...",
+  "backupStageEncrypting": "Encrypting with AES-256 and Argon2id...",
+  "backupStageWriting": "Finalizing backup file...",
+  "backupStageDone": "Done!",
+  "backupEncryptedTitle": "Encrypted Backup",
+  "backupWarningTitle": "Important Warning (RN-234)",
+  "backupWarningLostPassword": "If you lose the password, the backup is lost.",
+  "backupWarningNoRecovery": "The app does not save your password and cannot read the backup without it. There is no recovery option.",
+  "backupPasswordLabel": "Backup Password *",
+  "backupPasswordRequired": "Enter a password to protect the backup",
+  "backupPasswordMinLength": "Password must be at least 4 characters",
+  "backupConfirmPasswordLabel": "Confirm Password *",
+  "backupPasswordsMismatch": "Passwords do not match",
+  "backupIncludePhotosTitle": "Include photos in backup (RN-237)",
+  "backupIncludePhotosWithSize": "Receipt and recipe photos (Estimated size: {size})",
+  "@backupIncludePhotosWithSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupIncludePhotosDefault": "Receipt and recipe photos are excluded from backup by default",
+  "backupExportEncryptedButton": "Export Encrypted",
+  "backupRestoreEncryptedTitle": "Restore Encrypted Backup",
+  "backupRestoreEncryptedBody": "This backup file is password-protected. Enter the password set during export to continue.",
+  "backupRestorePasswordRequired": "Enter the backup password",
+  "backupRestoreEncryptedButton": "Decrypt & Restore",
+  "backupImportProcessing": "Processing backup...",
+  "backupImportReplacedTitle": "Backup restored successfully!",
+  "backupImportMergedTitle": "Data merged successfully!",
+  "backupImportReplacedBody": "App data was completely replaced by the backup.",
+  "backupImportMergedBody": "Backup records were merged with existing data.",
+  "backupImportFailedTitle": "Import failed",
+  "backupPreviewTitle": "Backup Preview",
+  "backupPreviewAffectedRecords": "{count} affected records",
+  "@backupPreviewAffectedRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewSchemaVersion": "Schema version: v{version}",
+  "@backupPreviewSchemaVersion": {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewExportedAt": "Export date: {date}",
+  "@backupPreviewExportedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "backupImportModeTitle": "Choose import method:",
+  "backupImportModeReplace": "Replace all",
+  "backupImportModeMerge": "Merge",
+  "backupImportConfirmReplace": "Replace and restore backup",
+  "backupImportConfirmMerge": "Merge backup data",
+  "backupImportNoFile": "No backup selected for preview.",
+  "backupImportSelectFile": "Select backup file",
+  "backupImportPasswordField": "Backup password",
+  "backupImportRestoreButton": "Restore",
+  "wipeConfirmFirstTitle": "Confirm data deletion",
+  "wipeConfirmFirstBody": "Are you sure you want to delete all app data? This is the first confirmation.",
+  "wipeConfirmSecondTitle": "Final Confirmation",
+  "wipeConfirmSecondBody": "THIS ACTION IS FINAL AND IRREVERSIBLE. All your records, photos, tasks, expenses, and settings will be deleted without a trace.",
+  "wipeConfirmSecondButton": "Delete everything permanently",
+  "wipeLoading": "Deleting all data...",
+  "wipeSuccessTitle": "All data has been permanently deleted.",
+  "wipeSuccessBody": "The database, files, and settings have been wiped cleanly.",
+  "wipeWarningTitle": "Warning: Irreversible Action",
+  "wipeWarningBody": "By deleting everything, all saved records (products, expenses, recurring bills, tasks, recipes, purchases, and stock), receipt photos, and app preferences will be permanently erased.",
+  "wipeWarningTokens": "No tokens or temporary files will remain on the device.",
+  "wipeDeleteAllButton": "Delete all data",
+  "monthJanuary": "January",
+  "monthFebruary": "February",
+  "monthMarch": "March",
+  "monthApril": "April",
+  "monthMay": "May",
+  "monthJune": "June",
+  "monthJuly": "July",
+  "monthAugust": "August",
+  "monthSeptember": "September",
+  "monthOctober": "October",
+  "monthNovember": "November",
+  "monthDecember": "December",
+  "monthYearFormat": "{month} {year}",
+  "@monthYearFormat": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "commonPreviousMonth": "Previous month",
+  "commonNextMonth": "Next month",
+  "commonInvalidValue": "Invalid value",
+  "commonEnterAmount": "Enter an amount",
+  "commonNotesOptional": "Notes (optional)",
+  "commonRepeatDaily": "Daily",
+  "commonRepeatWeekly": "Weekly",
+  "commonRepeatMonthly": "Monthly",
+  "commonRepeatCustomDays": "Every X days",
+  "commonDaysCountLabel": "Number of days *",
+  "billsUnpayTooltip": "Unmark payment for {title}",
+  "@billsUnpayTooltip": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsOptionsTooltip": "Bill options",
+  "billsDeleteConfirmTitle": "Delete bill?",
+  "billsDeleteConfirmBody": "Are you sure you want to delete the bill \"{title}\"?",
+  "@billsDeleteConfirmBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsMarkUnpaid": "Mark as unpaid",
+  "billsPauseAction": "Pause bill",
+  "billsDeleteAction": "Delete bill",
+  "billsCreateSuccess": "Bill \"{title}\" created successfully!",
+  "@billsCreateSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsCreateError": "Error creating bill: {error}",
+  "@billsCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPaidSuccess": "Bill \"{title}\" marked as paid!",
+  "@billsPaidSuccess": {
+    "placeholders": {
