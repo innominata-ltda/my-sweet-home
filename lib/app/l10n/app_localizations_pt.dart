@@ -1176,4 +1176,164 @@ class AppLocalizationsPt extends AppLocalizations {
   String retentionNotificationBody(int days) {
     return 'Faz $days dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?';
   }
+
+  @override
+  String get commonCancel => 'Cancelar';
+
+  @override
+  String get commonContinue => 'Continuar';
+
+  @override
+  String get commonSave => 'Salvar';
+
+  @override
+  String get commonDelete => 'Excluir';
+
+  @override
+  String get commonRetry => 'Tentar novamente';
+
+  @override
+  String get commonClose => 'Fechar';
+
+  @override
+  String get commonBack => 'Voltar';
+
+  @override
+  String get commonDone => 'Concluído';
+
+  @override
+  String get commonConfirm => 'Confirmar';
+
+  @override
+  String get navHome => 'Início';
+
+  @override
+  String get navShopping => 'Compras';
+
+  @override
+  String get navTasks => 'Tarefas';
+
+  @override
+  String get navBills => 'Contas';
+
+  @override
+  String get navExpenses => 'Despesas';
+
+  @override
+  String get navScanReceipt => 'Escanear Nota Fiscal';
+
+  @override
+  String get pageNotFound => 'Página não encontrada';
+
+  @override
+  String get dashboardSearchTooltip => 'Busca global';
+
+  @override
+  String get settingsTitle => 'Ajustes';
+
+  @override
+  String get dashboardEmptyDescription =>
+      'Personalize seu painel inicial adicionando os módulos que desejar.';
+
+  @override
+  String mascotGreetingNamed(String name) {
+    return 'Oi! Eu sou a $name 💕';
+  }
+
+  @override
+  String get mascotGreetingSubtitleDefault =>
+      'Estou aqui para cuidar do seu cantinho com você!';
+
+  @override
+  String get mascotGreetingSubtitleOverBudget =>
+      'Atenção com as continhas este mês! Mas estamos juntas nisso 💕';
+
+  @override
+  String get mascotGreetingSubtitleNearBudget =>
+      'Quase no limite do orçamento! Vamos cuidar com carinho dos gastos 💕';
+
+  @override
+  String mascotGreetingSemantics(String name, String title, String subtitle) {
+    return 'Mascote $name: $title. $subtitle';
+  }
+
+  @override
+  String get recoveryResetConfirmTitle => 'Recomeçar do zero?';
+
+  @override
+  String get recoveryResetConfirmBody =>
+      'Todos os dados locais existentes serão permanentemente apagados.';
+
+  @override
+  String get recoveryResetFinalTitle => 'Confirmação definitiva';
+
+  @override
+  String get recoveryResetFinalBody =>
+      'Esta ação é irreversível. Tem certeza absoluta que deseja apagar todos os dados e recomeçar?';
+
+  @override
+  String get recoveryResetFinalConfirm => 'Confirmar e apagar';
+
+  @override
+  String get recoveryKeyUnavailableAppBar => 'Chave do banco inacessível';
+
+  @override
+  String get recoverySecurityFailureAppBar => 'Falha na segurança do banco';
+
+  @override
+  String get recoveryKeyUnavailableTitle => 'Chave de segurança inacessível';
+
+  @override
+  String get recoveryConversionFailedTitle => 'Conversão de segurança falhou';
+
+  @override
+  String get recoveryKeyUnavailableBody =>
+      'Não foi possível acessar a chave de segurança no dispositivo. Para proteger seus dados, nenhum banco vazio foi criado.\n\nVocê pode restaurar um backup anterior ou recomeçar do zero.';
+
+  @override
+  String get recoveryConversionFailedBody =>
+      'A conversão do banco existente para o formato cifrado falhou, mas seus dados continuam intactos no banco original.\n\nRecomendamos exportar um backup antes de prosseguir.';
+
+  @override
+  String get recoveryImportBackup => 'Importar backup';
+
+  @override
+  String get recoveryStartFromScratch => 'Recomeçar do zero';
+
+  @override
+  String get recoveryExportBackup => 'Exportar backup';
+
+  @override
+  String get recoveryContinuePlaintextSemantics =>
+      'Continuar no formato original';
+
+  @override
+  String get celebrationDefaultTitle => 'Parabéns!';
+
+  @override
+  String get celebrationDefaultMessage => 'Você concluiu tudo com sucesso! 💕';
+
+  @override
+  String get celebrationMascotSemantics =>
+      'Momo alegre celebrando sua conquista';
+
+  @override
+  String get mascotNameFieldSemantics => 'Campo para alterar o nome da mascote';
+
+  @override
+  String mascotNameBlankHelper(String name) {
+    return 'Se deixar em branco, usaremos \"$name\" 💕';
+  }
+
+  @override
+  String mascotPreviewSemantics(String name, String palette) {
+    return 'Pré-visualização da mascote $name na paleta $palette';
+  }
+
+  @override
+  String get splashInitError =>
+      'Ops! Ocorreu uma instabilidade na inicialização.';
+
+  @override
+  String get onboardingOpenSourceBadge =>
 }
