@@ -2140,6 +2140,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Faz {days} dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?'**
   String retentionNotificationBody(int days);
+
+  /// No description provided for @commonCancel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cancelar'**
+  String get commonCancel;
+
+  /// No description provided for @commonContinue.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar'**
+  String get commonContinue;
+
+  /// No description provided for @commonSave.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar'**
+  String get commonSave;
+
+  /// No description provided for @commonDelete.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir'**
+  String get commonDelete;
+
+  /// No description provided for @commonRetry.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tentar novamente'**
+  String get commonRetry;
+
+  /// No description provided for @commonClose.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fechar'**
+  String get commonClose;
+
+  /// No description provided for @commonBack.
+  ///
+  /// In pt, this message translates to:
+  /// **'Voltar'**
+  String get commonBack;
+
+  /// No description provided for @commonDone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Concluído'**
+  String get commonDone;
+
+  /// No description provided for @commonConfirm.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar'**
+  String get commonConfirm;
+
+  /// No description provided for @navHome.
+  ///
+  /// In pt, this message translates to:
+  /// **'Início'**
+  String get navHome;
+
+  /// No description provided for @navShopping.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compras'**
+  String get navShopping;
+
+  /// No description provided for @navTasks.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tarefas'**
+  String get navTasks;
+
+  /// No description provided for @navBills.
+  ///
+  /// In pt, this message translates to:
+  /// **'Contas'**
+  String get navBills;
+
+  /// No description provided for @navExpenses.
+  ///
+  /// In pt, this message translates to:
+  /// **'Despesas'**
+  String get navExpenses;
+
+  /// No description provided for @navScanReceipt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escanear Nota Fiscal'**
+  String get navScanReceipt;
+
+  /// No description provided for @pageNotFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Página não encontrada'**
+  String get pageNotFound;
+
+  /// No description provided for @dashboardSearchTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Busca global'**
+  String get dashboardSearchTooltip;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ajustes'**
+  String get settingsTitle;
+
+  /// No description provided for @dashboardEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Personalize seu painel inicial adicionando os módulos que desejar.'**
+  String get dashboardEmptyDescription;
+
+  /// No description provided for @mascotGreetingNamed.
+  ///
+  /// In pt, this message translates to:
+  /// **'Oi! Eu sou a {name} 💕'**
+  String mascotGreetingNamed(String name);
+
+  /// No description provided for @mascotGreetingSubtitleDefault.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estou aqui para cuidar do seu cantinho com você!'**
+  String get mascotGreetingSubtitleDefault;
+
+  /// No description provided for @mascotGreetingSubtitleOverBudget.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atenção com as continhas este mês! Mas estamos juntas nisso 💕'**
+  String get mascotGreetingSubtitleOverBudget;
+
+  /// No description provided for @mascotGreetingSubtitleNearBudget.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quase no limite do orçamento! Vamos cuidar com carinho dos gastos 💕'**
+  String get mascotGreetingSubtitleNearBudget;
+
+  /// No description provided for @mascotGreetingSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mascote {name}: {title}. {subtitle}'**
+  String mascotGreetingSemantics(String name, String title, String subtitle);
+
+  /// No description provided for @recoveryResetConfirmTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Recomeçar do zero?'**
+  String get recoveryResetConfirmTitle;
+
+  /// No description provided for @recoveryResetConfirmBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todos os dados locais existentes serão permanentemente apagados.'**
+  String get recoveryResetConfirmBody;
+
+  /// No description provided for @recoveryResetFinalTitle.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
