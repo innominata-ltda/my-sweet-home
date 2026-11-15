@@ -3260,6 +3260,166 @@ abstract class AppLocalizations {
   /// No description provided for @billsMarkUnpaid.
   ///
   /// In pt, this message translates to:
+  /// **'Marcar como não pago'**
+  String get billsMarkUnpaid;
+
+  /// No description provided for @billsPauseAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pausar conta'**
+  String get billsPauseAction;
+
+  /// No description provided for @billsDeleteAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir conta'**
+  String get billsDeleteAction;
+
+  /// No description provided for @billsCreateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta \"{title}\" cadastrada com sucesso!'**
+  String billsCreateSuccess(String title);
+
+  /// No description provided for @billsCreateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao cadastrar conta: {error}'**
+  String billsCreateError(String error);
+
+  /// No description provided for @billsPaidSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta \"{title}\" marcada como paga!'**
+  String billsPaidSuccess(String title);
+
+  /// No description provided for @billsUnpaidSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta \"{title}\" marcada como não paga!'**
+  String billsUnpaidSuccess(String title);
+
+  /// No description provided for @billsPausedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta \"{title}\" pausada com sucesso!'**
+  String billsPausedSuccess(String title);
+
+  /// No description provided for @billsDeletedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conta \"{title}\" excluída com sucesso!'**
+  String billsDeletedSuccess(String title);
+
+  /// No description provided for @billsDeleteError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao excluir conta: {error}'**
+  String billsDeleteError(String error);
+
+  /// No description provided for @billsNewDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova Conta a Vencer'**
+  String get billsNewDialogTitle;
+
+  /// No description provided for @billsTitleFieldLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Título * (ex: Aluguel, Luz, Internet)'**
+  String get billsTitleFieldLabel;
+
+  /// No description provided for @billsTitleRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o título'**
+  String get billsTitleRequired;
+
+  /// No description provided for @billsAmountFieldLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Valor em R\$ * (ex: 150.00)'**
+  String get billsAmountFieldLabel;
+
+  /// No description provided for @billsDueDayFieldLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dia do Vencimento * (1 a 31)'**
+  String get billsDueDayFieldLabel;
+
+  /// No description provided for @billsDueDayInvalid.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe um dia entre 1 e 31'**
+  String get billsDueDayInvalid;
+
+  /// No description provided for @billsFrequencyLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Frequência da Conta'**
+  String get billsFrequencyLabel;
+
+  /// No description provided for @billsFrequencyMonthly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mensal'**
+  String get billsFrequencyMonthly;
+
+  /// No description provided for @billsFrequencyBiweekly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quinzenal'**
+  String get billsFrequencyBiweekly;
+
+  /// No description provided for @billsFrequencyWeekly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Semanal'**
+  String get billsFrequencyWeekly;
+
+  /// No description provided for @billsFrequencyAnnual.
+  ///
+  /// In pt, this message translates to:
+  /// **'Anual'**
+  String get billsFrequencyAnnual;
+
+  /// No description provided for @billsCategoryLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Categoria *'**
+  String get billsCategoryLabel;
+
+  /// No description provided for @billsSaveButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar Conta'**
+  String get billsSaveButton;
+
+  /// No description provided for @expensesExportError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao exportar despesas: {error}'**
+  String expensesExportError(String error);
+
+  /// No description provided for @expensesMonthBudgetTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Orçamento do mês'**
+  String get expensesMonthBudgetTooltip;
+
+  /// No description provided for @expensesPurchasesReceiptsTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compras e Notas Fiscais'**
+  String get expensesPurchasesReceiptsTooltip;
+
+  /// No description provided for @expensesExportTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar despesas'**
+  String get expensesExportTooltip;
+
+  /// No description provided for @expensesExportCsv.
 }
 
 class _AppLocalizationsDelegate
