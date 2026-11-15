@@ -54,38 +54,41 @@ class ExpensesScreen extends ConsumerWidget {
 
     switch (result) {
       case Err(:final failure):
-        messenger.showSnackBar(
-          SnackBar(content: Text('Erro ao exportar despesas: $failure')),
-        );
+        if (context.mounted) {
+          final loc = AppLocalizations.of(context);
+          messenger.showSnackBar(
+            SnackBar(content: Text(loc.expensesExportError('$failure'))),
+          );
+        }
       case Ok(:final value):
         final share = shareExportedFile ?? _defaultShareExportedFile;
         await share(value);
     }
   }
 
-  String _formatMonthYear(YearMonth ym) {
+  String _formatMonthYear(AppLocalizations loc, YearMonth ym) {
     final parts = ym.iso.split('-');
     if (parts.length != 2) return ym.iso;
     final year = parts[0];
-    const monthNames = [
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro',
+    final monthNames = [
+      loc.monthJanuary,
+      loc.monthFebruary,
+      loc.monthMarch,
+      loc.monthApril,
+      loc.monthMay,
+      loc.monthJune,
+      loc.monthJuly,
+      loc.monthAugust,
+      loc.monthSeptember,
+      loc.monthOctober,
+      loc.monthNovember,
+      loc.monthDecember,
     ];
     final mIndex = int.tryParse(parts[1]) ?? 1;
     final name = (mIndex >= 1 && mIndex <= 12)
         ? monthNames[mIndex - 1]
         : parts[1];
-    return '$name de $year';
+    return loc.monthYearFormat(name, year);
   }
 
   @override
@@ -107,7 +110,7 @@ class ExpensesScreen extends ConsumerWidget {
           children: [
             IconButton(
               icon: const Icon(AppIcons.chevronLeft, size: 20),
-              tooltip: 'Mês anterior',
+              tooltip: loc.commonPreviousMonth,
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(minWidth: 36, minHeight: 44),
               onPressed: () {
@@ -120,7 +123,7 @@ class ExpensesScreen extends ConsumerWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  _formatMonthYear(currentMonth),
+                  _formatMonthYear(loc, currentMonth),
                   maxLines: 1,
                   style: const TextStyle(
                     fontSize: 16,
@@ -131,7 +134,7 @@ class ExpensesScreen extends ConsumerWidget {
             ),
             IconButton(
               icon: const Icon(AppIcons.chevronRight, size: 20),
-              tooltip: 'Próximo mês',
+              tooltip: loc.commonNextMonth,
               padding: EdgeInsets.zero,
               constraints: const BoxConstraints(minWidth: 36, minHeight: 44),
               onPressed: () {
@@ -146,13 +149,13 @@ class ExpensesScreen extends ConsumerWidget {
           IconButton(
             key: const Key('expenses_economy_button'),
             icon: const Icon(AppIcons.economy),
-            tooltip: 'Modo economia',
+            tooltip: loc.economyTitle,
             onPressed: () => context.push('/economia'),
           ),
           IconButton(
             key: const Key('expenses_budget_button'),
             icon: const Icon(AppIcons.budget),
-            tooltip: 'Orçamento do mês',
+            tooltip: loc.expensesMonthBudgetTooltip,
             onPressed: () async {
               await context.push('/orcamento');
               ref.invalidate(dashboardSummaryProvider(currentMonth));
@@ -161,25 +164,25 @@ class ExpensesScreen extends ConsumerWidget {
           ),
           IconButton(
             icon: const Icon(AppIcons.bill),
-            tooltip: 'Compras e Notas Fiscais',
+            tooltip: loc.expensesPurchasesReceiptsTooltip,
             onPressed: () => context.push('/compras'),
           ),
           PopupMenuButton<String>(
             key: const Key('expenses_export_button'),
             icon: const Icon(AppIcons.fileExport),
-            tooltip: 'Exportar despesas',
+            tooltip: loc.expensesExportTooltip,
             onSelected: (format) =>
                 _exportMonth(context, ref, currentMonth, format),
-            itemBuilder: (context) => const [
+            itemBuilder: (context) => [
               PopupMenuItem(
-                key: Key('expenses_export_csv'),
+                key: const Key('expenses_export_csv'),
                 value: 'csv',
-                child: Text('Exportar CSV'),
+                child: Text(loc.expensesExportCsv),
               ),
               PopupMenuItem(
-                key: Key('expenses_export_pdf'),
+                key: const Key('expenses_export_pdf'),
                 value: 'pdf',
-                child: Text('Exportar PDF'),
+                child: Text(loc.expensesExportPdf),
               ),
             ],
           ),
@@ -249,20 +252,18 @@ class ExpensesScreen extends ConsumerWidget {
                         return await showDialog<bool>(
                               context: context,
                               builder: (ctx) => AlertDialog(
-                                title: const Text('Excluir despesa?'),
-                                content: const Text(
-                                  'Tem certeza de que deseja excluir esta despesa?',
-                                ),
+                                title: Text(loc.expensesDeleteConfirmTitle),
+                                content: Text(loc.expensesDeleteConfirmBody),
                                 actions: [
                                   TextButton(
                                     onPressed: () =>
                                         Navigator.of(ctx).pop(false),
-                                    child: const Text('Cancelar'),
+                                    child: Text(loc.commonCancel),
                                   ),
                                   ElevatedButton(
                                     onPressed: () =>
                                         Navigator.of(ctx).pop(true),
-                                    child: const Text('Excluir'),
+                                    child: Text(loc.commonDelete),
                                   ),
                                 ],
                               ),
@@ -301,13 +302,13 @@ class ExpensesScreen extends ConsumerWidget {
                             if (expense.purchaseId != null)
                               IconButton(
                                 icon: const Icon(AppIcons.purchase),
-                                tooltip: 'Ver Compra / Nota',
+                                tooltip: loc.expensesViewPurchaseTooltip,
                                 onPressed: () => context.push('/compras'),
                               ),
                             if (expense.billId != null)
                               IconButton(
                                 icon: const Icon(AppIcons.bill),
-                                tooltip: 'Ver Conta',
+                                tooltip: loc.expensesViewBillTooltip,
                                 onPressed: () => context.push('/contas'),
                               ),
                           ],
