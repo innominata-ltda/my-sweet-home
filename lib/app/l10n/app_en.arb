@@ -478,3 +478,163 @@
   "dashboardMonthBalanceTitle": "Your money this month",
   "dashboardDueBillsTitle": "Bills that need attention",
   "dashboardTodayTasksTitle": "Today's tasks",
+  "momoGreeting": "Hi! I'm Momo 💕",
+  "momoShoppingAllBought": "All bought! Want me to log this purchase?",
+  "momoDayOff": "Today can be a day off ☕",
+  "momoEmptyExpenses": "Momo is thinking — no expenses recorded yet",
+  "momoEmptyShoppingList": "Momo is ready to shop — no list created yet",
+  "momoEmptyShoppingListCompleted": "Momo is happy because you completed the list",
+  "momoEmptyTasks": "Momo is relaxed — no tasks for today",
+  "celebrationShoppingCompletedTitle": "Congratulations!",
+  "celebrationShoppingCompletedMessage": "All bought! Your list is complete 💕",
+  "celebrationTasksCompletedTitle": "All done!",
+  "celebrationTasksCompletedMessage": "You finished all of today's tasks! Get plenty of rest 💕",
+  "mascotSemanticsNeutral": "Momo is here with you",
+  "mascotSemanticsHappy": "Momo is happy",
+  "mascotSemanticsWorried": "Momo is worried about the bills",
+  "mascotSemanticsSleepy": "Momo is sleepy",
+  "mascotSemanticsPointing": "Momo is pointing out an important tip",
+  "mascotSemanticsWaving": "Momo is waving warmly at you",
+  "mascotSemanticsThinking": "Momo is thinking",
+  "mascotSemanticsRelaxed": "Momo is relaxed and calm",
+  "mascotSemanticsShopping": "Momo is ready for shopping",
+  "mascotSemanticsBudget": "Momo is keeping an eye on this month's budget",
+  "mascotSemanticsPlaceholder": "Momo mascot illustration",
+  "taskPresetsTitle": "Home suggestions",
+  "taskPresetsSubtitle": "Common task ideas with recommended frequencies",
+  "taskPresetsSearchHint": "Search suggestions...",
+  "taskPresetsEmptySearch": "No suggestions found for \"{query}\"",
+  "@taskPresetsEmptySearch": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "taskPresetsCustomTaskCta": "Create custom task",
+  "taskPresetsAreaKitchen": "Kitchen",
+  "taskPresetsAreaBathroom": "Bathroom",
+  "taskPresetsAreaBedroom": "Bedroom",
+  "taskPresetsAreaLaundry": "Laundry",
+  "taskPresetsAreaGeneralCleaning": "General cleaning",
+  "taskPresetsAreaShopping": "Shopping",
+  "taskPresetsAlreadyInRoutine": "Already in your routine",
+  "taskPresetsDuplicateTitle": "Task already in routine",
+  "taskPresetsDuplicateMessage": "You already have an active task for this preset. Do you want to add another one anyway?",
+  "taskPresetsDuplicateConfirm": "Add anyway",
+  "taskPresetsDuplicateCancel": "Cancel",
+  "taskPresetsAddSelected": "{count, plural, one{Add 1 task} other{Add {count} tasks}}",
+  "@taskPresetsAddSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsSelectedCount": "{count, plural, one{1 selected} other{{count} selected}}",
+  "@taskPresetsSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsBatchTitle": "Start dates",
+  "taskPresetsBatchConfirm": "Confirm routine",
+  "taskPresetsBatchUndo": "Undo",
+  "taskPresetsBatchSuccess": "{count, plural, one{1 task added!} other{{count} tasks added!}}",
+  "@taskPresetsBatchSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "taskPresetsBatchStartDateLabel": "Start of {task}",
+  "@taskPresetsBatchStartDateLabel": {
+    "placeholders": {
+      "task": {
+        "type": "String"
+      }
+    }
+  },
+  "taskPresetsEmptyStatePrompt": "How about seeing suggestions for your home routine?",
+  "taskPresetsEmptyStateButton": "See home suggestions",
+  "onboardingRoutineTitle": "Build your home routine",
+  "onboardingRoutineDescription": "Pick common tasks to start your routine effortlessly. You can change everything later!",
+  "onboardingRoutineSkip": "Skip this step",
+  "householdTitle": "Shared home",
+  "householdSubtitle": "Sync tasks and finances over local network",
+  "householdEmptyTitle": "Share your home",
+  "householdEmptyDescription": "Sync with the people you live with—no middlemen, no account needed, and end-to-end encrypted on your local network.",
+  "householdCreateButton": "Create home",
+  "householdJoinButton": "Join a home",
+  "householdSyncNowButton": "Sync now",
+  "householdGenerateBundleButton": "Generate bundle",
+  "householdInviteButton": "Invite device",
+  "householdOnlyThisDevice": "Changes only on this device",
+  "householdAllSynced": "All synced",
+  "householdSyncing": "Syncing...",
+  "householdLastSync": "Last sync: {time}",
+  "@householdLastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "householdMembersTitle": "Devices in home",
+  "householdAreasTitle": "Shared areas",
+  "householdAreaHome": "Home (Tasks, Stock, Recipes)",
+  "householdAreaFinance": "Finances (Expenses, Bills, Prices)",
+  "householdPairingTitle": "Connect device",
+  "householdPairingScanPrompt": "Point the camera at the QR code on the other device",
+  "householdPairingShowPrompt": "Show this QR code on the device you want to connect",
+  "householdPairingCodeLabel": "Confirmation code: {code}",
+  "@householdPairingCodeLabel": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "householdLeaveButton": "Leave home",
+  "householdLeaveKeepData": "Keep a local copy",
+  "householdLeaveWipeData": "Delete shared data",
+  "householdRemoveMemberTitle": "Remove device",
+  "householdRemoveMemberConfirm": "Remove",
+  "householdRemoveMemberWarning": "The removed device will lose access and future changes will no longer sync with it.",
+  "householdErrorIncompatibleProtocol": "Device uses an incompatible sync protocol version.",
+  "householdErrorInviteExpired": "The invite has expired. Generate a new invite to pair.",
+  "householdErrorNoNetwork": "No device found on the local network. Check that both are on the same Wi-Fi.",
+  "customizeDashboardTitle": "Customize home",
+  "customizeDashboardAction": "Customize home",
+  "customizeDashboardAddCards": "Add to dashboard",
+  "customizeDashboardEmptyTitle": "No visible items on dashboard",
+  "customizeDashboardEmptyAction": "Add items to dashboard",
+  "customizeDashboardRestoreDefault": "Restore default",
+  "customizeDashboardMoveUp": "Move up",
+  "customizeDashboardMoveDown": "Move down",
+  "customizeDashboardHide": "Hide",
+  "customizeDashboardAdd": "Add",
+  "dashboardCardMascotGreeting": "Momo's Greeting",
+  "dashboardCardMonthBalance": "Month Balance",
+  "dashboardCardDueBills": "Due Bills",
+  "dashboardCardTodayTasks": "Today's Tasks",
+  "dashboardCardShoppingList": "Shopping List",
+  "dashboardCardStockAlert": "Home Stock",
+  "dashboardCardFirstHomeChecklist": "First Home Checklist",
+  "dashboardCardEconomyGoal": "Economy Mode",
+  "dashboardCardFavoriteRecipes": "Favorite Recipes",
+  "settingsRetentionNotificationsTitle": "Momo's gentle reminders",
+  "settingsRetentionNotificationsSubtitle": "Notify at spaced intervals if you go days without opening the app",
+  "retentionNotificationTitle": "Momo missed you!",
+  "retentionNotificationBody": "It's been {days} days since we organized the house together. How about checking your tasks and bills?",
+  "@retentionNotificationBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "commonCancel": "Cancel",
