@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/quantity/quantity.dart';
 import 'package:my_sweet_home/features/products/data/product_repository_provider.dart';
 import 'package:my_sweet_home/features/products/domain/product.dart';
@@ -22,10 +23,13 @@ Future<Product?> showCreateProductDialog(
     return await showDialog<Product?>(
       context: context,
       builder: (ctx) {
+        final l10n =
+            Localizations.of<AppLocalizations>(ctx, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         return StatefulBuilder(
           builder: (ctx, setState) {
             return AlertDialog(
-              title: const Text('Novo Produto'),
+              title: Text(l10n.productNewDialogTitle),
               content: Form(
                 key: formKey,
                 child: SingleChildScrollView(
@@ -34,19 +38,19 @@ Future<Product?> showCreateProductDialog(
                     children: [
                       TextFormField(
                         controller: nameCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Nome Canônico *',
+                        decoration: InputDecoration(
+                          labelText: l10n.productCanonicalNameRequiredLabel,
                         ),
                         validator: (v) => (v == null || v.trim().isEmpty)
-                            ? 'Informe o nome'
+                            ? l10n.productCanonicalNameError
                             : null,
                         autofocus: true,
                       ),
                       const SizedBox(height: 12),
                       DropdownButtonFormField<Unit>(
                         initialValue: selectedUnit,
-                        decoration: const InputDecoration(
-                          labelText: 'Unidade Padrão *',
+                        decoration: InputDecoration(
+                          labelText: l10n.productDefaultUnitRequiredLabel,
                         ),
                         items: Unit.values
                             .map(
@@ -65,9 +69,9 @@ Future<Product?> showCreateProductDialog(
                       const SizedBox(height: 12),
                       TextFormField(
                         controller: aliasesCtrl,
-                        decoration: const InputDecoration(
-                          labelText: 'Apelidos / Sinônimos',
-                          hintText: 'Separados por vírgula (opcional)',
+                        decoration: InputDecoration(
+                          labelText: l10n.productAliasesLabel,
+                          hintText: l10n.productAliasesHint,
                         ),
                       ),
                     ],
@@ -77,7 +81,7 @@ Future<Product?> showCreateProductDialog(
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(ctx).pop(),
-                  child: const Text('Cancelar'),
+                  child: Text(l10n.commonCancel),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -109,14 +113,14 @@ Future<Product?> showCreateProductDialog(
                           SnackBar(
                             content: Text(
                               result.failureOrNull?.toString() ??
-                                  'Erro ao criar produto',
+                                  l10n.productCreateError,
                             ),
                           ),
                         );
                       }
                     }
                   },
-                  child: const Text('Salvar'),
+                  child: Text(l10n.commonSave),
                 ),
               ],
             );

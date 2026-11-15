@@ -50,6 +50,7 @@ void main() {
             ),
           ],
           child: MaterialApp.router(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: router,
@@ -103,6 +104,7 @@ void main() {
                 .overrideWith((ref) => Future.value([])),
           ],
           child: MaterialApp.router(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             routerConfig: router,
