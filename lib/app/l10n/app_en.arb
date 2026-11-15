@@ -1278,3 +1278,163 @@
   "searchGlobalLabel": "Search across the app",
   "searchGlobalInputHint": "Type products, expenses, tasks...",
   "searchGlobalEmptyTitle": "App search",
+  "searchGlobalEmptyDescription": "Search for products, expenses, tasks, recipes, and lists.",
+  "searchGlobalNoResultsTitle": "No results",
+  "searchGlobalNoResultsForQuery": "Nothing found for \"{query}\". Try another term.",
+  "@searchGlobalNoResultsForQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceLoadError": "Error loading month balance: {error}",
+  "@monthBalanceLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceNotSet": "Not set",
+  "monthBalanceSemanticsHidden": "Month balance widget, amount hidden",
+  "monthBalanceSemanticsVisible": "Month balance widget, spent {actual} of {budget}",
+  "@monthBalanceSemanticsVisible": {
+    "placeholders": {
+      "actual": {
+        "type": "String"
+      },
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceDefaultTitle": "Month balance",
+  "monthBalanceSpentLabel": "Spent this month",
+  "monthBalanceBudgetedLabel": "Budgeted: {budget}",
+  "@monthBalanceBudgetedLabel": {
+    "placeholders": {
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceViewDetails": "View financial summary",
+  "recipesCardSemantics": "{title}, {count} favorite recipes, tap to view details",
+  "@recipesCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetSemantics": "Shopping lists widget",
+  "shoppingWidgetEmptyTitle": "No shopping lists",
+  "shoppingWidgetEmptyDescription": "Create a list to track your shopping.",
+  "shoppingWidgetOnePending": "1 pending item",
+  "shoppingWidgetPendingOfTotal": "{pending} of {total} items pending",
+  "@shoppingWidgetPendingOfTotal": {
+    "placeholders": {
+      "pending": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetViewAll": "View all lists",
+  "stockCardSemantics": "{title}, tap to view details",
+  "@stockCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "stockCardEmpty": "No products tracked in stock.",
+  "stockCardCount": "{count} product(s) in home stock",
+  "@stockCardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockRegisterTitle": "Add to Stock",
+  "stockProductNameLabel": "Product Name *",
+  "stockProductNameHint": "e.g. White Rice",
+  "stockApproxQuantityLabel": "Approximate quantity *",
+  "stockApproxQuantityHint": "e.g. 4",
+  "stockAddProductButton": "Add product",
+  "stockLoadError": "Error loading stock: {error}",
+  "@stockLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEmptyTitle": "Empty stock",
+  "stockEmptyDescription": "No products registered in home stock.",
+  "stockNoEstimate": "No consumption estimate (purchases in history: {count}, minimum: 3)",
+  "@stockNoEstimate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockAvgInterval": "Average purchase interval: {days} days",
+  "@stockAvgInterval": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEstimatedRemaining": "Estimated remaining: ~{days} days",
+  "@stockEstimatedRemaining": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTasksWidgetSemantics": "Today's tasks widget",
+  "todayTasksDefaultTitle": "Today's tasks",
+  "todayTasksEmptyTitle": "No tasks for today",
+  "todayTasksEmptyDescription": "You have no tasks scheduled for today.",
+  "todayTasksDoneStatus": "done",
+  "todayTasksPendingStatus": "pending",
+  "todayTasksAllDoneMessage": "All of today's tasks are done! 🎉",
+  "todayTasksViewAll": "View all tasks",
+  "commonAll": "All",
+  "economyNoGoalSet": "No goal set",
+  "economyChangeGoalButton": "Change Goal",
+  "economyGoalProgressTitle": "Goal Progress",
+  "economyContextualTipsTitle": "Contextual Tips",
+  "stockProductFallback": "Product: {id}",
+  "@stockProductFallback": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "stockReportedQuantity": "Reported quantity: {quantity} {unit}",
+  "@stockReportedQuantity": {
+    "placeholders": {
+      "quantity": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsWidgetLoadError": "Error loading due bills: {error}",
+  "@dueBillsWidgetLoadError": {
