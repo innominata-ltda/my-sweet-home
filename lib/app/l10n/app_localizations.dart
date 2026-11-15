@@ -5180,6 +5180,166 @@ abstract class AppLocalizations {
   String get ocrNoItemsPlaceholder;
 
   /// No description provided for @ocrCloudConsentBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'A leitura no aparelho teve baixa precisão. Como você permitiu o OCR na nuvem nas configurações, deseja tentar melhorar a leitura enviando esta nota para o serviço em nuvem nesta operação?'**
+  String get ocrCloudConsentBody;
+
+  /// No description provided for @ocrRetakePhotoButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tirar outra foto'**
+  String get ocrRetakePhotoButton;
+
+  /// No description provided for @ocrContinueWithoutCloud.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar sem nuvem'**
+  String get ocrContinueWithoutCloud;
+
+  /// No description provided for @ocrUseCloudOcr.
+  ///
+  /// In pt, this message translates to:
+  /// **'Usar OCR na nuvem'**
+  String get ocrUseCloudOcr;
+
+  /// No description provided for @ocrLowPrecisionTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Leitura com baixa precisão'**
+  String get ocrLowPrecisionTitle;
+
+  /// No description provided for @ocrLowPrecisionBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'A leitura da nota fiscal no aparelho teve baixa precisão. Recomendamos tirar uma nova foto com melhor iluminação e enquadramento.'**
+  String get ocrLowPrecisionBody;
+
+  /// No description provided for @ocrContinueWithData.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar com estes dados'**
+  String get ocrContinueWithData;
+
+  /// No description provided for @ocrFramingGuideSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Guia de enquadramento de nota fiscal. {instruction}'**
+  String ocrFramingGuideSemantics(String instruction);
+
+  /// No description provided for @ocrFramingDefaultInstruction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Posicione a nota fiscal na vertical dentro do guia'**
+  String get ocrFramingDefaultInstruction;
+
+  /// No description provided for @ocrTotalFailureTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível ler a nota'**
+  String get ocrTotalFailureTitle;
+
+  /// No description provided for @ocrAttachedPhoto.
+  ///
+  /// In pt, this message translates to:
+  /// **'Foto anexada: {path}'**
+  String ocrAttachedPhoto(String path);
+
+  /// No description provided for @ocrQualityContinueAnyway.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar mesmo assim'**
+  String get ocrQualityContinueAnyway;
+
+  /// No description provided for @ocrQualityBlur.
+  ///
+  /// In pt, this message translates to:
+  /// **'Imagem desfocada. Tente segurar a câmera com firmeza.'**
+  String get ocrQualityBlur;
+
+  /// No description provided for @ocrQualityTooDark.
+  ///
+  /// In pt, this message translates to:
+  /// **'Iluminação muito baixa. Ligue o flash ou ilumine a nota.'**
+  String get ocrQualityTooDark;
+
+  /// No description provided for @ocrQualityTooBright.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excesso de iluminação ou reflexo brilhante na imagem.'**
+  String get ocrQualityTooBright;
+
+  /// No description provided for @ocrQualityBadFraming.
+  ///
+  /// In pt, this message translates to:
+  /// **'Enquadramento ruim ou foto muito pequena.'**
+  String get ocrQualityBadFraming;
+
+  /// No description provided for @ocrQualityInvalidImage.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível decodificar os dados da imagem.'**
+  String get ocrQualityInvalidImage;
+
+  /// No description provided for @ocrStoreUnknown.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estabelecimento não identificado'**
+  String get ocrStoreUnknown;
+
+  /// No description provided for @ocrEditStoreTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar estabelecimento'**
+  String get ocrEditStoreTooltip;
+
+  /// No description provided for @ocrCnpjLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'CNPJ: {cnpj}'**
+  String ocrCnpjLabel(String cnpj);
+
+  /// No description provided for @ocrNotInformed.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não informado'**
+  String get ocrNotInformed;
+
+  /// No description provided for @ocrCnpjUnconfirmed.
+  ///
+  /// In pt, this message translates to:
+  /// **'CNPJ não confirmado'**
+  String get ocrCnpjUnconfirmed;
+
+  /// No description provided for @ocrTotalDivergenceCardTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Divergência no valor total'**
+  String get ocrTotalDivergenceCardTitle;
+
+  /// No description provided for @ocrTotalDivergenceCardBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Divergência de {absDiv}. O sistema não ajusta automaticamente.\nSoma dos itens: {itemsSum} | Total lido: {total}'**
+  String ocrTotalDivergenceCardBody(
+    String absDiv,
+    String itemsSum,
+    String total,
+  );
+
+  /// No description provided for @ocrLowConfidenceBanner.
+  ///
+  /// In pt, this message translates to:
+  /// **'Há {count} item(ns) com baixa confiança lidos do cupom. Verifique e marque os corretos.'**
+  String ocrLowConfidenceBanner(int count);
+
+  /// No description provided for @ocrReceiptTotalsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Totais da Nota'**
+  String get ocrReceiptTotalsTitle;
+
+  /// No description provided for @ocrEditTotalsTooltip.
 }
 
 class _AppLocalizationsDelegate
