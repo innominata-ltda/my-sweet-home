@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -86,18 +87,32 @@ class CloudOcrConsentDialog extends StatelessWidget {
       ),
       content: SingleChildScrollView(
         child: Text(
-          'A leitura no aparelho teve baixa precisão. Como você permitiu o OCR na nuvem nas configurações, deseja tentar melhorar a leitura enviando esta nota para o serviço em nuvem nesta operação?',
+          (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                  lookupAppLocalizations(const Locale('pt')))
+              .ocrCloudConsentBody,
           style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
         ),
       ),
       actions: [
-        AppButton.text(label: 'Tirar outra foto', onPressed: onRetake),
+        AppButton.text(
+          label:
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .ocrRetakePhotoButton,
+          onPressed: onRetake,
+        ),
         AppButton.secondary(
-          label: 'Continuar sem nuvem',
+          label:
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .ocrContinueWithoutCloud,
           onPressed: onContinueLocal,
         ),
         AppButton.primary(
-          label: 'Usar OCR na nuvem',
+          label:
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .ocrUseCloudOcr,
           icon: const Icon(AppIcons.check, size: 18),
           onPressed: onConfirmCloud,
         ),
@@ -106,6 +121,9 @@ class CloudOcrConsentDialog extends StatelessWidget {
   }
 
   Widget _buildSuggestNewPhotoDialog(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
     return AlertDialog(
       title: Row(
@@ -114,7 +132,7 @@ class CloudOcrConsentDialog extends StatelessWidget {
           const SizedBox(width: Spacing.sm),
           Expanded(
             child: Text(
-              'Leitura com baixa precisão',
+              l10n.ocrLowPrecisionTitle,
               style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -124,17 +142,17 @@ class CloudOcrConsentDialog extends StatelessWidget {
       ),
       content: SingleChildScrollView(
         child: Text(
-          'A leitura da nota fiscal no aparelho teve baixa precisão. Recomendamos tirar uma nova foto com melhor iluminação e enquadramento.',
+          l10n.ocrLowPrecisionBody,
           style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
         ),
       ),
       actions: [
         AppButton.secondary(
-          label: 'Continuar com estes dados',
+          label: l10n.ocrContinueWithData,
           onPressed: onContinueLocal,
         ),
         AppButton.primary(
-          label: 'Tirar outra foto',
+          label: l10n.ocrRetakePhotoButton,
           icon: const Icon(AppIcons.camera, size: 18),
           onPressed: onRetake,
         ),

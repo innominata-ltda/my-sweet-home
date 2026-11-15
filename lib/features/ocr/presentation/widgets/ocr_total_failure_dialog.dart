@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/ocr/domain/models/manual_purchase_args.dart';
 
@@ -47,14 +48,16 @@ class OcrTotalFailureDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Row(
+      title: Row(
         children: [
-          Icon(AppIcons.warning, color: Colors.orange),
-          SizedBox(width: 8),
+          const Icon(AppIcons.warning, color: Colors.orange),
+          const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'Não foi possível ler a nota',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .ocrTotalFailureTitle,
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
         ],
@@ -76,7 +79,12 @@ class OcrTotalFailureDialog extends StatelessWidget {
                   const SizedBox(width: 4),
                   Expanded(
                     child: Text(
-                      'Foto anexada: ${args.attachedImagePath}',
+                      (Localizations.of<AppLocalizations>(
+                                context,
+                                AppLocalizations,
+                              ) ??
+                              lookupAppLocalizations(const Locale('pt')))
+                          .ocrAttachedPhoto(args.attachedImagePath!),
                       style: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
@@ -96,12 +104,20 @@ class OcrTotalFailureDialog extends StatelessWidget {
           TextButton.icon(
             onPressed: onRetake,
             icon: const Icon(AppIcons.camera, size: 18),
-            label: const Text('Tirar outra foto'),
+            label: Text(
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .ocrRetakePhotoButton,
+            ),
           ),
         ElevatedButton.icon(
           onPressed: onManualEntry,
           icon: const Icon(AppIcons.edit, size: 18),
-          label: const Text('Lançar manualmente'),
+          label: Text(
+            (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                    lookupAppLocalizations(const Locale('pt')))
+                .ocrManualEntryTooltip,
+          ),
         ),
       ],
     );

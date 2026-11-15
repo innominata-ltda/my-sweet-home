@@ -40,6 +40,7 @@ void main() {
     ValueChanged<ReceiptDraft>? onSave,
   }) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: OcrReviewScreen(

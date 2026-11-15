@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 
 /// Guia visual de enquadramento para captura de notas fiscais (RF-040, A11Y-10).
@@ -6,17 +7,19 @@ import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 /// Draws semi-transparent mask over camera viewfinder with an area
 /// retangular central destacada para alinhar o cupom fiscal na vertical.
 class FramingGuideOverlay extends StatelessWidget {
-  final String instructionText;
+  final String? instructionText;
 
-  const FramingGuideOverlay({
-    super.key,
-    this.instructionText = 'Posicione a nota fiscal na vertical dentro do guia',
-  });
+  const FramingGuideOverlay({super.key, this.instructionText});
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
+    final effectiveInstruction =
+        instructionText ?? l10n.ocrFramingDefaultInstruction;
     return Semantics(
-      label: 'Guia de enquadramento de nota fiscal. $instructionText',
+      label: l10n.ocrFramingGuideSemantics(effectiveInstruction),
       container: true,
       excludeSemantics: true,
       child: Stack(
@@ -51,7 +54,7 @@ class FramingGuideOverlay extends StatelessWidget {
                       const SizedBox(width: 8),
                       Flexible(
                         child: Text(
-                          instructionText,
+                          effectiveInstruction,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.white,
