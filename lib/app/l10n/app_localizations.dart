@@ -2940,6 +2940,166 @@ abstract class AppLocalizations {
   String get backupImportMergedBody;
 
   /// No description provided for @backupImportFailedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha na importação'**
+  String get backupImportFailedTitle;
+
+  /// No description provided for @backupPreviewTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pré-visualização do Backup'**
+  String get backupPreviewTitle;
+
+  /// No description provided for @backupPreviewAffectedRecords.
+  ///
+  /// In pt, this message translates to:
+  /// **'{count} registros afetados'**
+  String backupPreviewAffectedRecords(int count);
+
+  /// No description provided for @backupPreviewSchemaVersion.
+  ///
+  /// In pt, this message translates to:
+  /// **'Versão do schema: v{version}'**
+  String backupPreviewSchemaVersion(int version);
+
+  /// No description provided for @backupPreviewExportedAt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data da exportação: {date}'**
+  String backupPreviewExportedAt(String date);
+
+  /// No description provided for @backupImportModeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolha a forma de importação:'**
+  String get backupImportModeTitle;
+
+  /// No description provided for @backupImportModeReplace.
+  ///
+  /// In pt, this message translates to:
+  /// **'Substituir tudo'**
+  String get backupImportModeReplace;
+
+  /// No description provided for @backupImportModeMerge.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mesclar'**
+  String get backupImportModeMerge;
+
+  /// No description provided for @backupImportConfirmReplace.
+  ///
+  /// In pt, this message translates to:
+  /// **'Substituir e restaurar backup'**
+  String get backupImportConfirmReplace;
+
+  /// No description provided for @backupImportConfirmMerge.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mesclar dados do backup'**
+  String get backupImportConfirmMerge;
+
+  /// No description provided for @backupImportNoFile.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum backup selecionado para pré-visualização.'**
+  String get backupImportNoFile;
+
+  /// No description provided for @backupImportSelectFile.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecionar arquivo de backup'**
+  String get backupImportSelectFile;
+
+  /// No description provided for @backupImportPasswordField.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha do backup'**
+  String get backupImportPasswordField;
+
+  /// No description provided for @backupImportRestoreButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Restaurar'**
+  String get backupImportRestoreButton;
+
+  /// No description provided for @wipeConfirmFirstTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar exclusão de dados'**
+  String get wipeConfirmFirstTitle;
+
+  /// No description provided for @wipeConfirmFirstBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você tem certeza de que deseja apagar todos os dados do aplicativo? Esta é a primeira confirmação.'**
+  String get wipeConfirmFirstBody;
+
+  /// No description provided for @wipeConfirmSecondTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmação Final'**
+  String get wipeConfirmSecondTitle;
+
+  /// No description provided for @wipeConfirmSecondBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'ESTA AÇÃO É DEFINITIVA E IRREVERSÍVEL. Todos os seus registros, fotos, tarefas, despesas e configurações serão apagados sem resíduo.'**
+  String get wipeConfirmSecondBody;
+
+  /// No description provided for @wipeConfirmSecondButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagar tudo permanentemente'**
+  String get wipeConfirmSecondButton;
+
+  /// No description provided for @wipeLoading.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagando todos os dados...'**
+  String get wipeLoading;
+
+  /// No description provided for @wipeSuccessTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todos os dados foram apagados permanentemente.'**
+  String get wipeSuccessTitle;
+
+  /// No description provided for @wipeSuccessBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'O banco de dados, arquivos e configurações foram limpos sem deixar resíduos.'**
+  String get wipeSuccessBody;
+
+  /// No description provided for @wipeWarningTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atenção: Ação Irreversível'**
+  String get wipeWarningTitle;
+
+  /// No description provided for @wipeWarningBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ao apagar tudo, todos os registros cadastrados (produtos, despesas, contas fixas, tarefas, receitas, compras e estoque), fotos de cupons e preferências do aplicativo serão apagados permanentemente.'**
+  String get wipeWarningBody;
+
+  /// No description provided for @wipeWarningTokens.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum token ou arquivo temporário permanecerá no dispositivo.'**
+  String get wipeWarningTokens;
+
+  /// No description provided for @wipeDeleteAllButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagar todos os dados'**
+  String get wipeDeleteAllButton;
+
+  /// No description provided for @monthJanuary.
+  ///
+  /// In pt, this message translates to:
+  /// **'Janeiro'**
+  String get monthJanuary;
 }
 
 class _AppLocalizationsDelegate
