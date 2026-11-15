@@ -2456,4 +2456,164 @@ class AppLocalizationsPt extends AppLocalizations {
   String get shoppingTileRegisterSingle => 'Registrar compra deste item';
 
   @override
+  String get shoppingTileRemoveItem => 'Remover item';
+
+  @override
+  String get shoppingSheetsMyListsTitle => 'Minhas Listas de Compras';
+
+  @override
+  String get shoppingSheetsNewList => 'Nova Lista';
+
+  @override
+  String get shoppingSheetsNoLists => 'Nenhuma lista encontrada.';
+
+  @override
+  String shoppingSheetsArchivedCount(int count) {
+    return 'Arquivada • $count itens';
+  }
+
+  @override
+  String shoppingSheetsItemsCount(int count) {
+    return '$count itens';
+  }
+
+  @override
+  String get shoppingSheetsListOptions => 'Opções da lista';
+
+  @override
+  String get shoppingSheetsDuplicate => 'Duplicar';
+
+  @override
+  String get shoppingSheetsRename => 'Renomear';
+
+  @override
+  String get shoppingSheetsDuplicateSuccess => 'Lista duplicada com sucesso.';
+
+  @override
+  String get shoppingSheetsDuplicateError => 'Falha ao duplicar lista.';
+
+  @override
+  String get shoppingSheetsRenameTitle => 'Renomear Lista';
+
+  @override
+  String get shoppingSheetsListNameLabel => 'Nome da lista *';
+
+  @override
+  String get shoppingSheetsArchivedSuccess => 'Lista arquivada com sucesso.';
+
+  @override
+  String get shoppingSheetsUnarchivedSuccess =>
+      'Lista desarquivada com sucesso.';
+
+  @override
+  String get shoppingSheetsCreateTitle => 'Nova Lista de Compras';
+
+  @override
+  String get shoppingSheetsCreateHint => 'ex.: Feira, Farmácia, Churrasco';
+
+  @override
+  String get shoppingSheetsCreateButton => 'Criar';
+
+  @override
+  String taskPresetsAreaSemantics(String area) {
+    return 'área $area';
+  }
+
+  @override
+  String get calendarTabDay => 'Dia';
+
+  @override
+  String get calendarTabWeek => 'Semana';
+
+  @override
+  String get calendarTabMonth => 'Mês';
+
+  @override
+  String get calendarMaintenanceSuggestions => 'Sugestões de manutenção';
+
+  @override
+  String get calendarSyncGoogle => 'Sincronizar com Google';
+
+  @override
+  String get calendarSyncStarting => 'Iniciando sincronização...';
+
+  @override
+  String get calendarSyncDone => 'Sincronização concluída!';
+
+  @override
+  String get calendarTodayTooltip => 'Hoje';
+
+  @override
+  String get calendarShowingToday => 'Exibindo hoje';
+
+  @override
+  String get calendarNewTask => 'Nova tarefa';
+
+  @override
+  String get calendarEditTaskTitle => 'Editar Tarefa';
+
+  @override
+  String get calendarTaskTitleLabel => 'Título *';
+
+  @override
+  String calendarDayBillsCount(int count) {
+    return '$count conta(s)';
+  }
+
+  @override
+  String calendarBillsDueToday(int count) {
+    return 'Contas a vencer hoje ($count):';
+  }
+
+  @override
+  String get calendarBillPaidStatus => '(Paga)';
+
+  @override
+  String get calendarBillPendingStatus => '(Pendente)';
+
+  @override
+  String get calendarDeleteTaskTitle => 'Excluir tarefa?';
+
+  @override
+  String calendarDeleteTaskConfirm(String title) {
+    return 'Tem certeza de que deseja excluir \"$title\"?';
+  }
+
+  @override
+  String get commonEdit => 'Editar';
+
+  @override
+  String get taskAllDayLabel => 'Dia inteiro';
+
+  @override
+  String get taskRepeatLabel => 'Repetição';
+
+  @override
+  String get taskRepeatNone => 'Sem repetição';
+
+  @override
+  String get calendarEditTaskAction => 'Editar tarefa';
+
+  @override
+  String get calendarDeleteTaskAction => 'Excluir tarefa';
+
+  @override
+  String get priceSearchProductLabel => 'Pesquisar produto';
+
+  @override
+  String get priceSearchProductHint => 'Digite para buscar um produto...';
+
+  @override
+  String get priceClearSearchTooltip => 'Limpar busca';
+
+  @override
+  String get purchaseSaveTooltip => 'Salvar compra';
+
+  @override
+  String get purchaseNewProductTooltip => 'Novo produto';
+
+  @override
+  String get purchaseRemoveItemTooltip => 'Remover item';
+
+  @override
 }
