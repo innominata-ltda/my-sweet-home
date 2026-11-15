@@ -1758,3 +1758,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get commonInvalidValue => 'Invalid value';
 
   @override
+  String get commonEnterAmount => 'Enter an amount';
+
+  @override
+  String get commonNotesOptional => 'Notes (optional)';
+
+  @override
+  String get commonRepeatDaily => 'Daily';
+
+  @override
+  String get commonRepeatWeekly => 'Weekly';
+
+  @override
+  String get commonRepeatMonthly => 'Monthly';
+
+  @override
+  String get commonRepeatCustomDays => 'Every X days';
+
+  @override
+  String get commonDaysCountLabel => 'Number of days *';
+
+  @override
+  String billsUnpayTooltip(String title) {
+    return 'Unmark payment for $title';
+  }
+
+  @override
+  String get billsOptionsTooltip => 'Bill options';
+
+  @override
+  String get billsDeleteConfirmTitle => 'Delete bill?';
+
+  @override
+  String billsDeleteConfirmBody(String title) {
+    return 'Are you sure you want to delete the bill \"$title\"?';
+  }
+
+  @override
+  String get billsMarkUnpaid => 'Mark as unpaid';
+
+  @override
+  String get billsPauseAction => 'Pause bill';
+
+  @override
+  String get billsDeleteAction => 'Delete bill';
+
+  @override
+  String billsCreateSuccess(String title) {
+    return 'Bill \"$title\" created successfully!';
+  }
+
+  @override
+  String billsCreateError(String error) {
+    return 'Error creating bill: $error';
+  }
+
+  @override
+  String billsPaidSuccess(String title) {
+    return 'Bill \"$title\" marked as paid!';
+  }
+
+  @override
+  String billsUnpaidSuccess(String title) {
+    return 'Bill \"$title\" marked as unpaid!';
+  }
+
+  @override
+  String billsPausedSuccess(String title) {
+    return 'Bill \"$title\" paused successfully!';
+  }
+
+  @override
+  String billsDeletedSuccess(String title) {
+    return 'Bill \"$title\" deleted successfully!';
+  }
+
+  @override
+  String billsDeleteError(String error) {
+    return 'Error deleting bill: $error';
+  }
+
+  @override
+  String get billsNewDialogTitle => 'New Recurring Bill';
+
+  @override
+  String get billsTitleFieldLabel =>
+      'Title * (e.g. Rent, Electricity, Internet)';
+
+  @override
+  String get billsTitleRequired => 'Enter a title';
+
+  @override
+  String get billsAmountFieldLabel => 'Amount * (e.g. 150.00)';
+
+  @override
+  String get billsDueDayFieldLabel => 'Due Day * (1 to 31)';
+
+  @override
+  String get billsDueDayInvalid => 'Enter a day between 1 and 31';
+
+  @override
+  String get billsFrequencyLabel => 'Bill Frequency';
+
+  @override
+  String get billsFrequencyMonthly => 'Monthly';
+
+  @override
+  String get billsFrequencyBiweekly => 'Biweekly';
+
+  @override
+  String get billsFrequencyWeekly => 'Weekly';
+
+  @override
+  String get billsFrequencyAnnual => 'Annual';
+
+  @override
+  String get billsCategoryLabel => 'Category *';
+
+  @override
+  String get billsSaveButton => 'Save Bill';
+
+  @override
+  String expensesExportError(String error) {
+    return 'Error exporting expenses: $error';
+  }
+
+  @override
+  String get expensesMonthBudgetTooltip => 'Monthly budget';
+
+  @override
+  String get expensesPurchasesReceiptsTooltip => 'Purchases & Receipts';
+
+  @override
+  String get expensesExportTooltip => 'Export expenses';
+
+  @override
+  String get expensesExportCsv => 'Export CSV';
+
+  @override
+  String get expensesExportPdf => 'Export PDF';
+
+  @override
+  String get expensesDeleteConfirmTitle => 'Delete expense?';
+
+  @override
+  String get expensesDeleteConfirmBody =>
+      'Are you sure you want to delete this expense?';
+
+  @override
+  String get expensesViewPurchaseTooltip => 'View Purchase / Receipt';
+
+  @override
+  String get expensesViewBillTooltip => 'View Bill';
+
+  @override
+  String get expensesEditBudget => 'Edit Budget';
+
+  @override
+  String get expensesEditTitle => 'Edit Expense';
+
+  @override
