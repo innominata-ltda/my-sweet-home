@@ -956,5 +956,165 @@
     }
   },
   "billsPaidSuccess": "Conta \"{title}\" marcada como paga!",
+  "@billsPaidSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsUnpaidSuccess": "Conta \"{title}\" marcada como não paga!",
+  "@billsUnpaidSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPausedSuccess": "Conta \"{title}\" pausada com sucesso!",
+  "@billsPausedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeletedSuccess": "Conta \"{title}\" excluída com sucesso!",
+  "@billsDeletedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeleteError": "Erro ao excluir conta: {error}",
+  "@billsDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsNewDialogTitle": "Nova Conta a Vencer",
+  "billsTitleFieldLabel": "Título * (ex: Aluguel, Luz, Internet)",
+  "billsTitleRequired": "Informe o título",
+  "billsAmountFieldLabel": "Valor em R$ * (ex: 150.00)",
+  "billsDueDayFieldLabel": "Dia do Vencimento * (1 a 31)",
+  "billsDueDayInvalid": "Informe um dia entre 1 e 31",
+  "billsFrequencyLabel": "Frequência da Conta",
+  "billsFrequencyMonthly": "Mensal",
+  "billsFrequencyBiweekly": "Quinzenal",
+  "billsFrequencyWeekly": "Semanal",
+  "billsFrequencyAnnual": "Anual",
+  "billsCategoryLabel": "Categoria *",
+  "billsSaveButton": "Salvar Conta",
+  "expensesExportError": "Erro ao exportar despesas: {error}",
+  "@expensesExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesMonthBudgetTooltip": "Orçamento do mês",
+  "expensesPurchasesReceiptsTooltip": "Compras e Notas Fiscais",
+  "expensesExportTooltip": "Exportar despesas",
+  "expensesExportCsv": "Exportar CSV",
+  "expensesExportPdf": "Exportar PDF",
+  "expensesDeleteConfirmTitle": "Excluir despesa?",
+  "expensesDeleteConfirmBody": "Tem certeza de que deseja excluir esta despesa?",
+  "expensesViewPurchaseTooltip": "Ver Compra / Nota",
+  "expensesViewBillTooltip": "Ver Conta",
+  "expensesEditBudget": "Editar Orçamento",
+  "expensesEditTitle": "Editar Despesa",
+  "expensesDeleteTooltip": "Excluir despesa",
+  "expensesAmountLabel": "Valor *",
+  "expensesNameDescriptionLabel": "Nome / Descrição",
+  "expensesNameDescriptionHint": "ex.: Supermercado, Aluguel, Farmácia",
+  "expensesNotesHint": "Detalhes adicionais...",
+  "expensesRepeatExpense": "Repetir despesa",
+  "expensesRepeatFrequency": "Frequência de repetição",
+  "expensesCustomDaysHint": "ex.: 4",
+  "expensesCustomDaysRequired": "Informe a quantidade de dias (entre 1 e 365)",
+  "expensesCustomDaysInvalid": "Informe um número de dias válido entre 1 e 365",
+  "budgetCategoryDialogTitle": "Orçamento para {category}",
+  "@budgetCategoryDialogTitle": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetCategoryLimitLabel": "Limite em R$ * (ex: 500,00)",
+  "budgetTotalDialogTitle": "Orçamento Total de {month}",
+  "@budgetTotalDialogTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetBaseIncomeLabel": "Receita base recorrente *",
+  "budgetBaseIncomeHint": "ex: 3000,00",
+  "budgetIncomeRequired": "Informe ao menos uma receita",
+  "budgetExtraIncomeLabel": "Receitas adicionais avulsas no mês",
+  "budgetExtraIncomeHint": "ex: 500,00",
+  "budgetTotalSumLabel": "Soma total do orçamento:",
+  "budgetMonthTotalCardTitle": "Orçamento Total do Mês",
+  "budgetEditIncomeTooltip": "Editar receita e orçamento",
+  "budgetNoCategories": "Nenhuma categoria cadastrada.",
+  "commonAdd": "Adicionar",
+  "checklistGenerateShoppingList": "Gerar lista de compras",
+  "checklistNewItem": "Novo item",
+  "checklistLoadError": "Erro ao carregar checklist: {error}",
+  "@checklistLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistEmptyDescription": "Adicione itens ou selecione outro cômodo.",
+  "checklistProgressTitle": "Progresso da casa",
+  "checklistMarkedCount": "{marked} de {total} itens marcados",
+  "@checklistMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistCreateListCount": "Criar lista ({count})",
+  "@checklistCreateListCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistAddItemTitle": "Adicionar item ao checklist",
+  "checklistItemLabel": "Item *",
+  "checklistItemHint": "Ex: Toalha de rosto",
+  "checklistRoomLabel": "Cômodo / Categoria *",
+  "checklistRoomHint": "Ex: Banheiro",
+  "checklistEditItemTitle": "Editar item",
+  "checklistItemTitleLabel": "Título do item *",
+  "checklistDeleteItemTitle": "Excluir item?",
+  "checklistDeleteItemBody": "Deseja remover \"{title}\" do checklist?",
+  "@checklistDeleteItemBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistDefaultListNameCategory": "Lista da Casa - {category}",
+  "@checklistDefaultListNameCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
   }
 }
