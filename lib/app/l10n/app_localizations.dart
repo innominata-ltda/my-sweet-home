@@ -6300,6 +6300,88 @@ abstract class AppLocalizations {
   String get householdBundleShareDescription;
 
   /// No description provided for @householdBundleShareAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compartilhar'**
+  String get householdBundleShareAction;
+
+  /// No description provided for @householdBundleGeneratedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pacote gerado com sucesso! ({bytes} bytes)'**
+  String householdBundleGeneratedSuccess(int bytes);
+
+  /// No description provided for @householdQrScanTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ler QR Code da casa'**
+  String get householdQrScanTitle;
+
+  /// No description provided for @householdLeaveDeleteConfirmBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja apagar todos os dados compartilhados da casa neste aparelho?\n\nEsta ação não pode ser desfeita.'**
+  String get householdLeaveDeleteConfirmBody;
+
+  /// No description provided for @householdLeaveWipeSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remove as despesas, contas e tarefas compartilhadas deste aparelho.'**
+  String get householdLeaveWipeSubtitle;
+
+  /// No description provided for @householdTutorialStepOf.
+  ///
+  /// In pt, this message translates to:
+  /// **'Passo {current} de {total}'**
+  String householdTutorialStepOf(int current, int total);
+
+  /// No description provided for @householdJoinPreviewEmptyDeviceError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o nome do aparelho'**
+  String get householdJoinPreviewEmptyDeviceError;
+
+  /// No description provided for @householdJoinPreviewTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Entrar em \"{name}\"'**
+  String householdJoinPreviewTitle(String name);
+
+  /// No description provided for @householdJoinPreviewLocalRecordsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Registros locais a unir:'**
+  String get householdJoinPreviewLocalRecordsTitle;
+
+  /// No description provided for @householdJoinPreviewHomeLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Casa (listas, tarefas, receitas):'**
+  String get householdJoinPreviewHomeLabel;
+
+  /// No description provided for @householdSyncBothSuffix.
+  ///
+  /// In pt, this message translates to:
+  /// **' ({sent} enviadas, {applied} aplicadas).'**
+  String householdSyncBothSuffix(int sent, int applied);
+
+  /// No description provided for @householdSyncPeersCompleted.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronizado com {peers} aparelho(s){summary}'**
+  String householdSyncPeersCompleted(int peers, String summary);
+
+  /// No description provided for @householdSyncNoPeersFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum outro aparelho encontrado na rede local no momento.'**
+  String get householdSyncNoPeersFound;
+
+  /// No description provided for @householdLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar dados da casa: {error}'**
+  String householdLoadError(String error);
 }
 
 class _AppLocalizationsDelegate
@@ -6313,7 +6395,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['pt'].contains(locale.languageCode);
+      <String>['en', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -6322,6 +6404,8 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'en':
+      return AppLocalizationsEn();
     case 'pt':
       return AppLocalizationsPt();
   }
