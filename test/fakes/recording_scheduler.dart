@@ -5,6 +5,7 @@ import 'package:my_sweet_home/core/notifications/scheduled_notification.dart';
 class RecordingScheduler implements NotificationSchedulerPort {
   final List<ScheduledNotification> _scheduled = [];
   PermissionState _permission = PermissionState.granted;
+  int requestPermissionCalls = 0;
 
   List<ScheduledNotification> get scheduled => List.unmodifiable(_scheduled);
 
@@ -37,6 +38,7 @@ class RecordingScheduler implements NotificationSchedulerPort {
 
   @override
   Future<PermissionState> requestPermission() async {
+    requestPermissionCalls++;
     return _permission;
   }
 
