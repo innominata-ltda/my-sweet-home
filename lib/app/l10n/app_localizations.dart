@@ -5340,6 +5340,166 @@ abstract class AppLocalizations {
   String get ocrReceiptTotalsTitle;
 
   /// No description provided for @ocrEditTotalsTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar totais'**
+  String get ocrEditTotalsTooltip;
+
+  /// No description provided for @ocrSubtotalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Subtotal:'**
+  String get ocrSubtotalLabel;
+
+  /// No description provided for @ocrDiscountLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desconto:'**
+  String get ocrDiscountLabel;
+
+  /// No description provided for @ocrOriginExactAlias.
+  ///
+  /// In pt, this message translates to:
+  /// **'exato (apelido)'**
+  String get ocrOriginExactAlias;
+
+  /// No description provided for @ocrOriginSeed.
+  ///
+  /// In pt, this message translates to:
+  /// **'semente'**
+  String get ocrOriginSeed;
+
+  /// No description provided for @ocrOriginFuzzy.
+  ///
+  /// In pt, this message translates to:
+  /// **'aproximado ({percent}%)'**
+  String ocrOriginFuzzy(int percent);
+
+  /// No description provided for @ocrOriginUnknown.
+  ///
+  /// In pt, this message translates to:
+  /// **'não identificado'**
+  String get ocrOriginUnknown;
+
+  /// No description provided for @ocrItemSelectedStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'selecionado'**
+  String get ocrItemSelectedStatus;
+
+  /// No description provided for @ocrItemUnselectedStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'desmarcado'**
+  String get ocrItemUnselectedStatus;
+
+  /// No description provided for @ocrItemLowConfidenceHint.
+  ///
+  /// In pt, this message translates to:
+  /// **', baixa confiança, confira este item'**
+  String get ocrItemLowConfidenceHint;
+
+  /// No description provided for @ocrItemDetectedAs.
+  ///
+  /// In pt, this message translates to:
+  /// **'detectado como {raw}'**
+  String ocrItemDetectedAs(String raw);
+
+  /// No description provided for @ocrItemUncheckHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desmarcar {title}'**
+  String ocrItemUncheckHint(String title);
+
+  /// No description provided for @ocrItemLinkOrigin.
+  ///
+  /// In pt, this message translates to:
+  /// **'Vínculo: {origin}'**
+  String ocrItemLinkOrigin(String origin);
+
+  /// No description provided for @ocrEditItemTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar item'**
+  String get ocrEditItemTooltip;
+
+  /// No description provided for @ocrDeleteItemTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagar item'**
+  String get ocrDeleteItemTooltip;
+
+  /// No description provided for @ocrEditHeaderTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar cabeçalho'**
+  String get ocrEditHeaderTitle;
+
+  /// No description provided for @ocrStoreRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estabelecimento *'**
+  String get ocrStoreRequiredLabel;
+
+  /// No description provided for @ocrStoreHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do supermercado ou loja'**
+  String get ocrStoreHint;
+
+  /// No description provided for @ocrStoreError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o nome do estabelecimento'**
+  String get ocrStoreError;
+
+  /// No description provided for @ocrCnpjOptionalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'CNPJ (opcional)'**
+  String get ocrCnpjOptionalLabel;
+
+  /// No description provided for @ocrDateTimeRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Data/Hora (dd/MM/yyyy HH:mm) *'**
+  String get ocrDateTimeRequiredLabel;
+
+  /// No description provided for @ocrDateTimeRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a data da compra'**
+  String get ocrDateTimeRequiredError;
+
+  /// No description provided for @ocrDateTimeInvalidError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Formato inválido (ex: 21/09/2026 14:30)'**
+  String get ocrDateTimeInvalidError;
+
+  /// No description provided for @ocrNfceKeyOptionalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Chave da NFC-e (opcional)'**
+  String get ocrNfceKeyOptionalLabel;
+
+  /// No description provided for @ocrNfceKeyHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'44 dígitos da nota fiscal'**
+  String get ocrNfceKeyHint;
+
+  /// No description provided for @ocrSubtotalInputLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Subtotal (R\$)'**
+  String get ocrSubtotalInputLabel;
+
+  /// No description provided for @ocrDiscountInputLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desconto (R\$)'**
+  String get ocrDiscountInputLabel;
 }
 
 class _AppLocalizationsDelegate
