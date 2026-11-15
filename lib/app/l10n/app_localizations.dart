@@ -4060,6 +4060,166 @@ abstract class AppLocalizations {
   String get stockRegisterTitle;
 
   /// No description provided for @stockProductNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do Produto *'**
+  String get stockProductNameLabel;
+
+  /// No description provided for @stockProductNameHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Arroz Tipo 1'**
+  String get stockProductNameHint;
+
+  /// No description provided for @stockApproxQuantityLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade aproximada *'**
+  String get stockApproxQuantityLabel;
+
+  /// No description provided for @stockApproxQuantityHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: 4'**
+  String get stockApproxQuantityHint;
+
+  /// No description provided for @stockAddProductButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar produto'**
+  String get stockAddProductButton;
+
+  /// No description provided for @stockLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar estoque: {error}'**
+  String stockLoadError(String error);
+
+  /// No description provided for @stockEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estoque vazio'**
+  String get stockEmptyTitle;
+
+  /// No description provided for @stockEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum produto registrado no estoque doméstico.'**
+  String get stockEmptyDescription;
+
+  /// No description provided for @stockNoEstimate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sem estimativa de consumo (compras no histórico: {count}, mínimo: 3)'**
+  String stockNoEstimate(int count);
+
+  /// No description provided for @stockAvgInterval.
+  ///
+  /// In pt, this message translates to:
+  /// **'Intervalo médio de compra: {days} dias'**
+  String stockAvgInterval(String days);
+
+  /// No description provided for @stockEstimatedRemaining.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estimativa restante: ~{days} dias'**
+  String stockEstimatedRemaining(int days);
+
+  /// No description provided for @todayTasksWidgetSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widget de tarefas do dia'**
+  String get todayTasksWidgetSemantics;
+
+  /// No description provided for @todayTasksDefaultTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tarefas de hoje'**
+  String get todayTasksDefaultTitle;
+
+  /// No description provided for @todayTasksEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma tarefa para hoje'**
+  String get todayTasksEmptyTitle;
+
+  /// No description provided for @todayTasksEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você não tem tarefas agendadas para hoje.'**
+  String get todayTasksEmptyDescription;
+
+  /// No description provided for @todayTasksDoneStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'concluída'**
+  String get todayTasksDoneStatus;
+
+  /// No description provided for @todayTasksPendingStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'pendente'**
+  String get todayTasksPendingStatus;
+
+  /// No description provided for @todayTasksAllDoneMessage.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todas as tarefas de hoje foram concluídas! 🎉'**
+  String get todayTasksAllDoneMessage;
+
+  /// No description provided for @todayTasksViewAll.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver todas as tarefas'**
+  String get todayTasksViewAll;
+
+  /// No description provided for @commonAll.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todos'**
+  String get commonAll;
+
+  /// No description provided for @economyNoGoalSet.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma meta definida'**
+  String get economyNoGoalSet;
+
+  /// No description provided for @economyChangeGoalButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Alterar Meta'**
+  String get economyChangeGoalButton;
+
+  /// No description provided for @economyGoalProgressTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Progresso da Meta'**
+  String get economyGoalProgressTitle;
+
+  /// No description provided for @economyContextualTipsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dicas Contextuais'**
+  String get economyContextualTipsTitle;
+
+  /// No description provided for @stockProductFallback.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produto: {id}'**
+  String stockProductFallback(String id);
+
+  /// No description provided for @stockReportedQuantity.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quantidade informada: {quantity} {unit}'**
+  String stockReportedQuantity(String quantity, String unit);
+
+  /// No description provided for @dueBillsWidgetLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar contas a vencer: {error}'**
+  String dueBillsWidgetLoadError(String error);
 }
 
 class _AppLocalizationsDelegate
