@@ -1118,3 +1118,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get customizeDashboardRestoreDefault => 'Restore default';
 
   @override
+  String get customizeDashboardMoveUp => 'Move up';
+
+  @override
+  String get customizeDashboardMoveDown => 'Move down';
+
+  @override
+  String get customizeDashboardHide => 'Hide';
+
+  @override
+  String get customizeDashboardAdd => 'Add';
+
+  @override
+  String get dashboardCardMascotGreeting => 'Momo\'s Greeting';
+
+  @override
+  String get dashboardCardMonthBalance => 'Month Balance';
+
+  @override
+  String get dashboardCardDueBills => 'Due Bills';
+
+  @override
+  String get dashboardCardTodayTasks => 'Today\'s Tasks';
+
+  @override
+  String get dashboardCardShoppingList => 'Shopping List';
+
+  @override
+  String get dashboardCardStockAlert => 'Home Stock';
+
+  @override
+  String get dashboardCardFirstHomeChecklist => 'First Home Checklist';
+
+  @override
+  String get dashboardCardEconomyGoal => 'Economy Mode';
+
+  @override
+  String get dashboardCardFavoriteRecipes => 'Favorite Recipes';
+
+  @override
+  String get settingsRetentionNotificationsTitle => 'Momo\'s gentle reminders';
+
+  @override
+  String get settingsRetentionNotificationsSubtitle =>
+      'Notify at spaced intervals if you go days without opening the app';
+
+  @override
+  String get retentionNotificationTitle => 'Momo missed you!';
+
+  @override
+  String retentionNotificationBody(int days) {
+    return 'It\'s been $days days since we organized the house together. How about checking your tasks and bills?';
+  }
+
+  @override
+  String get commonCancel => 'Cancel';
+
+  @override
+  String get commonContinue => 'Continue';
+
+  @override
+  String get commonSave => 'Save';
+
+  @override
+  String get commonDelete => 'Delete';
+
+  @override
+  String get commonRetry => 'Try again';
+
+  @override
+  String get commonClose => 'Close';
+
+  @override
+  String get commonBack => 'Back';
+
+  @override
+  String get commonDone => 'Done';
+
+  @override
+  String get commonConfirm => 'Confirm';
+
+  @override
+  String get navHome => 'Home';
+
+  @override
+  String get navShopping => 'Shopping';
+
+  @override
+  String get navTasks => 'Tasks';
+
+  @override
+  String get navBills => 'Bills';
+
+  @override
+  String get navExpenses => 'Expenses';
+
+  @override
+  String get navScanReceipt => 'Scan Receipt';
+
+  @override
+  String get pageNotFound => 'Page not found';
+
+  @override
+  String get dashboardSearchTooltip => 'Global search';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get dashboardEmptyDescription =>
+      'Customize your home dashboard by adding the modules you want.';
+
+  @override
+  String mascotGreetingNamed(String name) {
+    return 'Hi! I\'m $name 💕';
+  }
+
+  @override
+  String get mascotGreetingSubtitleDefault =>
+      'I\'m here to help take care of your cozy home with you!';
+
+  @override
+  String get mascotGreetingSubtitleOverBudget =>
+      'Watch out for the bills this month! We\'re in this together 💕';
+
+  @override
+  String get mascotGreetingSubtitleNearBudget =>
+      'Almost at the budget limit! Let\'s take care of spending gently 💕';
+
+  @override
+  String mascotGreetingSemantics(String name, String title, String subtitle) {
+    return 'Mascot $name: $title. $subtitle';
+  }
+
+  @override
+  String get recoveryResetConfirmTitle => 'Start from scratch?';
+
+  @override
+  String get recoveryResetConfirmBody =>
+      'All existing local data will be permanently deleted.';
+
+  @override
+  String get recoveryResetFinalTitle => 'Final confirmation';
+
+  @override
+  String get recoveryResetFinalBody =>
+      'This action is irreversible. Are you absolutely sure you want to delete all data and start over?';
+
+  @override
+  String get recoveryResetFinalConfirm => 'Confirm and delete';
+
+  @override
+  String get recoveryKeyUnavailableAppBar => 'Database key unavailable';
+
+  @override
+  String get recoverySecurityFailureAppBar => 'Database security failure';
+
+  @override
+  String get recoveryKeyUnavailableTitle => 'Security key unavailable';
+
+  @override
