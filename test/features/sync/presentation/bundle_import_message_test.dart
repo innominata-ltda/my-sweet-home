@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/data/sync/batch_applier.dart';
 import 'package:my_sweet_home/features/sync/data/bundle_sync_transport.dart';
@@ -29,6 +30,9 @@ void main() {
       return ProviderScope(
         overrides: [bundleSyncTransportProvider.overrideWithValue(transport)],
         child: MaterialApp(
+          locale: const Locale('pt'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           home: Scaffold(
             body: Builder(
               builder: (ctx) => ElevatedButton(

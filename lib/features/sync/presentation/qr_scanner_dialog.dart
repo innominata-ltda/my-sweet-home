@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -60,7 +61,7 @@ class _QrScannerDialogState extends State<QrScannerDialog> {
                   const SizedBox(width: Spacing.sm),
                   Expanded(
                     child: Text(
-                      'Ler QR Code da casa',
+                      AppLocalizations.of(context).householdQrScanTitle,
                       style: theme.textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -69,14 +70,15 @@ class _QrScannerDialogState extends State<QrScannerDialog> {
                   IconButton(
                     key: const Key('close_qr_scanner_button'),
                     icon: const Icon(AppIcons.close),
-                    tooltip: 'Fechar câmera',
+                    tooltip: AppLocalizations.of(context)
+                        .householdQrCloseTooltip,
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                 ],
               ),
               const SizedBox(height: Spacing.sm),
               Text(
-                'Aponte a câmera para o QR Code exibido no outro aparelho.',
+                AppLocalizations.of(context).householdQrScanPrompt,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium,
               ),
@@ -105,8 +107,8 @@ class _QrScannerDialogState extends State<QrScannerDialog> {
                             ),
                             const SizedBox(height: Spacing.sm),
                             Text(
-                              'Câmera indisponível neste dispositivo/emulador.\n'
-                              'Use a opção de colar o link de convite.',
+                              AppLocalizations.of(context)
+                                  .householdQrCameraUnavailable,
                               textAlign: TextAlign.center,
                               style: theme.textTheme.bodySmall,
                             ),
@@ -120,7 +122,7 @@ class _QrScannerDialogState extends State<QrScannerDialog> {
               const SizedBox(height: Spacing.md),
               AppButton.secondary(
                 key: const Key('cancel_qr_scanner_button'),
-                label: 'Digitar ou colar código manualmente',
+                label: AppLocalizations.of(context).householdQrManualEntry,
                 fullWidth: true,
                 onPressed: () => Navigator.of(context).pop(),
               ),
