@@ -3900,6 +3900,166 @@ abstract class AppLocalizations {
   /// No description provided for @economyCardSemantics.
   ///
   /// In pt, this message translates to:
+  /// **'{title}, {goalText}, toque para ver detalhes'**
+  String economyCardSemantics(String title, String goalText);
+
+  /// No description provided for @searchGlobalScreenTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Busca Global'**
+  String get searchGlobalScreenTitle;
+
+  /// No description provided for @searchGlobalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Buscar em todo o app'**
+  String get searchGlobalLabel;
+
+  /// No description provided for @searchGlobalInputHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digite produtos, despesas, tarefas...'**
+  String get searchGlobalInputHint;
+
+  /// No description provided for @searchGlobalEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Busca no app'**
+  String get searchGlobalEmptyTitle;
+
+  /// No description provided for @searchGlobalEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Busque por produtos, despesas, tarefas, receitas e listas.'**
+  String get searchGlobalEmptyDescription;
+
+  /// No description provided for @searchGlobalNoResultsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum resultado'**
+  String get searchGlobalNoResultsTitle;
+
+  /// No description provided for @searchGlobalNoResultsForQuery.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não encontramos nada para \"{query}\". Tente outro termo.'**
+  String searchGlobalNoResultsForQuery(String query);
+
+  /// No description provided for @monthBalanceLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar saldo do mês: {error}'**
+  String monthBalanceLoadError(String error);
+
+  /// No description provided for @monthBalanceNotSet.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não definido'**
+  String get monthBalanceNotSet;
+
+  /// No description provided for @monthBalanceSemanticsHidden.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widget de saldo do mês, valor oculto'**
+  String get monthBalanceSemanticsHidden;
+
+  /// No description provided for @monthBalanceSemanticsVisible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widget de saldo do mês, gasto {actual} de {budget}'**
+  String monthBalanceSemanticsVisible(String actual, String budget);
+
+  /// No description provided for @monthBalanceDefaultTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Saldo do mês'**
+  String get monthBalanceDefaultTitle;
+
+  /// No description provided for @monthBalanceSpentLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gasto no mês'**
+  String get monthBalanceSpentLabel;
+
+  /// No description provided for @monthBalanceBudgetedLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Orçado: {budget}'**
+  String monthBalanceBudgetedLabel(String budget);
+
+  /// No description provided for @monthBalanceViewDetails.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver resumo financeiro'**
+  String get monthBalanceViewDetails;
+
+  /// No description provided for @recipesCardSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'{title}, {count} receitas favoritas, toque para ver detalhes'**
+  String recipesCardSemantics(String title, int count);
+
+  /// No description provided for @shoppingWidgetSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widget de listas de compras'**
+  String get shoppingWidgetSemantics;
+
+  /// No description provided for @shoppingWidgetEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma lista de compras'**
+  String get shoppingWidgetEmptyTitle;
+
+  /// No description provided for @shoppingWidgetEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Crie uma lista para acompanhar suas compras.'**
+  String get shoppingWidgetEmptyDescription;
+
+  /// No description provided for @shoppingWidgetOnePending.
+  ///
+  /// In pt, this message translates to:
+  /// **'1 item pendente'**
+  String get shoppingWidgetOnePending;
+
+  /// No description provided for @shoppingWidgetPendingOfTotal.
+  ///
+  /// In pt, this message translates to:
+  /// **'{pending} de {total} itens pendentes'**
+  String shoppingWidgetPendingOfTotal(int pending, int total);
+
+  /// No description provided for @shoppingWidgetViewAll.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver todas as listas'**
+  String get shoppingWidgetViewAll;
+
+  /// No description provided for @stockCardSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'{title}, toque para ver detalhes'**
+  String stockCardSemantics(String title);
+
+  /// No description provided for @stockCardEmpty.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum produto monitorado no estoque.'**
+  String get stockCardEmpty;
+
+  /// No description provided for @stockCardCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'{count} produto(s) no estoque doméstico'**
+  String stockCardCount(int count);
+
+  /// No description provided for @stockRegisterTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Registrar no Estoque'**
+  String get stockRegisterTitle;
+
+  /// No description provided for @stockProductNameLabel.
 }
 
 class _AppLocalizationsDelegate
