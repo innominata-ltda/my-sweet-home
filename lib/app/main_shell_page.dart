@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 
 class MainShellPage extends StatefulWidget {
@@ -117,6 +118,7 @@ class _MainShellPageState extends State<MainShellPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final selectedIndex = _calculateSelectedIndex(context);
 
     return Scaffold(
@@ -194,22 +196,34 @@ class _MainShellPageState extends State<MainShellPage> {
       floatingActionButton: selectedIndex == 0
           ? FloatingActionButton(
               onPressed: () => context.push('/ocr'),
-              tooltip: 'Escanear Nota Fiscal',
+              tooltip: l10n.navScanReceipt,
               child: const Icon(AppIcons.camera),
             )
           : null,
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex,
         onDestinationSelected: (index) => _navigateToIndex(index, context),
-        destinations: const [
-          NavigationDestination(icon: Icon(AppIcons.home), label: 'Início'),
+        destinations: [
           NavigationDestination(
-            icon: Icon(AppIcons.shopping),
-            label: 'Compras',
+            icon: const Icon(AppIcons.home),
+            label: l10n.navHome,
           ),
-          NavigationDestination(icon: Icon(AppIcons.tasks), label: 'Tarefas'),
-          NavigationDestination(icon: Icon(AppIcons.bill), label: 'Contas'),
-          NavigationDestination(icon: Icon(AppIcons.budget), label: 'Despesas'),
+          NavigationDestination(
+            icon: const Icon(AppIcons.shopping),
+            label: l10n.navShopping,
+          ),
+          NavigationDestination(
+            icon: const Icon(AppIcons.tasks),
+            label: l10n.navTasks,
+          ),
+          NavigationDestination(
+            icon: const Icon(AppIcons.bill),
+            label: l10n.navBills,
+          ),
+          NavigationDestination(
+            icon: const Icon(AppIcons.budget),
+            label: l10n.navExpenses,
+          ),
         ],
       ),
     );
