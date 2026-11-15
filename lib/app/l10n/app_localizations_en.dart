@@ -318,3 +318,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get billHistoryRetry => 'Try again';
 
   @override
+  String billHistoryDueOn(String date) {
+    return 'Due date: $date';
+  }
+
+  @override
+  String billHistoryPaidOn(String date) {
+    return 'Paid on: $date';
+  }
+
+  @override
+  String get expensesEmptyCallToAction =>
+      'No expenses this month. How about adding your first one?';
+
+  @override
+  String get expensesLaunchFirst => 'add expense';
+
+  @override
+  String get expensesNoBudgetInvite => 'prompt to set a budget';
+
+  @override
+  String get expensesSetBudget => 'set budget';
+
+  @override
+  String get expensesForecastNoHistory =>
+      'Not enough history yet to forecast month-end.';
+
+  @override
+  String get expensesForecastExplanation =>
+      'The forecast considers your current spending, pending recurring bills, and average spending from recent months.';
+
+  @override
+  String get expensesForecastTitle => 'Month-end forecast';
+
+  @override
+  String expensesForecastAmount(String amount) {
+    return 'Forecast: $amount';
+  }
+
+  @override
+  String expensesChartCategoryAlt(
+    String category,
+    String amount,
+    String percent,
+  ) {
+    return '$category: $amount ($percent%)';
+  }
+
+  @override
+  String get expensesByCategoryTitle => 'Expenses by category';
+
+  @override
+  String get billsNotificationPermissionDeniedWarning =>
+      'Without permission, you won\'t be notified before the due date and may incur late fees.';
+
+  @override
+  String get billsNotificationPermissionDeniedSettings => 'Go to Settings';
+
+  @override
+  String get billsNotificationPermissionDeniedDismiss => 'Got it';
+
+  @override
+  String get shoppingListsTitle => 'Shopping lists';
+
+  @override
+  String get shoppingListEmpty => 'Empty list. Add what you need at home.';
+
+  @override
+  String get shoppingListAllDone => 'All bought 🎉';
+
+  @override
+  String get shoppingListRegisterPurchase => 'record purchase';
+
+  @override
+  String shoppingListMarkAsBought(String item) {
+    return 'Mark $item as bought';
+  }
+
+  @override
+  String shoppingListUnmarkAsBought(String item) {
+    return 'Unmark $item as bought';
+  }
+
+  @override
+  String get shoppingListAddItemLabel => 'Add item';
+
+  @override
+  String get shoppingListAddItemHint => 'e.g. 2kg of rice';
+
+  @override
+  String get shoppingListUndo => 'Undo';
+
+  @override
+  String shoppingListEstimateWithUnknowns(String total, int count) {
+    return '$total + $count items without price';
+  }
+
+  @override
+  String shoppingListEstimateWithOneUnknown(String total) {
+    return '$total + 1 item without price';
+  }
+
+  @override
+  String shoppingListEstimateExact(String total) {
+    return 'Estimate: $total';
+  }
+
+  @override
+  String shoppingListItemQuantity(String quantity, String unit) {
+    return 'Qty: $quantity $unit';
+  }
+
+  @override
+  String get shoppingListError => 'Failed to load shopping list';
+
+  @override
+  String get shoppingListRetry => 'Try again';
+
+  @override
+  String get purchasesTitle => 'Purchases';
+
+  @override
+  String get purchaseNew => 'New Purchase';
+
+  @override
+  String get pricesTitle => 'Price History';
+
+  @override
+  String get pricesEmpty => 'No prices yet. Record a purchase to get started.';
+
+  @override
+  String get pricesFewData => 'too few observations to conclude';
+
+  @override
+  String get pricesLoadError => 'failed to load history';
+
+  @override
+  String get pricesRetry => 'try again';
+
+  @override
+  String get pricesRankingTitle => 'Store ranking';
+
+  @override
+  String get storeTitle => 'Store';
+
+  @override
+  String cheapestStore(String store) {
+    return 'Cheapest at $store';
+  }
+
+  @override
+  String get notEnoughData => 'not enough data';
+
+  @override
+  String priceAverage(String amount) {
+    return 'Usually costs $amount';
+  }
+
+  @override
+  String priceAverageObservations(int count) {
+    return 'based on $count observations';
