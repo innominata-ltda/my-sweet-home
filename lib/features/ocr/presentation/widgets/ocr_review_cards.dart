@@ -2,6 +2,7 @@ part of '../ocr_review_screen.dart';
 
 extension _OcrReviewCards on _OcrReviewScreenState {
   Widget _buildStoreHeaderCard(BuildContext context) {
+    final loc = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final store = _draft.store;
 
@@ -19,7 +20,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    store.name ?? 'Estabelecimento não identificado',
+                    store.name ?? loc.ocrStoreUnknown,
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -27,7 +28,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
                 ),
                 IconButton(
                   icon: const Icon(AppIcons.edit, size: 20),
-                  tooltip: 'Editar estabelecimento',
+                  tooltip: loc.ocrEditStoreTooltip,
                   constraints: const BoxConstraints(
                     minWidth: 48,
                     minHeight: 48,
@@ -42,7 +43,9 @@ extension _OcrReviewCards on _OcrReviewScreenState {
             Row(
               children: [
                 Text(
-                  'CNPJ: ${store.cnpj ?? store.rawCnpj ?? 'Não informado'}',
+                  loc.ocrCnpjLabel(
+                    store.cnpj ?? store.rawCnpj ?? loc.ocrNotInformed,
+                  ),
                   style: theme.textTheme.bodyMedium,
                 ),
                 const SizedBox(width: 8),
@@ -68,7 +71,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          'CNPJ não confirmado',
+                          loc.ocrCnpjUnconfirmed,
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
@@ -133,6 +136,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
       return const SizedBox.shrink();
     }
 
+    final loc = AppLocalizations.of(context);
     final absDiv = _draft.absoluteDivergence?.formatPtBr() ?? 'R\$ 0,00';
 
     return Container(
@@ -157,7 +161,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Divergência no valor total',
+                  loc.ocrTotalDivergenceCardTitle,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.orange.shade900,
@@ -166,8 +170,11 @@ extension _OcrReviewCards on _OcrReviewScreenState {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Divergência de $absDiv. O sistema não ajusta automaticamente.\n'
-                  'Soma dos itens: ${_draft.itemsSum.formatPtBr()} | Total lido: ${_draft.total?.formatPtBr() ?? "R\$ 0,00"}',
+                  loc.ocrTotalDivergenceCardBody(
+                    absDiv,
+                    _draft.itemsSum.formatPtBr(),
+                    _draft.total?.formatPtBr() ?? 'R\$ 0,00',
+                  ),
                   style: TextStyle(color: Colors.orange.shade900, fontSize: 12),
                 ),
               ],
@@ -183,6 +190,8 @@ extension _OcrReviewCards on _OcrReviewScreenState {
       return const SizedBox.shrink();
     }
 
+    final loc = AppLocalizations.of(context);
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 4.0),
       padding: const EdgeInsets.all(8.0),
@@ -197,7 +206,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              'Há ${_draft.lowConfidenceItemsCount} item(ns) com baixa confiança lidos do cupom. Verifique e marque os corretos.',
+              loc.ocrLowConfidenceBanner(_draft.lowConfidenceItemsCount),
               style: TextStyle(
                 color: Colors.amber.shade900,
                 fontSize: 12,
@@ -211,6 +220,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
   }
 
   Widget _buildTotalsCard(BuildContext context) {
+    final loc = AppLocalizations.of(context);
     final theme = Theme.of(context);
 
     return Card(
@@ -224,13 +234,13 @@ extension _OcrReviewCards on _OcrReviewScreenState {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Totais da Nota',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                Text(
+                  loc.ocrReceiptTotalsTitle,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 IconButton(
                   icon: const Icon(AppIcons.edit, size: 20),
-                  tooltip: 'Editar totais',
+                  tooltip: loc.ocrEditTotalsTooltip,
                   constraints: const BoxConstraints(
                     minWidth: 48,
                     minHeight: 48,
@@ -243,7 +253,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Subtotal:'),
+                  Text(loc.ocrSubtotalLabel),
                   Text(_draft.subtotal!.formatPtBr()),
                 ],
               ),
@@ -253,7 +263,7 @@ extension _OcrReviewCards on _OcrReviewScreenState {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Desconto:'),
+                  Text(loc.ocrDiscountLabel),
                   Text('- ${_draft.discount!.formatPtBr()}'),
                 ],
               ),
@@ -263,9 +273,9 @@ extension _OcrReviewCards on _OcrReviewScreenState {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    'Total lido do cupom:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  Text(
+                    loc.ocrTotalReadColonLabel,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(
                     _draft.total!.formatPtBr(),
@@ -279,9 +289,9 @@ extension _OcrReviewCards on _OcrReviewScreenState {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Soma dos itens selecionados:',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                Text(
+                  loc.ocrSelectedItemsSumColonLabel,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
                   _draft.itemsSum.formatPtBr(),
