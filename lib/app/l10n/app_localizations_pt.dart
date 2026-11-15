@@ -2296,4 +2296,164 @@ class AppLocalizationsPt extends AppLocalizations {
     return '$count produto(s) no estoque doméstico';
   }
 
+  @override
+  String get stockRegisterTitle => 'Registrar no Estoque';
+
+  @override
+  String get stockProductNameLabel => 'Nome do Produto *';
+
+  @override
+  String get stockProductNameHint => 'Ex: Arroz Tipo 1';
+
+  @override
+  String get stockApproxQuantityLabel => 'Quantidade aproximada *';
+
+  @override
+  String get stockApproxQuantityHint => 'Ex: 4';
+
+  @override
+  String get stockAddProductButton => 'Adicionar produto';
+
+  @override
+  String stockLoadError(String error) {
+    return 'Erro ao carregar estoque: $error';
+  }
+
+  @override
+  String get stockEmptyTitle => 'Estoque vazio';
+
+  @override
+  String get stockEmptyDescription =>
+      'Nenhum produto registrado no estoque doméstico.';
+
+  @override
+  String stockNoEstimate(int count) {
+    return 'Sem estimativa de consumo (compras no histórico: $count, mínimo: 3)';
+  }
+
+  @override
+  String stockAvgInterval(String days) {
+    return 'Intervalo médio de compra: $days dias';
+  }
+
+  @override
+  String stockEstimatedRemaining(int days) {
+    return 'Estimativa restante: ~$days dias';
+  }
+
+  @override
+  String get todayTasksWidgetSemantics => 'Widget de tarefas do dia';
+
+  @override
+  String get todayTasksDefaultTitle => 'Tarefas de hoje';
+
+  @override
+  String get todayTasksEmptyTitle => 'Nenhuma tarefa para hoje';
+
+  @override
+  String get todayTasksEmptyDescription =>
+      'Você não tem tarefas agendadas para hoje.';
+
+  @override
+  String get todayTasksDoneStatus => 'concluída';
+
+  @override
+  String get todayTasksPendingStatus => 'pendente';
+
+  @override
+  String get todayTasksAllDoneMessage =>
+      'Todas as tarefas de hoje foram concluídas! 🎉';
+
+  @override
+  String get todayTasksViewAll => 'Ver todas as tarefas';
+
+  @override
+  String get commonAll => 'Todos';
+
+  @override
+  String get economyNoGoalSet => 'Nenhuma meta definida';
+
+  @override
+  String get economyChangeGoalButton => 'Alterar Meta';
+
+  @override
+  String get economyGoalProgressTitle => 'Progresso da Meta';
+
+  @override
+  String get economyContextualTipsTitle => 'Dicas Contextuais';
+
+  @override
+  String stockProductFallback(String id) {
+    return 'Produto: $id';
+  }
+
+  @override
+  String stockReportedQuantity(String quantity, String unit) {
+    return 'Quantidade informada: $quantity $unit';
+  }
+
+  @override
+  String dueBillsWidgetLoadError(String error) {
+    return 'Erro ao carregar contas a vencer: $error';
+  }
+
+  @override
+  String get shoppingListCompletedCelebration =>
+      'Você completou a lista de compras! 💕';
+
+  @override
+  String get shoppingListRegisterPurchaseTitle => 'Registrar compra';
+
+  @override
+  String get shoppingListManageLists => 'Gerenciar listas';
+
+  @override
+  String get shoppingListClearPurchased => 'Limpar comprados';
+
+  @override
+  String shoppingListItemsMarkedCount(int marked, int total) {
+    return '$marked de $total itens marcados';
+  }
+
+  @override
+  String get shoppingListEmptyDescription =>
+      'Adicione itens para não esquecer nada no mercado.';
+
+  @override
+  String get shoppingShortcutPurchases => 'Compras';
+
+  @override
+  String get shoppingShortcutPrices => 'Preços';
+
+  @override
+  String get shoppingShortcutStock => 'Estoque';
+
+  @override
+  String get shoppingQuantitySemantics => 'Quantidade';
+
+  @override
+  String get shoppingQuantityShortLabel => 'Qtd';
+
+  @override
+  String get shoppingUnitSemantics => 'Unidade de medida';
+
+  @override
+  String get shoppingUnitUnShort => 'Un';
+
+  @override
+  String get shoppingErrorSaveChange => 'Falha ao salvar alteração';
+
+  @override
+  String get shoppingErrorAddItem => 'Falha ao adicionar item';
+
+  @override
+  String get shoppingErrorRemoveItem => 'Falha ao remover item';
+
+  @override
+  String get shoppingErrorClearCompleted => 'Falha ao limpar itens concluídos';
+
+  @override
+  String get shoppingTileRegisterSingle => 'Registrar compra deste item';
+
+  @override
 }
