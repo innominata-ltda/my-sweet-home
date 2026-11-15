@@ -1276,5 +1276,165 @@
   },
   "searchGlobalScreenTitle": "Busca Global",
   "searchGlobalLabel": "Buscar em todo o app",
+  "searchGlobalInputHint": "Digite produtos, despesas, tarefas...",
+  "searchGlobalEmptyTitle": "Busca no app",
+  "searchGlobalEmptyDescription": "Busque por produtos, despesas, tarefas, receitas e listas.",
+  "searchGlobalNoResultsTitle": "Nenhum resultado",
+  "searchGlobalNoResultsForQuery": "Não encontramos nada para \"{query}\". Tente outro termo.",
+  "@searchGlobalNoResultsForQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceLoadError": "Erro ao carregar saldo do mês: {error}",
+  "@monthBalanceLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceNotSet": "Não definido",
+  "monthBalanceSemanticsHidden": "Widget de saldo do mês, valor oculto",
+  "monthBalanceSemanticsVisible": "Widget de saldo do mês, gasto {actual} de {budget}",
+  "@monthBalanceSemanticsVisible": {
+    "placeholders": {
+      "actual": {
+        "type": "String"
+      },
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceDefaultTitle": "Saldo do mês",
+  "monthBalanceSpentLabel": "Gasto no mês",
+  "monthBalanceBudgetedLabel": "Orçado: {budget}",
+  "@monthBalanceBudgetedLabel": {
+    "placeholders": {
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceViewDetails": "Ver resumo financeiro",
+  "recipesCardSemantics": "{title}, {count} receitas favoritas, toque para ver detalhes",
+  "@recipesCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetSemantics": "Widget de listas de compras",
+  "shoppingWidgetEmptyTitle": "Nenhuma lista de compras",
+  "shoppingWidgetEmptyDescription": "Crie uma lista para acompanhar suas compras.",
+  "shoppingWidgetOnePending": "1 item pendente",
+  "shoppingWidgetPendingOfTotal": "{pending} de {total} itens pendentes",
+  "@shoppingWidgetPendingOfTotal": {
+    "placeholders": {
+      "pending": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetViewAll": "Ver todas as listas",
+  "stockCardSemantics": "{title}, toque para ver detalhes",
+  "@stockCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "stockCardEmpty": "Nenhum produto monitorado no estoque.",
+  "stockCardCount": "{count} produto(s) no estoque doméstico",
+  "@stockCardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockRegisterTitle": "Registrar no Estoque",
+  "stockProductNameLabel": "Nome do Produto *",
+  "stockProductNameHint": "Ex: Arroz Tipo 1",
+  "stockApproxQuantityLabel": "Quantidade aproximada *",
+  "stockApproxQuantityHint": "Ex: 4",
+  "stockAddProductButton": "Adicionar produto",
+  "stockLoadError": "Erro ao carregar estoque: {error}",
+  "@stockLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEmptyTitle": "Estoque vazio",
+  "stockEmptyDescription": "Nenhum produto registrado no estoque doméstico.",
+  "stockNoEstimate": "Sem estimativa de consumo (compras no histórico: {count}, mínimo: 3)",
+  "@stockNoEstimate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockAvgInterval": "Intervalo médio de compra: {days} dias",
+  "@stockAvgInterval": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEstimatedRemaining": "Estimativa restante: ~{days} dias",
+  "@stockEstimatedRemaining": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTasksWidgetSemantics": "Widget de tarefas do dia",
+  "todayTasksDefaultTitle": "Tarefas de hoje",
+  "todayTasksEmptyTitle": "Nenhuma tarefa para hoje",
+  "todayTasksEmptyDescription": "Você não tem tarefas agendadas para hoje.",
+  "todayTasksDoneStatus": "concluída",
+  "todayTasksPendingStatus": "pendente",
+  "todayTasksAllDoneMessage": "Todas as tarefas de hoje foram concluídas! 🎉",
+  "todayTasksViewAll": "Ver todas as tarefas",
+  "commonAll": "Todos",
+  "economyNoGoalSet": "Nenhuma meta definida",
+  "economyChangeGoalButton": "Alterar Meta",
+  "economyGoalProgressTitle": "Progresso da Meta",
+  "economyContextualTipsTitle": "Dicas Contextuais",
+  "stockProductFallback": "Produto: {id}",
+  "@stockProductFallback": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "stockReportedQuantity": "Quantidade informada: {quantity} {unit}",
+  "@stockReportedQuantity": {
+    "placeholders": {
+      "quantity": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
   }
 }
