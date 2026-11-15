@@ -4700,6 +4700,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Desconto'**
   String get purchasesDiscountLabel;
+
+  /// No description provided for @purchasesItemsCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Itens ({count})'**
+  String purchasesItemsCount(int count);
+
+  /// No description provided for @purchasesNoDetailedItems.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum item detalhado nesta compra.'**
+  String get purchasesNoDetailedItems;
+
+  /// No description provided for @purchasesProductFallback.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produto'**
+  String get purchasesProductFallback;
+
+  /// No description provided for @purchasesItemPriceHistoryTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Histórico de preço'**
+  String get purchasesItemPriceHistoryTooltip;
+
+  /// No description provided for @priceChartSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'{price} em {store} no {date}'**
+  String priceChartSemantics(String price, String store, String date);
+
+  /// No description provided for @productTrackPricesTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Acompanhar preços'**
+  String get productTrackPricesTooltip;
+
+  /// No description provided for @productMergeTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unir com outro produto'**
+  String get productMergeTooltip;
+
+  /// No description provided for @productTrackPriceHistoryButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Acompanhar histórico de preços'**
+  String get productTrackPriceHistoryButton;
+
+  /// No description provided for @productPreferredNameSet.
+  ///
+  /// In pt, this message translates to:
+  /// **'\"{alias}\" definido como nome padrão de exibição.'**
+  String productPreferredNameSet(String alias);
+
+  /// No description provided for @productSeparateAliasDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você pode separar \"{alias}\" como um produto independente (com seu próprio histórico de preços) ou apenas remover o apelido.'**
+  String productSeparateAliasDescription(String alias);
+
+  /// No description provided for @productSeparateAliasAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Separar como outro produto'**
+  String get productSeparateAliasAction;
+
+  /// No description provided for @productNoMergeCandidates.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum outro produto disponível para união.'**
+  String get productNoMergeCandidates;
+
+  /// No description provided for @productMergeSearchLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Buscar produto destino'**
+  String get productMergeSearchLabel;
+
+  /// No description provided for @productMergeNoneFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum produto encontrado.'**
+  String get productMergeNoneFound;
+
+  /// No description provided for @productMergeConfirmTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar união'**
+  String get productMergeConfirmTitle;
+
+  /// No description provided for @productMergeConfirmBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja unir \"{source}\" com \"{target}\"?\n\nTodas as compras, itens, preços e sinônimos serão transferidos para \"{target}\" e este produto será arquivado.'**
+  String productMergeConfirmBody(String source, String target);
+
+  /// No description provided for @productMergeConfirmButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unir produtos'**
+  String get productMergeConfirmButton;
+
+  /// No description provided for @productMergeSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produto unido com \"{target}\".'**
+  String productMergeSuccess(String target);
+
+  /// No description provided for @productNewDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novo Produto'**
+  String get productNewDialogTitle;
+
+  /// No description provided for @productCanonicalNameRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome Canônico *'**
+  String get productCanonicalNameRequiredLabel;
+
+  /// No description provided for @productCanonicalNameError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe o nome'**
+  String get productCanonicalNameError;
+
+  /// No description provided for @productDefaultUnitRequiredLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Unidade Padrão *'**
+  String get productDefaultUnitRequiredLabel;
+
+  /// No description provided for @productAliasesLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apelidos / Sinônimos'**
+  String get productAliasesLabel;
+
+  /// No description provided for @productAliasesHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Separados por vírgula (opcional)'**
+  String get productAliasesHint;
+
+  /// No description provided for @productCreateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao criar produto'**
+  String get productCreateError;
+
+  /// No description provided for @recipeListServiceUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Serviço de listas não disponível'**
+  String get recipeListServiceUnavailable;
+
+  /// No description provided for @recipeNoActiveShoppingLists.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
