@@ -1918,3 +1918,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get expensesEditTitle => 'Edit Expense';
 
   @override
+  String get expensesDeleteTooltip => 'Delete expense';
+
+  @override
+  String get expensesAmountLabel => 'Amount *';
+
+  @override
+  String get expensesNameDescriptionLabel => 'Name / Description';
+
+  @override
+  String get expensesNameDescriptionHint =>
+      'e.g. Grocery store, Rent, Pharmacy';
+
+  @override
+  String get expensesNotesHint => 'Additional details...';
+
+  @override
+  String get expensesRepeatExpense => 'Repeat expense';
+
+  @override
+  String get expensesRepeatFrequency => 'Repeat frequency';
+
+  @override
+  String get expensesCustomDaysHint => 'e.g. 4';
+
+  @override
+  String get expensesCustomDaysRequired =>
+      'Enter the number of days (between 1 and 365)';
+
+  @override
+  String get expensesCustomDaysInvalid =>
+      'Enter a valid number of days between 1 and 365';
+
+  @override
+  String budgetCategoryDialogTitle(String category) {
+    return 'Budget for $category';
+  }
+
+  @override
+  String get budgetCategoryLimitLabel => 'Limit * (e.g. 500.00)';
+
+  @override
+  String budgetTotalDialogTitle(String month) {
+    return 'Total Budget for $month';
+  }
+
+  @override
+  String get budgetBaseIncomeLabel => 'Recurring base income *';
+
+  @override
+  String get budgetBaseIncomeHint => 'e.g. 3000.00';
+
+  @override
+  String get budgetIncomeRequired => 'Enter at least one income';
+
+  @override
+  String get budgetExtraIncomeLabel => 'Additional one-off income in the month';
+
+  @override
+  String get budgetExtraIncomeHint => 'e.g. 500.00';
+
+  @override
+  String get budgetTotalSumLabel => 'Total budget sum:';
+
+  @override
+  String get budgetMonthTotalCardTitle => 'Total Monthly Budget';
+
+  @override
+  String get budgetEditIncomeTooltip => 'Edit income and budget';
+
+  @override
+  String get budgetNoCategories => 'No categories registered.';
+
+  @override
+  String get commonAdd => 'Add';
+
+  @override
+  String get checklistGenerateShoppingList => 'Generate shopping list';
+
+  @override
+  String get checklistNewItem => 'New item';
+
+  @override
+  String checklistLoadError(String error) {
+    return 'Error loading checklist: $error';
+  }
+
+  @override
+  String get checklistEmptyDescription => 'Add items or select another room.';
+
+  @override
+  String get checklistProgressTitle => 'Home progress';
+
+  @override
+  String checklistMarkedCount(int marked, int total) {
+    return '$marked of $total items checked';
+  }
+
+  @override
+  String checklistCreateListCount(int count) {
+    return 'Create list ($count)';
+  }
+
+  @override
+  String get checklistAddItemTitle => 'Add item to checklist';
+
+  @override
+  String get checklistItemLabel => 'Item *';
+
+  @override
+  String get checklistItemHint => 'e.g. Hand towel';
+
+  @override
+  String get checklistRoomLabel => 'Room / Category *';
+
+  @override
+  String get checklistRoomHint => 'e.g. Bathroom';
+
+  @override
+  String get checklistEditItemTitle => 'Edit item';
+
+  @override
+  String get checklistItemTitleLabel => 'Item title *';
+
+  @override
+  String get checklistDeleteItemTitle => 'Delete item?';
+
+  @override
+  String checklistDeleteItemBody(String title) {
+    return 'Remove \"$title\" from checklist?';
+  }
+
+  @override
+  String checklistDefaultListNameCategory(String category) {
+    return 'Home List - $category';
+  }
+
+  @override
+  String get checklistDefaultListName => 'Home List (Checklist)';
+
+  @override
+  String checklistExportBody(int count) {
+    return 'Create a shopping list with the $count pending checklist items.';
+  }
+
+  @override
+  String get checklistListNameLabel => 'List name *';
+
+  @override
+  String checklistListCreated(String name, int count) {
+    return 'List \"$name\" created with $count items!';
+  }
+
+  @override
+  String checklistListCreateError(String error) {
+    return 'Failed to create list: $error';
+  }
+
+  @override
+  String get checklistGenerateListButton => 'Generate list';
+
