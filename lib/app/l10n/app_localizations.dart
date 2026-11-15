@@ -2620,6 +2620,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Livro de receitas e ingredientes'**
   String get settingsRecipesSubtitle;
+
+  /// No description provided for @settingsStockTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Estoque'**
+  String get settingsStockTitle;
+
+  /// No description provided for @settingsStockSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Despensa e itens essenciais'**
+  String get settingsStockSubtitle;
+
+  /// No description provided for @settingsEconomySubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dicas e metas de economia'**
+  String get settingsEconomySubtitle;
+
+  /// No description provided for @settingsChecklistTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Checklist da 1ª Casa'**
+  String get settingsChecklistTitle;
+
+  /// No description provided for @settingsChecklistSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Itens essenciais para a casa nova'**
+  String get settingsChecklistSubtitle;
+
+  /// No description provided for @settingsSuggestionsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sugestões de Manutenção'**
+  String get settingsSuggestionsTitle;
+
+  /// No description provided for @settingsSuggestionsSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Catálogo de tarefas sugeridas para o lar'**
+  String get settingsSuggestionsSubtitle;
+
+  /// No description provided for @settingsProductsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Produtos e Sinônimos'**
+  String get settingsProductsTitle;
+
+  /// No description provided for @settingsProductsSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gerenciar catálogo de produtos'**
+  String get settingsProductsSubtitle;
+
+  /// No description provided for @settingsSectionPrivacy.
+  ///
+  /// In pt, this message translates to:
+  /// **'Privacidade, Segurança e Dados'**
+  String get settingsSectionPrivacy;
+
+  /// No description provided for @settingsDeleteReceiptPhotoTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Apagar foto do cupom após leitura'**
+  String get settingsDeleteReceiptPhotoTitle;
+
+  /// No description provided for @settingsDeleteReceiptPhotoSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir arquivo de imagem após processamento do OCR'**
+  String get settingsDeleteReceiptPhotoSubtitle;
+
+  /// No description provided for @settingsBackupSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar, importar e gerenciar dados'**
+  String get settingsBackupSubtitle;
+
+  /// No description provided for @settingsSectionHelp.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ajuda e Sobre'**
+  String get settingsSectionHelp;
+
+  /// No description provided for @settingsAboutTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sobre'**
+  String get settingsAboutTitle;
+
+  /// No description provided for @settingsAboutSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informações sobre o aplicativo'**
+  String get settingsAboutSubtitle;
+
+  /// No description provided for @backupMenuExportTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar Backup'**
+  String get backupMenuExportTitle;
+
+  /// No description provided for @backupMenuExportSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gere um arquivo criptografado com seus dados'**
+  String get backupMenuExportSubtitle;
+
+  /// No description provided for @backupMenuImportTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar Backup'**
+  String get backupMenuImportTitle;
+
+  /// No description provided for @backupMenuImportSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Restaurar ou mesclar dados de um arquivo de backup'**
+  String get backupMenuImportSubtitle;
+
+  /// No description provided for @backupMenuWipeSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir permanentemente todos os dados armazenados'**
+  String get backupMenuWipeSubtitle;
+
+  /// No description provided for @backupExportShareText.
+  ///
+  /// In pt, this message translates to:
+  /// **'Backup criptografado My Sweet Home'**
+  String get backupExportShareText;
+
+  /// No description provided for @backupExportEncryptedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar Dados Criptografados'**
+  String get backupExportEncryptedTitle;
+
+  /// No description provided for @backupExportEncryptedSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.'**
+  String get backupExportEncryptedSubtitle;
+
+  /// No description provided for @backupExportError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao gerar backup: {error}'**
+  String backupExportError(String error);
+
+  /// No description provided for @backupExportSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Backup gerado e exportado com sucesso!'**
+  String get backupExportSuccess;
+
+  /// No description provided for @backupExportCreateButton.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
