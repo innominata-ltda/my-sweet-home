@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/data/backup_service_provider.dart';
@@ -19,22 +20,26 @@ class ExportBackupScreen extends ConsumerWidget {
   final BackupService? backupService;
   final ShareBackupFile? shareBackup;
 
-  Future<void> _defaultShareBackup(String content, String fileName) async {
+  Future<void> _defaultShareBackup(
+    String content,
+    String fileName,
+    String shareText,
+  ) async {
     final dir = await getTemporaryDirectory();
     final file = File('${dir.path}/$fileName');
     await file.writeAsString(content);
     await SharePlus.instance.share(
-      ShareParams(
-        files: [XFile(file.path)],
-        text: 'Backup criptografado My Sweet Home',
-      ),
+      ShareParams(files: [XFile(file.path)], text: shareText),
     );
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return Scaffold(
-      appBar: AppBar(title: const Text('Exportar Dados')),
+      appBar: AppBar(title: Text(l10n.backupExportSection)),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -44,13 +49,13 @@ class ExportBackupScreen extends ConsumerWidget {
               const Icon(AppIcons.lockBackup, size: 64, color: Colors.blue),
               const SizedBox(height: 16),
               Text(
-                'Exportar Dados Criptografados',
+                l10n.backupExportEncryptedTitle,
                 style: Theme.of(context).textTheme.titleLarge
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.',
+              Text(
+                l10n.backupExportEncryptedSubtitle,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
@@ -60,7 +65,13 @@ class ExportBackupScreen extends ConsumerWidget {
                   final messenger = ScaffoldMessenger.of(context);
                   final BackupService service =
                       backupService ?? ref.read(backupServiceProvider);
-                  final share = shareBackup ?? _defaultShareBackup;
+                  final share =
+                      shareBackup ??
+                      (content, name) => _defaultShareBackup(
+                        content,
+                        name,
+                        l10n.backupExportShareText,
+                      );
 
                   showDialog<void>(
                     context: context,
@@ -76,7 +87,7 @@ class ExportBackupScreen extends ConsumerWidget {
                                 messenger.showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      'Erro ao gerar backup: $failure',
+                                      l10n.backupExportError('$failure'),
                                     ),
                                   ),
                                 );
@@ -86,10 +97,8 @@ class ExportBackupScreen extends ConsumerWidget {
                                   'my_sweet_home_backup.mshbackup',
                                 );
                                 messenger.showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Backup gerado e exportado com sucesso!',
-                                    ),
+                                  SnackBar(
+                                    content: Text(l10n.backupExportSuccess),
                                   ),
                                 );
                             }
@@ -98,7 +107,7 @@ class ExportBackupScreen extends ConsumerWidget {
                   );
                 },
                 icon: const Icon(AppIcons.fileExport),
-                label: const Text('Criar e Exportar Backup'),
+                label: Text(l10n.backupExportCreateButton),
               ),
             ],
           ),
