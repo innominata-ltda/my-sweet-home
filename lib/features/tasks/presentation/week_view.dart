@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/tasks/domain/models.dart';
 
@@ -109,7 +110,16 @@ class WeekView extends StatelessWidget {
                                   ),
                                   ListTile(
                                     leading: const Icon(AppIcons.edit),
-                                    title: const Text('Editar tarefa'),
+                                    title: Text(
+                                      (Localizations.of<AppLocalizations>(
+                                                context,
+                                                AppLocalizations,
+                                              ) ??
+                                              lookupAppLocalizations(
+                                                const Locale('pt'),
+                                              ))
+                                          .calendarEditTaskAction,
+                                    ),
                                     onTap: () {
                                       Navigator.of(ctx).pop();
                                       onEditTask?.call(task);
@@ -120,29 +130,48 @@ class WeekView extends StatelessWidget {
                                       AppIcons.delete,
                                       color: Colors.red,
                                     ),
-                                    title: const Text(
-                                      'Excluir tarefa',
-                                      style: TextStyle(color: Colors.red),
+                                    title: Text(
+                                      (Localizations.of<AppLocalizations>(
+                                                context,
+                                                AppLocalizations,
+                                              ) ??
+                                              lookupAppLocalizations(
+                                                const Locale('pt'),
+                                              ))
+                                          .calendarDeleteTaskAction,
+                                      style: const TextStyle(color: Colors.red),
                                     ),
                                     onTap: () async {
                                       Navigator.of(ctx).pop();
+                                      final l10n =
+                                          Localizations.of<AppLocalizations>(
+                                            context,
+                                            AppLocalizations,
+                                          ) ??
+                                          lookupAppLocalizations(
+                                            const Locale('pt'),
+                                          );
                                       final confirm = await showDialog<bool>(
                                         context: context,
                                         builder: (c) => AlertDialog(
-                                          title: const Text('Excluir tarefa?'),
+                                          title: Text(
+                                            l10n.calendarDeleteTaskTitle,
+                                          ),
                                           content: Text(
-                                            'Tem certeza de que deseja excluir "${task.title}"?',
+                                            l10n.calendarDeleteTaskConfirm(
+                                              task.title,
+                                            ),
                                           ),
                                           actions: [
                                             TextButton(
                                               onPressed: () =>
                                                   Navigator.of(c).pop(false),
-                                              child: const Text('Cancelar'),
+                                              child: Text(l10n.commonCancel),
                                             ),
                                             ElevatedButton(
                                               onPressed: () =>
                                                   Navigator.of(c).pop(true),
-                                              child: const Text('Excluir'),
+                                              child: Text(l10n.commonDelete),
                                             ),
                                           ],
                                         ),

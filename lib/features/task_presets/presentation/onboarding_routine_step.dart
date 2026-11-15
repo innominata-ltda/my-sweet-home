@@ -219,7 +219,7 @@ class _OnboardingRoutineStepState extends ConsumerState<OnboardingRoutineStep> {
                 FilledButton(
                   key: const Key('onboarding_routine_retry'),
                   onPressed: _loadData,
-                  child: const Text('Tentar novamente'),
+                  child: Text(l10n?.commonRetry ?? 'Tentar novamente'),
                 ),
               ],
             ),
