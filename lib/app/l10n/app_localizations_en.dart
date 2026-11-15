@@ -2078,3 +2078,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get checklistGenerateListButton => 'Generate list';
 
+  @override
+  String checklistCardSemantics(String title, String percent) {
+    return '$title, $percent% completed, tap to view details';
+  }
+
+  @override
+  String customizeVisibleCardsCount(int count) {
+    return 'Visible cards ($count)';
+  }
+
+  @override
+  String get customizeReorderHint =>
+      'Drag to reorder or use the accessible buttons.';
+
+  @override
+  String get customizeNoVisibleCards => 'No cards visible right now.';
+
+  @override
+  String get customizeAvailableModulesHint =>
+      'Modules available to add to your home screen.';
+
+  @override
+  String get customizeAllCardsVisible =>
+      'All cards are already visible on the dashboard.';
+
+  @override
+  String customizeDragSemantics(String title) {
+    return 'Drag $title to reorder';
+  }
+
+  @override
+  String customizeMoveUpSemantics(String title) {
+    return 'Move $title up';
+  }
+
+  @override
+  String customizeMoveDownSemantics(String title) {
+    return 'Move $title down';
+  }
+
+  @override
+  String customizeHideSemantics(String title) {
+    return 'Hide $title';
+  }
+
+  @override
+  String customizeAddSemantics(String title) {
+    return 'Add $title to dashboard';
+  }
+
+  @override
+  String get dueBillsWidgetSemantics => 'Due bills widget';
+
+  @override
+  String get dueBillsDefaultTitle => 'Due bills';
+
+  @override
+  String get dueBillsEmptyTitle => 'No bills due';
+
+  @override
+  String get dueBillsEmptyDescription =>
+      'All your bills this month are up to date.';
+
+  @override
+  String get dueBillsVariableAmount => 'Variable';
+
+  @override
+  String dueBillsItemSemanticsHidden(String title, String dueLabel) {
+    return '$title, $dueLabel, amount hidden';
+  }
+
+  @override
+  String dueBillsItemSemanticsVisible(
+    String title,
+    String dueLabel,
+    String amount,
+  ) {
+    return '$title, $dueLabel, amount $amount';
+  }
+
+  @override
+  String get dueBillsViewAll => 'View all bills';
+
+  @override
+  String get economySetGoalTitle => 'Set Savings Goal';
+
+  @override
+  String get economySetGoalFieldLabel => 'Monthly Savings Goal';
+
+  @override
+  String get economySaveGoalButton => 'Save Goal';
+
+  @override
+  String economyLoadError(String error) {
+    return 'Error loading data: $error';
+  }
+
+  @override
+  String economyMonthGoalTitle(String month) {
+    return 'Month Goal ($month)';
+  }
+
+  @override
+  String get economySetGoalFallback => 'Set savings goal';
+
+  @override
+  String economyCardSemantics(String title, String goalText) {
+    return '$title, $goalText, tap to view details';
+  }
+
+  @override
+  String get searchGlobalScreenTitle => 'Global Search';
+
+  @override
+  String get searchGlobalLabel => 'Search across the app';
+
+  @override
+  String get searchGlobalInputHint => 'Type products, expenses, tasks...';
+
+  @override
+  String get searchGlobalEmptyTitle => 'App search';
+
+  @override
+  String get searchGlobalEmptyDescription =>
+      'Search for products, expenses, tasks, recipes, and lists.';
+
+  @override
+  String get searchGlobalNoResultsTitle => 'No results';
+
+  @override
+  String searchGlobalNoResultsForQuery(String query) {
+    return 'Nothing found for \"$query\". Try another term.';
+  }
+
+  @override
+  String monthBalanceLoadError(String error) {
+    return 'Error loading month balance: $error';
+  }
+
+  @override
+  String get monthBalanceNotSet => 'Not set';
+
+  @override
+  String get monthBalanceSemanticsHidden =>
+      'Month balance widget, amount hidden';
+
+  @override
+  String monthBalanceSemanticsVisible(String actual, String budget) {
+    return 'Month balance widget, spent $actual of $budget';
+  }
+
+  @override
+  String get monthBalanceDefaultTitle => 'Month balance';
+
+  @override
+  String get monthBalanceSpentLabel => 'Spent this month';
+
+  @override
+  String monthBalanceBudgetedLabel(String budget) {
+    return 'Budgeted: $budget';
