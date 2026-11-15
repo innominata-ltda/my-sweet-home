@@ -2078,3 +2078,145 @@
   "@householdUnexpectedErrorWithDetail": {
     "placeholders": {
       "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHouseNameLabel": "Household name",
+  "householdCreatingProgress": "Creating household and preparing data...",
+  "householdCreateShortButton": "Create",
+  "householdErrorUnknown": "Unknown error.",
+  "householdErrorStorageDetail": "Could not save or load data. Please try again.",
+  "householdErrorStorageAccess": "Could not access storage.",
+  "householdErrorNoInternet": "No internet connection.",
+  "householdErrorNetwork": "Network communication failure.",
+  "householdErrorPermissionRequired": "Permission required: {permission}.",
+  "@householdErrorPermissionRequired": {
+    "placeholders": {
+      "permission": {
+        "type": "String"
+      }
+    }
+  },
+  "householdErrorCancelled": "Operation cancelled.",
+  "householdErrorGeneric": "An unexpected error occurred.",
+  "householdTutorialWelcomeTitle": "Welcome to Shared Household!",
+  "householdTutorialWelcomeBody": "Here you share shopping lists, tasks, stock, recipes, and finances with the people you live with, without creating a server account and with end-to-end encryption.",
+  "householdTutorialPairingTitle": "Secure pairing with QR Code and 6 digits",
+  "householdTutorialPairingBody": "The new device scans the QR Code with its camera (or uses the invite link) and both confirm the same 6-digit authentication code.",
+  "householdTutorialWifiTitle": "Wi-Fi and Bundle Sync",
+  "householdTutorialWifiBody": "When devices are on the same Wi-Fi with the app open, changes sync directly on the local network. You can also tap \"Generate bundle\" to send updates via any messaging app.",
+  "householdTutorialCloudTitle": "Away-from-home Sync (Cloud)",
+  "householdTutorialCloudBody": "When you're not on the same Wi-Fi (e.g., someone at the grocery store), the app can use an encrypted mailbox in your cloud to deliver changes securely.",
+  "householdTutorialCloseTooltip": "Close tutorial",
+  "householdTutorialRemoteQuestion": "Do you want to enable remote sync now?",
+  "householdTutorialRemoteYesTitle": "Yes, enable remote sync",
+  "householdTutorialRemoteYesSubtitle": "Syncs outside Wi-Fi with end-to-end encryption",
+  "householdTutorialRemoteNoTitle": "No, use local Wi-Fi and bundles only",
+  "householdTutorialRemoteNoSubtitle": "You can enable it later inside the Shared Household screen",
+  "householdTutorialPrevious": "Previous",
+  "householdTutorialFinish": "Finish",
+  "householdTutorialNext": "Next",
+  "householdJoinPreviewError": "Failed to load preview: {error}",
+  "@householdJoinPreviewError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewMergeInfo": "When joining the household, your local data will be merged with the household's data. None of your data will be deleted or duplicated.",
+  "householdJoinPreviewSasLabel": "Authentication code (6 digits):",
+  "householdJoinPreviewSasHint": "Verify that this code matches the one displayed on the other device.",
+  "householdJoinPreviewFinanceLabel": "Finances (expenses, bills):",
+  "householdJoinPreviewProductsLabel": "Product catalog:",
+  "householdJoinPreviewBackupNotice": "An automatic safety backup will be created before joining.",
+  "householdJoinPreviewDeviceNameLabel": "Name of this device in the household",
+  "householdJoinPreviewDeviceNameHint": "E.g.: Alex's Phone",
+  "householdJoinPreviewJoining": "Joining...",
+  "householdJoinPreviewJoinButton": "Join household",
+  "householdLeaveDeleteConfirmTitle": "Confirm data deletion",
+  "householdLeaveDeleteIrreversible": "This action cannot be undone.",
+  "householdLeaveDeleteAndExit": "Delete and leave",
+  "householdLeaveDialogTitle": "Leave shared household",
+  "householdLeaveDialogBody": "When leaving the household, this device will no longer receive or send sync updates.",
+  "householdLeaveKeepLocalTitle": "Keep a local copy (recommended)",
+  "householdLeaveKeepLocalSubtitle": "You keep all expenses and tasks created so far.",
+  "householdQrCloseTooltip": "Close camera",
+  "householdQrScanPrompt": "Point the camera at the QR Code displayed on the other device.",
+  "householdQrCameraUnavailable": "Camera unavailable on this device/emulator.\nUse the option to paste the invite link.",
+  "householdQrManualEntry": "Type or paste code manually",
+  "householdBundleAlreadyApplied": "This bundle has already been applied",
+  "householdBundleAppliedSuccess": "Bundle applied successfully!",
+  "householdBundleImportTitle": "Import .mshsync bundle",
+  "householdBundleContentLabel": "Bundle content or path",
+  "householdBundleContentHint": "Paste the .mshsync file data",
+  "householdBundleImportAction": "Import",
+  "householdBundleShareTitle": "Sync bundle",
+  "householdBundleShareDescription": "Generate an encrypted file with this device's changes to send via WhatsApp, Telegram, or email.",
+  "householdBundleShareAction": "Share",
+  "householdBundleGeneratedSuccess": "Bundle generated successfully! ({bytes} bytes)",
+  "@householdBundleGeneratedSuccess": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "householdQrScanTitle": "Scan household QR Code",
+  "householdLeaveDeleteConfirmBody": "Are you sure you want to delete all shared household data on this device?\n\nThis action cannot be undone.",
+  "householdLeaveWipeSubtitle": "Removes shared expenses, bills, and tasks from this device.",
+  "householdTutorialStepOf": "Step {current} of {total}",
+  "@householdTutorialStepOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "householdJoinPreviewEmptyDeviceError": "Enter the device name",
+  "householdJoinPreviewTitle": "Join \"{name}\"",
+  "@householdJoinPreviewTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewLocalRecordsTitle": "Local records to merge:",
+  "householdJoinPreviewHomeLabel": "Home (lists, tasks, recipes):",
+  "householdSyncBothSuffix": " ({sent} sent, {applied} applied).",
+  "@householdSyncBothSuffix": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncPeersCompleted": "Synced with {peers} device(s){summary}",
+  "@householdSyncPeersCompleted": {
+    "placeholders": {
+      "peers": {
+        "type": "int"
+      },
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncNoPeersFound": "No other devices found on the local network right now.",
+  "householdLoadError": "Error loading household data: {error}",
+  "@householdLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
+}
