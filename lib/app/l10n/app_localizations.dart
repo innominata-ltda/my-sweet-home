@@ -2460,6 +2460,166 @@ abstract class AppLocalizations {
   String get aboutTitle;
 
   /// No description provided for @aboutVersionLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Versão '**
+  String get aboutVersionLabel;
+
+  /// No description provided for @aboutUpToDate.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você já está na versão mais recente.'**
+  String get aboutUpToDate;
+
+  /// No description provided for @aboutUpdateCheckFailed.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível verificar atualizações no momento.'**
+  String get aboutUpdateCheckFailed;
+
+  /// No description provided for @aboutLicensesTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Licenças de código aberto'**
+  String get aboutLicensesTitle;
+
+  /// No description provided for @aboutLicensesSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Licenças de pacotes e dependências'**
+  String get aboutLicensesSubtitle;
+
+  /// No description provided for @aboutAttributionsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atribuições'**
+  String get aboutAttributionsTitle;
+
+  /// No description provided for @aboutAttributionsSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Atribuições de ativos e terceiros'**
+  String get aboutAttributionsSubtitle;
+
+  /// No description provided for @aboutGithubTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código-fonte no GitHub'**
+  String get aboutGithubTitle;
+
+  /// No description provided for @aboutGithubCopied.
+  ///
+  /// In pt, this message translates to:
+  /// **'Link do GitHub copiado para a área de transferência.'**
+  String get aboutGithubCopied;
+
+  /// No description provided for @aboutDocsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Documentação e privacidade'**
+  String get aboutDocsTitle;
+
+  /// No description provided for @aboutDocsCopied.
+  ///
+  /// In pt, this message translates to:
+  /// **'Link da documentação copiado para a área de transferência.'**
+  String get aboutDocsCopied;
+
+  /// No description provided for @aboutCheckUpdatesTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Verificar atualizações'**
+  String get aboutCheckUpdatesTitle;
+
+  /// No description provided for @aboutCheckUpdatesSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Buscar novas versões na loja de aplicativos'**
+  String get aboutCheckUpdatesSubtitle;
+
+  /// No description provided for @aboutCheckUpdatesPlayStoreOnly.
+  ///
+  /// In pt, this message translates to:
+  /// **'Disponível apenas para instalações feitas pela Google Play'**
+  String get aboutCheckUpdatesPlayStoreOnly;
+
+  /// No description provided for @aboutAttributionsError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar atribuições: {error}'**
+  String aboutAttributionsError(String error);
+
+  /// No description provided for @settingsSectionAppearance.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aparência e Experiência'**
+  String get settingsSectionAppearance;
+
+  /// No description provided for @settingsMascotShortSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Animal, paleta de cor e acessório'**
+  String get settingsMascotShortSubtitle;
+
+  /// No description provided for @settingsVisualEffectsTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Efeitos visuais e partículas'**
+  String get settingsVisualEffectsTitle;
+
+  /// No description provided for @settingsVisualEffectsSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Partículas, confetes e animações contínuas'**
+  String get settingsVisualEffectsSubtitle;
+
+  /// No description provided for @settingsLanguageTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Idioma do aplicativo'**
+  String get settingsLanguageTitle;
+
+  /// No description provided for @settingsLanguageSystem.
+  ///
+  /// In pt, this message translates to:
+  /// **'Automático (sistema)'**
+  String get settingsLanguageSystem;
+
+  /// No description provided for @settingsLanguageSystemSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Segue o idioma configurado no aparelho'**
+  String get settingsLanguageSystemSubtitle;
+
+  /// No description provided for @settingsOcrFormatTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Modelo de nota fiscal (OCR)'**
+  String get settingsOcrFormatTitle;
+
+  /// No description provided for @settingsOcrFormatAuto.
+  ///
+  /// In pt, this message translates to:
+  /// **'Automático (melhor modelo)'**
+  String get settingsOcrFormatAuto;
+
+  /// No description provided for @settingsOcrFormatAutoSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Seleciona automaticamente o formato com maior pontuação'**
+  String get settingsOcrFormatAutoSubtitle;
+
+  /// No description provided for @settingsSectionModules.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sua Casa e Módulos'**
+  String get settingsSectionModules;
+
+  /// No description provided for @settingsRecipesSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Livro de receitas e ingredientes'**
+  String get settingsRecipesSubtitle;
 }
 
 class _AppLocalizationsDelegate
