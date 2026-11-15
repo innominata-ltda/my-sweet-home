@@ -4540,6 +4540,166 @@ abstract class AppLocalizations {
   String get calendarBillPendingStatus;
 
   /// No description provided for @calendarDeleteTaskTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir tarefa?'**
+  String get calendarDeleteTaskTitle;
+
+  /// No description provided for @calendarDeleteTaskConfirm.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir \"{title}\"?'**
+  String calendarDeleteTaskConfirm(String title);
+
+  /// No description provided for @commonEdit.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar'**
+  String get commonEdit;
+
+  /// No description provided for @taskAllDayLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dia inteiro'**
+  String get taskAllDayLabel;
+
+  /// No description provided for @taskRepeatLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Repetição'**
+  String get taskRepeatLabel;
+
+  /// No description provided for @taskRepeatNone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sem repetição'**
+  String get taskRepeatNone;
+
+  /// No description provided for @calendarEditTaskAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar tarefa'**
+  String get calendarEditTaskAction;
+
+  /// No description provided for @calendarDeleteTaskAction.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir tarefa'**
+  String get calendarDeleteTaskAction;
+
+  /// No description provided for @priceSearchProductLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pesquisar produto'**
+  String get priceSearchProductLabel;
+
+  /// No description provided for @priceSearchProductHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digite para buscar um produto...'**
+  String get priceSearchProductHint;
+
+  /// No description provided for @priceClearSearchTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Limpar busca'**
+  String get priceClearSearchTooltip;
+
+  /// No description provided for @purchaseSaveTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar compra'**
+  String get purchaseSaveTooltip;
+
+  /// No description provided for @purchaseNewProductTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Novo produto'**
+  String get purchaseNewProductTooltip;
+
+  /// No description provided for @purchaseRemoveItemTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover item'**
+  String get purchaseRemoveItemTooltip;
+
+  /// No description provided for @purchasesHistoryTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compras e Notas Fiscais'**
+  String get purchasesHistoryTitle;
+
+  /// No description provided for @purchasesPriceHistoryTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Histórico de Preços'**
+  String get purchasesPriceHistoryTooltip;
+
+  /// No description provided for @purchasesLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar compras: {error}'**
+  String purchasesLoadError(String error);
+
+  /// No description provided for @purchasesEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma compra registrada'**
+  String get purchasesEmptyTitle;
+
+  /// No description provided for @purchasesRegisterButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Registrar Compra'**
+  String get purchasesRegisterButton;
+
+  /// No description provided for @purchasesDeleteTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir compra'**
+  String get purchasesDeleteTooltip;
+
+  /// No description provided for @purchasesNewTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova Compra'**
+  String get purchasesNewTooltip;
+
+  /// No description provided for @purchasesDeleteDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir compra?'**
+  String get purchasesDeleteDialogTitle;
+
+  /// No description provided for @purchasesDeleteDialogBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Esta compra e seus pontos de preço serão excluídos.'**
+  String get purchasesDeleteDialogBody;
+
+  /// No description provided for @purchasesDeleteSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Compra excluída com sucesso'**
+  String get purchasesDeleteSuccess;
+
+  /// No description provided for @purchasesDeleteError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao excluir compra'**
+  String get purchasesDeleteError;
+
+  /// No description provided for @purchasesTotalLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Total'**
+  String get purchasesTotalLabel;
+
+  /// No description provided for @purchasesDiscountLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desconto'**
+  String get purchasesDiscountLabel;
 }
 
 class _AppLocalizationsDelegate
