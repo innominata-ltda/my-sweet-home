@@ -6,5 +6,5 @@ Com o My Sweet Home você tem controle total sobre suas finanças, compras e afa
 • Histórico de Preços e Mercado: Compare preços entre estabelecimentos e saiba onde comprar mais barato.
 • Tarefas e Rotina: Organize a limpeza, manutenção e afazeres domésticos com lembretes locais e calendário integrado.
 • Lista de Compras e Despensa: Planeje compras com base nas receitas e nos itens que faltam em casa.
-• 100% Gratuito e Sem Anúncios: Sem assinaturas, sem banners e sem rastreamento de dados.
+• Compra Única Simbólica e Sem Anúncios: Sem assinaturas, sem compras no app, sem banners e sem rastreamento de dados. Código aberto sob licença MIT.
 • Offline-first: Seus dados pertencem a você e ficam armazenados com segurança no seu dispositivo.

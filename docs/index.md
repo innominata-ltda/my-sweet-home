@@ -1,11 +1,11 @@
 # My Sweet Home
 
-**My Sweet Home** is a 100% free, ad-free, offline-first Flutter application built for people managing a home on their own or sharing a **Household** with family and roommates.
+**My Sweet Home** is an ad-free, subscription-free, offline-first Flutter application built for people managing a home on their own or sharing a **Household** with family and roommates.
 
 ## Core Principles
 
 - **Offline-first & private**: All personal data is stored locally in an encrypted SQLite database (`Vault` + Drift). No mandatory cloud account, no ads, and no telemetry.
-- **Zero-cost & open source**: Released under the MIT License (`assets/seed/` under CC BY 4.0) with full source transparency on [GitHub](https://github.com/innominata-ltda/my-sweet-home).
+- **Open source + sustainable store listing**: Released under the MIT License (`assets/seed/` under CC BY 4.0) with free source code and signed APKs on [GitHub](https://github.com/innominata-ltda/my-sweet-home), plus a symbolic one-time purchase on Google Play to support store fees and ongoing maintenance.
 - **Deterministic & tested**: Clean Architecture with Ports & Adapters, deterministic fakes, and a strict quality gate (`make check`).
 
 ## What You Can Manage
