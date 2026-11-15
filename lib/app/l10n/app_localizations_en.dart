@@ -1278,3 +1278,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recoveryKeyUnavailableTitle => 'Security key unavailable';
 
   @override
+  String get recoveryConversionFailedTitle => 'Security conversion failed';
+
+  @override
+  String get recoveryKeyUnavailableBody =>
+      'Could not access the security key on this device. To protect your data, no empty database was created.\n\nYou can restore a previous backup or start from scratch.';
+
+  @override
+  String get recoveryConversionFailedBody =>
+      'Converting the existing database to encrypted format failed, but your data remains intact in the original database.\n\nWe recommend exporting a backup before continuing.';
+
+  @override
+  String get recoveryImportBackup => 'Import backup';
+
+  @override
+  String get recoveryStartFromScratch => 'Start from scratch';
+
+  @override
+  String get recoveryExportBackup => 'Export backup';
+
+  @override
+  String get recoveryContinuePlaintextSemantics =>
+      'Continue in original format';
+
+  @override
+  String get celebrationDefaultTitle => 'Congratulations!';
+
+  @override
+  String get celebrationDefaultMessage =>
+      'You completed everything successfully! 💕';
+
+  @override
+  String get celebrationMascotSemantics =>
+      'Happy Momo celebrating your achievement';
+
+  @override
+  String get mascotNameFieldSemantics => 'Field to change the mascot\'s name';
+
+  @override
+  String mascotNameBlankHelper(String name) {
+    return 'If left blank, we\'ll use \"$name\" 💕';
+  }
+
+  @override
+  String mascotPreviewSemantics(String name, String palette) {
+    return 'Preview of mascot $name in $palette palette';
+  }
+
+  @override
+  String get splashInitError => 'Oops! Something went wrong during startup.';
+
+  @override
+  String get onboardingOpenSourceBadge =>
+      'Open source, ad-free, and with data saved only on your device';
+
+  @override
+  String get onboardingFirstHomeTitle => 'Setting up your new home?';
+
+  @override
+  String get onboardingFirstHomeDescription =>
+      'If you just moved or are organizing your place for the first time, I can activate a special checklist with essential items to get started!';
+
+  @override
+  String get onboardingFirstHomeEnable => 'Yes, enable first home checklist';
+
+  @override
+  String get onboardingFirstHomeSkip => 'I have everything / Skip';
+
+  @override
+  String onboardingPageIndicatorSemantics(int current, int total) {
+    return 'Page $current of $total';
+  }
+
+  @override
+  String get aboutTitle => 'About My Sweet Home';
+
+  @override
+  String get aboutVersionLabel => 'Version ';
+
+  @override
+  String get aboutUpToDate => 'You are already on the latest version.';
+
+  @override
+  String get aboutUpdateCheckFailed => 'Could not check for updates right now.';
+
+  @override
+  String get aboutLicensesTitle => 'Open-source licenses';
+
+  @override
+  String get aboutLicensesSubtitle => 'Package and dependency licenses';
+
+  @override
+  String get aboutAttributionsTitle => 'Attributions';
+
+  @override
+  String get aboutAttributionsSubtitle => 'Asset and third-party attributions';
+
+  @override
+  String get aboutGithubTitle => 'Source code on GitHub';
+
+  @override
+  String get aboutGithubCopied => 'GitHub link copied to clipboard.';
+
+  @override
+  String get aboutDocsTitle => 'Documentation and privacy';
+
+  @override
+  String get aboutDocsCopied => 'Documentation link copied to clipboard.';
+
+  @override
+  String get aboutCheckUpdatesTitle => 'Check for updates';
+
+  @override
+  String get aboutCheckUpdatesSubtitle =>
+      'Search for new versions in the app store';
+
+  @override
+  String get aboutCheckUpdatesPlayStoreOnly =>
+      'Available only for Google Play installations';
+
+  @override
+  String aboutAttributionsError(String error) {
+    return 'Error loading attributions: $error';
+  }
+
+  @override
+  String get settingsSectionAppearance => 'Appearance & Experience';
+
+  @override
+  String get settingsMascotShortSubtitle =>
+      'Animal, color palette, and accessory';
+
+  @override
+  String get settingsVisualEffectsTitle => 'Visual effects and particles';
+
+  @override
+  String get settingsVisualEffectsSubtitle =>
+      'Particles, confetti, and continuous animations';
+
+  @override
+  String get settingsLanguageTitle => 'App language';
+
+  @override
+  String get settingsLanguageSystem => 'Automatic (system)';
+
+  @override
+  String get settingsLanguageSystemSubtitle =>
+      'Follows the language set on your device';
+
+  @override
+  String get settingsOcrFormatTitle => 'Receipt model (OCR)';
+
+  @override
+  String get settingsOcrFormatAuto => 'Automatic (best model)';
+
+  @override
+  String get settingsOcrFormatAutoSubtitle =>
+      'Automatically selects the highest-scoring format';
+
+  @override
+  String get settingsSectionModules => 'Your Home & Modules';
