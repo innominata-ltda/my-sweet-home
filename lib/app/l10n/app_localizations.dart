@@ -2300,6 +2300,166 @@ abstract class AppLocalizations {
   /// No description provided for @recoveryResetFinalTitle.
   ///
   /// In pt, this message translates to:
+  /// **'Confirmação definitiva'**
+  String get recoveryResetFinalTitle;
+
+  /// No description provided for @recoveryResetFinalBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Esta ação é irreversível. Tem certeza absoluta que deseja apagar todos os dados e recomeçar?'**
+  String get recoveryResetFinalBody;
+
+  /// No description provided for @recoveryResetFinalConfirm.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar e apagar'**
+  String get recoveryResetFinalConfirm;
+
+  /// No description provided for @recoveryKeyUnavailableAppBar.
+  ///
+  /// In pt, this message translates to:
+  /// **'Chave do banco inacessível'**
+  String get recoveryKeyUnavailableAppBar;
+
+  /// No description provided for @recoverySecurityFailureAppBar.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha na segurança do banco'**
+  String get recoverySecurityFailureAppBar;
+
+  /// No description provided for @recoveryKeyUnavailableTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Chave de segurança inacessível'**
+  String get recoveryKeyUnavailableTitle;
+
+  /// No description provided for @recoveryConversionFailedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Conversão de segurança falhou'**
+  String get recoveryConversionFailedTitle;
+
+  /// No description provided for @recoveryKeyUnavailableBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível acessar a chave de segurança no dispositivo. Para proteger seus dados, nenhum banco vazio foi criado.\n\nVocê pode restaurar um backup anterior ou recomeçar do zero.'**
+  String get recoveryKeyUnavailableBody;
+
+  /// No description provided for @recoveryConversionFailedBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'A conversão do banco existente para o formato cifrado falhou, mas seus dados continuam intactos no banco original.\n\nRecomendamos exportar um backup antes de prosseguir.'**
+  String get recoveryConversionFailedBody;
+
+  /// No description provided for @recoveryImportBackup.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar backup'**
+  String get recoveryImportBackup;
+
+  /// No description provided for @recoveryStartFromScratch.
+  ///
+  /// In pt, this message translates to:
+  /// **'Recomeçar do zero'**
+  String get recoveryStartFromScratch;
+
+  /// No description provided for @recoveryExportBackup.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar backup'**
+  String get recoveryExportBackup;
+
+  /// No description provided for @recoveryContinuePlaintextSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Continuar no formato original'**
+  String get recoveryContinuePlaintextSemantics;
+
+  /// No description provided for @celebrationDefaultTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Parabéns!'**
+  String get celebrationDefaultTitle;
+
+  /// No description provided for @celebrationDefaultMessage.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você concluiu tudo com sucesso! 💕'**
+  String get celebrationDefaultMessage;
+
+  /// No description provided for @celebrationMascotSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Momo alegre celebrando sua conquista'**
+  String get celebrationMascotSemantics;
+
+  /// No description provided for @mascotNameFieldSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Campo para alterar o nome da mascote'**
+  String get mascotNameFieldSemantics;
+
+  /// No description provided for @mascotNameBlankHelper.
+  ///
+  /// In pt, this message translates to:
+  /// **'Se deixar em branco, usaremos \"{name}\" 💕'**
+  String mascotNameBlankHelper(String name);
+
+  /// No description provided for @mascotPreviewSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pré-visualização da mascote {name} na paleta {palette}'**
+  String mascotPreviewSemantics(String name, String palette);
+
+  /// No description provided for @splashInitError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ops! Ocorreu uma instabilidade na inicialização.'**
+  String get splashInitError;
+
+  /// No description provided for @onboardingOpenSourceBadge.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código aberto, sem anúncios e com dados salvos apenas no seu aparelho'**
+  String get onboardingOpenSourceBadge;
+
+  /// No description provided for @onboardingFirstHomeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Está montando sua casa nova?'**
+  String get onboardingFirstHomeTitle;
+
+  /// No description provided for @onboardingFirstHomeDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Se você acabou de se mudar ou está organizando seu cantinho pela primeira vez, posso ativar um checklist especial com itens essenciais no seu início!'**
+  String get onboardingFirstHomeDescription;
+
+  /// No description provided for @onboardingFirstHomeEnable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sim, ativar checklist da primeira casa'**
+  String get onboardingFirstHomeEnable;
+
+  /// No description provided for @onboardingFirstHomeSkip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Já tenho tudo / Pular'**
+  String get onboardingFirstHomeSkip;
+
+  /// No description provided for @onboardingPageIndicatorSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Página {current} de {total}'**
+  String onboardingPageIndicatorSemantics(int current, int total);
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sobre o My Sweet Home'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutVersionLabel.
 }
 
 class _AppLocalizationsDelegate
