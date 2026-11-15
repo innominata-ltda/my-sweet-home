@@ -2776,4 +2776,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get recipeDraftTitleRequiredError => 'O título é obrigatório.';
+
+  @override
+  String get recipeDraftIngredientsRequiredError =>
+      'Adicione pelo menos um ingrediente.';
+
+  @override
+  String recipeDraftSaveError(String error) {
+    return 'Falha ao salvar receita: $error';
+  }
+
+  @override
+  String get recipePasteTitle => 'Colar receita';
+
+  @override
+  String get recipePasteHint =>
+      'Cole a receita aqui (título, ingredientes, modo de preparo)...';
+
+  @override
+  String get recipeImportButton => 'Importar';
+
+  @override
+  String get recipeIngredientNameLabel => 'Nome do ingrediente';
+
+  @override
+  String get recipeIngredientNameHint => 'Ex: 2 xícaras de farinha';
+
+  @override
+  String get recipeTagNameLabel => 'Nome da tag';
+
+  @override
+  String get recipeTagNameHint => 'Ex: Sobremesa, Rápido, Vegano';
+
+  @override
+  String get recipeSaveTooltip => 'Salvar receita';
+
+  @override
+  String recipeRemoveIngredientSemantics(String name) {
+    return 'Remover ingrediente $name';
+  }
+
+  @override
+  String get recipeRemoveIngredientTooltip => 'Remover ingrediente';
+
+  @override
+  String get recipeAddPhotoButton => 'Adicionar foto';
+
+  @override
+  String get recipePhotoAttached => 'Foto anexada à receita.';
+
+  @override
+  String recipeSpinDecrease(String label) {
+    return 'Diminuir $label';
+  }
+
+  @override
+  String recipeSpinIncrease(String label) {
+    return 'Aumentar $label';
+  }
+
+  @override
+  String recipeListTimeAndServings(int minutes, int servings) {
+    return '$minutes min • $servings porções';
+  }
+
+  @override
+  String get recipeUnfavoriteTooltip => 'Desmarcar favorito';
+
+  @override
+  String get recipeFavoriteTooltip => 'Marcar como favorito';
+
+  @override
+  String get recipeRepoUnavailable => 'Repositório de receitas não disponível';
+
+  @override
+  String get recipeNotFound => 'Receita não encontrada';
+
+  @override
+  String get recipeNoInstructions => 'Sem instruções cadastradas.';
+
+  @override
+  String get ocrScanReceiptTitle => 'Escanear nota fiscal';
+
+  @override
+  String get ocrDisableFlashTooltip => 'Desativar flash';
+
+  @override
+  String get ocrEnableFlashTooltip => 'Ativar flash';
+
+  @override
+  String get ocrBenchmarkTooltip => 'Benchmark de Precisão OCR';
+
+  @override
+  String get ocrGalleryTooltip => 'Escolher foto da galeria';
+
+  @override
+  String get ocrGalleryLabel => 'Galeria';
+
+  @override
+  String get ocrTakePhotoSemantics => 'Tirar foto da nota fiscal';
+
+  @override
+  String get ocrManualEntryTooltip => 'Lançar manualmente';
+
+  @override
+  String get ocrReceiptSavedSuccess => 'Nota Fiscal salva com sucesso!';
+
+  @override
+  String ocrReceiptSaveError(String error) {
+    return 'Erro ao salvar nota: $error';
+  }
+
+  @override
+  String get ocrRecognizeError => 'Falha ao reconhecer nota fiscal.';
+
+  @override
+  String get ocrTotalDivergenceTitle => 'Divergência no total';
+
+  @override
+  String ocrTotalDivergenceBody(
+    String itemsSum,
+    String total,
+    String divergence,
+  ) {
+    return 'A soma dos itens selecionados ($itemsSum) difere do total lido ($total).\n\nDivergência de $divergence. Deseja salvar assim mesmo?';
+  }
+
+  @override
+  String get ocrWriteOffTitle => 'Baixar itens da lista de compras';
+
+  @override
+  String ocrWriteOffSingleConfirm(String listName) {
+    return 'Deseja dar baixa nos itens desta compra na lista de compras \"$listName\"?';
+  }
+
+  @override
+  String get commonNo => 'Não';
+
+  @override
+  String get ocrWriteOffYes => 'Sim, dar baixa';
+
+  @override
+  String get ocrWriteOffSelectPrompt =>
+      'Selecione a lista de compras para dar baixa nos itens comprados:';
+
+  @override
+  String get ocrSaveWithoutWriteOff => 'Salvar sem baixa';
+
+  @override
+  String get ocrWriteOffButton => 'Dar baixa';
+
+  @override
+  String ocrCouponItemsHeader(int selected, int total) {
+    return 'Itens do cupom ($selected/$total)';
+  }
+
+  @override
+  String get ocrAddItemButton => 'Adicionar item';
+
+  @override
+  String get ocrNoItemsPlaceholder => 'Nenhum item. Toque em Adicionar item.';
 }
