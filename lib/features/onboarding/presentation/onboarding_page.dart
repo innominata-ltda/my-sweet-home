@@ -245,7 +245,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                           const SizedBox(width: Spacing.sm),
                           Flexible(
                             child: Text(
-                              '100% gratuito, de código aberto e com dados salvos apenas no seu aparelho',
+                              'Código aberto, sem anúncios e com dados salvos apenas no seu aparelho',
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: theme.colorScheme.onSecondaryContainer,
                                 fontWeight: FontWeight.w600,
