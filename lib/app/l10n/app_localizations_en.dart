@@ -2238,3 +2238,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String monthBalanceBudgetedLabel(String budget) {
     return 'Budgeted: $budget';
+  }
+
+  @override
+  String get monthBalanceViewDetails => 'View financial summary';
+
+  @override
+  String recipesCardSemantics(String title, int count) {
+    return '$title, $count favorite recipes, tap to view details';
+  }
+
+  @override
+  String get shoppingWidgetSemantics => 'Shopping lists widget';
+
+  @override
+  String get shoppingWidgetEmptyTitle => 'No shopping lists';
+
+  @override
+  String get shoppingWidgetEmptyDescription =>
+      'Create a list to track your shopping.';
+
+  @override
+  String get shoppingWidgetOnePending => '1 pending item';
+
+  @override
+  String shoppingWidgetPendingOfTotal(int pending, int total) {
+    return '$pending of $total items pending';
+  }
+
+  @override
+  String get shoppingWidgetViewAll => 'View all lists';
+
+  @override
+  String stockCardSemantics(String title) {
+    return '$title, tap to view details';
+  }
+
+  @override
+  String get stockCardEmpty => 'No products tracked in stock.';
+
+  @override
+  String stockCardCount(int count) {
+    return '$count product(s) in home stock';
+  }
+
+  @override
+  String get stockRegisterTitle => 'Add to Stock';
+
+  @override
+  String get stockProductNameLabel => 'Product Name *';
+
+  @override
+  String get stockProductNameHint => 'e.g. White Rice';
+
+  @override
+  String get stockApproxQuantityLabel => 'Approximate quantity *';
+
+  @override
+  String get stockApproxQuantityHint => 'e.g. 4';
+
+  @override
+  String get stockAddProductButton => 'Add product';
+
+  @override
+  String stockLoadError(String error) {
+    return 'Error loading stock: $error';
+  }
+
+  @override
+  String get stockEmptyTitle => 'Empty stock';
+
+  @override
+  String get stockEmptyDescription => 'No products registered in home stock.';
+
+  @override
+  String stockNoEstimate(int count) {
+    return 'No consumption estimate (purchases in history: $count, minimum: 3)';
+  }
+
+  @override
+  String stockAvgInterval(String days) {
+    return 'Average purchase interval: $days days';
+  }
+
+  @override
+  String stockEstimatedRemaining(int days) {
+    return 'Estimated remaining: ~$days days';
+  }
+
+  @override
+  String get todayTasksWidgetSemantics => 'Today\'s tasks widget';
+
+  @override
+  String get todayTasksDefaultTitle => 'Today\'s tasks';
+
+  @override
+  String get todayTasksEmptyTitle => 'No tasks for today';
+
+  @override
+  String get todayTasksEmptyDescription =>
+      'You have no tasks scheduled for today.';
+
+  @override
+  String get todayTasksDoneStatus => 'done';
+
+  @override
+  String get todayTasksPendingStatus => 'pending';
+
+  @override
+  String get todayTasksAllDoneMessage => 'All of today\'s tasks are done! 🎉';
+
+  @override
+  String get todayTasksViewAll => 'View all tasks';
+
+  @override
+  String get commonAll => 'All';
+
+  @override
+  String get economyNoGoalSet => 'No goal set';
+
+  @override
+  String get economyChangeGoalButton => 'Change Goal';
+
+  @override
+  String get economyGoalProgressTitle => 'Goal Progress';
+
+  @override
+  String get economyContextualTipsTitle => 'Contextual Tips';
+
+  @override
+  String stockProductFallback(String id) {
+    return 'Product: $id';
+  }
+
+  @override
+  String stockReportedQuantity(String quantity, String unit) {
+    return 'Reported quantity: $quantity $unit';
+  }
+
+  @override
+  String dueBillsWidgetLoadError(String error) {
+    return 'Error loading due bills: $error';
+  }
+
+  @override
+  String get shoppingListCompletedCelebration =>
+      'You completed the shopping list! 💕';
+
+  @override
+  String get shoppingListRegisterPurchaseTitle => 'Register purchase';
+
+  @override
+  String get shoppingListManageLists => 'Manage lists';
+
+  @override
+  String get shoppingListClearPurchased => 'Clear purchased';
+
+  @override
+  String shoppingListItemsMarkedCount(int marked, int total) {
+    return '$marked of $total items marked';
+  }
