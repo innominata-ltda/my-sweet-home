@@ -2616,4 +2616,164 @@ class AppLocalizationsPt extends AppLocalizations {
   String get purchaseRemoveItemTooltip => 'Remover item';
 
   @override
+  String get purchasesHistoryTitle => 'Compras e Notas Fiscais';
+
+  @override
+  String get purchasesPriceHistoryTooltip => 'Histórico de Preços';
+
+  @override
+  String purchasesLoadError(String error) {
+    return 'Erro ao carregar compras: $error';
+  }
+
+  @override
+  String get purchasesEmptyTitle => 'Nenhuma compra registrada';
+
+  @override
+  String get purchasesRegisterButton => 'Registrar Compra';
+
+  @override
+  String get purchasesDeleteTooltip => 'Excluir compra';
+
+  @override
+  String get purchasesNewTooltip => 'Nova Compra';
+
+  @override
+  String get purchasesDeleteDialogTitle => 'Excluir compra?';
+
+  @override
+  String get purchasesDeleteDialogBody =>
+      'Esta compra e seus pontos de preço serão excluídos.';
+
+  @override
+  String get purchasesDeleteSuccess => 'Compra excluída com sucesso';
+
+  @override
+  String get purchasesDeleteError => 'Erro ao excluir compra';
+
+  @override
+  String get purchasesTotalLabel => 'Total';
+
+  @override
+  String get purchasesDiscountLabel => 'Desconto';
+
+  @override
+  String purchasesItemsCount(int count) {
+    return 'Itens ($count)';
+  }
+
+  @override
+  String get purchasesNoDetailedItems => 'Nenhum item detalhado nesta compra.';
+
+  @override
+  String get purchasesProductFallback => 'Produto';
+
+  @override
+  String get purchasesItemPriceHistoryTooltip => 'Histórico de preço';
+
+  @override
+  String priceChartSemantics(String price, String store, String date) {
+    return '$price em $store no $date';
+  }
+
+  @override
+  String get productTrackPricesTooltip => 'Acompanhar preços';
+
+  @override
+  String get productMergeTooltip => 'Unir com outro produto';
+
+  @override
+  String get productTrackPriceHistoryButton => 'Acompanhar histórico de preços';
+
+  @override
+  String productPreferredNameSet(String alias) {
+    return '\"$alias\" definido como nome padrão de exibição.';
+  }
+
+  @override
+  String productSeparateAliasDescription(String alias) {
+    return 'Você pode separar \"$alias\" como um produto independente (com seu próprio histórico de preços) ou apenas remover o apelido.';
+  }
+
+  @override
+  String get productSeparateAliasAction => 'Separar como outro produto';
+
+  @override
+  String get productNoMergeCandidates =>
+      'Nenhum outro produto disponível para união.';
+
+  @override
+  String get productMergeSearchLabel => 'Buscar produto destino';
+
+  @override
+  String get productMergeNoneFound => 'Nenhum produto encontrado.';
+
+  @override
+  String get productMergeConfirmTitle => 'Confirmar união';
+
+  @override
+  String productMergeConfirmBody(String source, String target) {
+    return 'Deseja unir \"$source\" com \"$target\"?\n\nTodas as compras, itens, preços e sinônimos serão transferidos para \"$target\" e este produto será arquivado.';
+  }
+
+  @override
+  String get productMergeConfirmButton => 'Unir produtos';
+
+  @override
+  String productMergeSuccess(String target) {
+    return 'Produto unido com \"$target\".';
+  }
+
+  @override
+  String get productNewDialogTitle => 'Novo Produto';
+
+  @override
+  String get productCanonicalNameRequiredLabel => 'Nome Canônico *';
+
+  @override
+  String get productCanonicalNameError => 'Informe o nome';
+
+  @override
+  String get productDefaultUnitRequiredLabel => 'Unidade Padrão *';
+
+  @override
+  String get productAliasesLabel => 'Apelidos / Sinônimos';
+
+  @override
+  String get productAliasesHint => 'Separados por vírgula (opcional)';
+
+  @override
+  String get productCreateError => 'Erro ao criar produto';
+
+  @override
+  String get recipeListServiceUnavailable => 'Serviço de listas não disponível';
+
+  @override
+  String get recipeNoActiveShoppingLists =>
+      'Nenhuma lista de compras ativa encontrada.';
+
+  @override
+  String get recipeSelectShoppingListTitle => 'Selecione a lista de compras';
+
+  @override
+  String get recipeIngredientsSentSuccess =>
+      'Ingredientes enviados para a lista de compras!';
+
+  @override
+  String recipeIngredientsSentError(String error) {
+    return 'Falha ao enviar ingredientes: $error';
+  }
+
+  @override
+  String get recipeDecreaseServingsTooltip => 'Diminuir porções';
+
+  @override
+  String get recipeIncreaseServingsTooltip => 'Aumentar porções';
+
+  @override
+  String get recipeSendIngredientsButton =>
+      'Enviar ingredientes para lista de compras';
+
+  @override
+  String get recipeDraftTitleRequiredError => 'O título é obrigatório.';
 }
