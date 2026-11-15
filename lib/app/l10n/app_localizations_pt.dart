@@ -3256,4 +3256,164 @@ class AppLocalizationsPt extends AppLocalizations {
   String householdSyncSentSuffix(int count) {
     return ' ($count alterações enviadas).';
   }
+
+  @override
+  String householdSyncCompleted(int sent, int applied) {
+    return 'Sincronização concluída: $sent alterações enviadas, $applied aplicadas.';
+  }
+
+  @override
+  String get householdCloudSyncNoChanges =>
+      'Sincronização em nuvem concluída. Nenhuma alteração pendente.';
+
+  @override
+  String householdSyncUnexpectedError(String error) {
+    return 'Erro inesperado na sincronização: $error';
+  }
+
+  @override
+  String get householdHowSyncWorksTooltip => 'Como funciona a sincronização';
+
+  @override
+  String get householdImportBundleButton => 'Importar pacote';
+
+  @override
+  String get householdCloudSyncTitle =>
+      'Permitir sincronização remota da casa (nuvem)';
+
+  @override
+  String get householdCloudSyncSubtitle =>
+      'Sincronizar fora do Wi-Fi doméstico com criptografia de ponta a ponta';
+
+  @override
+  String get householdCalendarLocalTitle => 'Sincronizar agenda neste aparelho';
+
+  @override
+  String get householdCalendarLocalSubtitle =>
+      'Evita duplicação sincronizando tarefas do Google Calendar só aqui';
+
+  @override
+  String householdMembersLoadError(String error) {
+    return 'Erro ao carregar membros: $error';
+  }
+
+  @override
+  String get householdThisDevice => 'Este aparelho';
+
+  @override
+  String householdLastSeen(String time) {
+    return 'Visto por último: $time';
+  }
+
+  @override
+  String get householdNeverSynced => 'Nunca sincronizou';
+
+  @override
+  String get householdRemoveMemberTooltip => 'Remover membro';
+
+  @override
+  String get householdDefaultDeviceName => 'Meu celular';
+
+  @override
+  String get householdJoinDialogTitle => 'Entrar em uma casa';
+
+  @override
+  String get householdScanQrButton => 'Ler QR Code com a câmera';
+
+  @override
+  String get householdInviteCodeLabel => 'Código ou link de convite';
+
+  @override
+  String get householdInviteCodeHint =>
+      'Cole o link mshsync:// ou escaneie o QR Code';
+
+  @override
+  String get householdPasteCodeTooltip => 'Colar código';
+
+  @override
+  String get householdDeviceNameLabel => 'Nome deste aparelho';
+
+  @override
+  String get householdInvalidInviteError =>
+      'Código de convite inválido. Verifique o link ou QR Code.';
+
+  @override
+  String get householdHostDeviceFallback => 'Aparelho Anfitrião';
+
+  @override
+  String get householdInviteGenerateError =>
+      'Não foi possível gerar o convite de pareamento.';
+
+  @override
+  String get householdInviteDialogTitle => 'Convidar dispositivo';
+
+  @override
+  String get householdInviteDialogPrompt =>
+      'Escaneie este QR Code no outro aparelho ou envie o link abaixo:';
+
+  @override
+  String get householdCopyLinkButton => 'Copiar link';
+
+  @override
+  String get householdInviteLinkCopied => 'Link de convite copiado!';
+
+  @override
+  String get householdSasCodeLabel => 'Código de autenticação SAS (6 dígitos):';
+
+  @override
+  String householdRemoveMemberDialogTitle(String name) {
+    return 'Remover \"$name\"?';
+  }
+
+  @override
+  String get householdRemoveMemberDialogBody =>
+      'Ao remover o aparelho, a chave da casa será rotacionada e ele não poderá mais sincronizar novos dados.';
+
+  @override
+  String get householdDefaultHouseName => 'Minha Casa';
+
+  @override
+  String get householdDefaultDeviceNameAlt => 'Meu Aparelho';
+
+  @override
+  String get householdEmptyHouseNameError =>
+      'O nome da casa não pode ser vazio.';
+
+  @override
+  String get householdEmptyDeviceNameError =>
+      'O nome do aparelho não pode ser vazio.';
+
+  @override
+  String householdUnexpectedErrorWithDetail(String error) {
+    return 'Erro inesperado: $error';
+  }
+
+  @override
+  String get householdHouseNameLabel => 'Nome da casa';
+
+  @override
+  String get householdCreatingProgress => 'Criando casa e preparando dados...';
+
+  @override
+  String get householdCreateShortButton => 'Criar';
+
+  @override
+  String get householdErrorUnknown => 'Erro desconhecido.';
+
+  @override
+  String get householdErrorStorageDetail =>
+      'Não foi possível salvar ou carregar os dados. Tente novamente.';
+
+  @override
+  String get householdErrorStorageAccess =>
+      'Não foi possível acessar o armazenamento.';
+
+  @override
+  String get householdErrorNoInternet => 'Sem conexão com a internet.';
+
+  @override
+  String get householdErrorNetwork => 'Falha de comunicação na rede.';
+
+  @override
+  String householdErrorPermissionRequired(String permission) {
 }
