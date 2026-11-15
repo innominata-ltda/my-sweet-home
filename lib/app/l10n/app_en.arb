@@ -1758,3 +1758,163 @@
   "@ocrTotalDivergenceBody": {
     "placeholders": {
       "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "divergence": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrWriteOffTitle": "Check off shopping list items",
+  "ocrWriteOffSingleConfirm": "Check off items from this purchase in shopping list \"{listName}\"?",
+  "@ocrWriteOffSingleConfirm": {
+    "placeholders": {
+      "listName": {
+        "type": "String"
+      }
+    }
+  },
+  "commonNo": "No",
+  "ocrWriteOffYes": "Yes, check off",
+  "ocrWriteOffSelectPrompt": "Select the shopping list to check off purchased items:",
+  "ocrSaveWithoutWriteOff": "Save without checking off",
+  "ocrWriteOffButton": "Check off",
+  "ocrCouponItemsHeader": "Receipt items ({selected}/{total})",
+  "@ocrCouponItemsHeader": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrAddItemButton": "Add item",
+  "ocrNoItemsPlaceholder": "No items. Tap Add item.",
+  "ocrCloudConsentBody": "On-device reading had low accuracy. Since you allowed cloud OCR in settings, do you want to improve the reading by sending this receipt to the cloud service for this operation?",
+  "ocrRetakePhotoButton": "Take another photo",
+  "ocrContinueWithoutCloud": "Continue without cloud",
+  "ocrUseCloudOcr": "Use cloud OCR",
+  "ocrLowPrecisionTitle": "Low accuracy reading",
+  "ocrLowPrecisionBody": "On-device receipt reading had low accuracy. We recommend taking a new photo with better lighting and framing.",
+  "ocrContinueWithData": "Continue with this data",
+  "ocrFramingGuideSemantics": "Receipt framing guide. {instruction}",
+  "@ocrFramingGuideSemantics": {
+    "placeholders": {
+      "instruction": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrFramingDefaultInstruction": "Position the receipt vertically inside the guide",
+  "ocrTotalFailureTitle": "Could not read receipt",
+  "ocrAttachedPhoto": "Attached photo: {path}",
+  "@ocrAttachedPhoto": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrQualityContinueAnyway": "Continue anyway",
+  "ocrQualityBlur": "Blurry image. Try holding the camera steady.",
+  "ocrQualityTooDark": "Lighting too low. Turn on flash or light up the receipt.",
+  "ocrQualityTooBright": "Too much light or bright glare in the image.",
+  "ocrQualityBadFraming": "Poor framing or photo too small.",
+  "ocrQualityInvalidImage": "Could not decode image data.",
+  "ocrStoreUnknown": "Unidentified store",
+  "ocrEditStoreTooltip": "Edit store",
+  "ocrCnpjLabel": "CNPJ: {cnpj}",
+  "@ocrCnpjLabel": {
+    "placeholders": {
+      "cnpj": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNotInformed": "Not informed",
+  "ocrCnpjUnconfirmed": "Unconfirmed CNPJ",
+  "ocrTotalDivergenceCardTitle": "Total amount divergence",
+  "ocrTotalDivergenceCardBody": "Divergence of {absDiv}. The system does not adjust automatically.\nItems sum: {itemsSum} | Read total: {total}",
+  "@ocrTotalDivergenceCardBody": {
+    "placeholders": {
+      "absDiv": {
+        "type": "String"
+      },
+      "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrLowConfidenceBanner": "There are {count} low-confidence item(s) read from the receipt. Check and mark the correct ones.",
+  "@ocrLowConfidenceBanner": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrReceiptTotalsTitle": "Receipt Totals",
+  "ocrEditTotalsTooltip": "Edit totals",
+  "ocrSubtotalLabel": "Subtotal:",
+  "ocrDiscountLabel": "Discount:",
+  "ocrOriginExactAlias": "exact (alias)",
+  "ocrOriginSeed": "seed",
+  "ocrOriginFuzzy": "fuzzy ({percent}%)",
+  "@ocrOriginFuzzy": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrOriginUnknown": "unidentified",
+  "ocrItemSelectedStatus": "selected",
+  "ocrItemUnselectedStatus": "unselected",
+  "ocrItemLowConfidenceHint": ", low confidence, check this item",
+  "ocrItemDetectedAs": "detected as {raw}",
+  "@ocrItemDetectedAs": {
+    "placeholders": {
+      "raw": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemUncheckHint": "Uncheck {title}",
+  "@ocrItemUncheckHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemLinkOrigin": "Link: {origin}",
+  "@ocrItemLinkOrigin": {
+    "placeholders": {
+      "origin": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrEditItemTooltip": "Edit item",
+  "ocrDeleteItemTooltip": "Delete item",
+  "ocrEditHeaderTitle": "Edit header",
+  "ocrStoreRequiredLabel": "Store *",
+  "ocrStoreHint": "Supermarket or store name",
+  "ocrStoreError": "Enter the store name",
+  "ocrCnpjOptionalLabel": "Tax ID / CNPJ (optional)",
+  "ocrDateTimeRequiredLabel": "Date/Time (dd/MM/yyyy HH:mm) *",
+  "ocrDateTimeRequiredError": "Enter the purchase date",
+  "ocrDateTimeInvalidError": "Invalid format (e.g. 21/09/2026 14:30)",
+  "ocrNfceKeyOptionalLabel": "Receipt key (optional)",
+  "ocrNfceKeyHint": "44 receipt digits",
+  "ocrSubtotalInputLabel": "Subtotal",
+  "ocrDiscountInputLabel": "Discount",
+  "ocrReadTotalInputLabel": "Read total",
