@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/ocr/data/adapters/image_picker_adapter.dart';
 import 'package:my_sweet_home/features/ocr/data/adapters/image_quality_checker.dart';
@@ -133,13 +134,18 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(AppIcons.back, color: Colors.white),
-          tooltip: 'Voltar',
+          tooltip:
+              (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                      lookupAppLocalizations(const Locale('pt')))
+                  .commonBack,
           constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
           onPressed: () => Navigator.of(context).maybePop(),
         ),
-        title: const Text(
-          'Escanear nota fiscal',
-          style: TextStyle(color: Colors.white, fontSize: 18),
+        title: Text(
+          (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                  lookupAppLocalizations(const Locale('pt')))
+              .ocrScanReceiptTitle,
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         ),
         actions: [
           IconButton(
@@ -147,14 +153,32 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
               _isFlashOn ? AppIcons.flashOn : AppIcons.flashOff,
               color: _isFlashOn ? Colors.yellow : Colors.white,
             ),
-            tooltip: _isFlashOn ? 'Desativar flash' : 'Ativar flash',
+            tooltip: _isFlashOn
+                ? (Localizations.of<AppLocalizations>(
+                            context,
+                            AppLocalizations,
+                          ) ??
+                          lookupAppLocalizations(const Locale('pt')))
+                      .ocrDisableFlashTooltip
+                : (Localizations.of<AppLocalizations>(
+                            context,
+                            AppLocalizations,
+                          ) ??
+                          lookupAppLocalizations(const Locale('pt')))
+                      .ocrEnableFlashTooltip,
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             onPressed: _toggleFlash,
           ),
           if (kDebugMode)
             IconButton(
               icon: const Icon(AppIcons.priceHistory, color: Colors.white),
-              tooltip: 'Benchmark de Precisão OCR',
+              tooltip:
+                  (Localizations.of<AppLocalizations>(
+                            context,
+                            AppLocalizations,
+                          ) ??
+                          lookupAppLocalizations(const Locale('pt')))
+                      .ocrBenchmarkTooltip,
               constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
@@ -220,7 +244,15 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
                             color: Colors.white,
                             size: 28,
                           ),
-                          tooltip: 'Escolher foto da galeria',
+                          tooltip:
+                              (Localizations.of<AppLocalizations>(
+                                        context,
+                                        AppLocalizations,
+                                      ) ??
+                                      lookupAppLocalizations(
+                                        const Locale('pt'),
+                                      ))
+                                  .ocrGalleryTooltip,
                           constraints: const BoxConstraints(
                             minWidth: 48,
                             minHeight: 48,
@@ -228,16 +260,30 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
                           onPressed: _isProcessing ? null : _pickFromGallery,
                         ),
                         const SizedBox(height: 4),
-                        const Text(
-                          'Galeria',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
+                        Text(
+                          (Localizations.of<AppLocalizations>(
+                                    context,
+                                    AppLocalizations,
+                                  ) ??
+                                  lookupAppLocalizations(const Locale('pt')))
+                              .ocrGalleryLabel,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ],
                     ),
 
                     // Central photo capture button (RF-040)
                     Semantics(
-                      label: 'Tirar foto da nota fiscal',
+                      label:
+                          (Localizations.of<AppLocalizations>(
+                                    context,
+                                    AppLocalizations,
+                                  ) ??
+                                  lookupAppLocalizations(const Locale('pt')))
+                              .ocrTakePhotoSemantics,
                       button: true,
                       child: InkWell(
                         onTap: _isProcessing ? null : _captureFromCamera,
@@ -269,7 +315,15 @@ class _OcrCaptureScreenState extends State<OcrCaptureScreen> {
                             color: Colors.white,
                             size: 28,
                           ),
-                          tooltip: 'Lançar manualmente',
+                          tooltip:
+                              (Localizations.of<AppLocalizations>(
+                                        context,
+                                        AppLocalizations,
+                                      ) ??
+                                      lookupAppLocalizations(
+                                        const Locale('pt'),
+                                      ))
+                                  .ocrManualEntryTooltip,
                           constraints: const BoxConstraints(
                             minWidth: 48,
                             minHeight: 48,
