@@ -682,7 +682,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                                 }
                                 final p = Money.tryParsePtBr(v);
                                 if (p == null || p.cents <= 0) {
-                                  return 'Valor inválido';
+                                  return loc.commonInvalidValue;
                                 }
                                 return null;
                               },
@@ -693,16 +693,16 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       const SizedBox(height: 12),
                       CheckboxListTile(
                         contentPadding: EdgeInsets.zero,
-                        title: const Text('Incluir item na compra'),
+                        title: Text(loc.ocrIncludeItemInPurchase),
                         value: selected,
                         onChanged: (val) {
                           setDialogState(() => selected = val ?? true);
                         },
                       ),
                       const Divider(),
-                      const Text(
-                        'Produto vinculado:',
-                        style: TextStyle(
+                      Text(
+                        loc.ocrLinkedProductLabel,
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 13,
                         ),
@@ -723,7 +723,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                           Expanded(
                             child: OutlinedButton.icon(
                               icon: const Icon(AppIcons.search, size: 16),
-                              label: const Text('Trocar / Vincular'),
+                              label: Text(loc.ocrChangeOrLinkButton),
                               onPressed: () async {
                                 final newMatch =
                                     await _showProductSelectionDialog(
@@ -744,7 +744,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             Expanded(
                               child: OutlinedButton.icon(
                                 icon: const Icon(AppIcons.add, size: 16),
-                                label: const Text('Cadastrar produto'),
+                                label: Text(loc.ocrRegisterProductButton),
                                 onPressed: () async {
                                   final createdMatch =
                                       await _showCreateNewProductDialog(
@@ -766,7 +766,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                             const SizedBox(width: 8),
                             IconButton(
                               icon: const Icon(AppIcons.close, size: 20),
-                              tooltip: 'Remover vínculo',
+                              tooltip: loc.ocrUnlinkTooltip,
                               onPressed: () {
                                 setDialogState(() {
                                   clearMatch = true;
@@ -784,7 +784,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(dialogCtx).pop(false),
-                  child: const Text('Cancelar'),
+                  child: Text(loc.commonCancel),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -792,7 +792,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
                       Navigator.of(dialogCtx).pop(true);
                     }
                   },
-                  child: const Text('Salvar'),
+                  child: Text(loc.commonSave),
                 ),
               ],
             );
@@ -823,7 +823,7 @@ extension _OcrReviewDialogs on _OcrReviewScreenState {
       final updatedItem = ReceiptItemDraft(
         rawDescription: rawDesc.isNotEmpty
             ? rawDesc
-            : (item?.rawDescription ?? 'Item sem nome'),
+            : (item?.rawDescription ?? loc.ocrUnnamedItemFallback),
         ean: item?.ean,
         quantity: quantity,
         unitPrice: unitPrice,
