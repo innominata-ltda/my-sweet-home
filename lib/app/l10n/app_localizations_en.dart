@@ -2558,3 +2558,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get calendarDeleteTaskTitle => 'Delete task?';
 
   @override
+  String calendarDeleteTaskConfirm(String title) {
+    return 'Are you sure you want to delete \"$title\"?';
+  }
+
+  @override
+  String get commonEdit => 'Edit';
+
+  @override
+  String get taskAllDayLabel => 'All day';
+
+  @override
+  String get taskRepeatLabel => 'Repeat';
+
+  @override
+  String get taskRepeatNone => 'Does not repeat';
+
+  @override
+  String get calendarEditTaskAction => 'Edit task';
+
+  @override
+  String get calendarDeleteTaskAction => 'Delete task';
+
+  @override
+  String get priceSearchProductLabel => 'Search product';
+
+  @override
+  String get priceSearchProductHint => 'Type to search for a product...';
+
+  @override
+  String get priceClearSearchTooltip => 'Clear search';
+
+  @override
+  String get purchaseSaveTooltip => 'Save purchase';
+
+  @override
+  String get purchaseNewProductTooltip => 'New product';
+
+  @override
+  String get purchaseRemoveItemTooltip => 'Remove item';
+
+  @override
+  String get purchasesHistoryTitle => 'Purchases and Receipts';
+
+  @override
+  String get purchasesPriceHistoryTooltip => 'Price History';
+
+  @override
+  String purchasesLoadError(String error) {
+    return 'Error loading purchases: $error';
+  }
+
+  @override
+  String get purchasesEmptyTitle => 'No purchases recorded';
+
+  @override
+  String get purchasesRegisterButton => 'Register Purchase';
+
+  @override
+  String get purchasesDeleteTooltip => 'Delete purchase';
+
+  @override
+  String get purchasesNewTooltip => 'New Purchase';
+
+  @override
+  String get purchasesDeleteDialogTitle => 'Delete purchase?';
+
+  @override
+  String get purchasesDeleteDialogBody =>
+      'This purchase and its price points will be deleted.';
+
+  @override
+  String get purchasesDeleteSuccess => 'Purchase deleted successfully';
+
+  @override
+  String get purchasesDeleteError => 'Error deleting purchase';
+
+  @override
+  String get purchasesTotalLabel => 'Total';
+
+  @override
+  String get purchasesDiscountLabel => 'Discount';
+
+  @override
+  String purchasesItemsCount(int count) {
+    return 'Items ($count)';
+  }
+
+  @override
+  String get purchasesNoDetailedItems => 'No detailed items in this purchase.';
+
+  @override
+  String get purchasesProductFallback => 'Product';
+
+  @override
+  String get purchasesItemPriceHistoryTooltip => 'Price history';
+
+  @override
+  String priceChartSemantics(String price, String store, String date) {
+    return '$price at $store on $date';
+  }
+
+  @override
+  String get productTrackPricesTooltip => 'Track prices';
+
+  @override
+  String get productMergeTooltip => 'Merge with another product';
+
+  @override
+  String get productTrackPriceHistoryButton => 'Track price history';
+
+  @override
+  String productPreferredNameSet(String alias) {
+    return '\"$alias\" set as default display name.';
+  }
+
+  @override
+  String productSeparateAliasDescription(String alias) {
+    return 'You can separate \"$alias\" as an independent product (with its own price history) or just remove the alias.';
+  }
+
+  @override
+  String get productSeparateAliasAction => 'Separate as another product';
+
+  @override
+  String get productNoMergeCandidates => 'No other product available to merge.';
+
+  @override
+  String get productMergeSearchLabel => 'Search target product';
+
+  @override
+  String get productMergeNoneFound => 'No product found.';
+
+  @override
+  String get productMergeConfirmTitle => 'Confirm merge';
+
+  @override
+  String productMergeConfirmBody(String source, String target) {
+    return 'Do you want to merge \"$source\" with \"$target\"?\n\nAll purchases, items, prices, and aliases will be transferred to \"$target\" and this product will be archived.';
+  }
+
+  @override
+  String get productMergeConfirmButton => 'Merge products';
+
+  @override
+  String productMergeSuccess(String target) {
+    return 'Product merged with \"$target\".';
+  }
+
+  @override
+  String get productNewDialogTitle => 'New Product';
+
+  @override
+  String get productCanonicalNameRequiredLabel => 'Canonical Name *';
+
+  @override
+  String get productCanonicalNameError => 'Enter the name';
+
+  @override
+  String get productDefaultUnitRequiredLabel => 'Default Unit *';
+
