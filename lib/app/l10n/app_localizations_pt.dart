@@ -1656,4 +1656,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get backupImportModeReplace => 'Substituir tudo';
+
+  @override
+  String get backupImportModeMerge => 'Mesclar';
+
+  @override
+  String get backupImportConfirmReplace => 'Substituir e restaurar backup';
+
+  @override
+  String get backupImportConfirmMerge => 'Mesclar dados do backup';
+
+  @override
+  String get backupImportNoFile =>
+      'Nenhum backup selecionado para pré-visualização.';
+
+  @override
+  String get backupImportSelectFile => 'Selecionar arquivo de backup';
+
+  @override
+  String get backupImportPasswordField => 'Senha do backup';
+
+  @override
+  String get backupImportRestoreButton => 'Restaurar';
+
+  @override
+  String get wipeConfirmFirstTitle => 'Confirmar exclusão de dados';
+
+  @override
+  String get wipeConfirmFirstBody =>
+      'Você tem certeza de que deseja apagar todos os dados do aplicativo? Esta é a primeira confirmação.';
+
+  @override
+  String get wipeConfirmSecondTitle => 'Confirmação Final';
+
+  @override
+  String get wipeConfirmSecondBody =>
+      'ESTA AÇÃO É DEFINITIVA E IRREVERSÍVEL. Todos os seus registros, fotos, tarefas, despesas e configurações serão apagados sem resíduo.';
+
+  @override
+  String get wipeConfirmSecondButton => 'Apagar tudo permanentemente';
+
+  @override
+  String get wipeLoading => 'Apagando todos os dados...';
+
+  @override
+  String get wipeSuccessTitle =>
+      'Todos os dados foram apagados permanentemente.';
+
+  @override
+  String get wipeSuccessBody =>
+      'O banco de dados, arquivos e configurações foram limpos sem deixar resíduos.';
+
+  @override
+  String get wipeWarningTitle => 'Atenção: Ação Irreversível';
+
+  @override
+  String get wipeWarningBody =>
+      'Ao apagar tudo, todos os registros cadastrados (produtos, despesas, contas fixas, tarefas, receitas, compras e estoque), fotos de cupons e preferências do aplicativo serão apagados permanentemente.';
+
+  @override
+  String get wipeWarningTokens =>
+      'Nenhum token ou arquivo temporário permanecerá no dispositivo.';
+
+  @override
+  String get wipeDeleteAllButton => 'Apagar todos os dados';
+
+  @override
+  String get monthJanuary => 'Janeiro';
+
+  @override
+  String get monthFebruary => 'Fevereiro';
+
+  @override
+  String get monthMarch => 'Março';
+
+  @override
+  String get monthApril => 'Abril';
+
+  @override
+  String get monthMay => 'Maio';
+
+  @override
+  String get monthJune => 'Junho';
+
+  @override
+  String get monthJuly => 'Julho';
+
+  @override
+  String get monthAugust => 'Agosto';
+
+  @override
+  String get monthSeptember => 'Setembro';
+
+  @override
+  String get monthOctober => 'Outubro';
+
+  @override
+  String get monthNovember => 'Novembro';
+
+  @override
+  String get monthDecember => 'Dezembro';
+
+  @override
+  String monthYearFormat(String month, String year) {
+    return '$month de $year';
+  }
+
+  @override
+  String get commonPreviousMonth => 'Mês anterior';
+
+  @override
+  String get commonNextMonth => 'Próximo mês';
+
+  @override
+  String get commonInvalidValue => 'Valor inválido';
+
+  @override
+  String get commonEnterAmount => 'Informe o valor';
+
+  @override
+  String get commonNotesOptional => 'Observações (opcional)';
+
+  @override
+  String get commonRepeatDaily => 'Diariamente';
+
+  @override
+  String get commonRepeatWeekly => 'Semanalmente';
+
+  @override
+  String get commonRepeatMonthly => 'Mensalmente';
+
+  @override
+  String get commonRepeatCustomDays => 'A cada X dias';
+
+  @override
+  String get commonDaysCountLabel => 'Quantidade de dias *';
+
+  @override
+  String billsUnpayTooltip(String title) {
+    return 'Desmarcar pagamento de $title';
+  }
+
+  @override
+  String get billsOptionsTooltip => 'Opções da conta';
+
+  @override
+  String get billsDeleteConfirmTitle => 'Excluir conta?';
+
+  @override
+  String billsDeleteConfirmBody(String title) {
+    return 'Tem certeza de que deseja excluir a conta \"$title\"?';
+  }
+
+  @override
+  String get billsMarkUnpaid => 'Marcar como não pago';
+
+  @override
+  String get billsPauseAction => 'Pausar conta';
+
+  @override
+  String get billsDeleteAction => 'Excluir conta';
 }
