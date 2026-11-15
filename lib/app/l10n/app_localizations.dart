@@ -3420,6 +3420,166 @@ abstract class AppLocalizations {
   String get expensesExportTooltip;
 
   /// No description provided for @expensesExportCsv.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar CSV'**
+  String get expensesExportCsv;
+
+  /// No description provided for @expensesExportPdf.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar PDF'**
+  String get expensesExportPdf;
+
+  /// No description provided for @expensesDeleteConfirmTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir despesa?'**
+  String get expensesDeleteConfirmTitle;
+
+  /// No description provided for @expensesDeleteConfirmBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tem certeza de que deseja excluir esta despesa?'**
+  String get expensesDeleteConfirmBody;
+
+  /// No description provided for @expensesViewPurchaseTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver Compra / Nota'**
+  String get expensesViewPurchaseTooltip;
+
+  /// No description provided for @expensesViewBillTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver Conta'**
+  String get expensesViewBillTooltip;
+
+  /// No description provided for @expensesEditBudget.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar Orçamento'**
+  String get expensesEditBudget;
+
+  /// No description provided for @expensesEditTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar Despesa'**
+  String get expensesEditTitle;
+
+  /// No description provided for @expensesDeleteTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Excluir despesa'**
+  String get expensesDeleteTooltip;
+
+  /// No description provided for @expensesAmountLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Valor *'**
+  String get expensesAmountLabel;
+
+  /// No description provided for @expensesNameDescriptionLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome / Descrição'**
+  String get expensesNameDescriptionLabel;
+
+  /// No description provided for @expensesNameDescriptionHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'ex.: Supermercado, Aluguel, Farmácia'**
+  String get expensesNameDescriptionHint;
+
+  /// No description provided for @expensesNotesHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Detalhes adicionais...'**
+  String get expensesNotesHint;
+
+  /// No description provided for @expensesRepeatExpense.
+  ///
+  /// In pt, this message translates to:
+  /// **'Repetir despesa'**
+  String get expensesRepeatExpense;
+
+  /// No description provided for @expensesRepeatFrequency.
+  ///
+  /// In pt, this message translates to:
+  /// **'Frequência de repetição'**
+  String get expensesRepeatFrequency;
+
+  /// No description provided for @expensesCustomDaysHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'ex.: 4'**
+  String get expensesCustomDaysHint;
+
+  /// No description provided for @expensesCustomDaysRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe a quantidade de dias (entre 1 e 365)'**
+  String get expensesCustomDaysRequired;
+
+  /// No description provided for @expensesCustomDaysInvalid.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe um número de dias válido entre 1 e 365'**
+  String get expensesCustomDaysInvalid;
+
+  /// No description provided for @budgetCategoryDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Orçamento para {category}'**
+  String budgetCategoryDialogTitle(String category);
+
+  /// No description provided for @budgetCategoryLimitLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Limite em R\$ * (ex: 500,00)'**
+  String get budgetCategoryLimitLabel;
+
+  /// No description provided for @budgetTotalDialogTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Orçamento Total de {month}'**
+  String budgetTotalDialogTitle(String month);
+
+  /// No description provided for @budgetBaseIncomeLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Receita base recorrente *'**
+  String get budgetBaseIncomeLabel;
+
+  /// No description provided for @budgetBaseIncomeHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'ex: 3000,00'**
+  String get budgetBaseIncomeHint;
+
+  /// No description provided for @budgetIncomeRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe ao menos uma receita'**
+  String get budgetIncomeRequired;
+
+  /// No description provided for @budgetExtraIncomeLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Receitas adicionais avulsas no mês'**
+  String get budgetExtraIncomeLabel;
+
+  /// No description provided for @budgetExtraIncomeHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'ex: 500,00'**
+  String get budgetExtraIncomeHint;
+
+  /// No description provided for @budgetTotalSumLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Soma total do orçamento:'**
+  String get budgetTotalSumLabel;
 }
 
 class _AppLocalizationsDelegate
