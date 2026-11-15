@@ -4380,6 +4380,166 @@ abstract class AppLocalizations {
   /// No description provided for @shoppingSheetsRename.
   ///
   /// In pt, this message translates to:
+  /// **'Renomear'**
+  String get shoppingSheetsRename;
+
+  /// No description provided for @shoppingSheetsDuplicateSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista duplicada com sucesso.'**
+  String get shoppingSheetsDuplicateSuccess;
+
+  /// No description provided for @shoppingSheetsDuplicateError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao duplicar lista.'**
+  String get shoppingSheetsDuplicateError;
+
+  /// No description provided for @shoppingSheetsRenameTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Renomear Lista'**
+  String get shoppingSheetsRenameTitle;
+
+  /// No description provided for @shoppingSheetsListNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome da lista *'**
+  String get shoppingSheetsListNameLabel;
+
+  /// No description provided for @shoppingSheetsArchivedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista arquivada com sucesso.'**
+  String get shoppingSheetsArchivedSuccess;
+
+  /// No description provided for @shoppingSheetsUnarchivedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lista desarquivada com sucesso.'**
+  String get shoppingSheetsUnarchivedSuccess;
+
+  /// No description provided for @shoppingSheetsCreateTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova Lista de Compras'**
+  String get shoppingSheetsCreateTitle;
+
+  /// No description provided for @shoppingSheetsCreateHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'ex.: Feira, Farmácia, Churrasco'**
+  String get shoppingSheetsCreateHint;
+
+  /// No description provided for @shoppingSheetsCreateButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criar'**
+  String get shoppingSheetsCreateButton;
+
+  /// No description provided for @taskPresetsAreaSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'área {area}'**
+  String taskPresetsAreaSemantics(String area);
+
+  /// No description provided for @calendarTabDay.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dia'**
+  String get calendarTabDay;
+
+  /// No description provided for @calendarTabWeek.
+  ///
+  /// In pt, this message translates to:
+  /// **'Semana'**
+  String get calendarTabWeek;
+
+  /// No description provided for @calendarTabMonth.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mês'**
+  String get calendarTabMonth;
+
+  /// No description provided for @calendarMaintenanceSuggestions.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sugestões de manutenção'**
+  String get calendarMaintenanceSuggestions;
+
+  /// No description provided for @calendarSyncGoogle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronizar com Google'**
+  String get calendarSyncGoogle;
+
+  /// No description provided for @calendarSyncStarting.
+  ///
+  /// In pt, this message translates to:
+  /// **'Iniciando sincronização...'**
+  String get calendarSyncStarting;
+
+  /// No description provided for @calendarSyncDone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronização concluída!'**
+  String get calendarSyncDone;
+
+  /// No description provided for @calendarTodayTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Hoje'**
+  String get calendarTodayTooltip;
+
+  /// No description provided for @calendarShowingToday.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exibindo hoje'**
+  String get calendarShowingToday;
+
+  /// No description provided for @calendarNewTask.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nova tarefa'**
+  String get calendarNewTask;
+
+  /// No description provided for @calendarEditTaskTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Editar Tarefa'**
+  String get calendarEditTaskTitle;
+
+  /// No description provided for @calendarTaskTitleLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Título *'**
+  String get calendarTaskTitleLabel;
+
+  /// No description provided for @calendarDayBillsCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'{count} conta(s)'**
+  String calendarDayBillsCount(int count);
+
+  /// No description provided for @calendarBillsDueToday.
+  ///
+  /// In pt, this message translates to:
+  /// **'Contas a vencer hoje ({count}):'**
+  String calendarBillsDueToday(int count);
+
+  /// No description provided for @calendarBillPaidStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'(Paga)'**
+  String get calendarBillPaidStatus;
+
+  /// No description provided for @calendarBillPendingStatus.
+  ///
+  /// In pt, this message translates to:
+  /// **'(Pendente)'**
+  String get calendarBillPendingStatus;
+
+  /// No description provided for @calendarDeleteTaskTitle.
 }
 
 class _AppLocalizationsDelegate
