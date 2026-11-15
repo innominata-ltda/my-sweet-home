@@ -1598,3 +1598,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get backupRestorePasswordRequired => 'Enter the backup password';
 
+  @override
+  String get backupRestoreEncryptedButton => 'Decrypt & Restore';
+
+  @override
+  String get backupImportProcessing => 'Processing backup...';
+
+  @override
+  String get backupImportReplacedTitle => 'Backup restored successfully!';
+
+  @override
+  String get backupImportMergedTitle => 'Data merged successfully!';
+
+  @override
+  String get backupImportReplacedBody =>
+      'App data was completely replaced by the backup.';
+
+  @override
+  String get backupImportMergedBody =>
+      'Backup records were merged with existing data.';
+
+  @override
+  String get backupImportFailedTitle => 'Import failed';
+
+  @override
+  String get backupPreviewTitle => 'Backup Preview';
+
+  @override
+  String backupPreviewAffectedRecords(int count) {
+    return '$count affected records';
+  }
+
+  @override
+  String backupPreviewSchemaVersion(int version) {
+    return 'Schema version: v$version';
+  }
+
+  @override
+  String backupPreviewExportedAt(String date) {
+    return 'Export date: $date';
+  }
+
+  @override
+  String get backupImportModeTitle => 'Choose import method:';
+
+  @override
+  String get backupImportModeReplace => 'Replace all';
+
+  @override
+  String get backupImportModeMerge => 'Merge';
+
+  @override
+  String get backupImportConfirmReplace => 'Replace and restore backup';
+
+  @override
+  String get backupImportConfirmMerge => 'Merge backup data';
+
+  @override
+  String get backupImportNoFile => 'No backup selected for preview.';
+
+  @override
+  String get backupImportSelectFile => 'Select backup file';
+
+  @override
+  String get backupImportPasswordField => 'Backup password';
+
+  @override
+  String get backupImportRestoreButton => 'Restore';
+
+  @override
+  String get wipeConfirmFirstTitle => 'Confirm data deletion';
+
+  @override
+  String get wipeConfirmFirstBody =>
+      'Are you sure you want to delete all app data? This is the first confirmation.';
+
+  @override
+  String get wipeConfirmSecondTitle => 'Final Confirmation';
+
+  @override
+  String get wipeConfirmSecondBody =>
+      'THIS ACTION IS FINAL AND IRREVERSIBLE. All your records, photos, tasks, expenses, and settings will be deleted without a trace.';
+
+  @override
+  String get wipeConfirmSecondButton => 'Delete everything permanently';
+
+  @override
+  String get wipeLoading => 'Deleting all data...';
+
+  @override
+  String get wipeSuccessTitle => 'All data has been permanently deleted.';
+
+  @override
+  String get wipeSuccessBody =>
+      'The database, files, and settings have been wiped cleanly.';
+
+  @override
+  String get wipeWarningTitle => 'Warning: Irreversible Action';
+
+  @override
+  String get wipeWarningBody =>
+      'By deleting everything, all saved records (products, expenses, recurring bills, tasks, recipes, purchases, and stock), receipt photos, and app preferences will be permanently erased.';
+
+  @override
+  String get wipeWarningTokens =>
+      'No tokens or temporary files will remain on the device.';
+
+  @override
+  String get wipeDeleteAllButton => 'Delete all data';
+
+  @override
+  String get monthJanuary => 'January';
+
+  @override
+  String get monthFebruary => 'February';
+
+  @override
+  String get monthMarch => 'March';
+
+  @override
+  String get monthApril => 'April';
+
+  @override
+  String get monthMay => 'May';
+
+  @override
+  String get monthJune => 'June';
+
+  @override
+  String get monthJuly => 'July';
+
+  @override
+  String get monthAugust => 'August';
+
+  @override
+  String get monthSeptember => 'September';
+
+  @override
+  String get monthOctober => 'October';
+
+  @override
+  String get monthNovember => 'November';
+
+  @override
+  String get monthDecember => 'December';
+
+  @override
+  String monthYearFormat(String month, String year) {
+    return '$month $year';
+  }
+
+  @override
+  String get commonPreviousMonth => 'Previous month';
+
+  @override
+  String get commonNextMonth => 'Next month';
+
+  @override
+  String get commonInvalidValue => 'Invalid value';
+
+  @override
