@@ -186,21 +186,21 @@ class _BillsListScreenState extends State<BillsListScreen> {
     return const SizedBox.shrink();
   }
 
-  String _monthName(int month) {
-    const months = [
+  String _monthName(AppLocalizations l10n, int month) {
+    final months = [
       '',
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro',
+      l10n.monthJanuary,
+      l10n.monthFebruary,
+      l10n.monthMarch,
+      l10n.monthApril,
+      l10n.monthMay,
+      l10n.monthJune,
+      l10n.monthJuly,
+      l10n.monthAugust,
+      l10n.monthSeptember,
+      l10n.monthOctober,
+      l10n.monthNovember,
+      l10n.monthDecember,
     ];
     if (month >= 1 && month <= 12) return months[month];
     return '';
@@ -289,7 +289,7 @@ class _BillsListScreenState extends State<BillsListScreen> {
                 ],
               ),
               Text(
-                '• Vence dia ${item.payment.dueOn.day} de ${_monthName(item.payment.dueOn.month)}',
+                '• Vence dia ${item.payment.dueOn.day} de ${_monthName(l10n, item.payment.dueOn.month)}',
               ),
             ],
           ),
@@ -318,7 +318,7 @@ class _BillsListScreenState extends State<BillsListScreen> {
           else
             IconButton(
               icon: const Icon(AppIcons.undo),
-              tooltip: 'Desmarcar pagamento de ${item.bill.title}',
+              tooltip: l10n.billsUnpayTooltip(item.bill.title),
               onPressed: () {
                 if (widget.onUnpayBill != null) {
                   widget.onUnpayBill!(item);
@@ -329,7 +329,7 @@ class _BillsListScreenState extends State<BillsListScreen> {
               constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             ),
           PopupMenuButton<String>(
-            tooltip: 'Opções da conta',
+            tooltip: l10n.billsOptionsTooltip,
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             onSelected: (action) async {
               if (action == 'unpay') {
@@ -348,18 +348,16 @@ class _BillsListScreenState extends State<BillsListScreen> {
                 final confirm = await showDialog<bool>(
                   context: context,
                   builder: (ctx) => AlertDialog(
-                    title: const Text('Excluir conta?'),
-                    content: Text(
-                      'Tem certeza de que deseja excluir a conta "${item.bill.title}"?',
-                    ),
+                    title: Text(l10n.billsDeleteConfirmTitle),
+                    content: Text(l10n.billsDeleteConfirmBody(item.bill.title)),
                     actions: [
                       TextButton(
                         onPressed: () => Navigator.of(ctx).pop(false),
-                        child: const Text('Cancelar'),
+                        child: Text(l10n.commonCancel),
                       ),
                       ElevatedButton(
                         onPressed: () => Navigator.of(ctx).pop(true),
-                        child: const Text('Excluir'),
+                        child: Text(l10n.commonDelete),
                       ),
                     ],
                   ),
@@ -375,14 +373,14 @@ class _BillsListScreenState extends State<BillsListScreen> {
             },
             itemBuilder: (ctx) => [
               if (item.status == BillStatus.paid)
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 'unpay',
-                  child: Text('Marcar como não pago'),
+                  child: Text(l10n.billsMarkUnpaid),
                 ),
-              const PopupMenuItem(value: 'pause', child: Text('Pausar conta')),
-              const PopupMenuItem(
+              PopupMenuItem(value: 'pause', child: Text(l10n.billsPauseAction)),
+              PopupMenuItem(
                 value: 'delete',
-                child: Text('Excluir conta'),
+                child: Text(l10n.billsDeleteAction),
               ),
             ],
           ),
