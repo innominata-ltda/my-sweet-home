@@ -169,22 +169,23 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
     final confirmed =
         await showDialog<bool>(
           context: context,
-          builder: (ctx) => AlertDialog(
-            title: const Text('Excluir despesa?'),
-            content: const Text(
-              'Tem certeza de que deseja excluir esta despesa?',
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(ctx).pop(false),
-                child: const Text('Cancelar'),
-              ),
-              ElevatedButton(
-                onPressed: () => Navigator.of(ctx).pop(true),
-                child: const Text('Excluir'),
-              ),
-            ],
-          ),
+          builder: (ctx) {
+            final l10n = AppLocalizations.of(ctx);
+            return AlertDialog(
+              title: Text(l10n.expensesDeleteConfirmTitle),
+              content: Text(l10n.expensesDeleteConfirmBody),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(false),
+                  child: Text(l10n.commonCancel),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.of(ctx).pop(true),
+                  child: Text(l10n.commonDelete),
+                ),
+              ],
+            );
+          },
         ) ??
         false;
 
@@ -215,12 +216,14 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(isEditing ? 'Editar Despesa' : l10n.expenseQuickAddTitle),
+        title: Text(
+          isEditing ? l10n.expensesEditTitle : l10n.expenseQuickAddTitle,
+        ),
         actions: [
           if (isEditing)
             IconButton(
               icon: const Icon(AppIcons.delete),
-              tooltip: 'Excluir despesa',
+              tooltip: l10n.expensesDeleteTooltip,
               onPressed: _confirmDelete,
             ),
         ],
@@ -234,27 +237,27 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
             children: [
               AppMoneyField(
                 autofocus: true,
-                label: 'Valor *',
+                label: l10n.expensesAmountLabel,
                 initialCents: widget.initialExpense?.amount.cents,
                 onChanged: (cents) => setState(() => _cents = cents),
               ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: _descriptionController,
-                decoration: const InputDecoration(
-                  labelText: 'Nome / Descrição',
-                  hintText: 'ex.: Supermercado, Aluguel, Farmácia',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.expensesNameDescriptionLabel,
+                  hintText: l10n.expensesNameDescriptionHint,
+                  border: const OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _notesController,
                 maxLines: 2,
-                decoration: const InputDecoration(
-                  labelText: 'Observações (opcional)',
-                  hintText: 'Detalhes adicionais...',
-                  border: OutlineInputBorder(),
+                decoration: InputDecoration(
+                  labelText: l10n.commonNotesOptional,
+                  hintText: l10n.expensesNotesHint,
+                  border: const OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 12),
@@ -288,7 +291,7 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
               SwitchListTile(
                 key: const Key('repeat_switch'),
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Repetir despesa'),
+                title: Text(l10n.expensesRepeatExpense),
                 value: _isRecurring,
                 onChanged: (val) {
                   setState(() {
@@ -301,26 +304,26 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
                 DropdownButtonFormField<String>(
                   key: const Key('recurrence_type_dropdown'),
                   initialValue: _recurrenceType,
-                  decoration: const InputDecoration(
-                    labelText: 'Frequência de repetição',
-                    border: OutlineInputBorder(),
+                  decoration: InputDecoration(
+                    labelText: l10n.expensesRepeatFrequency,
+                    border: const OutlineInputBorder(),
                   ),
-                  items: const [
+                  items: [
                     DropdownMenuItem(
                       value: 'FREQ=MONTHLY',
-                      child: Text('Mensalmente'),
+                      child: Text(l10n.commonRepeatMonthly),
                     ),
                     DropdownMenuItem(
                       value: 'FREQ=WEEKLY',
-                      child: Text('Semanalmente'),
+                      child: Text(l10n.commonRepeatWeekly),
                     ),
                     DropdownMenuItem(
                       value: 'FREQ=DAILY',
-                      child: Text('Diariamente'),
+                      child: Text(l10n.commonRepeatDaily),
                     ),
                     DropdownMenuItem(
                       value: 'custom_days',
-                      child: Text('A cada X dias'),
+                      child: Text(l10n.commonRepeatCustomDays),
                     ),
                   ],
                   onChanged: (val) {
@@ -337,10 +340,10 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
                     key: const Key('custom_days_field'),
                     controller: _customDaysController,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      labelText: 'Quantidade de dias *',
-                      hintText: 'ex.: 4',
-                      border: OutlineInputBorder(),
+                    decoration: InputDecoration(
+                      labelText: l10n.commonDaysCountLabel,
+                      hintText: l10n.expensesCustomDaysHint,
+                      border: const OutlineInputBorder(),
                     ),
                     validator: (value) {
                       if (!_isRecurring || _recurrenceType != 'custom_days') {
@@ -348,11 +351,11 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
                       }
                       final trimmed = value?.trim() ?? '';
                       if (trimmed.isEmpty) {
-                        return 'Informe a quantidade de dias (entre 1 e 365)';
+                        return l10n.expensesCustomDaysRequired;
                       }
                       final days = int.tryParse(trimmed);
                       if (days == null || days < 1 || days > 365) {
-                        return 'Informe um número de dias válido entre 1 e 365';
+                        return l10n.expensesCustomDaysInvalid;
                       }
                       return null;
                     },
@@ -385,7 +388,7 @@ class _QuickAddExpenseScreenState extends State<QuickAddExpenseScreen> {
                 OutlinedButton.icon(
                   onPressed: _confirmDelete,
                   icon: const Icon(AppIcons.delete),
-                  label: const Text('Excluir despesa'),
+                  label: Text(l10n.expensesDeleteTooltip),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Theme.of(context).colorScheme.error,
                   ),
