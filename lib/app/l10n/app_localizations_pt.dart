@@ -3096,4 +3096,164 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get ocrStoreRequiredLabel => 'Estabelecimento *';
 
+  @override
+  String get ocrStoreHint => 'Nome do supermercado ou loja';
+
+  @override
+  String get ocrStoreError => 'Informe o nome do estabelecimento';
+
+  @override
+  String get ocrCnpjOptionalLabel => 'CNPJ (opcional)';
+
+  @override
+  String get ocrDateTimeRequiredLabel => 'Data/Hora (dd/MM/yyyy HH:mm) *';
+
+  @override
+  String get ocrDateTimeRequiredError => 'Informe a data da compra';
+
+  @override
+  String get ocrDateTimeInvalidError =>
+      'Formato inválido (ex: 21/09/2026 14:30)';
+
+  @override
+  String get ocrNfceKeyOptionalLabel => 'Chave da NFC-e (opcional)';
+
+  @override
+  String get ocrNfceKeyHint => '44 dígitos da nota fiscal';
+
+  @override
+  String get ocrSubtotalInputLabel => 'Subtotal (R\$)';
+
+  @override
+  String get ocrDiscountInputLabel => 'Desconto (R\$)';
+
+  @override
+  String get ocrReadTotalInputLabel => 'Total lido (R\$)';
+
+  @override
+  String get ocrRegisterNewProductTitle => 'Cadastrar novo produto';
+
+  @override
+  String get ocrCanonicalNameRequiredLabel => 'Nome canônico *';
+
+  @override
+  String get ocrCanonicalNameHint => 'Ex: Leite Integral 1L';
+
+  @override
+  String get ocrCanonicalNameRequiredError => 'Informe o nome canônico';
+
+  @override
+  String get ocrCategoryRequiredLabel => 'Categoria *';
+
+  @override
+  String get ocrCategoryHint => 'Ex: Alimentos, Limpeza, etc.';
+
+  @override
+  String get ocrCategoryRequiredError => 'Informe a categoria';
+
+  @override
+  String get ocrDefaultUnitRequiredLabel => 'Unidade padrão *';
+
+  @override
+  String get ocrAliasesOptionalLabel => 'Sinônimos / Apelidos (opcional)';
+
+  @override
+  String get ocrAliasesHint => 'Separados por vírgula';
+
+  @override
+  String get ocrLinkProductTitle => 'Vincular produto';
+
+  @override
+  String get ocrProductNameSearchLabel => 'Nome do produto';
+
+  @override
+  String get ocrProductNameSearchHint => 'Digite o nome do produto';
+
+  @override
+  String ocrRegisterNamedAsNew(String name) {
+    return 'Cadastrar \"$name\" como novo produto';
+  }
+
+  @override
+  String get ocrSuggestedProductsLabel => 'Produtos sugeridos:';
+
+  @override
+  String ocrProductMetaRow(String category, String unit) {
+    return 'Categoria: $category | Unidade: $unit';
+  }
+
+  @override
+  String get ocrNoExistingProductFound =>
+      'Nenhum produto existente encontrado com esse nome.';
+
+  @override
+  String get ocrNoneLinked => 'Nenhum';
+
+  @override
+  String get ocrItemDescriptionLabel => 'Descrição lida / Nome *';
+
+  @override
+  String get ocrItemDescriptionError => 'Informe o nome ou descrição';
+
+  @override
+  String get ocrQuantityRequiredLabel => 'Quantidade *';
+
+  @override
+  String get ocrQuantityRequiredError => 'Informe a qtd';
+
+  @override
+  String get ocrQuantityInvalidError => 'Qtd inválida';
+
+  @override
+  String get ocrUnitRequiredLabel => 'Unidade *';
+
+  @override
+  String get ocrUnitPriceRequiredLabel => 'Preço unitário (R\$) *';
+
+  @override
+  String get ocrTotalPriceRequiredLabel => 'Preço total (R\$) *';
+
+  @override
+  String get ocrIncludeItemInPurchase => 'Incluir item na compra';
+
+  @override
+  String get ocrLinkedProductLabel => 'Produto vinculado:';
+
+  @override
+  String get ocrChangeOrLinkButton => 'Trocar / Vincular';
+
+  @override
+  String get ocrRegisterProductButton => 'Cadastrar produto';
+
+  @override
+  String get ocrUnlinkTooltip => 'Remover vínculo';
+
+  @override
+  String get ocrUnnamedItemFallback => 'Item sem nome';
+
+  @override
+  String get ocrTotalReadColonLabel => 'Total lido do cupom:';
+
+  @override
+  String get ocrSelectedItemsSumColonLabel => 'Soma dos itens selecionados:';
+
+  @override
+  String ocrItemSelectHint(String title) {
+    return 'Selecionar $title';
+  }
+
+  @override
+  String householdSyncFailure(String error) {
+    return 'Falha na sincronização: $error';
+  }
+
+  @override
+  String householdSyncAppliedSuffix(int count) {
+    return ' ($count alterações aplicadas).';
+  }
+
+  @override
+  String householdSyncSentSuffix(int count) {
+    return ' ($count alterações enviadas).';
+  }
 }
