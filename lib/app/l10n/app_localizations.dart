@@ -5980,6 +5980,166 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Não foi possível salvar ou carregar os dados. Tente novamente.'**
   String get householdErrorStorageDetail;
+
+  /// No description provided for @householdErrorStorageAccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não foi possível acessar o armazenamento.'**
+  String get householdErrorStorageAccess;
+
+  /// No description provided for @householdErrorNoInternet.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sem conexão com a internet.'**
+  String get householdErrorNoInternet;
+
+  /// No description provided for @householdErrorNetwork.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha de comunicação na rede.'**
+  String get householdErrorNetwork;
+
+  /// No description provided for @householdErrorPermissionRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Permissão necessária: {permission}.'**
+  String householdErrorPermissionRequired(String permission);
+
+  /// No description provided for @householdErrorCancelled.
+  ///
+  /// In pt, this message translates to:
+  /// **'Operação cancelada.'**
+  String get householdErrorCancelled;
+
+  /// No description provided for @householdErrorGeneric.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ocorreu um erro inesperado.'**
+  String get householdErrorGeneric;
+
+  /// No description provided for @householdTutorialWelcomeTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Bem-vindo à Casa Compartilhada!'**
+  String get householdTutorialWelcomeTitle;
+
+  /// No description provided for @householdTutorialWelcomeBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aqui você divide listas de compras, tarefas, estoque, receitas e finanças com quem mora com você, sem criar conta em servidor e com criptografia de ponta a ponta.'**
+  String get householdTutorialWelcomeBody;
+
+  /// No description provided for @householdTutorialPairingTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Pareamento seguro com QR Code e 6 dígitos'**
+  String get householdTutorialPairingTitle;
+
+  /// No description provided for @householdTutorialPairingBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'O novo aparelho lê o QR Code pela câmera (ou usa o link de convite) e ambos confirmam o mesmo código de autenticação de 6 dígitos.'**
+  String get householdTutorialPairingBody;
+
+  /// No description provided for @householdTutorialWifiTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronização no Wi-Fi e por Pacotes'**
+  String get householdTutorialWifiTitle;
+
+  /// No description provided for @householdTutorialWifiBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quando os aparelhos estão no mesmo Wi-Fi com o app aberto, as mudanças sincronizam direto na rede local. Você também pode tocar em \"Gerar pacote\" para enviar atualizações por qualquer app de mensagens.'**
+  String get householdTutorialWifiBody;
+
+  /// No description provided for @householdTutorialCloudTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincronização fora de casa (Nuvem)'**
+  String get householdTutorialCloudTitle;
+
+  /// No description provided for @householdTutorialCloudBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Quando vocês não estão no mesmo Wi-Fi (ex.: alguém no mercado), o app pode usar uma caixa postal criptografada na sua nuvem para entregar as mudanças com segurança.'**
+  String get householdTutorialCloudBody;
+
+  /// No description provided for @householdTutorialCloseTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fechar tutorial'**
+  String get householdTutorialCloseTooltip;
+
+  /// No description provided for @householdTutorialRemoteQuestion.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja habilitar a sincronização remota agora?'**
+  String get householdTutorialRemoteQuestion;
+
+  /// No description provided for @householdTutorialRemoteYesTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sim, habilitar sincronização remota'**
+  String get householdTutorialRemoteYesTitle;
+
+  /// No description provided for @householdTutorialRemoteYesSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sincroniza fora do Wi-Fi com criptografia de ponta a ponta'**
+  String get householdTutorialRemoteYesSubtitle;
+
+  /// No description provided for @householdTutorialRemoteNoTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não, usar apenas Wi-Fi local e pacotes'**
+  String get householdTutorialRemoteNoTitle;
+
+  /// No description provided for @householdTutorialRemoteNoSubtitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Você poderá ativar depois dentro da tela da Casa Compartilhada'**
+  String get householdTutorialRemoteNoSubtitle;
+
+  /// No description provided for @householdTutorialPrevious.
+  ///
+  /// In pt, this message translates to:
+  /// **'Anterior'**
+  String get householdTutorialPrevious;
+
+  /// No description provided for @householdTutorialFinish.
+  ///
+  /// In pt, this message translates to:
+  /// **'Concluir'**
+  String get householdTutorialFinish;
+
+  /// No description provided for @householdTutorialNext.
+  ///
+  /// In pt, this message translates to:
+  /// **'Próximo'**
+  String get householdTutorialNext;
+
+  /// No description provided for @householdJoinPreviewError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao carregar prévia: {error}'**
+  String householdJoinPreviewError(String error);
+
+  /// No description provided for @householdJoinPreviewMergeInfo.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ao entrar na casa, seus dados locais serão unidos com os da casa. Nenhum dado seu será apagado ou duplicado.'**
+  String get householdJoinPreviewMergeInfo;
+
+  /// No description provided for @householdJoinPreviewSasLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Código de autenticação (6 dígitos):'**
+  String get householdJoinPreviewSasLabel;
+
+  /// No description provided for @householdJoinPreviewSasHint.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
