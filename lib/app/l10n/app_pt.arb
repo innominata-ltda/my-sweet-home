@@ -796,5 +796,165 @@
   "backupExportEncryptedTitle": "Exportar Dados Criptografados",
   "backupExportEncryptedSubtitle": "Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.",
   "backupExportError": "Erro ao gerar backup: {error}",
+  "@backupExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupExportSuccess": "Backup gerado e exportado com sucesso!",
+  "backupExportCreateButton": "Criar e Exportar Backup",
+  "backupStageCollecting": "Coletando dados do aplicativo...",
+  "backupStageEncrypting": "Criptografando com AES-256 e Argon2id...",
+  "backupStageWriting": "Finalizando arquivo de backup...",
+  "backupStageDone": "Concluído!",
+  "backupEncryptedTitle": "Backup Criptografado",
+  "backupWarningTitle": "Aviso Importante (RN-234)",
+  "backupWarningLostPassword": "Se você perder a senha, o backup é perdido.",
+  "backupWarningNoRecovery": "O aplicativo não salva sua senha nem consegue ler o backup sem ela. Não há opção de recuperação.",
+  "backupPasswordLabel": "Senha do Backup *",
+  "backupPasswordRequired": "Informe uma senha para proteger o backup",
+  "backupPasswordMinLength": "A senha deve ter pelo menos 4 caracteres",
+  "backupConfirmPasswordLabel": "Confirmar Senha *",
+  "backupPasswordsMismatch": "As senhas não coincidem",
+  "backupIncludePhotosTitle": "Incluir fotos no backup (RN-237)",
+  "backupIncludePhotosWithSize": "Fotos de cupons e receitas (Tamanho estimado: {size})",
+  "@backupIncludePhotosWithSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupIncludePhotosDefault": "Fotos de cupons e receitas ficam fora do backup por padrão",
+  "backupExportEncryptedButton": "Exportar Criptografado",
+  "backupRestoreEncryptedTitle": "Restaurar Backup Criptografado",
+  "backupRestoreEncryptedBody": "Este arquivo de backup está protegido por senha. Informe a senha definida durante a exportação para continuar.",
+  "backupRestorePasswordRequired": "Digite a senha do backup",
+  "backupRestoreEncryptedButton": "Descriptografar e Restaurar",
+  "backupImportProcessing": "Processando backup...",
+  "backupImportReplacedTitle": "Backup restaurado com sucesso!",
+  "backupImportMergedTitle": "Dados mesclados com sucesso!",
+  "backupImportReplacedBody": "Os dados do aplicativo foram totalmente substituídos pelos do backup.",
+  "backupImportMergedBody": "Os registros do backup foram mesclados aos dados existentes.",
+  "backupImportFailedTitle": "Falha na importação",
+  "backupPreviewTitle": "Pré-visualização do Backup",
+  "backupPreviewAffectedRecords": "{count} registros afetados",
+  "@backupPreviewAffectedRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewSchemaVersion": "Versão do schema: v{version}",
+  "@backupPreviewSchemaVersion": {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewExportedAt": "Data da exportação: {date}",
+  "@backupPreviewExportedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "backupImportModeTitle": "Escolha a forma de importação:",
+  "backupImportModeReplace": "Substituir tudo",
+  "backupImportModeMerge": "Mesclar",
+  "backupImportConfirmReplace": "Substituir e restaurar backup",
+  "backupImportConfirmMerge": "Mesclar dados do backup",
+  "backupImportNoFile": "Nenhum backup selecionado para pré-visualização.",
+  "backupImportSelectFile": "Selecionar arquivo de backup",
+  "backupImportPasswordField": "Senha do backup",
+  "backupImportRestoreButton": "Restaurar",
+  "wipeConfirmFirstTitle": "Confirmar exclusão de dados",
+  "wipeConfirmFirstBody": "Você tem certeza de que deseja apagar todos os dados do aplicativo? Esta é a primeira confirmação.",
+  "wipeConfirmSecondTitle": "Confirmação Final",
+  "wipeConfirmSecondBody": "ESTA AÇÃO É DEFINITIVA E IRREVERSÍVEL. Todos os seus registros, fotos, tarefas, despesas e configurações serão apagados sem resíduo.",
+  "wipeConfirmSecondButton": "Apagar tudo permanentemente",
+  "wipeLoading": "Apagando todos os dados...",
+  "wipeSuccessTitle": "Todos os dados foram apagados permanentemente.",
+  "wipeSuccessBody": "O banco de dados, arquivos e configurações foram limpos sem deixar resíduos.",
+  "wipeWarningTitle": "Atenção: Ação Irreversível",
+  "wipeWarningBody": "Ao apagar tudo, todos os registros cadastrados (produtos, despesas, contas fixas, tarefas, receitas, compras e estoque), fotos de cupons e preferências do aplicativo serão apagados permanentemente.",
+  "wipeWarningTokens": "Nenhum token ou arquivo temporário permanecerá no dispositivo.",
+  "wipeDeleteAllButton": "Apagar todos os dados",
+  "monthJanuary": "Janeiro",
+  "monthFebruary": "Fevereiro",
+  "monthMarch": "Março",
+  "monthApril": "Abril",
+  "monthMay": "Maio",
+  "monthJune": "Junho",
+  "monthJuly": "Julho",
+  "monthAugust": "Agosto",
+  "monthSeptember": "Setembro",
+  "monthOctober": "Outubro",
+  "monthNovember": "Novembro",
+  "monthDecember": "Dezembro",
+  "monthYearFormat": "{month} de {year}",
+  "@monthYearFormat": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "commonPreviousMonth": "Mês anterior",
+  "commonNextMonth": "Próximo mês",
+  "commonInvalidValue": "Valor inválido",
+  "commonEnterAmount": "Informe o valor",
+  "commonNotesOptional": "Observações (opcional)",
+  "commonRepeatDaily": "Diariamente",
+  "commonRepeatWeekly": "Semanalmente",
+  "commonRepeatMonthly": "Mensalmente",
+  "commonRepeatCustomDays": "A cada X dias",
+  "commonDaysCountLabel": "Quantidade de dias *",
+  "billsUnpayTooltip": "Desmarcar pagamento de {title}",
+  "@billsUnpayTooltip": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsOptionsTooltip": "Opções da conta",
+  "billsDeleteConfirmTitle": "Excluir conta?",
+  "billsDeleteConfirmBody": "Tem certeza de que deseja excluir a conta \"{title}\"?",
+  "@billsDeleteConfirmBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsMarkUnpaid": "Marcar como não pago",
+  "billsPauseAction": "Pausar conta",
+  "billsDeleteAction": "Excluir conta",
+  "billsCreateSuccess": "Conta \"{title}\" cadastrada com sucesso!",
+  "@billsCreateSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsCreateError": "Erro ao cadastrar conta: {error}",
+  "@billsCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPaidSuccess": "Conta \"{title}\" marcada como paga!",
   }
 }
