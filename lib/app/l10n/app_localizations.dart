@@ -2780,6 +2780,166 @@ abstract class AppLocalizations {
   /// No description provided for @backupExportCreateButton.
   ///
   /// In pt, this message translates to:
+  /// **'Criar e Exportar Backup'**
+  String get backupExportCreateButton;
+
+  /// No description provided for @backupStageCollecting.
+  ///
+  /// In pt, this message translates to:
+  /// **'Coletando dados do aplicativo...'**
+  String get backupStageCollecting;
+
+  /// No description provided for @backupStageEncrypting.
+  ///
+  /// In pt, this message translates to:
+  /// **'Criptografando com AES-256 e Argon2id...'**
+  String get backupStageEncrypting;
+
+  /// No description provided for @backupStageWriting.
+  ///
+  /// In pt, this message translates to:
+  /// **'Finalizando arquivo de backup...'**
+  String get backupStageWriting;
+
+  /// No description provided for @backupStageDone.
+  ///
+  /// In pt, this message translates to:
+  /// **'Concluído!'**
+  String get backupStageDone;
+
+  /// No description provided for @backupEncryptedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Backup Criptografado'**
+  String get backupEncryptedTitle;
+
+  /// No description provided for @backupWarningTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aviso Importante (RN-234)'**
+  String get backupWarningTitle;
+
+  /// No description provided for @backupWarningLostPassword.
+  ///
+  /// In pt, this message translates to:
+  /// **'Se você perder a senha, o backup é perdido.'**
+  String get backupWarningLostPassword;
+
+  /// No description provided for @backupWarningNoRecovery.
+  ///
+  /// In pt, this message translates to:
+  /// **'O aplicativo não salva sua senha nem consegue ler o backup sem ela. Não há opção de recuperação.'**
+  String get backupWarningNoRecovery;
+
+  /// No description provided for @backupPasswordLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Senha do Backup *'**
+  String get backupPasswordLabel;
+
+  /// No description provided for @backupPasswordRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Informe uma senha para proteger o backup'**
+  String get backupPasswordRequired;
+
+  /// No description provided for @backupPasswordMinLength.
+  ///
+  /// In pt, this message translates to:
+  /// **'A senha deve ter pelo menos 4 caracteres'**
+  String get backupPasswordMinLength;
+
+  /// No description provided for @backupConfirmPasswordLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Confirmar Senha *'**
+  String get backupConfirmPasswordLabel;
+
+  /// No description provided for @backupPasswordsMismatch.
+  ///
+  /// In pt, this message translates to:
+  /// **'As senhas não coincidem'**
+  String get backupPasswordsMismatch;
+
+  /// No description provided for @backupIncludePhotosTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Incluir fotos no backup (RN-237)'**
+  String get backupIncludePhotosTitle;
+
+  /// No description provided for @backupIncludePhotosWithSize.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fotos de cupons e receitas (Tamanho estimado: {size})'**
+  String backupIncludePhotosWithSize(String size);
+
+  /// No description provided for @backupIncludePhotosDefault.
+  ///
+  /// In pt, this message translates to:
+  /// **'Fotos de cupons e receitas ficam fora do backup por padrão'**
+  String get backupIncludePhotosDefault;
+
+  /// No description provided for @backupExportEncryptedButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Exportar Criptografado'**
+  String get backupExportEncryptedButton;
+
+  /// No description provided for @backupRestoreEncryptedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Restaurar Backup Criptografado'**
+  String get backupRestoreEncryptedTitle;
+
+  /// No description provided for @backupRestoreEncryptedBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Este arquivo de backup está protegido por senha. Informe a senha definida durante a exportação para continuar.'**
+  String get backupRestoreEncryptedBody;
+
+  /// No description provided for @backupRestorePasswordRequired.
+  ///
+  /// In pt, this message translates to:
+  /// **'Digite a senha do backup'**
+  String get backupRestorePasswordRequired;
+
+  /// No description provided for @backupRestoreEncryptedButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Descriptografar e Restaurar'**
+  String get backupRestoreEncryptedButton;
+
+  /// No description provided for @backupImportProcessing.
+  ///
+  /// In pt, this message translates to:
+  /// **'Processando backup...'**
+  String get backupImportProcessing;
+
+  /// No description provided for @backupImportReplacedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Backup restaurado com sucesso!'**
+  String get backupImportReplacedTitle;
+
+  /// No description provided for @backupImportMergedTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dados mesclados com sucesso!'**
+  String get backupImportMergedTitle;
+
+  /// No description provided for @backupImportReplacedBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Os dados do aplicativo foram totalmente substituídos pelos do backup.'**
+  String get backupImportReplacedBody;
+
+  /// No description provided for @backupImportMergedBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'Os registros do backup foram mesclados aos dados existentes.'**
+  String get backupImportMergedBody;
+
+  /// No description provided for @backupImportFailedTitle.
 }
 
 class _AppLocalizationsDelegate
