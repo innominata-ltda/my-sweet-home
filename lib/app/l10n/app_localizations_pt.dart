@@ -3576,4 +3576,79 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get householdBundleImportTitle => 'Importar pacote .mshsync';
 
+  @override
+  String get householdBundleContentLabel => 'Conteúdo ou caminho do pacote';
+
+  @override
+  String get householdBundleContentHint => 'Cole os dados do arquivo .mshsync';
+
+  @override
+  String get householdBundleImportAction => 'Importar';
+
+  @override
+  String get householdBundleShareTitle => 'Pacote de sincronização';
+
+  @override
+  String get householdBundleShareDescription =>
+      'Gere um arquivo criptografado com as alterações deste aparelho para enviar por WhatsApp, Telegram ou e-mail.';
+
+  @override
+  String get householdBundleShareAction => 'Compartilhar';
+
+  @override
+  String householdBundleGeneratedSuccess(int bytes) {
+    return 'Pacote gerado com sucesso! ($bytes bytes)';
+  }
+
+  @override
+  String get householdQrScanTitle => 'Ler QR Code da casa';
+
+  @override
+  String get householdLeaveDeleteConfirmBody =>
+      'Tem certeza de que deseja apagar todos os dados compartilhados da casa neste aparelho?\n\nEsta ação não pode ser desfeita.';
+
+  @override
+  String get householdLeaveWipeSubtitle =>
+      'Remove as despesas, contas e tarefas compartilhadas deste aparelho.';
+
+  @override
+  String householdTutorialStepOf(int current, int total) {
+    return 'Passo $current de $total';
+  }
+
+  @override
+  String get householdJoinPreviewEmptyDeviceError =>
+      'Informe o nome do aparelho';
+
+  @override
+  String householdJoinPreviewTitle(String name) {
+    return 'Entrar em \"$name\"';
+  }
+
+  @override
+  String get householdJoinPreviewLocalRecordsTitle =>
+      'Registros locais a unir:';
+
+  @override
+  String get householdJoinPreviewHomeLabel =>
+      'Casa (listas, tarefas, receitas):';
+
+  @override
+  String householdSyncBothSuffix(int sent, int applied) {
+    return ' ($sent enviadas, $applied aplicadas).';
+  }
+
+  @override
+  String householdSyncPeersCompleted(int peers, String summary) {
+    return 'Sincronizado com $peers aparelho(s)$summary';
+  }
+
+  @override
+  String get householdSyncNoPeersFound =>
+      'Nenhum outro aparelho encontrado na rede local no momento.';
+
+  @override
+  String householdLoadError(String error) {
+    return 'Erro ao carregar dados da casa: $error';
+  }
 }
