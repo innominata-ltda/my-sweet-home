@@ -165,29 +165,34 @@ class _CalendarPageState extends ConsumerState<CalendarPage>
                 },
               ),
             ),
-            TextButton(
-              onPressed: () async {
-                final date = await showDatePicker(
-                  context: context,
-                  initialDate: _currentDate,
-                  firstDate: DateTime(2000),
-                  lastDate: DateTime(2100),
-                );
-                if (date != null) {
-                  setState(() {
-                    _currentDate = DateTime.utc(
-                      date.year,
-                      date.month,
-                      date.day,
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: TextButton(
+                  onPressed: () async {
+                    final date = await showDatePicker(
+                      context: context,
+                      initialDate: _currentDate,
+                      firstDate: DateTime(2000),
+                      lastDate: DateTime(2100),
                     );
-                  });
-                }
-              },
-              child: Text(
-                '${_currentDate.month.toString().padLeft(2, '0')}/${_currentDate.year}',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Theme.of(context).colorScheme.onSurface,
+                    if (date != null) {
+                      setState(() {
+                        _currentDate = DateTime.utc(
+                          date.year,
+                          date.month,
+                          date.day,
+                        );
+                      });
+                    }
+                  },
+                  child: Text(
+                    '${_currentDate.month.toString().padLeft(2, '0')}/${_currentDate.year}',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+                  ),
                 ),
               ),
             ),

@@ -322,4 +322,51 @@ void main() {
       expect(exportedFiles.last, contains('.pdf'));
     },
   );
+
+  testWidgets(
+    'AppBar month title does not overlap economy button on 360dp viewport',
+    (tester) async {
+      tester.view.physicalSize = const Size(360, 800);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      const november = YearMonth('2026-11');
+      final summary = MonthSummary(
+        month: november,
+        actual: Money.zero,
+        budget: null,
+        remaining: null,
+        byCategory: const [],
+        monthsOfHistory: 0,
+      );
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            currentMonthProvider.overrideWithValue(november),
+            monthSummaryRepositoryProvider.overrideWithValue(
+              _FakeMonthSummaryRepo(summary),
+            ),
+            expenseRepositoryProvider.overrideWithValue(_FakeExpenseRepo([])),
+            categoryRepositoryProvider.overrideWithValue(_FakeCategoryRepo()),
+          ],
+          child: const MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: ExpensesScreen(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final titleRect = tester.getRect(find.text('Novembro de 2026'));
+      final economyRect = tester.getRect(
+        find.byKey(const Key('expenses_economy_button')),
+      );
+
+      expect(titleRect.right, lessThanOrEqualTo(economyRect.left));
+      expect(tester.takeException(), isNull);
+    },
+  );
 }

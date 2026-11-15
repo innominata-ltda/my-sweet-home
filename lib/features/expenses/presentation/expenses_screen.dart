@@ -101,25 +101,39 @@ class ExpensesScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        titleSpacing: 4,
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
               icon: const Icon(AppIcons.chevronLeft, size: 20),
               tooltip: 'Mês anterior',
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 44),
               onPressed: () {
                 ref
                     .read(selectedYearMonthProvider.notifier)
                     .setMonth(currentMonth.previous);
               },
             ),
-            Text(
-              _formatMonthYear(currentMonth),
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Flexible(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  _formatMonthYear(currentMonth),
+                  maxLines: 1,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
             IconButton(
               icon: const Icon(AppIcons.chevronRight, size: 20),
               tooltip: 'Próximo mês',
+              padding: EdgeInsets.zero,
+              constraints: const BoxConstraints(minWidth: 36, minHeight: 44),
               onPressed: () {
                 ref
                     .read(selectedYearMonthProvider.notifier)
