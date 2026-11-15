@@ -7,6 +7,7 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
       isScrollControlled: true,
       builder: (modalCtx) => Consumer(
         builder: (ctx, ref, _) {
+          final l10n = AppLocalizations.of(ctx);
           final listsAsync = ref.watch(allShoppingListsProvider);
           final lists = listsAsync.asData?.value ?? [];
 
@@ -22,23 +23,23 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
                     children: [
                       Expanded(
                         child: Text(
-                          'Minhas Listas de Compras',
+                          l10n.shoppingSheetsMyListsTitle,
                           style: Theme.of(ctx).textTheme.titleLarge
                               ?.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
                       TextButton.icon(
                         icon: const Icon(AppIcons.add, size: 20),
-                        label: const Text('Nova Lista'),
+                        label: Text(l10n.shoppingSheetsNewList),
                         onPressed: () => _showCreateListDialog(ctx),
                       ),
                     ],
                   ),
                   const Divider(),
                   if (lists.isEmpty)
-                    const Padding(
-                      padding: EdgeInsets.all(Spacing.md),
-                      child: Text('Nenhuma lista encontrada.'),
+                    Padding(
+                      padding: const EdgeInsets.all(Spacing.md),
+                      child: Text(l10n.shoppingSheetsNoLists),
                     )
                   else
                     Flexible(
@@ -65,8 +66,12 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
                             ),
                             subtitle: Text(
                               l.isArchived
-                                  ? 'Arquivada • ${l.items.length} itens'
-                                  : '${l.items.length} itens',
+                                  ? l10n.shoppingSheetsArchivedCount(
+                                      l.items.length,
+                                    )
+                                  : l10n.shoppingSheetsItemsCount(
+                                      l.items.length,
+                                    ),
                             ),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -82,7 +87,7 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
                                 PopupMenuButton<String>(
                                   key: ValueKey('list-menu-${l.id}'),
                                   icon: const Icon(AppIcons.more),
-                                  tooltip: 'Opções da lista',
+                                  tooltip: l10n.shoppingSheetsListOptions,
                                   onSelected: (action) {
                                     switch (action) {
                                       case 'duplicate':
@@ -97,23 +102,23 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
                                     }
                                   },
                                   itemBuilder: (context) => [
-                                    const PopupMenuItem(
+                                    PopupMenuItem(
                                       value: 'duplicate',
                                       child: Row(
                                         children: [
-                                          Icon(AppIcons.copy, size: 20),
-                                          SizedBox(width: Spacing.sm),
-                                          Text('Duplicar'),
+                                          const Icon(AppIcons.copy, size: 20),
+                                          const SizedBox(width: Spacing.sm),
+                                          Text(l10n.shoppingSheetsDuplicate),
                                         ],
                                       ),
                                     ),
-                                    const PopupMenuItem(
+                                    PopupMenuItem(
                                       value: 'rename',
                                       child: Row(
                                         children: [
-                                          Icon(AppIcons.edit, size: 20),
-                                          SizedBox(width: Spacing.sm),
-                                          Text('Renomear'),
+                                          const Icon(AppIcons.edit, size: 20),
+                                          const SizedBox(width: Spacing.sm),
+                                          Text(l10n.shoppingSheetsRename),
                                         ],
                                       ),
                                     ),
@@ -158,19 +163,20 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
   }
 
   Future<void> _duplicateList(String listId, BuildContext sheetContext) async {
+    final l10n = AppLocalizations.of(context);
     final useCase = ref.read(duplicateShoppingListUseCaseProvider);
     final result = await useCase(listId);
     if (result.isOk) {
       ref.invalidate(allShoppingListsProvider);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Lista duplicada com sucesso.')),
+          SnackBar(content: Text(l10n.shoppingSheetsDuplicateSuccess)),
         );
       }
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Falha ao duplicar lista.')),
+          SnackBar(content: Text(l10n.shoppingSheetsDuplicateError)),
         );
       }
     }
@@ -180,24 +186,27 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
     BuildContext parentContext,
     ShoppingList list,
   ) async {
+    final l10n = AppLocalizations.of(parentContext);
     final textController = TextEditingController(text: list.name);
     final confirmed = await showDialog<bool>(
       context: parentContext,
       builder: (diagCtx) => AlertDialog(
-        title: const Text('Renomear Lista'),
+        title: Text(l10n.shoppingSheetsRenameTitle),
         content: TextField(
           controller: textController,
           autofocus: true,
-          decoration: const InputDecoration(labelText: 'Nome da lista *'),
+          decoration: InputDecoration(
+            labelText: l10n.shoppingSheetsListNameLabel,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(diagCtx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(diagCtx).pop(true),
-            child: const Text('Salvar'),
+            child: Text(l10n.commonSave),
           ),
         ],
       ),
@@ -226,12 +235,13 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
     ref.invalidate(shoppingListDetailProvider(list.id));
 
     if (mounted) {
+      final l10n = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             newArchived
-                ? 'Lista arquivada com sucesso.'
-                : 'Lista desarquivada com sucesso.',
+                ? l10n.shoppingSheetsArchivedSuccess
+                : l10n.shoppingSheetsUnarchivedSuccess,
           ),
         ),
       );
@@ -242,27 +252,28 @@ extension _ShoppingListSheets on _ShoppingListScreenState {
   }
 
   Future<void> _showCreateListDialog(BuildContext parentContext) async {
+    final l10n = AppLocalizations.of(parentContext);
     final textController = TextEditingController();
     final confirmed = await showDialog<bool>(
       context: parentContext,
       builder: (diagCtx) => AlertDialog(
-        title: const Text('Nova Lista de Compras'),
+        title: Text(l10n.shoppingSheetsCreateTitle),
         content: TextField(
           controller: textController,
           autofocus: true,
-          decoration: const InputDecoration(
-            labelText: 'Nome da lista *',
-            hintText: 'ex.: Feira, Farmácia, Churrasco',
+          decoration: InputDecoration(
+            labelText: l10n.shoppingSheetsListNameLabel,
+            hintText: l10n.shoppingSheetsCreateHint,
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(diagCtx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(diagCtx).pop(true),
-            child: const Text('Criar'),
+            child: Text(l10n.shoppingSheetsCreateButton),
           ),
         ],
       ),
