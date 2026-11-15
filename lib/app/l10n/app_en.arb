@@ -318,3 +318,163 @@
       }
     }
   },
+  "priceAverageObservations": "based on {count} observations",
+  "@priceAverageObservations": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "priceVariationAlert": "Price variation alert",
+  "priceVariationUp": "Up {percent}% above the 30-day average",
+  "@priceVariationUp": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "priceVariationDown": "Down {percent}% below the 30-day average",
+  "@priceVariationDown": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseTotalMismatch": "Difference of {amount}. The system does not adjust automatically.",
+  "@purchaseTotalMismatch": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseInvalidCnpj": "Invalid CNPJ. Enter a valid CNPJ.",
+  "purchaseChartA11y": "{amount} on average in the last 30 days, lowest price {minAmount} at {store} on {date}",
+  "@purchaseChartA11y": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "minAmount": {
+        "type": "String"
+      },
+      "store": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrTitle": "Receipt Scanner",
+  "ocrCameraPermissionDenied": "Camera permission denied",
+  "ocrCameraPermissionSettings": "Go to Settings",
+  "ocrFlashOn": "Turn flash on",
+  "ocrFlashOff": "Turn flash off",
+  "ocrReviewTitle": "Review",
+  "ocrReviewSave": "Save",
+  "ocrReviewAdd": "Add",
+  "ocrReviewDelete": "Delete",
+  "ocrTotalMismatch": "Sum of items differs from total",
+  "ocrItemLowConfidence": "Check this item",
+  "ocrGalleryOption": "Gallery",
+  "purchaseDate": "Purchase Date",
+  "purchaseItemsSection": "Items",
+  "purchaseAddItem": "Add Item",
+  "purchaseNoStores": "No stores registered. (Add one on the stores screen)",
+  "purchaseLoadStoresError": "Error loading stores: {error}",
+  "@purchaseLoadStoresError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseProductLabel": "Product",
+  "purchaseLoadProductsError": "Error loading products",
+  "purchaseQuantityLabel": "Quantity",
+  "purchaseTotalPriceLabel": "Total Price",
+  "purchaseDiscountLabel": "Total Discount",
+  "purchaseDeclaredTotalLabel": "Declared Total (Receipt)",
+  "purchaseItemsSum": "Items Sum: {amount}",
+  "@purchaseItemsSum": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "purchaseFormError": "Fill in all fields correctly",
+  "priceTrendUp": "Price increase in the period",
+  "priceTrendDown": "Price decrease in the period",
+  "priceHistoryTitle": "Price history",
+  "checklistTitle": "Home checklist",
+  "checklistEmpty": "No items in checklist.",
+  "checklistCategoryAll": "All rooms",
+  "checklistSendToShoppingList": "Send to shopping list",
+  "stockTitle": "Home stock",
+  "stockEmpty": "No products in stock.",
+  "stockLowAlert": "Running low",
+  "stockEstimateNotice": "Consumption estimate",
+  "searchGlobalTitle": "Search",
+  "searchGlobalHint": "Search across the app...",
+  "searchGlobalNoResults": "No results found.",
+  "economyTitle": "Economy Mode",
+  "economyMetaTitle": "Savings goal",
+  "economyProgressLabel": "Goal progress",
+  "widgetsTitle": "Widgets",
+  "backupTitle": "Backup & Export",
+  "backupExportSection": "Export Data",
+  "backupImportSection": "Import Data",
+  "backupClearAllSection": "Clear All",
+  "backupCloudSection": "Cloud Backup",
+  "mascotDefaultName": "Momo",
+  "mascotCustomizeTitle": "Customize Mascot",
+  "mascotCustomizeSave": "Save and apply",
+  "mascotCustomizeCancel": "Cancel",
+  "mascotCustomizeRetry": "Try again",
+  "mascotCustomizeNameLabel": "Mascot name",
+  "mascotCustomizeNameHint": "e.g. Momo",
+  "mascotCustomizePreview": "Preview",
+  "mascotCustomizeAnimalSection": "Animal",
+  "mascotCustomizePaletteSection": "Color palette",
+  "mascotCustomizeAccessorySection": "Accessory",
+  "mascotAnimalCat": "Cat",
+  "mascotAnimalDog": "Dog",
+  "mascotAnimalBunny": "Bunny",
+  "mascotPaletteRose": "Rose",
+  "mascotPaletteLavender": "Lavender",
+  "mascotPaletteMint": "Mint",
+  "mascotAccessoryNone": "None",
+  "mascotAccessoryBow": "Bow",
+  "mascotAccessoryCollar": "Collar",
+  "mascotAccessoryScarf": "Scarf",
+  "mascotSaveSuccess": "Customization saved with care!",
+  "mascotSaveError": "Error saving customization. Try again.",
+  "settingsMascotOption": "Customize Momo",
+  "settingsMascotSubtitle": "Choose your companion's animal, colors, and accessories",
+  "settingsTutorialOption": "View tutorial with Momo",
+  "settingsTutorialSubtitle": "Review how the app works with the mascot",
+  "onboardingSkip": "Skip intro",
+  "onboardingNext": "Next",
+  "onboardingStart": "Get started",
+  "onboardingStep1Title": "Hi! I'm Momo 💕",
+  "onboardingStep1Description": "I'm here to help take care of your cozy home and make everything lighter!",
+  "onboardingStep2Title": "Here we look after your money together",
+  "onboardingStep2Description": "Track your expenses, log purchases, and keep your budget on track without end-of-month surprises.",
+  "onboardingStep3Title": "And your shopping too!",
+  "onboardingStep3Description": "Build your grocery list at the store and scan receipts in the blink of an eye.",
+  "onboardingStep4Title": "Don't forget your daily chores",
+  "onboardingStep4Description": "Organize cleaning tasks, home care, and routines to keep your place welcoming.",
+  "onboardingStep5Title": "I'll remind you when something needs attention",
+  "onboardingStep5Description": "Stay calm with upcoming bill reminders so you never pay interest or late fees again.",
+  "onboardingStep6Title": "You can customize my look anytime!",
+  "onboardingStep6Description": "You can switch my animal, add accessories, and pick the colors that match you best.",
+  "onboardingCustomizePrompt": "Want to customize my look now?",
+  "onboardingCustomizeButton": "Customize now",
+  "dashboardMonthBalanceTitle": "Your money this month",
+  "dashboardDueBillsTitle": "Bills that need attention",
+  "dashboardTodayTasksTitle": "Today's tasks",
