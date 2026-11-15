@@ -1116,5 +1116,165 @@
     "placeholders": {
       "category": {
         "type": "String"
+      }
+    }
+  },
+  "checklistDefaultListName": "Lista da Casa (Checklist)",
+  "checklistExportBody": "Criar uma lista de compras com os {count} itens pendentes do checklist.",
+  "@checklistExportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListNameLabel": "Nome da lista *",
+  "checklistListCreated": "Lista \"{name}\" criada com {count} itens!",
+  "@checklistListCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListCreateError": "Falha ao criar lista: {error}",
+  "@checklistListCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistGenerateListButton": "Gerar lista",
+  "checklistCardSemantics": "{title}, {percent}% concluído, toque para ver detalhes",
+  "@checklistCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeVisibleCardsCount": "Cards exibidos ({count})",
+  "@customizeVisibleCardsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customizeReorderHint": "Arraste para reordenar ou utilize os botões acessíveis.",
+  "customizeNoVisibleCards": "Nenhum card visível no momento.",
+  "customizeAvailableModulesHint": "Módulos disponíveis para inclusão na sua tela inicial.",
+  "customizeAllCardsVisible": "Todos os cards já estão visíveis no painel.",
+  "customizeDragSemantics": "Arrastar {title} para reordenar",
+  "@customizeDragSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveUpSemantics": "Mover {title} para cima",
+  "@customizeMoveUpSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveDownSemantics": "Mover {title} para baixo",
+  "@customizeMoveDownSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeHideSemantics": "Ocultar {title}",
+  "@customizeHideSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeAddSemantics": "Adicionar {title} ao painel",
+  "@customizeAddSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsWidgetSemantics": "Widget de contas a vencer",
+  "dueBillsDefaultTitle": "Contas a vencer",
+  "dueBillsEmptyTitle": "Nenhuma conta a vencer",
+  "dueBillsEmptyDescription": "Todas as suas contas deste mês estão em dia.",
+  "dueBillsVariableAmount": "Variável",
+  "dueBillsItemSemanticsHidden": "{title}, {dueLabel}, valor oculto",
+  "@dueBillsItemSemanticsHidden": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsItemSemanticsVisible": "{title}, {dueLabel}, valor {amount}",
+  "@dueBillsItemSemanticsVisible": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsViewAll": "Ver todas as contas",
+  "economySetGoalTitle": "Definir Meta de Economia",
+  "economySetGoalFieldLabel": "Meta de Economia do Mês",
+  "economySaveGoalButton": "Salvar Meta",
+  "economyLoadError": "Erro ao carregar dados: {error}",
+  "@economyLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "economyMonthGoalTitle": "Meta do Mês ({month})",
+  "@economyMonthGoalTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "economySetGoalFallback": "Definir meta de economia",
+  "economyCardSemantics": "{title}, {goalText}, toque para ver detalhes",
+  "@economyCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "goalText": {
+        "type": "String"
+      }
+    }
+  },
+  "searchGlobalScreenTitle": "Busca Global",
+  "searchGlobalLabel": "Buscar em todo o app",
   }
 }
