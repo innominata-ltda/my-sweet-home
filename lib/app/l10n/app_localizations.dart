@@ -4860,6 +4860,166 @@ abstract class AppLocalizations {
   /// No description provided for @recipeNoActiveShoppingLists.
   ///
   /// In pt, this message translates to:
+  /// **'Nenhuma lista de compras ativa encontrada.'**
+  String get recipeNoActiveShoppingLists;
+
+  /// No description provided for @recipeSelectShoppingListTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione a lista de compras'**
+  String get recipeSelectShoppingListTitle;
+
+  /// No description provided for @recipeIngredientsSentSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ingredientes enviados para a lista de compras!'**
+  String get recipeIngredientsSentSuccess;
+
+  /// No description provided for @recipeIngredientsSentError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao enviar ingredientes: {error}'**
+  String recipeIngredientsSentError(String error);
+
+  /// No description provided for @recipeDecreaseServingsTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Diminuir porções'**
+  String get recipeDecreaseServingsTooltip;
+
+  /// No description provided for @recipeIncreaseServingsTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aumentar porções'**
+  String get recipeIncreaseServingsTooltip;
+
+  /// No description provided for @recipeSendIngredientsButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Enviar ingredientes para lista de compras'**
+  String get recipeSendIngredientsButton;
+
+  /// No description provided for @recipeDraftTitleRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'O título é obrigatório.'**
+  String get recipeDraftTitleRequiredError;
+
+  /// No description provided for @recipeDraftIngredientsRequiredError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicione pelo menos um ingrediente.'**
+  String get recipeDraftIngredientsRequiredError;
+
+  /// No description provided for @recipeDraftSaveError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao salvar receita: {error}'**
+  String recipeDraftSaveError(String error);
+
+  /// No description provided for @recipePasteTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Colar receita'**
+  String get recipePasteTitle;
+
+  /// No description provided for @recipePasteHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cole a receita aqui (título, ingredientes, modo de preparo)...'**
+  String get recipePasteHint;
+
+  /// No description provided for @recipeImportButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Importar'**
+  String get recipeImportButton;
+
+  /// No description provided for @recipeIngredientNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome do ingrediente'**
+  String get recipeIngredientNameLabel;
+
+  /// No description provided for @recipeIngredientNameHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: 2 xícaras de farinha'**
+  String get recipeIngredientNameHint;
+
+  /// No description provided for @recipeTagNameLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nome da tag'**
+  String get recipeTagNameLabel;
+
+  /// No description provided for @recipeTagNameHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ex: Sobremesa, Rápido, Vegano'**
+  String get recipeTagNameHint;
+
+  /// No description provided for @recipeSaveTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar receita'**
+  String get recipeSaveTooltip;
+
+  /// No description provided for @recipeRemoveIngredientSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover ingrediente {name}'**
+  String recipeRemoveIngredientSemantics(String name);
+
+  /// No description provided for @recipeRemoveIngredientTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Remover ingrediente'**
+  String get recipeRemoveIngredientTooltip;
+
+  /// No description provided for @recipeAddPhotoButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar foto'**
+  String get recipeAddPhotoButton;
+
+  /// No description provided for @recipePhotoAttached.
+  ///
+  /// In pt, this message translates to:
+  /// **'Foto anexada à receita.'**
+  String get recipePhotoAttached;
+
+  /// No description provided for @recipeSpinDecrease.
+  ///
+  /// In pt, this message translates to:
+  /// **'Diminuir {label}'**
+  String recipeSpinDecrease(String label);
+
+  /// No description provided for @recipeSpinIncrease.
+  ///
+  /// In pt, this message translates to:
+  /// **'Aumentar {label}'**
+  String recipeSpinIncrease(String label);
+
+  /// No description provided for @recipeListTimeAndServings.
+  ///
+  /// In pt, this message translates to:
+  /// **'{minutes} min • {servings} porções'**
+  String recipeListTimeAndServings(int minutes, int servings);
+
+  /// No description provided for @recipeUnfavoriteTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desmarcar favorito'**
+  String get recipeUnfavoriteTooltip;
+
+  /// No description provided for @recipeFavoriteTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Marcar como favorito'**
+  String get recipeFavoriteTooltip;
+
+  /// No description provided for @recipeRepoUnavailable.
 }
 
 class _AppLocalizationsDelegate
