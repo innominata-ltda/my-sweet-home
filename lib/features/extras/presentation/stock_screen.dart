@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/quantity/quantity.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/components/app_card.dart';
@@ -34,25 +35,28 @@ class _StockScreenState extends ConsumerState<StockScreen> {
   }
 
   void _showAddStockDialog() {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     showDialog<void>(
       context: context,
       builder: (dialogCtx) {
         return StatefulBuilder(
           builder: (context, setDialogState) {
             return AlertDialog(
-              title: const Text('Registrar no Estoque'),
+              title: Text(l10n.stockRegisterTitle),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AppTextField(
-                    label: 'Nome do Produto *',
-                    hint: 'Ex: Arroz Tipo 1',
+                    label: l10n.stockProductNameLabel,
+                    hint: l10n.stockProductNameHint,
                     controller: _productNameController,
                   ),
                   const SizedBox(height: 12),
                   AppTextField(
-                    label: 'Quantidade aproximada *',
-                    hint: 'Ex: 4',
+                    label: l10n.stockApproxQuantityLabel,
+                    hint: l10n.stockApproxQuantityHint,
                     keyboardType: TextInputType.number,
                     controller: _quantityController,
                   ),
@@ -74,10 +78,10 @@ class _StockScreenState extends ConsumerState<StockScreen> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(dialogCtx),
-                  child: const Text('Cancelar'),
+                  child: Text(l10n.commonCancel),
                 ),
                 AppButton(
-                  label: 'Salvar',
+                  label: l10n.commonSave,
                   onPressed: () async {
                     final name = _productNameController.text.trim();
                     final qtyVal = int.tryParse(_quantityController.text) ?? 1;
@@ -132,15 +136,18 @@ class _StockScreenState extends ConsumerState<StockScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final controller = ref.watch(stockControllerProvider);
 
     return AppScaffold(
-      title: 'Estoque Doméstico',
+      title: l10n.stockTitle,
       actions: [
         IconButton(
           key: const Key('add_stock_button'),
           icon: const Icon(AppIcons.add),
-          tooltip: 'Adicionar produto',
+          tooltip: l10n.stockAddProductButton,
           onPressed: _showAddStockDialog,
         ),
       ],
@@ -153,16 +160,16 @@ class _StockScreenState extends ConsumerState<StockScreen> {
 
           if (stockState.failure != null && stockState.items.isEmpty) {
             return Center(
-              child: Text('Erro ao carregar estoque: ${stockState.failure}'),
+              child: Text(l10n.stockLoadError('${stockState.failure}')),
             );
           }
 
           if (stockState.items.isEmpty) {
             return AppEmptyState(
               icon: AppIcons.stock,
-              title: 'Estoque vazio',
-              description: 'Nenhum produto registrado no estoque doméstico.',
-              actionLabel: 'Adicionar produto',
+              title: l10n.stockEmptyTitle,
+              description: l10n.stockEmptyDescription,
+              actionLabel: l10n.stockAddProductButton,
               onAction: _showAddStockDialog,
             );
           }
@@ -191,7 +198,7 @@ class _StockScreenState extends ConsumerState<StockScreen> {
                                   );
                                   final displayName =
                                       productAsync.value?.canonicalName ??
-                                      'Produto: ${item.productId}';
+                                      l10n.stockProductFallback(item.productId);
                                   return Text(
                                     displayName,
                                     style: Theme.of(context)
@@ -214,7 +221,10 @@ class _StockScreenState extends ConsumerState<StockScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Quantidade informada: ${item.quantity.displayValue.toStringAsFixed(1)} ${item.quantity.unit.name}',
+                          l10n.stockReportedQuantity(
+                            item.quantity.displayValue.toStringAsFixed(1),
+                            item.quantity.unit.name,
+                          ),
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         const SizedBox(height: 8),
@@ -230,7 +240,9 @@ class _StockScreenState extends ConsumerState<StockScreen> {
                                 // RN-251 / CA-2.2: If fewer than 3 purchases, do not display estimate!
                                 if (!estimate.hasEnoughHistory) {
                                   return Text(
-                                    'Sem estimativa de consumo (compras no histórico: ${estimate.purchaseCount}, mínimo: 3)',
+                                    l10n.stockNoEstimate(
+                                      estimate.purchaseCount,
+                                    ),
                                     style: Theme.of(context).textTheme.bodySmall
                                         ?.copyWith(color: Colors.grey),
                                   );
@@ -240,14 +252,20 @@ class _StockScreenState extends ConsumerState<StockScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Intervalo médio de compra: ${estimate.averageIntervalDays?.toStringAsFixed(1)} dias',
+                                      l10n.stockAvgInterval(
+                                        estimate.averageIntervalDays
+                                                ?.toStringAsFixed(1) ??
+                                            '0',
+                                      ),
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall,
                                     ),
                                     if (estimate.estimatedDaysRemaining != null)
                                       Text(
-                                        'Estimativa restante: ~${estimate.estimatedDaysRemaining} dias',
+                                        l10n.stockEstimatedRemaining(
+                                          estimate.estimatedDaysRemaining!,
+                                        ),
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall
@@ -271,7 +289,7 @@ class _StockScreenState extends ConsumerState<StockScreen> {
                                           ),
                                         ),
                                         child: Text(
-                                          'Está acabando',
+                                          l10n.stockLowAlert,
                                           style: TextStyle(
                                             color: Theme.of(context)
                                                 .colorScheme
