@@ -638,3 +638,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get economyMetaTitle => 'Savings goal';
+
+  @override
+  String get economyProgressLabel => 'Goal progress';
+
+  @override
+  String get widgetsTitle => 'Widgets';
+
+  @override
+  String get backupTitle => 'Backup & Export';
+
+  @override
+  String get backupExportSection => 'Export Data';
+
+  @override
+  String get backupImportSection => 'Import Data';
+
+  @override
+  String get backupClearAllSection => 'Clear All';
+
+  @override
+  String get backupCloudSection => 'Cloud Backup';
+
+  @override
+  String get mascotDefaultName => 'Momo';
+
+  @override
+  String get mascotCustomizeTitle => 'Customize Mascot';
+
+  @override
+  String get mascotCustomizeSave => 'Save and apply';
+
+  @override
+  String get mascotCustomizeCancel => 'Cancel';
+
+  @override
+  String get mascotCustomizeRetry => 'Try again';
+
+  @override
+  String get mascotCustomizeNameLabel => 'Mascot name';
+
+  @override
+  String get mascotCustomizeNameHint => 'e.g. Momo';
+
+  @override
+  String get mascotCustomizePreview => 'Preview';
+
+  @override
+  String get mascotCustomizeAnimalSection => 'Animal';
+
+  @override
+  String get mascotCustomizePaletteSection => 'Color palette';
+
+  @override
+  String get mascotCustomizeAccessorySection => 'Accessory';
+
+  @override
+  String get mascotAnimalCat => 'Cat';
+
+  @override
+  String get mascotAnimalDog => 'Dog';
+
+  @override
+  String get mascotAnimalBunny => 'Bunny';
+
+  @override
+  String get mascotPaletteRose => 'Rose';
+
+  @override
+  String get mascotPaletteLavender => 'Lavender';
+
+  @override
+  String get mascotPaletteMint => 'Mint';
+
+  @override
+  String get mascotAccessoryNone => 'None';
+
+  @override
+  String get mascotAccessoryBow => 'Bow';
+
+  @override
+  String get mascotAccessoryCollar => 'Collar';
+
+  @override
+  String get mascotAccessoryScarf => 'Scarf';
+
+  @override
+  String get mascotSaveSuccess => 'Customization saved with care!';
+
+  @override
+  String get mascotSaveError => 'Error saving customization. Try again.';
+
+  @override
+  String get settingsMascotOption => 'Customize Momo';
+
+  @override
+  String get settingsMascotSubtitle =>
+      'Choose your companion\'s animal, colors, and accessories';
+
+  @override
+  String get settingsTutorialOption => 'View tutorial with Momo';
+
+  @override
+  String get settingsTutorialSubtitle =>
+      'Review how the app works with the mascot';
+
+  @override
+  String get onboardingSkip => 'Skip intro';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingStart => 'Get started';
+
+  @override
+  String get onboardingStep1Title => 'Hi! I\'m Momo 💕';
+
+  @override
+  String get onboardingStep1Description =>
+      'I\'m here to help take care of your cozy home and make everything lighter!';
+
+  @override
+  String get onboardingStep2Title => 'Here we look after your money together';
+
+  @override
+  String get onboardingStep2Description =>
+      'Track your expenses, log purchases, and keep your budget on track without end-of-month surprises.';
+
+  @override
+  String get onboardingStep3Title => 'And your shopping too!';
+
+  @override
+  String get onboardingStep3Description =>
+      'Build your grocery list at the store and scan receipts in the blink of an eye.';
+
+  @override
+  String get onboardingStep4Title => 'Don\'t forget your daily chores';
+
+  @override
+  String get onboardingStep4Description =>
+      'Organize cleaning tasks, home care, and routines to keep your place welcoming.';
+
+  @override
+  String get onboardingStep5Title =>
+      'I\'ll remind you when something needs attention';
+
+  @override
+  String get onboardingStep5Description =>
+      'Stay calm with upcoming bill reminders so you never pay interest or late fees again.';
+
+  @override
+  String get onboardingStep6Title => 'You can customize my look anytime!';
+
+  @override
+  String get onboardingStep6Description =>
+      'You can switch my animal, add accessories, and pick the colors that match you best.';
+
+  @override
+  String get onboardingCustomizePrompt => 'Want to customize my look now?';
+
