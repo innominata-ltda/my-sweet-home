@@ -1816,4 +1816,164 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get billsDeleteAction => 'Excluir conta';
+
+  @override
+  String billsCreateSuccess(String title) {
+    return 'Conta \"$title\" cadastrada com sucesso!';
+  }
+
+  @override
+  String billsCreateError(String error) {
+    return 'Erro ao cadastrar conta: $error';
+  }
+
+  @override
+  String billsPaidSuccess(String title) {
+    return 'Conta \"$title\" marcada como paga!';
+  }
+
+  @override
+  String billsUnpaidSuccess(String title) {
+    return 'Conta \"$title\" marcada como não paga!';
+  }
+
+  @override
+  String billsPausedSuccess(String title) {
+    return 'Conta \"$title\" pausada com sucesso!';
+  }
+
+  @override
+  String billsDeletedSuccess(String title) {
+    return 'Conta \"$title\" excluída com sucesso!';
+  }
+
+  @override
+  String billsDeleteError(String error) {
+    return 'Erro ao excluir conta: $error';
+  }
+
+  @override
+  String get billsNewDialogTitle => 'Nova Conta a Vencer';
+
+  @override
+  String get billsTitleFieldLabel => 'Título * (ex: Aluguel, Luz, Internet)';
+
+  @override
+  String get billsTitleRequired => 'Informe o título';
+
+  @override
+  String get billsAmountFieldLabel => 'Valor em R\$ * (ex: 150.00)';
+
+  @override
+  String get billsDueDayFieldLabel => 'Dia do Vencimento * (1 a 31)';
+
+  @override
+  String get billsDueDayInvalid => 'Informe um dia entre 1 e 31';
+
+  @override
+  String get billsFrequencyLabel => 'Frequência da Conta';
+
+  @override
+  String get billsFrequencyMonthly => 'Mensal';
+
+  @override
+  String get billsFrequencyBiweekly => 'Quinzenal';
+
+  @override
+  String get billsFrequencyWeekly => 'Semanal';
+
+  @override
+  String get billsFrequencyAnnual => 'Anual';
+
+  @override
+  String get billsCategoryLabel => 'Categoria *';
+
+  @override
+  String get billsSaveButton => 'Salvar Conta';
+
+  @override
+  String expensesExportError(String error) {
+    return 'Erro ao exportar despesas: $error';
+  }
+
+  @override
+  String get expensesMonthBudgetTooltip => 'Orçamento do mês';
+
+  @override
+  String get expensesPurchasesReceiptsTooltip => 'Compras e Notas Fiscais';
+
+  @override
+  String get expensesExportTooltip => 'Exportar despesas';
+
+  @override
+  String get expensesExportCsv => 'Exportar CSV';
+
+  @override
+  String get expensesExportPdf => 'Exportar PDF';
+
+  @override
+  String get expensesDeleteConfirmTitle => 'Excluir despesa?';
+
+  @override
+  String get expensesDeleteConfirmBody =>
+      'Tem certeza de que deseja excluir esta despesa?';
+
+  @override
+  String get expensesViewPurchaseTooltip => 'Ver Compra / Nota';
+
+  @override
+  String get expensesViewBillTooltip => 'Ver Conta';
+
+  @override
+  String get expensesEditBudget => 'Editar Orçamento';
+
+  @override
+  String get expensesEditTitle => 'Editar Despesa';
+
+  @override
+  String get expensesDeleteTooltip => 'Excluir despesa';
+
+  @override
+  String get expensesAmountLabel => 'Valor *';
+
+  @override
+  String get expensesNameDescriptionLabel => 'Nome / Descrição';
+
+  @override
+  String get expensesNameDescriptionHint =>
+      'ex.: Supermercado, Aluguel, Farmácia';
+
+  @override
+  String get expensesNotesHint => 'Detalhes adicionais...';
+
+  @override
+  String get expensesRepeatExpense => 'Repetir despesa';
+
+  @override
+  String get expensesRepeatFrequency => 'Frequência de repetição';
+
+  @override
+  String get expensesCustomDaysHint => 'ex.: 4';
+
+  @override
+  String get expensesCustomDaysRequired =>
+      'Informe a quantidade de dias (entre 1 e 365)';
+
+  @override
+  String get expensesCustomDaysInvalid =>
+      'Informe um número de dias válido entre 1 e 365';
+
+  @override
+  String budgetCategoryDialogTitle(String category) {
+    return 'Orçamento para $category';
+  }
+
+  @override
+  String get budgetCategoryLimitLabel => 'Limite em R\$ * (ex: 500,00)';
+
+  @override
+  String budgetTotalDialogTitle(String month) {
+    return 'Orçamento Total de $month';
+  }
+
 }
