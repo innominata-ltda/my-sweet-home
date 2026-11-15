@@ -1756,5 +1756,165 @@
   "ocrTotalDivergenceTitle": "Divergência no total",
   "ocrTotalDivergenceBody": "A soma dos itens selecionados ({itemsSum}) difere do total lido ({total}).\n\nDivergência de {divergence}. Deseja salvar assim mesmo?",
   "@ocrTotalDivergenceBody": {
+    "placeholders": {
+      "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "divergence": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrWriteOffTitle": "Baixar itens da lista de compras",
+  "ocrWriteOffSingleConfirm": "Deseja dar baixa nos itens desta compra na lista de compras \"{listName}\"?",
+  "@ocrWriteOffSingleConfirm": {
+    "placeholders": {
+      "listName": {
+        "type": "String"
+      }
+    }
+  },
+  "commonNo": "Não",
+  "ocrWriteOffYes": "Sim, dar baixa",
+  "ocrWriteOffSelectPrompt": "Selecione a lista de compras para dar baixa nos itens comprados:",
+  "ocrSaveWithoutWriteOff": "Salvar sem baixa",
+  "ocrWriteOffButton": "Dar baixa",
+  "ocrCouponItemsHeader": "Itens do cupom ({selected}/{total})",
+  "@ocrCouponItemsHeader": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrAddItemButton": "Adicionar item",
+  "ocrNoItemsPlaceholder": "Nenhum item. Toque em Adicionar item.",
+  "ocrCloudConsentBody": "A leitura no aparelho teve baixa precisão. Como você permitiu o OCR na nuvem nas configurações, deseja tentar melhorar a leitura enviando esta nota para o serviço em nuvem nesta operação?",
+  "ocrRetakePhotoButton": "Tirar outra foto",
+  "ocrContinueWithoutCloud": "Continuar sem nuvem",
+  "ocrUseCloudOcr": "Usar OCR na nuvem",
+  "ocrLowPrecisionTitle": "Leitura com baixa precisão",
+  "ocrLowPrecisionBody": "A leitura da nota fiscal no aparelho teve baixa precisão. Recomendamos tirar uma nova foto com melhor iluminação e enquadramento.",
+  "ocrContinueWithData": "Continuar com estes dados",
+  "ocrFramingGuideSemantics": "Guia de enquadramento de nota fiscal. {instruction}",
+  "@ocrFramingGuideSemantics": {
+    "placeholders": {
+      "instruction": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrFramingDefaultInstruction": "Posicione a nota fiscal na vertical dentro do guia",
+  "ocrTotalFailureTitle": "Não foi possível ler a nota",
+  "ocrAttachedPhoto": "Foto anexada: {path}",
+  "@ocrAttachedPhoto": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrQualityContinueAnyway": "Continuar mesmo assim",
+  "ocrQualityBlur": "Imagem desfocada. Tente segurar a câmera com firmeza.",
+  "ocrQualityTooDark": "Iluminação muito baixa. Ligue o flash ou ilumine a nota.",
+  "ocrQualityTooBright": "Excesso de iluminação ou reflexo brilhante na imagem.",
+  "ocrQualityBadFraming": "Enquadramento ruim ou foto muito pequena.",
+  "ocrQualityInvalidImage": "Não foi possível decodificar os dados da imagem.",
+  "ocrStoreUnknown": "Estabelecimento não identificado",
+  "ocrEditStoreTooltip": "Editar estabelecimento",
+  "ocrCnpjLabel": "CNPJ: {cnpj}",
+  "@ocrCnpjLabel": {
+    "placeholders": {
+      "cnpj": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNotInformed": "Não informado",
+  "ocrCnpjUnconfirmed": "CNPJ não confirmado",
+  "ocrTotalDivergenceCardTitle": "Divergência no valor total",
+  "ocrTotalDivergenceCardBody": "Divergência de {absDiv}. O sistema não ajusta automaticamente.\nSoma dos itens: {itemsSum} | Total lido: {total}",
+  "@ocrTotalDivergenceCardBody": {
+    "placeholders": {
+      "absDiv": {
+        "type": "String"
+      },
+      "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrLowConfidenceBanner": "Há {count} item(ns) com baixa confiança lidos do cupom. Verifique e marque os corretos.",
+  "@ocrLowConfidenceBanner": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrReceiptTotalsTitle": "Totais da Nota",
+  "ocrEditTotalsTooltip": "Editar totais",
+  "ocrSubtotalLabel": "Subtotal:",
+  "ocrDiscountLabel": "Desconto:",
+  "ocrOriginExactAlias": "exato (apelido)",
+  "ocrOriginSeed": "semente",
+  "ocrOriginFuzzy": "aproximado ({percent}%)",
+  "@ocrOriginFuzzy": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrOriginUnknown": "não identificado",
+  "ocrItemSelectedStatus": "selecionado",
+  "ocrItemUnselectedStatus": "desmarcado",
+  "ocrItemLowConfidenceHint": ", baixa confiança, confira este item",
+  "ocrItemDetectedAs": "detectado como {raw}",
+  "@ocrItemDetectedAs": {
+    "placeholders": {
+      "raw": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemUncheckHint": "Desmarcar {title}",
+  "@ocrItemUncheckHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemLinkOrigin": "Vínculo: {origin}",
+  "@ocrItemLinkOrigin": {
+    "placeholders": {
+      "origin": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrEditItemTooltip": "Editar item",
+  "ocrDeleteItemTooltip": "Apagar item",
+  "ocrEditHeaderTitle": "Editar cabeçalho",
+  "ocrStoreRequiredLabel": "Estabelecimento *",
+  "ocrStoreHint": "Nome do supermercado ou loja",
+  "ocrStoreError": "Informe o nome do estabelecimento",
+  "ocrCnpjOptionalLabel": "CNPJ (opcional)",
+  "ocrDateTimeRequiredLabel": "Data/Hora (dd/MM/yyyy HH:mm) *",
+  "ocrDateTimeRequiredError": "Informe a data da compra",
+  "ocrDateTimeInvalidError": "Formato inválido (ex: 21/09/2026 14:30)",
+  "ocrNfceKeyOptionalLabel": "Chave da NFC-e (opcional)",
+  "ocrNfceKeyHint": "44 dígitos da nota fiscal",
+  "ocrSubtotalInputLabel": "Subtotal (R$)",
   }
 }
