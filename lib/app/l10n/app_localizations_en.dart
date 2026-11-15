@@ -3038,3 +3038,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ocrOriginUnknown => 'unidentified';
 
   @override
+  String get ocrItemSelectedStatus => 'selected';
+
+  @override
+  String get ocrItemUnselectedStatus => 'unselected';
+
+  @override
+  String get ocrItemLowConfidenceHint => ', low confidence, check this item';
+
+  @override
+  String ocrItemDetectedAs(String raw) {
+    return 'detected as $raw';
+  }
+
+  @override
+  String ocrItemUncheckHint(String title) {
+    return 'Uncheck $title';
+  }
+
+  @override
+  String ocrItemLinkOrigin(String origin) {
+    return 'Link: $origin';
+  }
+
+  @override
+  String get ocrEditItemTooltip => 'Edit item';
+
+  @override
+  String get ocrDeleteItemTooltip => 'Delete item';
+
+  @override
+  String get ocrEditHeaderTitle => 'Edit header';
+
+  @override
+  String get ocrStoreRequiredLabel => 'Store *';
+
+  @override
+  String get ocrStoreHint => 'Supermarket or store name';
+
+  @override
+  String get ocrStoreError => 'Enter the store name';
+
+  @override
+  String get ocrCnpjOptionalLabel => 'Tax ID / CNPJ (optional)';
+
+  @override
+  String get ocrDateTimeRequiredLabel => 'Date/Time (dd/MM/yyyy HH:mm) *';
+
+  @override
+  String get ocrDateTimeRequiredError => 'Enter the purchase date';
+
+  @override
+  String get ocrDateTimeInvalidError =>
+      'Invalid format (e.g. 21/09/2026 14:30)';
+
+  @override
+  String get ocrNfceKeyOptionalLabel => 'Receipt key (optional)';
+
+  @override
+  String get ocrNfceKeyHint => '44 receipt digits';
+
+  @override
+  String get ocrSubtotalInputLabel => 'Subtotal';
+
+  @override
+  String get ocrDiscountInputLabel => 'Discount';
+
+  @override
+  String get ocrReadTotalInputLabel => 'Read total';
+
+  @override
+  String get ocrRegisterNewProductTitle => 'Register new product';
+
+  @override
+  String get ocrCanonicalNameRequiredLabel => 'Canonical name *';
+
+  @override
+  String get ocrCanonicalNameHint => 'E.g.: Whole Milk 1L';
+
+  @override
+  String get ocrCanonicalNameRequiredError => 'Enter the canonical name';
+
+  @override
+  String get ocrCategoryRequiredLabel => 'Category *';
+
+  @override
+  String get ocrCategoryHint => 'E.g.: Food, Cleaning, etc.';
+
+  @override
+  String get ocrCategoryRequiredError => 'Enter the category';
+
+  @override
+  String get ocrDefaultUnitRequiredLabel => 'Default unit *';
+
+  @override
+  String get ocrAliasesOptionalLabel => 'Aliases / Synonyms (optional)';
+
+  @override
+  String get ocrAliasesHint => 'Comma-separated';
+
+  @override
+  String get ocrLinkProductTitle => 'Link product';
+
+  @override
+  String get ocrProductNameSearchLabel => 'Product name';
+
+  @override
+  String get ocrProductNameSearchHint => 'Type product name';
+
+  @override
+  String ocrRegisterNamedAsNew(String name) {
+    return 'Register \"$name\" as new product';
+  }
+
+  @override
+  String get ocrSuggestedProductsLabel => 'Suggested products:';
+
+  @override
+  String ocrProductMetaRow(String category, String unit) {
+    return 'Category: $category | Unit: $unit';
+  }
+
+  @override
+  String get ocrNoExistingProductFound =>
+      'No existing product found with that name.';
+
+  @override
+  String get ocrNoneLinked => 'None';
+
+  @override
+  String get ocrItemDescriptionLabel => 'Read description / Name *';
+
+  @override
+  String get ocrItemDescriptionError => 'Enter name or description';
+
+  @override
+  String get ocrQuantityRequiredLabel => 'Quantity *';
+
+  @override
+  String get ocrQuantityRequiredError => 'Enter qty';
+
+  @override
+  String get ocrQuantityInvalidError => 'Invalid qty';
+
+  @override
+  String get ocrUnitRequiredLabel => 'Unit *';
+
+  @override
+  String get ocrUnitPriceRequiredLabel => 'Unit price *';
+
+  @override
+  String get ocrTotalPriceRequiredLabel => 'Total price *';
+
+  @override
+  String get ocrIncludeItemInPurchase => 'Include item in purchase';
+
+  @override
+  String get ocrLinkedProductLabel => 'Linked product:';
+
+  @override
+  String get ocrChangeOrLinkButton => 'Change / Link';
