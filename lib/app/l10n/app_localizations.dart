@@ -3740,6 +3740,166 @@ abstract class AppLocalizations {
   /// No description provided for @checklistGenerateListButton.
   ///
   /// In pt, this message translates to:
+  /// **'Gerar lista'**
+  String get checklistGenerateListButton;
+
+  /// No description provided for @checklistCardSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'{title}, {percent}% concluído, toque para ver detalhes'**
+  String checklistCardSemantics(String title, String percent);
+
+  /// No description provided for @customizeVisibleCardsCount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Cards exibidos ({count})'**
+  String customizeVisibleCardsCount(int count);
+
+  /// No description provided for @customizeReorderHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Arraste para reordenar ou utilize os botões acessíveis.'**
+  String get customizeReorderHint;
+
+  /// No description provided for @customizeNoVisibleCards.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum card visível no momento.'**
+  String get customizeNoVisibleCards;
+
+  /// No description provided for @customizeAvailableModulesHint.
+  ///
+  /// In pt, this message translates to:
+  /// **'Módulos disponíveis para inclusão na sua tela inicial.'**
+  String get customizeAvailableModulesHint;
+
+  /// No description provided for @customizeAllCardsVisible.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todos os cards já estão visíveis no painel.'**
+  String get customizeAllCardsVisible;
+
+  /// No description provided for @customizeDragSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Arrastar {title} para reordenar'**
+  String customizeDragSemantics(String title);
+
+  /// No description provided for @customizeMoveUpSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mover {title} para cima'**
+  String customizeMoveUpSemantics(String title);
+
+  /// No description provided for @customizeMoveDownSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Mover {title} para baixo'**
+  String customizeMoveDownSemantics(String title);
+
+  /// No description provided for @customizeHideSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ocultar {title}'**
+  String customizeHideSemantics(String title);
+
+  /// No description provided for @customizeAddSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar {title} ao painel'**
+  String customizeAddSemantics(String title);
+
+  /// No description provided for @dueBillsWidgetSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Widget de contas a vencer'**
+  String get dueBillsWidgetSemantics;
+
+  /// No description provided for @dueBillsDefaultTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Contas a vencer'**
+  String get dueBillsDefaultTitle;
+
+  /// No description provided for @dueBillsEmptyTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhuma conta a vencer'**
+  String get dueBillsEmptyTitle;
+
+  /// No description provided for @dueBillsEmptyDescription.
+  ///
+  /// In pt, this message translates to:
+  /// **'Todas as suas contas deste mês estão em dia.'**
+  String get dueBillsEmptyDescription;
+
+  /// No description provided for @dueBillsVariableAmount.
+  ///
+  /// In pt, this message translates to:
+  /// **'Variável'**
+  String get dueBillsVariableAmount;
+
+  /// No description provided for @dueBillsItemSemanticsHidden.
+  ///
+  /// In pt, this message translates to:
+  /// **'{title}, {dueLabel}, valor oculto'**
+  String dueBillsItemSemanticsHidden(String title, String dueLabel);
+
+  /// No description provided for @dueBillsItemSemanticsVisible.
+  ///
+  /// In pt, this message translates to:
+  /// **'{title}, {dueLabel}, valor {amount}'**
+  String dueBillsItemSemanticsVisible(
+    String title,
+    String dueLabel,
+    String amount,
+  );
+
+  /// No description provided for @dueBillsViewAll.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ver todas as contas'**
+  String get dueBillsViewAll;
+
+  /// No description provided for @economySetGoalTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Definir Meta de Economia'**
+  String get economySetGoalTitle;
+
+  /// No description provided for @economySetGoalFieldLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Meta de Economia do Mês'**
+  String get economySetGoalFieldLabel;
+
+  /// No description provided for @economySaveGoalButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar Meta'**
+  String get economySaveGoalButton;
+
+  /// No description provided for @economyLoadError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao carregar dados: {error}'**
+  String economyLoadError(String error);
+
+  /// No description provided for @economyMonthGoalTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Meta do Mês ({month})'**
+  String economyMonthGoalTitle(String month);
+
+  /// No description provided for @economySetGoalFallback.
+  ///
+  /// In pt, this message translates to:
+  /// **'Definir meta de economia'**
+  String get economySetGoalFallback;
+
+  /// No description provided for @economyCardSemantics.
+  ///
+  /// In pt, this message translates to:
 }
 
 class _AppLocalizationsDelegate
