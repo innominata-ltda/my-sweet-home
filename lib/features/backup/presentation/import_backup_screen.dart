@@ -6,6 +6,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/data/backup_service_provider.dart';
@@ -81,19 +82,22 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return Scaffold(
-      appBar: AppBar(title: const Text('Importar Dados')),
+      appBar: AppBar(title: Text(l10n.backupImportSection)),
       body: ValueListenableBuilder<ImportBackupState>(
         valueListenable: _controller,
         builder: (context, state, child) {
           if (state is ImportBackupLoading) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Processando backup...'),
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(l10n.backupImportProcessing),
                 ],
               ),
             );
@@ -115,8 +119,8 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                     const SizedBox(height: 16),
                     Text(
                       isReplace
-                          ? 'Backup restaurado com sucesso!'
-                          : 'Dados mesclados com sucesso!',
+                          ? l10n.backupImportReplacedTitle
+                          : l10n.backupImportMergedTitle,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 18,
@@ -126,8 +130,8 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                     const SizedBox(height: 8),
                     Text(
                       isReplace
-                          ? 'Os dados do aplicativo foram totalmente substituídos pelos do backup.'
-                          : 'Os registros do backup foram mesclados aos dados existentes.',
+                          ? l10n.backupImportReplacedBody
+                          : l10n.backupImportMergedBody,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 24),
@@ -137,7 +141,7 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                           Navigator.of(context).pop();
                         }
                       },
-                      child: const Text('Concluído'),
+                      child: Text(l10n.commonDone),
                     ),
                   ],
                 ),
@@ -158,9 +162,9 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                       color: Theme.of(context).colorScheme.error,
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Falha na importação',
-                      style: TextStyle(
+                    Text(
+                      l10n.backupImportFailedTitle,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -178,7 +182,7 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                       ElevatedButton(
                         onPressed: () =>
                             _controller.loadPreview(widget.jsonContent!),
-                        child: const Text('Tentar novamente'),
+                        child: Text(l10n.commonRetry),
                       ),
                   ],
                 ),
@@ -206,7 +210,7 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                               const Icon(AppIcons.info),
                               const SizedBox(width: 8),
                               Text(
-                                'Pré-visualização do Backup',
+                                l10n.backupPreviewTitle,
                                 style: Theme.of(context).textTheme.titleMedium
                                     ?.copyWith(fontWeight: FontWeight.bold),
                               ),
@@ -214,7 +218,9 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                           ),
                           const Divider(height: 24),
                           Text(
-                            '${preview.totalRecords} registros afetados',
+                            l10n.backupPreviewAffectedRecords(
+                              preview.totalRecords,
+                            ),
                             style: Theme.of(context).textTheme.titleLarge
                                 ?.copyWith(
                                   color: Theme.of(context).colorScheme.primary,
@@ -223,12 +229,14 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            'Versão do schema: v${preview.schemaVersion}',
+                            l10n.backupPreviewSchemaVersion(
+                              preview.schemaVersion,
+                            ),
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           if (preview.exportedAt.isNotEmpty)
                             Text(
-                              'Data da exportação: ${preview.exportedAt}',
+                              l10n.backupPreviewExportedAt(preview.exportedAt),
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
                           const SizedBox(height: 12),
@@ -250,7 +258,7 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Escolha a forma de importação:',
+                    l10n.backupImportModeTitle,
                     style: Theme.of(context).textTheme.titleMedium
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),
@@ -272,9 +280,9 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                       onChanged: (mode) {
                         if (mode != null) _controller.selectMode(mode);
                       },
-                      title: const Text(
-                        'Substituir tudo',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      title: Text(
+                        l10n.backupImportModeReplace,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: const Padding(
                         padding: EdgeInsets.only(top: 4.0),
@@ -301,9 +309,9 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                       onChanged: (mode) {
                         if (mode != null) _controller.selectMode(mode);
                       },
-                      title: const Text(
-                        'Mesclar',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      title: Text(
+                        l10n.backupImportModeMerge,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       subtitle: const Padding(
                         padding: EdgeInsets.only(top: 4.0),
@@ -325,8 +333,8 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                     ),
                     label: Text(
                       selectedMode == ImportMode.replace
-                          ? 'Substituir e restaurar backup'
-                          : 'Mesclar dados do backup',
+                          ? l10n.backupImportConfirmReplace
+                          : l10n.backupImportConfirmMerge,
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -346,16 +354,13 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
                 children: [
                   const Icon(AppIcons.restore, size: 64, color: Colors.blue),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Nenhum backup selecionado para pré-visualização.',
-                    textAlign: TextAlign.center,
-                  ),
+                  Text(l10n.backupImportNoFile, textAlign: TextAlign.center),
                   const SizedBox(height: 24),
                   ElevatedButton.icon(
                     key: const Key('import_backup_pick_file_button'),
                     onPressed: _pickAndLoadBackup,
                     icon: const Icon(AppIcons.fileExport),
-                    label: const Text('Selecionar arquivo de backup'),
+                    label: Text(l10n.backupImportSelectFile),
                   ),
                 ],
               ),
@@ -393,26 +398,31 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
       return;
     }
 
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     var passwordInput = '';
     final password = await showDialog<String>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Backup Criptografado'),
+        title: Text(l10n.backupEncryptedTitle),
         content: TextField(
           key: const Key('import_encrypted_password_field'),
           onChanged: (v) => passwordInput = v,
           obscureText: true,
-          decoration: const InputDecoration(labelText: 'Senha do backup'),
+          decoration: InputDecoration(
+            labelText: l10n.backupImportPasswordField,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             key: const Key('import_encrypted_confirm_button'),
             onPressed: () => Navigator.of(ctx).pop(passwordInput),
-            child: const Text('Restaurar'),
+            child: Text(l10n.backupImportRestoreButton),
           ),
         ],
       ),
