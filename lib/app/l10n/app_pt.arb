@@ -1596,5 +1596,165 @@
   "purchasesItemPriceHistoryTooltip": "Histórico de preço",
   "priceChartSemantics": "{price} em {store} no {date}",
   "@priceChartSemantics": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "store": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "productTrackPricesTooltip": "Acompanhar preços",
+  "productMergeTooltip": "Unir com outro produto",
+  "productTrackPriceHistoryButton": "Acompanhar histórico de preços",
+  "productPreferredNameSet": "\"{alias}\" definido como nome padrão de exibição.",
+  "@productPreferredNameSet": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasDescription": "Você pode separar \"{alias}\" como um produto independente (com seu próprio histórico de preços) ou apenas remover o apelido.",
+  "@productSeparateAliasDescription": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasAction": "Separar como outro produto",
+  "productNoMergeCandidates": "Nenhum outro produto disponível para união.",
+  "productMergeSearchLabel": "Buscar produto destino",
+  "productMergeNoneFound": "Nenhum produto encontrado.",
+  "productMergeConfirmTitle": "Confirmar união",
+  "productMergeConfirmBody": "Deseja unir \"{source}\" com \"{target}\"?\n\nTodas as compras, itens, preços e sinônimos serão transferidos para \"{target}\" e este produto será arquivado.",
+  "@productMergeConfirmBody": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productMergeConfirmButton": "Unir produtos",
+  "productMergeSuccess": "Produto unido com \"{target}\".",
+  "@productMergeSuccess": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productNewDialogTitle": "Novo Produto",
+  "productCanonicalNameRequiredLabel": "Nome Canônico *",
+  "productCanonicalNameError": "Informe o nome",
+  "productDefaultUnitRequiredLabel": "Unidade Padrão *",
+  "productAliasesLabel": "Apelidos / Sinônimos",
+  "productAliasesHint": "Separados por vírgula (opcional)",
+  "productCreateError": "Erro ao criar produto",
+  "recipeListServiceUnavailable": "Serviço de listas não disponível",
+  "recipeNoActiveShoppingLists": "Nenhuma lista de compras ativa encontrada.",
+  "recipeSelectShoppingListTitle": "Selecione a lista de compras",
+  "recipeIngredientsSentSuccess": "Ingredientes enviados para a lista de compras!",
+  "recipeIngredientsSentError": "Falha ao enviar ingredientes: {error}",
+  "@recipeIngredientsSentError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeDecreaseServingsTooltip": "Diminuir porções",
+  "recipeIncreaseServingsTooltip": "Aumentar porções",
+  "recipeSendIngredientsButton": "Enviar ingredientes para lista de compras",
+  "recipeDraftTitleRequiredError": "O título é obrigatório.",
+  "recipeDraftIngredientsRequiredError": "Adicione pelo menos um ingrediente.",
+  "recipeDraftSaveError": "Falha ao salvar receita: {error}",
+  "@recipeDraftSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipePasteTitle": "Colar receita",
+  "recipePasteHint": "Cole a receita aqui (título, ingredientes, modo de preparo)...",
+  "recipeImportButton": "Importar",
+  "recipeIngredientNameLabel": "Nome do ingrediente",
+  "recipeIngredientNameHint": "Ex: 2 xícaras de farinha",
+  "recipeTagNameLabel": "Nome da tag",
+  "recipeTagNameHint": "Ex: Sobremesa, Rápido, Vegano",
+  "recipeSaveTooltip": "Salvar receita",
+  "recipeRemoveIngredientSemantics": "Remover ingrediente {name}",
+  "@recipeRemoveIngredientSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeRemoveIngredientTooltip": "Remover ingrediente",
+  "recipeAddPhotoButton": "Adicionar foto",
+  "recipePhotoAttached": "Foto anexada à receita.",
+  "recipeSpinDecrease": "Diminuir {label}",
+  "@recipeSpinDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeSpinIncrease": "Aumentar {label}",
+  "@recipeSpinIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeListTimeAndServings": "{minutes} min • {servings} porções",
+  "@recipeListTimeAndServings": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "servings": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeUnfavoriteTooltip": "Desmarcar favorito",
+  "recipeFavoriteTooltip": "Marcar como favorito",
+  "recipeRepoUnavailable": "Repositório de receitas não disponível",
+  "recipeNotFound": "Receita não encontrada",
+  "recipeNoInstructions": "Sem instruções cadastradas.",
+  "ocrScanReceiptTitle": "Escanear nota fiscal",
+  "ocrDisableFlashTooltip": "Desativar flash",
+  "ocrEnableFlashTooltip": "Ativar flash",
+  "ocrBenchmarkTooltip": "Benchmark de Precisão OCR",
+  "ocrGalleryTooltip": "Escolher foto da galeria",
+  "ocrGalleryLabel": "Galeria",
+  "ocrTakePhotoSemantics": "Tirar foto da nota fiscal",
+  "ocrManualEntryTooltip": "Lançar manualmente",
+  "ocrReceiptSavedSuccess": "Nota Fiscal salva com sucesso!",
+  "ocrReceiptSaveError": "Erro ao salvar nota: {error}",
+  "@ocrReceiptSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrRecognizeError": "Falha ao reconhecer nota fiscal.",
+  "ocrTotalDivergenceTitle": "Divergência no total",
+  "ocrTotalDivergenceBody": "A soma dos itens selecionados ({itemsSum}) difere do total lido ({total}).\n\nDivergência de {divergence}. Deseja salvar assim mesmo?",
+  "@ocrTotalDivergenceBody": {
   }
 }
