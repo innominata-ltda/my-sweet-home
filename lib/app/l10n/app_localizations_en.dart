@@ -798,3 +798,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onboardingCustomizePrompt => 'Want to customize my look now?';
 
+  @override
+  String get onboardingCustomizeButton => 'Customize now';
+
+  @override
+  String get dashboardMonthBalanceTitle => 'Your money this month';
+
+  @override
+  String get dashboardDueBillsTitle => 'Bills that need attention';
+
+  @override
+  String get dashboardTodayTasksTitle => 'Today\'s tasks';
+
+  @override
+  String get momoGreeting => 'Hi! I\'m Momo 💕';
+
+  @override
+  String get momoShoppingAllBought =>
+      'All bought! Want me to log this purchase?';
+
+  @override
+  String get momoDayOff => 'Today can be a day off ☕';
+
+  @override
+  String get momoEmptyExpenses => 'Momo is thinking — no expenses recorded yet';
+
+  @override
+  String get momoEmptyShoppingList =>
+      'Momo is ready to shop — no list created yet';
+
+  @override
+  String get momoEmptyShoppingListCompleted =>
+      'Momo is happy because you completed the list';
+
+  @override
+  String get momoEmptyTasks => 'Momo is relaxed — no tasks for today';
+
+  @override
+  String get celebrationShoppingCompletedTitle => 'Congratulations!';
+
+  @override
+  String get celebrationShoppingCompletedMessage =>
+      'All bought! Your list is complete 💕';
+
+  @override
+  String get celebrationTasksCompletedTitle => 'All done!';
+
+  @override
+  String get celebrationTasksCompletedMessage =>
+      'You finished all of today\'s tasks! Get plenty of rest 💕';
+
+  @override
+  String get mascotSemanticsNeutral => 'Momo is here with you';
+
+  @override
+  String get mascotSemanticsHappy => 'Momo is happy';
+
+  @override
+  String get mascotSemanticsWorried => 'Momo is worried about the bills';
+
+  @override
+  String get mascotSemanticsSleepy => 'Momo is sleepy';
+
+  @override
+  String get mascotSemanticsPointing => 'Momo is pointing out an important tip';
+
+  @override
+  String get mascotSemanticsWaving => 'Momo is waving warmly at you';
+
+  @override
+  String get mascotSemanticsThinking => 'Momo is thinking';
+
+  @override
+  String get mascotSemanticsRelaxed => 'Momo is relaxed and calm';
+
+  @override
+  String get mascotSemanticsShopping => 'Momo is ready for shopping';
+
+  @override
+  String get mascotSemanticsBudget =>
+      'Momo is keeping an eye on this month\'s budget';
+
+  @override
+  String get mascotSemanticsPlaceholder => 'Momo mascot illustration';
+
+  @override
+  String get taskPresetsTitle => 'Home suggestions';
+
+  @override
+  String get taskPresetsSubtitle =>
+      'Common task ideas with recommended frequencies';
+
+  @override
+  String get taskPresetsSearchHint => 'Search suggestions...';
+
+  @override
+  String taskPresetsEmptySearch(String query) {
+    return 'No suggestions found for \"$query\"';
+  }
+
+  @override
+  String get taskPresetsCustomTaskCta => 'Create custom task';
+
+  @override
+  String get taskPresetsAreaKitchen => 'Kitchen';
+
+  @override
+  String get taskPresetsAreaBathroom => 'Bathroom';
+
+  @override
+  String get taskPresetsAreaBedroom => 'Bedroom';
+
+  @override
+  String get taskPresetsAreaLaundry => 'Laundry';
+
+  @override
+  String get taskPresetsAreaGeneralCleaning => 'General cleaning';
+
+  @override
+  String get taskPresetsAreaShopping => 'Shopping';
+
+  @override
+  String get taskPresetsAlreadyInRoutine => 'Already in your routine';
+
+  @override
+  String get taskPresetsDuplicateTitle => 'Task already in routine';
+
+  @override
+  String get taskPresetsDuplicateMessage =>
+      'You already have an active task for this preset. Do you want to add another one anyway?';
+
+  @override
+  String get taskPresetsDuplicateConfirm => 'Add anyway';
+
+  @override
+  String get taskPresetsDuplicateCancel => 'Cancel';
+
+  @override
+  String taskPresetsAddSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Add $count tasks',
+      one: 'Add 1 task',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String taskPresetsSelectedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count selected',
+      one: '1 selected',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get taskPresetsBatchTitle => 'Start dates';
