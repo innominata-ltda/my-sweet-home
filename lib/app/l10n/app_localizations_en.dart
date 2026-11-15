@@ -3358,3 +3358,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String get householdEmptyDeviceNameError => 'Device name cannot be empty.';
 
   @override
+  String householdUnexpectedErrorWithDetail(String error) {
+    return 'Unexpected error: $error';
+  }
+
+  @override
+  String get householdHouseNameLabel => 'Household name';
+
+  @override
+  String get householdCreatingProgress =>
+      'Creating household and preparing data...';
+
+  @override
+  String get householdCreateShortButton => 'Create';
+
+  @override
+  String get householdErrorUnknown => 'Unknown error.';
+
+  @override
+  String get householdErrorStorageDetail =>
+      'Could not save or load data. Please try again.';
+
+  @override
+  String get householdErrorStorageAccess => 'Could not access storage.';
+
+  @override
+  String get householdErrorNoInternet => 'No internet connection.';
+
+  @override
+  String get householdErrorNetwork => 'Network communication failure.';
+
+  @override
+  String householdErrorPermissionRequired(String permission) {
+    return 'Permission required: $permission.';
+  }
+
+  @override
+  String get householdErrorCancelled => 'Operation cancelled.';
+
+  @override
+  String get householdErrorGeneric => 'An unexpected error occurred.';
+
+  @override
+  String get householdTutorialWelcomeTitle => 'Welcome to Shared Household!';
+
+  @override
+  String get householdTutorialWelcomeBody =>
+      'Here you share shopping lists, tasks, stock, recipes, and finances with the people you live with, without creating a server account and with end-to-end encryption.';
+
+  @override
+  String get householdTutorialPairingTitle =>
+      'Secure pairing with QR Code and 6 digits';
+
+  @override
+  String get householdTutorialPairingBody =>
+      'The new device scans the QR Code with its camera (or uses the invite link) and both confirm the same 6-digit authentication code.';
+
+  @override
+  String get householdTutorialWifiTitle => 'Wi-Fi and Bundle Sync';
+
+  @override
+  String get householdTutorialWifiBody =>
+      'When devices are on the same Wi-Fi with the app open, changes sync directly on the local network. You can also tap \"Generate bundle\" to send updates via any messaging app.';
+
+  @override
+  String get householdTutorialCloudTitle => 'Away-from-home Sync (Cloud)';
+
+  @override
+  String get householdTutorialCloudBody =>
+      'When you\'re not on the same Wi-Fi (e.g., someone at the grocery store), the app can use an encrypted mailbox in your cloud to deliver changes securely.';
+
+  @override
+  String get householdTutorialCloseTooltip => 'Close tutorial';
+
+  @override
+  String get householdTutorialRemoteQuestion =>
+      'Do you want to enable remote sync now?';
+
+  @override
+  String get householdTutorialRemoteYesTitle => 'Yes, enable remote sync';
+
+  @override
+  String get householdTutorialRemoteYesSubtitle =>
+      'Syncs outside Wi-Fi with end-to-end encryption';
+
+  @override
+  String get householdTutorialRemoteNoTitle =>
+      'No, use local Wi-Fi and bundles only';
+
+  @override
+  String get householdTutorialRemoteNoSubtitle =>
+      'You can enable it later inside the Shared Household screen';
+
+  @override
+  String get householdTutorialPrevious => 'Previous';
+
+  @override
+  String get householdTutorialFinish => 'Finish';
+
+  @override
+  String get householdTutorialNext => 'Next';
+
+  @override
+  String householdJoinPreviewError(String error) {
+    return 'Failed to load preview: $error';
+  }
+
+  @override
+  String get householdJoinPreviewMergeInfo =>
+      'When joining the household, your local data will be merged with the household\'s data. None of your data will be deleted or duplicated.';
+
+  @override
+  String get householdJoinPreviewSasLabel => 'Authentication code (6 digits):';
+
+  @override
+  String get householdJoinPreviewSasHint =>
+      'Verify that this code matches the one displayed on the other device.';
+
+  @override
+  String get householdJoinPreviewFinanceLabel => 'Finances (expenses, bills):';
+
+  @override
+  String get householdJoinPreviewProductsLabel => 'Product catalog:';
+
+  @override
+  String get householdJoinPreviewBackupNotice =>
+      'An automatic safety backup will be created before joining.';
+
+  @override
+  String get householdJoinPreviewDeviceNameLabel =>
+      'Name of this device in the household';
+
+  @override
+  String get householdJoinPreviewDeviceNameHint => 'E.g.: Alex\'s Phone';
+
+  @override
+  String get householdJoinPreviewJoining => 'Joining...';
+
+  @override
+  String get householdJoinPreviewJoinButton => 'Join household';
+
+  @override
+  String get householdLeaveDeleteConfirmTitle => 'Confirm data deletion';
+
+  @override
+  String get householdLeaveDeleteIrreversible =>
+      'This action cannot be undone.';
+
+  @override
+  String get householdLeaveDeleteAndExit => 'Delete and leave';
+
+  @override
+  String get householdLeaveDialogTitle => 'Leave shared household';
+
+  @override
+  String get householdLeaveDialogBody =>
+      'When leaving the household, this device will no longer receive or send sync updates.';
+
+  @override
+  String get householdLeaveKeepLocalTitle => 'Keep a local copy (recommended)';
+
