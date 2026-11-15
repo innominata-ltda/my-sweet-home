@@ -1436,5 +1436,165 @@
       }
     }
   },
+  "dueBillsWidgetLoadError": "Erro ao carregar contas a vencer: {error}",
+  "@dueBillsWidgetLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListCompletedCelebration": "Você completou a lista de compras! 💕",
+  "shoppingListRegisterPurchaseTitle": "Registrar compra",
+  "shoppingListManageLists": "Gerenciar listas",
+  "shoppingListClearPurchased": "Limpar comprados",
+  "shoppingListItemsMarkedCount": "{marked} de {total} itens marcados",
+  "@shoppingListItemsMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingListEmptyDescription": "Adicione itens para não esquecer nada no mercado.",
+  "shoppingShortcutPurchases": "Compras",
+  "shoppingShortcutPrices": "Preços",
+  "shoppingShortcutStock": "Estoque",
+  "shoppingQuantitySemantics": "Quantidade",
+  "shoppingQuantityShortLabel": "Qtd",
+  "shoppingUnitSemantics": "Unidade de medida",
+  "shoppingUnitUnShort": "Un",
+  "shoppingErrorSaveChange": "Falha ao salvar alteração",
+  "shoppingErrorAddItem": "Falha ao adicionar item",
+  "shoppingErrorRemoveItem": "Falha ao remover item",
+  "shoppingErrorClearCompleted": "Falha ao limpar itens concluídos",
+  "shoppingTileRegisterSingle": "Registrar compra deste item",
+  "shoppingTileRemoveItem": "Remover item",
+  "shoppingSheetsMyListsTitle": "Minhas Listas de Compras",
+  "shoppingSheetsNewList": "Nova Lista",
+  "shoppingSheetsNoLists": "Nenhuma lista encontrada.",
+  "shoppingSheetsArchivedCount": "Arquivada • {count} itens",
+  "@shoppingSheetsArchivedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsItemsCount": "{count} itens",
+  "@shoppingSheetsItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsListOptions": "Opções da lista",
+  "shoppingSheetsDuplicate": "Duplicar",
+  "shoppingSheetsRename": "Renomear",
+  "shoppingSheetsDuplicateSuccess": "Lista duplicada com sucesso.",
+  "shoppingSheetsDuplicateError": "Falha ao duplicar lista.",
+  "shoppingSheetsRenameTitle": "Renomear Lista",
+  "shoppingSheetsListNameLabel": "Nome da lista *",
+  "shoppingSheetsArchivedSuccess": "Lista arquivada com sucesso.",
+  "shoppingSheetsUnarchivedSuccess": "Lista desarquivada com sucesso.",
+  "shoppingSheetsCreateTitle": "Nova Lista de Compras",
+  "shoppingSheetsCreateHint": "ex.: Feira, Farmácia, Churrasco",
+  "shoppingSheetsCreateButton": "Criar",
+  "taskPresetsAreaSemantics": "área {area}",
+  "@taskPresetsAreaSemantics": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "calendarTabDay": "Dia",
+  "calendarTabWeek": "Semana",
+  "calendarTabMonth": "Mês",
+  "calendarMaintenanceSuggestions": "Sugestões de manutenção",
+  "calendarSyncGoogle": "Sincronizar com Google",
+  "calendarSyncStarting": "Iniciando sincronização...",
+  "calendarSyncDone": "Sincronização concluída!",
+  "calendarTodayTooltip": "Hoje",
+  "calendarShowingToday": "Exibindo hoje",
+  "calendarNewTask": "Nova tarefa",
+  "calendarEditTaskTitle": "Editar Tarefa",
+  "calendarTaskTitleLabel": "Título *",
+  "calendarDayBillsCount": "{count} conta(s)",
+  "@calendarDayBillsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillsDueToday": "Contas a vencer hoje ({count}):",
+  "@calendarBillsDueToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillPaidStatus": "(Paga)",
+  "calendarBillPendingStatus": "(Pendente)",
+  "calendarDeleteTaskTitle": "Excluir tarefa?",
+  "calendarDeleteTaskConfirm": "Tem certeza de que deseja excluir \"{title}\"?",
+  "@calendarDeleteTaskConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "commonEdit": "Editar",
+  "taskAllDayLabel": "Dia inteiro",
+  "taskRepeatLabel": "Repetição",
+  "taskRepeatNone": "Sem repetição",
+  "calendarEditTaskAction": "Editar tarefa",
+  "calendarDeleteTaskAction": "Excluir tarefa",
+  "priceSearchProductLabel": "Pesquisar produto",
+  "priceSearchProductHint": "Digite para buscar um produto...",
+  "priceClearSearchTooltip": "Limpar busca",
+  "purchaseSaveTooltip": "Salvar compra",
+  "purchaseNewProductTooltip": "Novo produto",
+  "purchaseRemoveItemTooltip": "Remover item",
+  "purchasesHistoryTitle": "Compras e Notas Fiscais",
+  "purchasesPriceHistoryTooltip": "Histórico de Preços",
+  "purchasesLoadError": "Erro ao carregar compras: {error}",
+  "@purchasesLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchasesEmptyTitle": "Nenhuma compra registrada",
+  "purchasesRegisterButton": "Registrar Compra",
+  "purchasesDeleteTooltip": "Excluir compra",
+  "purchasesNewTooltip": "Nova Compra",
+  "purchasesDeleteDialogTitle": "Excluir compra?",
+  "purchasesDeleteDialogBody": "Esta compra e seus pontos de preço serão excluídos.",
+  "purchasesDeleteSuccess": "Compra excluída com sucesso",
+  "purchasesDeleteError": "Erro ao excluir compra",
+  "purchasesTotalLabel": "Total",
+  "purchasesDiscountLabel": "Desconto",
+  "purchasesItemsCount": "Itens ({count})",
+  "@purchasesItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "purchasesNoDetailedItems": "Nenhum item detalhado nesta compra.",
+  "purchasesProductFallback": "Produto",
+  "purchasesItemPriceHistoryTooltip": "Histórico de preço",
+  "priceChartSemantics": "{price} em {store} no {date}",
+  "@priceChartSemantics": {
   }
 }
