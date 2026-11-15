@@ -1062,8 +1062,19 @@ class _CreateHouseholdDialogState
   @override
   void initState() {
     super.initState();
-    _houseNameController = TextEditingController(text: 'Minha Casa');
-    _deviceNameController = TextEditingController(text: 'Meu Aparelho');
+    _houseNameController = TextEditingController();
+    _deviceNameController = TextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initialized) {
+      _initialized = true;
+      final loc = widget.l10n ?? AppLocalizations.of(context)!;
+      _houseNameController.text = loc.householdDefaultHouseName;
+      _deviceNameController.text = loc.householdDefaultDeviceNameAlt;
+    }
   }
 
   @override
@@ -1074,15 +1085,16 @@ class _CreateHouseholdDialogState
   }
 
   Future<void> _submit() async {
+    final loc = widget.l10n ?? AppLocalizations.of(context)!;
     final houseName = _houseNameController.text.trim();
     final deviceName = _deviceNameController.text.trim();
 
     if (houseName.isEmpty) {
-      setState(() => _errorMessage = 'O nome da casa não pode ser vazio.');
+      setState(() => _errorMessage = loc.householdEmptyHouseNameError);
       return;
     }
     if (deviceName.isEmpty) {
-      setState(() => _errorMessage = 'O nome do aparelho não pode ser vazio.');
+      setState(() => _errorMessage = loc.householdEmptyDeviceNameError);
       return;
     }
 
@@ -1104,7 +1116,7 @@ class _CreateHouseholdDialogState
       if (result.isErr) {
         setState(() {
           _isSubmitting = false;
-          _errorMessage = _formatFailure(result.failureOrNull);
+          _errorMessage = _formatFailure(result.failureOrNull, loc);
         });
         return;
       }
@@ -1115,7 +1127,7 @@ class _CreateHouseholdDialogState
       if (mounted) {
         setState(() {
           _isSubmitting = false;
-          _errorMessage = 'Erro inesperado: $e';
+          _errorMessage = loc.householdUnexpectedErrorWithDetail('$e');
         });
       }
     }
@@ -1123,10 +1135,11 @@ class _CreateHouseholdDialogState
 
   @override
   Widget build(BuildContext context) {
+    final loc = widget.l10n ?? AppLocalizations.of(context)!;
     return PopScope(
       canPop: !_isSubmitting,
       child: AlertDialog(
-        title: Text(widget.l10n?.householdCreateButton ?? 'Criar casa'),
+        title: Text(loc.householdCreateButton),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -1136,7 +1149,9 @@ class _CreateHouseholdDialogState
                 key: const Key('household_name_input'),
                 controller: _houseNameController,
                 enabled: !_isSubmitting,
-                decoration: const InputDecoration(labelText: 'Nome da casa'),
+                decoration: InputDecoration(
+                  labelText: loc.householdHouseNameLabel,
+                ),
                 onChanged: (_) {
                   if (_errorMessage != null) {
                     setState(() => _errorMessage = null);
@@ -1148,8 +1163,8 @@ class _CreateHouseholdDialogState
                 key: const Key('device_name_input'),
                 controller: _deviceNameController,
                 enabled: !_isSubmitting,
-                decoration: const InputDecoration(
-                  labelText: 'Nome deste aparelho',
+                decoration: InputDecoration(
+                  labelText: loc.householdDeviceNameLabel,
                 ),
                 onChanged: (_) {
                   if (_errorMessage != null) {
@@ -1177,7 +1192,7 @@ class _CreateHouseholdDialogState
                     const SizedBox(width: Spacing.sm),
                     Flexible(
                       child: Text(
-                        'Criando casa e preparando dados...',
+                        loc.householdCreatingProgress,
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ),
@@ -1191,7 +1206,7 @@ class _CreateHouseholdDialogState
           TextButton(
             key: const Key('cancel_create_household_button'),
             onPressed: _isSubmitting ? null : () => Navigator.of(context).pop(),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           FilledButton(
             key: const Key('confirm_create_household_button'),
@@ -1202,7 +1217,7 @@ class _CreateHouseholdDialogState
                     height: 16,
                     child: AppLoading.spinner(size: 16),
                   )
-                : const Text('Criar'),
+                : Text(loc.householdCreateShortButton),
           ),
         ],
       ),
@@ -1210,8 +1225,8 @@ class _CreateHouseholdDialogState
   }
 }
 
-String _formatFailure(Failure? err) {
-  if (err == null) return 'Erro desconhecido.';
+String _formatFailure(Failure? err, AppLocalizations l10n) {
+  if (err == null) return l10n.householdErrorUnknown;
   if (err is HouseholdFailure) return err.message;
   if (err is StorageFailure) {
     final detail = err.detail.trim();
@@ -1219,21 +1234,21 @@ String _formatFailure(Failure? err) {
         detail.contains(r'\') ||
         detail.contains('Exception') ||
         detail.contains('Sqlite')) {
-      return 'Não foi possível salvar ou carregar os dados. Tente novamente.';
+      return l10n.householdErrorStorageDetail;
     }
-    return detail.isNotEmpty
-        ? detail
-        : 'Não foi possível acessar o armazenamento.';
+    return detail.isNotEmpty ? detail : l10n.householdErrorStorageAccess;
   }
   if (err is ValidationFailure) return err.fields.values.join('; ');
   if (err is NetworkFailure) {
     return err.isOffline
-        ? 'Sem conexão com a internet.'
-        : 'Falha de comunicação na rede.';
+        ? l10n.householdErrorNoInternet
+        : l10n.householdErrorNetwork;
   }
   if (err is PermissionFailure) {
-    return 'Permissão necessária: ${err.permission}.';
+    return l10n.householdErrorPermissionRequired(err.permission);
   }
-  if (err is CancelledFailure) return err.reason ?? 'Operação cancelada.';
-  return 'Ocorreu um erro inesperado.';
+  if (err is CancelledFailure) {
+    return err.reason ?? l10n.householdErrorCancelled;
+  }
+  return l10n.householdErrorGeneric;
 }
