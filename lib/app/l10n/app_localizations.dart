@@ -5020,6 +5020,166 @@ abstract class AppLocalizations {
   String get recipeFavoriteTooltip;
 
   /// No description provided for @recipeRepoUnavailable.
+  ///
+  /// In pt, this message translates to:
+  /// **'Repositório de receitas não disponível'**
+  String get recipeRepoUnavailable;
+
+  /// No description provided for @recipeNotFound.
+  ///
+  /// In pt, this message translates to:
+  /// **'Receita não encontrada'**
+  String get recipeNotFound;
+
+  /// No description provided for @recipeNoInstructions.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sem instruções cadastradas.'**
+  String get recipeNoInstructions;
+
+  /// No description provided for @ocrScanReceiptTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escanear nota fiscal'**
+  String get ocrScanReceiptTitle;
+
+  /// No description provided for @ocrDisableFlashTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Desativar flash'**
+  String get ocrDisableFlashTooltip;
+
+  /// No description provided for @ocrEnableFlashTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Ativar flash'**
+  String get ocrEnableFlashTooltip;
+
+  /// No description provided for @ocrBenchmarkTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Benchmark de Precisão OCR'**
+  String get ocrBenchmarkTooltip;
+
+  /// No description provided for @ocrGalleryTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Escolher foto da galeria'**
+  String get ocrGalleryTooltip;
+
+  /// No description provided for @ocrGalleryLabel.
+  ///
+  /// In pt, this message translates to:
+  /// **'Galeria'**
+  String get ocrGalleryLabel;
+
+  /// No description provided for @ocrTakePhotoSemantics.
+  ///
+  /// In pt, this message translates to:
+  /// **'Tirar foto da nota fiscal'**
+  String get ocrTakePhotoSemantics;
+
+  /// No description provided for @ocrManualEntryTooltip.
+  ///
+  /// In pt, this message translates to:
+  /// **'Lançar manualmente'**
+  String get ocrManualEntryTooltip;
+
+  /// No description provided for @ocrReceiptSavedSuccess.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nota Fiscal salva com sucesso!'**
+  String get ocrReceiptSavedSuccess;
+
+  /// No description provided for @ocrReceiptSaveError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Erro ao salvar nota: {error}'**
+  String ocrReceiptSaveError(String error);
+
+  /// No description provided for @ocrRecognizeError.
+  ///
+  /// In pt, this message translates to:
+  /// **'Falha ao reconhecer nota fiscal.'**
+  String get ocrRecognizeError;
+
+  /// No description provided for @ocrTotalDivergenceTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Divergência no total'**
+  String get ocrTotalDivergenceTitle;
+
+  /// No description provided for @ocrTotalDivergenceBody.
+  ///
+  /// In pt, this message translates to:
+  /// **'A soma dos itens selecionados ({itemsSum}) difere do total lido ({total}).\n\nDivergência de {divergence}. Deseja salvar assim mesmo?'**
+  String ocrTotalDivergenceBody(
+    String itemsSum,
+    String total,
+    String divergence,
+  );
+
+  /// No description provided for @ocrWriteOffTitle.
+  ///
+  /// In pt, this message translates to:
+  /// **'Baixar itens da lista de compras'**
+  String get ocrWriteOffTitle;
+
+  /// No description provided for @ocrWriteOffSingleConfirm.
+  ///
+  /// In pt, this message translates to:
+  /// **'Deseja dar baixa nos itens desta compra na lista de compras \"{listName}\"?'**
+  String ocrWriteOffSingleConfirm(String listName);
+
+  /// No description provided for @commonNo.
+  ///
+  /// In pt, this message translates to:
+  /// **'Não'**
+  String get commonNo;
+
+  /// No description provided for @ocrWriteOffYes.
+  ///
+  /// In pt, this message translates to:
+  /// **'Sim, dar baixa'**
+  String get ocrWriteOffYes;
+
+  /// No description provided for @ocrWriteOffSelectPrompt.
+  ///
+  /// In pt, this message translates to:
+  /// **'Selecione a lista de compras para dar baixa nos itens comprados:'**
+  String get ocrWriteOffSelectPrompt;
+
+  /// No description provided for @ocrSaveWithoutWriteOff.
+  ///
+  /// In pt, this message translates to:
+  /// **'Salvar sem baixa'**
+  String get ocrSaveWithoutWriteOff;
+
+  /// No description provided for @ocrWriteOffButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Dar baixa'**
+  String get ocrWriteOffButton;
+
+  /// No description provided for @ocrCouponItemsHeader.
+  ///
+  /// In pt, this message translates to:
+  /// **'Itens do cupom ({selected}/{total})'**
+  String ocrCouponItemsHeader(int selected, int total);
+
+  /// No description provided for @ocrAddItemButton.
+  ///
+  /// In pt, this message translates to:
+  /// **'Adicionar item'**
+  String get ocrAddItemButton;
+
+  /// No description provided for @ocrNoItemsPlaceholder.
+  ///
+  /// In pt, this message translates to:
+  /// **'Nenhum item. Toque em Adicionar item.'**
+  String get ocrNoItemsPlaceholder;
+
+  /// No description provided for @ocrCloudConsentBody.
 }
 
 class _AppLocalizationsDelegate
