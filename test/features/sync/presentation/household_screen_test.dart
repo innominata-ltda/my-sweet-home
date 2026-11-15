@@ -12,6 +12,7 @@ import 'package:my_sweet_home/design_system/theme/app_theme.dart';
 import 'package:my_sweet_home/features/sync/data/household_repository_provider.dart';
 import 'package:my_sweet_home/features/sync/domain/models/household.dart';
 import 'package:my_sweet_home/features/sync/domain/ports/household_repository.dart';
+import 'package:my_sweet_home/features/sync/domain/ports/pairing_channel.dart';
 import 'package:my_sweet_home/features/sync/domain/ports/sync_transport_port.dart';
 import 'package:my_sweet_home/features/sync/domain/sync_batch.dart';
 import 'package:my_sweet_home/features/sync/domain/usecases/create_household_usecase.dart';
@@ -26,6 +27,51 @@ import '../../../../test/fakes/fake_household_repository.dart';
 import '../../../../test/fakes/fake_settings_repository.dart';
 
 class MockSyncNowUseCase extends Mock implements SyncNowUseCase {}
+
+class FakePairingChannel implements PairingChannel {
+  Failure? openInviteFailure;
+
+  @override
+  Future<Result<Invite, Failure>> openInvite({
+    Duration ttl = const Duration(minutes: 10),
+    String? lanHost,
+    int? lanPort,
+  }) async {
+    if (openInviteFailure != null) {
+      return Err(openInviteFailure!);
+    }
+    return Ok(
+      Invite(
+        householdId: 'h-1',
+        householdName: 'Casa da Duda',
+        publicKey: List.generate(32, (i) => (i + 1) & 0xff),
+        expiresAt: DateTime.now().toUtc().add(ttl),
+        lanHost: lanHost,
+        lanPort: lanPort,
+      ),
+    );
+  }
+
+  @override
+  Future<Result<PairingSession, Failure>> join(Invite invite) async {
+    return Ok(
+      PairingSession(
+        sessionId: 'sess-1',
+        invite: invite,
+        guestPublicKey: List.generate(32, (i) => (i + 2) & 0xff),
+        sasCode: invite.sasCode,
+      ),
+    );
+  }
+
+  @override
+  Future<Result<HouseholdKey, Failure>> confirm(
+    PairingSession session, {
+    required bool accepted,
+  }) async {
+    return Ok(HouseholdKey(List.generate(32, (i) => i)));
+  }
+}
 
 class DelayedCreateHouseholdUseCase extends CreateHouseholdUseCase {
   final Completer<Result<Household, Failure>> completer;
@@ -66,6 +112,7 @@ void main() {
     late FakeHouseholdRepository fakeRepo;
     late FakeSettingsRepository fakeSettingsRepo;
     late FakeHouseholdKeyStore fakeKeyStore;
+    late FakePairingChannel fakePairingChannel;
 
     setUp(() {
       fakeRepo = FakeHouseholdRepository();
@@ -73,6 +120,7 @@ void main() {
       fakeKeyStore = FakeHouseholdKeyStore(
         HouseholdKey(List.generate(32, (i) => i)),
       );
+      fakePairingChannel = FakePairingChannel();
     });
 
     tearDown(() {
@@ -98,6 +146,7 @@ void main() {
           joinHouseholdUseCaseProvider.overrideWithValue(
             JoinHouseholdUseCase(repository: fakeRepo),
           ),
+          pairingChannelProvider.overrideWithValue(fakePairingChannel),
           if (customSyncNowUseCase != null)
             syncNowUseCaseProvider.overrideWithValue(customSyncNowUseCase),
         ],
@@ -177,9 +226,16 @@ void main() {
         expect(find.byKey(const Key('join_invite_code_input')), findsOneWidget);
         expect(find.byKey(const Key('join_device_name_input')), findsOneWidget);
 
+        final validInvite = Invite(
+          householdId: 'h_join',
+          householdName: 'Casa Compartilhada',
+          publicKey: List.generate(32, (i) => i + 1),
+          expiresAt: DateTime.now().toUtc().add(const Duration(minutes: 10)),
+        ).toQrString();
+
         await tester.enterText(
           find.byKey(const Key('join_invite_code_input')),
-          'mshsync://invite?code=123',
+          validInvite,
         );
         await tester.enterText(
           find.byKey(const Key('join_device_name_input')),
@@ -202,6 +258,35 @@ void main() {
         // Household is now active and member was created
         expect(fakeRepo.household, isNotNull);
         expect(fakeRepo.members.any((m) => m.name == 'Tablet da Sala'), isTrue);
+      },
+    );
+
+    testWidgets(
+      'malformed invite code shows error snackbar without opening JoinPreviewDialog',
+      (tester) async {
+        await tester.pumpWidget(buildSubject());
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('join_household_button')));
+        await tester.pumpAndSettle();
+
+        await tester.enterText(
+          find.byKey(const Key('join_invite_code_input')),
+          'mshsync://invite?code=123',
+        );
+        await tester.enterText(
+          find.byKey(const Key('join_device_name_input')),
+          'Tablet da Sala',
+        );
+
+        await tester.tap(find.byKey(const Key('confirm_join_preview_button')));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(JoinPreviewDialog), findsNothing);
+        expect(
+          find.text('Código de convite inválido. Verifique o link ou QR Code.'),
+          findsOneWidget,
+        );
       },
     );
 

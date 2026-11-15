@@ -708,15 +708,16 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
                 try {
                   invite = Invite.fromQrString(code);
                 } catch (_) {
-                  invite = Invite(
-                    householdId: 'h_join',
-                    householdName: 'Casa Compartilhada',
-                    publicKey: List.generate(32, (i) => i + 1),
-                    expiresAt: ref
-                        .read(clockProvider)
-                        .nowUtc()
-                        .add(const Duration(minutes: 10)),
-                  );
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Código de convite inválido. Verifique o link ou QR Code.',
+                        ),
+                      ),
+                    );
+                  }
+                  return;
                 }
 
                 String sasCode = invite.sasCode;
@@ -852,26 +853,35 @@ class _HouseholdScreenState extends ConsumerState<HouseholdScreen> {
 
       final channel = ref.read(pairingChannelProvider);
       final res = await channel.openInvite(lanHost: ip, lanPort: port);
-      if (res.isErr &&
-          res.failureOrNull is MaxMembersFailure &&
-          context.mounted) {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('${res.failureOrNull}')));
+      if (res.isErr) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text('${res.failureOrNull}')));
+        }
         return;
       }
       invite = res.valueOrNull;
-    } catch (_) {}
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Não foi possível gerar o convite de pareamento.'),
+          ),
+        );
+      }
+      return;
+    }
 
-    invite ??= Invite(
-      householdId: household.id,
-      householdName: household.name,
-      publicKey: List.generate(32, (i) => (i * 7 + 3) & 0xff),
-      expiresAt: ref
-          .read(clockProvider)
-          .nowUtc()
-          .add(const Duration(minutes: 10)),
-      sharedAreas: household.sharedAreas.map((a) => a.name).toList(),
-    );
+    if (invite == null) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Não foi possível gerar o convite de pareamento.'),
+          ),
+        );
+      }
+      return;
+    }
 
     final qrData = invite.toQrString();
     final sasCode = invite.sasCode;
