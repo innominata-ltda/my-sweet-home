@@ -42,7 +42,7 @@ void main() {
       );
       expect(
         find.text(
-          '100% gratuito, de código aberto e com dados salvos apenas no seu aparelho',
+          'Código aberto, sem anúncios e com dados salvos apenas no seu aparelho',
         ),
         findsOneWidget,
       );

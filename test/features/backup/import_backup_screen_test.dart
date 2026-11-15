@@ -1,3 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -173,4 +178,81 @@ void main() {
       );
     });
   });
+
+  group('readPickedPlatformFile', () {
+    test('reads content from file path when available', () async {
+      final dir = await Directory.systemTemp.createTemp('mshbackup_test_');
+      addTearDown(() => dir.delete(recursive: true));
+      final file = File('${dir.path}/backup.mshbackup');
+      await file.writeAsString('{"version":1}');
+
+      final content = await readPickedPlatformFile(
+        _FakePlatformFile(
+          name: 'backup.mshbackup',
+          uri: file.uri,
+          bytes: Uint8List(0),
+        ),
+      );
+
+      expect(content, '{"version":1}');
+    });
+
+    test('falls back to UTF-8 bytes when path is null', () async {
+      final bytes = Uint8List.fromList(
+        utf8.encode('{"salt":"abc","ciphertext":"xyz"}'),
+      );
+      final content = await readPickedPlatformFile(
+        _FakePlatformFile(
+          name: 'backup.mshbackup',
+          uri: Uri.parse('content://com.android.providers/backup.mshbackup'),
+          bytes: bytes,
+        ),
+      );
+
+      expect(content, '{"salt":"abc","ciphertext":"xyz"}');
+    });
+
+    test('returns null when neither path nor bytes is available', () async {
+      final content = await readPickedPlatformFile(
+        _FakePlatformFile(
+          name: 'empty.mshbackup',
+          uri: Uri.parse('content://com.android.providers/empty.mshbackup'),
+          bytes: Uint8List(0),
+        ),
+      );
+
+      expect(content, isNull);
+    });
+  });
+}
+
+final class _FakePlatformFile extends PlatformFile {
+  _FakePlatformFile({
+    required this.name,
+    required this.uri,
+    required Uint8List bytes,
+  }) : _bytes = bytes;
+
+  @override
+  final String name;
+
+  @override
+  final Uri uri;
+
+  final Uint8List _bytes;
+
+  @override
+  Future<Uint8List> readAsBytes() async => _bytes;
+
+  @override
+  Stream<Uint8List> readAsByteStream() => Stream.value(_bytes);
+
+  @override
+  Future<int?> length() async => _bytes.length;
+
+  @override
+  int? lengthSync() => _bytes.length;
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

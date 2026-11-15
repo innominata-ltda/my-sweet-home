@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/core/result/result.dart';
@@ -10,6 +11,20 @@ import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/data/backup_service_provider.dart';
 import 'package:my_sweet_home/features/backup/domain/backup_service.dart';
 import 'package:my_sweet_home/features/backup/presentation/import_backup_controller.dart';
+
+/// Reads backup file content from a [PlatformFile] using [path] or [readAsBytes].
+@visibleForTesting
+Future<String?> readPickedPlatformFile(PlatformFile file) async {
+  final path = file.path;
+  if (path != null && path.isNotEmpty) {
+    return File(path).readAsString();
+  }
+  final bytes = await file.readAsBytes();
+  if (bytes.isNotEmpty) {
+    return utf8.decode(bytes);
+  }
+  return null;
+}
 
 typedef PickBackupContent = Future<String?> Function();
 
@@ -352,16 +367,9 @@ class _ImportBackupScreenState extends ConsumerState<ImportBackupScreen> {
   }
 
   Future<String?> _defaultPickBackupContent() async {
-    final files = await FilePicker.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['json', 'mshbackup', 'txt'],
-    );
+    final files = await FilePicker.pickFiles(type: FileType.any);
     if (files.isEmpty) return null;
-    final path = files.single.path;
-    if (path != null) {
-      return File(path).readAsString();
-    }
-    return null;
+    return readPickedPlatformFile(files.single);
   }
 
   bool _isEncryptedEnvelope(String raw) {
