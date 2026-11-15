@@ -38,10 +38,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   ProviderSubscription<bool>? _visualEffectsSub;
   bool _visualEffects = true;
-  bool _hideValues = false;
   bool _deleteReceiptPhoto = true;
-  bool _cloudBackup = false;
-  bool _cloudOcr = false;
   bool _retentionNotifications = true;
   String _appLocale = AppLocaleRegistry.systemLocaleId;
   String _receiptFormat = ReceiptFormatCatalog.autoFormatId;
@@ -76,17 +73,8 @@ class _SettingsPageState extends State<SettingsPage> {
       _visualEffects = container.read(visualEffectsEnabledProvider);
 
       final repo = container.read(settingsRepositoryProvider);
-      repo.isHideValuesEnabled().then((v) {
-        if (mounted) setState(() => _hideValues = v);
-      });
       repo.isDeleteReceiptPhotoEnabled().then((v) {
         if (mounted) setState(() => _deleteReceiptPhoto = v);
-      });
-      repo.isCloudBackupAllowed().then((v) {
-        if (mounted) setState(() => _cloudBackup = v);
-      });
-      repo.isCloudOcrAllowed().then((v) {
-        if (mounted) setState(() => _cloudOcr = v);
       });
       repo.isRetentionNotificationsEnabled().then((v) {
         if (mounted) setState(() => _retentionNotifications = v);
@@ -112,16 +100,6 @@ class _SettingsPageState extends State<SettingsPage> {
     } catch (_) {}
   }
 
-  Future<void> _toggleHideValues(bool value) async {
-    setState(() => _hideValues = value);
-    try {
-      final container = ProviderScope.containerOf(context, listen: false);
-      await container
-          .read(settingsRepositoryProvider)
-          .setHideValuesEnabled(value);
-    } catch (_) {}
-  }
-
   Future<void> _toggleDeleteReceiptPhoto(bool value) async {
     setState(() => _deleteReceiptPhoto = value);
     try {
@@ -129,26 +107,6 @@ class _SettingsPageState extends State<SettingsPage> {
       await container
           .read(settingsRepositoryProvider)
           .setDeleteReceiptPhotoEnabled(value);
-    } catch (_) {}
-  }
-
-  Future<void> _toggleCloudBackup(bool value) async {
-    setState(() => _cloudBackup = value);
-    try {
-      final container = ProviderScope.containerOf(context, listen: false);
-      await container
-          .read(settingsRepositoryProvider)
-          .setCloudBackupAllowed(value);
-    } catch (_) {}
-  }
-
-  Future<void> _toggleCloudOcr(bool value) async {
-    setState(() => _cloudOcr = value);
-    try {
-      final container = ProviderScope.containerOf(context, listen: false);
-      await container
-          .read(settingsRepositoryProvider)
-          .setCloudOcrAllowed(value);
     } catch (_) {}
   }
 
@@ -437,16 +395,6 @@ class _SettingsPageState extends State<SettingsPage> {
           // ── 3. Privacy, Security and Data ─────────────────────────────────────
           _buildSectionHeader(context, 'Privacidade, Segurança e Dados'),
           SwitchListTile(
-            key: const Key('settings_hide_values_switch'),
-            secondary: const Icon(AppIcons.money),
-            title: const Text('Ocultar valores financeiros na tela inicial'),
-            subtitle: const Text(
-              'Mascarar centavos e totais quando em segundo plano',
-            ),
-            value: _hideValues,
-            onChanged: _toggleHideValues,
-          ),
-          SwitchListTile(
             key: const Key('settings_delete_receipt_photo_switch'),
             secondary: const Icon(AppIcons.delete),
             title: const Text('Apagar foto do cupom após leitura'),
@@ -455,35 +403,6 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             value: _deleteReceiptPhoto,
             onChanged: _toggleDeleteReceiptPhoto,
-          ),
-          SwitchListTile(
-            key: const Key('settings_cloud_backup_switch'),
-            secondary: const Icon(AppIcons.cloudBackup),
-            title: const Text('Permitir backup em nuvem'),
-            subtitle: const Text('Cópia criptografada no Google Drive'),
-            value: _cloudBackup,
-            onChanged: _toggleCloudBackup,
-          ),
-          SwitchListTile(
-            key: const Key('settings_cloud_ocr_switch'),
-            secondary: const Icon(AppIcons.ocr),
-            title: const Text('Permitir leitura de cupom em nuvem (OCR)'),
-            subtitle: const Text(
-              'Processar recibos complexos na nuvem anonimamente',
-            ),
-            value: _cloudOcr,
-            onChanged: _toggleCloudOcr,
-          ),
-          ListTile(
-            key: const Key('settings_security_tile'),
-            leading: const Icon(AppIcons.lockBackup),
-            title: const Text('Bloqueio do aplicativo'),
-            subtitle: const Text('Proteção por biometria ou PIN'),
-            onTap: () {
-              try {
-                context.push('/settings/security');
-              } catch (_) {}
-            },
           ),
           ListTile(
             key: const Key('settings_backup_tile'),
