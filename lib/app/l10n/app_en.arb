@@ -958,3 +958,163 @@
   "billsPaidSuccess": "Bill \"{title}\" marked as paid!",
   "@billsPaidSuccess": {
     "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsUnpaidSuccess": "Bill \"{title}\" marked as unpaid!",
+  "@billsUnpaidSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPausedSuccess": "Bill \"{title}\" paused successfully!",
+  "@billsPausedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeletedSuccess": "Bill \"{title}\" deleted successfully!",
+  "@billsDeletedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeleteError": "Error deleting bill: {error}",
+  "@billsDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsNewDialogTitle": "New Recurring Bill",
+  "billsTitleFieldLabel": "Title * (e.g. Rent, Electricity, Internet)",
+  "billsTitleRequired": "Enter a title",
+  "billsAmountFieldLabel": "Amount * (e.g. 150.00)",
+  "billsDueDayFieldLabel": "Due Day * (1 to 31)",
+  "billsDueDayInvalid": "Enter a day between 1 and 31",
+  "billsFrequencyLabel": "Bill Frequency",
+  "billsFrequencyMonthly": "Monthly",
+  "billsFrequencyBiweekly": "Biweekly",
+  "billsFrequencyWeekly": "Weekly",
+  "billsFrequencyAnnual": "Annual",
+  "billsCategoryLabel": "Category *",
+  "billsSaveButton": "Save Bill",
+  "expensesExportError": "Error exporting expenses: {error}",
+  "@expensesExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesMonthBudgetTooltip": "Monthly budget",
+  "expensesPurchasesReceiptsTooltip": "Purchases & Receipts",
+  "expensesExportTooltip": "Export expenses",
+  "expensesExportCsv": "Export CSV",
+  "expensesExportPdf": "Export PDF",
+  "expensesDeleteConfirmTitle": "Delete expense?",
+  "expensesDeleteConfirmBody": "Are you sure you want to delete this expense?",
+  "expensesViewPurchaseTooltip": "View Purchase / Receipt",
+  "expensesViewBillTooltip": "View Bill",
+  "expensesEditBudget": "Edit Budget",
+  "expensesEditTitle": "Edit Expense",
+  "expensesDeleteTooltip": "Delete expense",
+  "expensesAmountLabel": "Amount *",
+  "expensesNameDescriptionLabel": "Name / Description",
+  "expensesNameDescriptionHint": "e.g. Grocery store, Rent, Pharmacy",
+  "expensesNotesHint": "Additional details...",
+  "expensesRepeatExpense": "Repeat expense",
+  "expensesRepeatFrequency": "Repeat frequency",
+  "expensesCustomDaysHint": "e.g. 4",
+  "expensesCustomDaysRequired": "Enter the number of days (between 1 and 365)",
+  "expensesCustomDaysInvalid": "Enter a valid number of days between 1 and 365",
+  "budgetCategoryDialogTitle": "Budget for {category}",
+  "@budgetCategoryDialogTitle": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetCategoryLimitLabel": "Limit * (e.g. 500.00)",
+  "budgetTotalDialogTitle": "Total Budget for {month}",
+  "@budgetTotalDialogTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetBaseIncomeLabel": "Recurring base income *",
+  "budgetBaseIncomeHint": "e.g. 3000.00",
+  "budgetIncomeRequired": "Enter at least one income",
+  "budgetExtraIncomeLabel": "Additional one-off income in the month",
+  "budgetExtraIncomeHint": "e.g. 500.00",
+  "budgetTotalSumLabel": "Total budget sum:",
+  "budgetMonthTotalCardTitle": "Total Monthly Budget",
+  "budgetEditIncomeTooltip": "Edit income and budget",
+  "budgetNoCategories": "No categories registered.",
+  "commonAdd": "Add",
+  "checklistGenerateShoppingList": "Generate shopping list",
+  "checklistNewItem": "New item",
+  "checklistLoadError": "Error loading checklist: {error}",
+  "@checklistLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistEmptyDescription": "Add items or select another room.",
+  "checklistProgressTitle": "Home progress",
+  "checklistMarkedCount": "{marked} of {total} items checked",
+  "@checklistMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistCreateListCount": "Create list ({count})",
+  "@checklistCreateListCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistAddItemTitle": "Add item to checklist",
+  "checklistItemLabel": "Item *",
+  "checklistItemHint": "e.g. Hand towel",
+  "checklistRoomLabel": "Room / Category *",
+  "checklistRoomHint": "e.g. Bathroom",
+  "checklistEditItemTitle": "Edit item",
+  "checklistItemTitleLabel": "Item title *",
+  "checklistDeleteItemTitle": "Delete item?",
+  "checklistDeleteItemBody": "Remove \"{title}\" from checklist?",
+  "@checklistDeleteItemBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistDefaultListNameCategory": "Home List - {category}",
+  "@checklistDefaultListNameCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
