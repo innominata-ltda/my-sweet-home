@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/id/id_generator.dart';
 import 'package:my_sweet_home/features/recipes/domain/models/ingredient.dart';
 import 'package:my_sweet_home/features/recipes/domain/models/recipe.dart';
@@ -125,11 +128,16 @@ class RecipeDraftController extends ValueNotifier<RecipeDraftState> {
   }
 
   Recipe buildRecipe(IdGenerator idGenerator) {
+    final l10n = lookupAppLocalizations(
+      PlatformDispatcher.instance.locale.languageCode == 'en'
+          ? const Locale('en')
+          : const Locale('pt'),
+    );
     if (value.title.trim().isEmpty) {
-      throw StateError('O título é obrigatório.');
+      throw StateError(l10n.recipeDraftTitleRequiredError);
     }
     if (value.ingredients.isEmpty) {
-      throw StateError('Adicione pelo menos um ingrediente.');
+      throw StateError(l10n.recipeDraftIngredientsRequiredError);
     }
 
     return Recipe(

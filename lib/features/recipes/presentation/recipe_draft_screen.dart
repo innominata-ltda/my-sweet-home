@@ -85,9 +85,12 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
         );
         if (result.isErr) {
           if (!mounted) return;
+          final loc = AppLocalizations.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Falha ao salvar receita: ${result.failureOrNull}'),
+              content: Text(
+                loc.recipeDraftSaveError('${result.failureOrNull}'),
+              ),
             ),
           );
           return;
@@ -104,25 +107,26 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
   }
 
   void _showPasteDialog() {
+    final loc = AppLocalizations.of(context);
     final pasteController = TextEditingController();
 
     showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Colar receita'),
+        title: Text(loc.recipePasteTitle),
         content: TextField(
           key: const Key('paste_recipe_input'),
           controller: pasteController,
           maxLines: 8,
-          decoration: const InputDecoration(
-            hintText: 'Cole a receita aqui (título, ingredientes, modo de preparo)...',
-            border: OutlineInputBorder(),
+          decoration: InputDecoration(
+            hintText: loc.recipePasteHint,
+            border: const OutlineInputBorder(),
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           FilledButton(
             key: const Key('confirm_paste_recipe_button'),
@@ -137,7 +141,7 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
               }
               Navigator.of(ctx).pop();
             },
-            child: const Text('Importar'),
+            child: Text(loc.recipeImportButton),
           ),
         ],
       ),
@@ -166,15 +170,15 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
           key: const Key('ingredient_name_input'),
           controller: nameController,
           autofocus: true,
-          decoration: const InputDecoration(
-            labelText: 'Nome do ingrediente',
-            hintText: 'Ex: 2 xícaras de farinha',
+          decoration: InputDecoration(
+            labelText: loc.recipeIngredientNameLabel,
+            hintText: loc.recipeIngredientNameHint,
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           FilledButton(
             key: const Key('confirm_add_ingredient_button'),
@@ -185,7 +189,7 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
               }
               Navigator.of(ctx).pop();
             },
-            child: const Text('Adicionar'),
+            child: Text(loc.commonAdd),
           ),
         ],
       ),
@@ -203,15 +207,15 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
           key: const Key('tag_input'),
           controller: tagController,
           autofocus: true,
-          decoration: const InputDecoration(
-            labelText: 'Nome da tag',
-            hintText: 'Ex: Sobremesa, Rápido, Vegano',
+          decoration: InputDecoration(
+            labelText: loc.recipeTagNameLabel,
+            hintText: loc.recipeTagNameHint,
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('Cancelar'),
+            child: Text(loc.commonCancel),
           ),
           FilledButton(
             key: const Key('confirm_add_tag_button'),
@@ -222,7 +226,7 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
               }
               Navigator.of(ctx).pop();
             },
-            child: const Text('Adicionar'),
+            child: Text(loc.commonAdd),
           ),
         ],
       ),
@@ -237,22 +241,22 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
         title: Text(loc.recipeDraftNewTitle),
         actions: [
           Semantics(
-            label: 'Colar receita',
+            label: loc.recipePasteTitle,
             button: true,
             child: IconButton(
               key: const Key('paste_recipe_button'),
               icon: const Icon(AppIcons.copy),
-              tooltip: 'Colar receita',
+              tooltip: loc.recipePasteTitle,
               onPressed: _showPasteDialog,
             ),
           ),
           Semantics(
-            label: 'Salvar receita',
+            label: loc.recipeSaveTooltip,
             button: true,
             child: IconButton(
               key: const Key('save_recipe_button'),
               icon: const Icon(AppIcons.check),
-              tooltip: 'Salvar receita',
+              tooltip: loc.recipeSaveTooltip,
               onPressed: _save,
             ),
           ),
@@ -327,11 +331,13 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
                   key: Key('ingredient_item_$i'),
                   title: Text(state.ingredients[i].name),
                   trailing: Semantics(
-                    label: 'Remover ingrediente ${state.ingredients[i].name}',
+                    label: loc.recipeRemoveIngredientSemantics(
+                      state.ingredients[i].name,
+                    ),
                     button: true,
                     child: IconButton(
                       icon: const Icon(AppIcons.delete),
-                      tooltip: 'Remover ingrediente',
+                      tooltip: loc.recipeRemoveIngredientTooltip,
                       onPressed: () => _controller.removeIngredient(i),
                     ),
                   ),
@@ -355,10 +361,10 @@ class _RecipeDraftScreenState extends State<RecipeDraftScreen> {
               OutlinedButton.icon(
                 key: const Key('recipe_photo_button'),
                 icon: const Icon(AppIcons.camera),
-                label: const Text('Adicionar foto'),
+                label: Text(loc.recipeAddPhotoButton),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Foto anexada à receita.')),
+                    SnackBar(content: Text(loc.recipePhotoAttached)),
                   );
                 },
               ),
@@ -384,6 +390,7 @@ class SpinBoxPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -391,21 +398,21 @@ class SpinBoxPlaceholder extends StatelessWidget {
         Row(
           children: [
             Semantics(
-              label: 'Diminuir $label',
+              label: loc.recipeSpinDecrease(label),
               button: true,
               child: IconButton(
                 icon: const Icon(AppIcons.remove),
-                tooltip: 'Diminuir $label',
+                tooltip: loc.recipeSpinDecrease(label),
                 onPressed: () => onChanged(value - 1),
               ),
             ),
             Text('$value'),
             Semantics(
-              label: 'Aumentar $label',
+              label: loc.recipeSpinIncrease(label),
               button: true,
               child: IconButton(
                 icon: const Icon(AppIcons.add),
-                tooltip: 'Aumentar $label',
+                tooltip: loc.recipeSpinIncrease(label),
                 onPressed: () => onChanged(value + 1),
               ),
             ),
