@@ -2718,3 +2718,163 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get productDefaultUnitRequiredLabel => 'Default Unit *';
 
+  @override
+  String get productAliasesLabel => 'Aliases / Synonyms';
+
+  @override
+  String get productAliasesHint => 'Comma-separated (optional)';
+
+  @override
+  String get productCreateError => 'Error creating product';
+
+  @override
+  String get recipeListServiceUnavailable => 'Lists service unavailable';
+
+  @override
+  String get recipeNoActiveShoppingLists => 'No active shopping lists found.';
+
+  @override
+  String get recipeSelectShoppingListTitle => 'Select shopping list';
+
+  @override
+  String get recipeIngredientsSentSuccess =>
+      'Ingredients sent to shopping list!';
+
+  @override
+  String recipeIngredientsSentError(String error) {
+    return 'Failed to send ingredients: $error';
+  }
+
+  @override
+  String get recipeDecreaseServingsTooltip => 'Decrease servings';
+
+  @override
+  String get recipeIncreaseServingsTooltip => 'Increase servings';
+
+  @override
+  String get recipeSendIngredientsButton => 'Send ingredients to shopping list';
+
+  @override
+  String get recipeDraftTitleRequiredError => 'Title is required.';
+
+  @override
+  String get recipeDraftIngredientsRequiredError =>
+      'Add at least one ingredient.';
+
+  @override
+  String recipeDraftSaveError(String error) {
+    return 'Failed to save recipe: $error';
+  }
+
+  @override
+  String get recipePasteTitle => 'Paste recipe';
+
+  @override
+  String get recipePasteHint =>
+      'Paste the recipe here (title, ingredients, preparation)...';
+
+  @override
+  String get recipeImportButton => 'Import';
+
+  @override
+  String get recipeIngredientNameLabel => 'Ingredient name';
+
+  @override
+  String get recipeIngredientNameHint => 'E.g.: 2 cups of flour';
+
+  @override
+  String get recipeTagNameLabel => 'Tag name';
+
+  @override
+  String get recipeTagNameHint => 'E.g.: Dessert, Quick, Vegan';
+
+  @override
+  String get recipeSaveTooltip => 'Save recipe';
+
+  @override
+  String recipeRemoveIngredientSemantics(String name) {
+    return 'Remove ingredient $name';
+  }
+
+  @override
+  String get recipeRemoveIngredientTooltip => 'Remove ingredient';
+
+  @override
+  String get recipeAddPhotoButton => 'Add photo';
+
+  @override
+  String get recipePhotoAttached => 'Photo attached to recipe.';
+
+  @override
+  String recipeSpinDecrease(String label) {
+    return 'Decrease $label';
+  }
+
+  @override
+  String recipeSpinIncrease(String label) {
+    return 'Increase $label';
+  }
+
+  @override
+  String recipeListTimeAndServings(int minutes, int servings) {
+    return '$minutes min • $servings servings';
+  }
+
+  @override
+  String get recipeUnfavoriteTooltip => 'Unfavorite';
+
+  @override
+  String get recipeFavoriteTooltip => 'Favorite';
+
+  @override
+  String get recipeRepoUnavailable => 'Recipes repository unavailable';
+
+  @override
+  String get recipeNotFound => 'Recipe not found';
+
+  @override
+  String get recipeNoInstructions => 'No instructions registered.';
+
+  @override
+  String get ocrScanReceiptTitle => 'Scan receipt';
+
+  @override
+  String get ocrDisableFlashTooltip => 'Disable flash';
+
+  @override
+  String get ocrEnableFlashTooltip => 'Enable flash';
+
+  @override
+  String get ocrBenchmarkTooltip => 'OCR Accuracy Benchmark';
+
+  @override
+  String get ocrGalleryTooltip => 'Choose photo from gallery';
+
+  @override
+  String get ocrGalleryLabel => 'Gallery';
+
+  @override
+  String get ocrTakePhotoSemantics => 'Take photo of receipt';
+
+  @override
+  String get ocrManualEntryTooltip => 'Enter manually';
+
+  @override
+  String get ocrReceiptSavedSuccess => 'Receipt saved successfully!';
+
+  @override
+  String ocrReceiptSaveError(String error) {
+    return 'Error saving receipt: $error';
+  }
+
+  @override
+  String get ocrRecognizeError => 'Failed to recognize receipt.';
+
+  @override
+  String get ocrTotalDivergenceTitle => 'Total divergence';
+
+  @override
+  String ocrTotalDivergenceBody(
+    String itemsSum,
+    String total,
+    String divergence,
