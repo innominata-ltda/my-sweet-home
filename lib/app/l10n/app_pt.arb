@@ -2076,5 +2076,147 @@
   "householdEmptyDeviceNameError": "O nome do aparelho não pode ser vazio.",
   "householdUnexpectedErrorWithDetail": "Erro inesperado: {error}",
   "@householdUnexpectedErrorWithDetail": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHouseNameLabel": "Nome da casa",
+  "householdCreatingProgress": "Criando casa e preparando dados...",
+  "householdCreateShortButton": "Criar",
+  "householdErrorUnknown": "Erro desconhecido.",
+  "householdErrorStorageDetail": "Não foi possível salvar ou carregar os dados. Tente novamente.",
+  "householdErrorStorageAccess": "Não foi possível acessar o armazenamento.",
+  "householdErrorNoInternet": "Sem conexão com a internet.",
+  "householdErrorNetwork": "Falha de comunicação na rede.",
+  "householdErrorPermissionRequired": "Permissão necessária: {permission}.",
+  "@householdErrorPermissionRequired": {
+    "placeholders": {
+      "permission": {
+        "type": "String"
+      }
+    }
+  },
+  "householdErrorCancelled": "Operação cancelada.",
+  "householdErrorGeneric": "Ocorreu um erro inesperado.",
+  "householdTutorialWelcomeTitle": "Bem-vindo à Casa Compartilhada!",
+  "householdTutorialWelcomeBody": "Aqui você divide listas de compras, tarefas, estoque, receitas e finanças com quem mora com você, sem criar conta em servidor e com criptografia de ponta a ponta.",
+  "householdTutorialPairingTitle": "Pareamento seguro com QR Code e 6 dígitos",
+  "householdTutorialPairingBody": "O novo aparelho lê o QR Code pela câmera (ou usa o link de convite) e ambos confirmam o mesmo código de autenticação de 6 dígitos.",
+  "householdTutorialWifiTitle": "Sincronização no Wi-Fi e por Pacotes",
+  "householdTutorialWifiBody": "Quando os aparelhos estão no mesmo Wi-Fi com o app aberto, as mudanças sincronizam direto na rede local. Você também pode tocar em \"Gerar pacote\" para enviar atualizações por qualquer app de mensagens.",
+  "householdTutorialCloudTitle": "Sincronização fora de casa (Nuvem)",
+  "householdTutorialCloudBody": "Quando vocês não estão no mesmo Wi-Fi (ex.: alguém no mercado), o app pode usar uma caixa postal criptografada na sua nuvem para entregar as mudanças com segurança.",
+  "householdTutorialCloseTooltip": "Fechar tutorial",
+  "householdTutorialRemoteQuestion": "Deseja habilitar a sincronização remota agora?",
+  "householdTutorialRemoteYesTitle": "Sim, habilitar sincronização remota",
+  "householdTutorialRemoteYesSubtitle": "Sincroniza fora do Wi-Fi com criptografia de ponta a ponta",
+  "householdTutorialRemoteNoTitle": "Não, usar apenas Wi-Fi local e pacotes",
+  "householdTutorialRemoteNoSubtitle": "Você poderá ativar depois dentro da tela da Casa Compartilhada",
+  "householdTutorialPrevious": "Anterior",
+  "householdTutorialFinish": "Concluir",
+  "householdTutorialNext": "Próximo",
+  "householdJoinPreviewError": "Falha ao carregar prévia: {error}",
+  "@householdJoinPreviewError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewMergeInfo": "Ao entrar na casa, seus dados locais serão unidos com os da casa. Nenhum dado seu será apagado ou duplicado.",
+  "householdJoinPreviewSasLabel": "Código de autenticação (6 dígitos):",
+  "householdJoinPreviewSasHint": "Confira se este código é idêntico ao exibido no outro aparelho.",
+  "householdJoinPreviewFinanceLabel": "Finanças (despesas, contas):",
+  "householdJoinPreviewProductsLabel": "Catálogo de produtos:",
+  "householdJoinPreviewBackupNotice": "Um backup automático de segurança será gerado antes da adesão.",
+  "householdJoinPreviewDeviceNameLabel": "Nome deste aparelho na casa",
+  "householdJoinPreviewDeviceNameHint": "Ex.: Celular do Alex",
+  "householdJoinPreviewJoining": "Entrando...",
+  "householdJoinPreviewJoinButton": "Entrar na casa",
+  "householdLeaveDeleteConfirmTitle": "Confirmar exclusão dos dados",
+  "householdLeaveDeleteIrreversible": "Esta ação não pode ser desfeita.",
+  "householdLeaveDeleteAndExit": "Apagar e sair",
+  "householdLeaveDialogTitle": "Sair da casa compartilhada",
+  "householdLeaveDialogBody": "Ao sair da casa, este aparelho não receberá nem enviará mais atualizações de sincronização.",
+  "householdLeaveKeepLocalTitle": "Manter uma cópia local (recomendado)",
+  "householdLeaveKeepLocalSubtitle": "Você continua com todas as despesas e tarefas criadas até agora.",
+  "householdQrCloseTooltip": "Fechar câmera",
+  "householdQrScanPrompt": "Aponte a câmera para o QR Code exibido no outro aparelho.",
+  "householdQrCameraUnavailable": "Câmera indisponível neste dispositivo/emulador.\nUse a opção de colar o link de convite.",
+  "householdQrManualEntry": "Digitar ou colar código manualmente",
+  "householdBundleAlreadyApplied": "Este pacote já foi aplicado",
+  "householdBundleAppliedSuccess": "Pacote aplicado com sucesso!",
+  "householdBundleImportTitle": "Importar pacote .mshsync",
+  "householdBundleContentLabel": "Conteúdo ou caminho do pacote",
+  "householdBundleContentHint": "Cole os dados do arquivo .mshsync",
+  "householdBundleImportAction": "Importar",
+  "householdBundleShareTitle": "Pacote de sincronização",
+  "householdBundleShareDescription": "Gere um arquivo criptografado com as alterações deste aparelho para enviar por WhatsApp, Telegram ou e-mail.",
+  "householdBundleShareAction": "Compartilhar",
+  "householdBundleGeneratedSuccess": "Pacote gerado com sucesso! ({bytes} bytes)",
+  "@householdBundleGeneratedSuccess": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "householdQrScanTitle": "Ler QR Code da casa",
+  "householdLeaveDeleteConfirmBody": "Tem certeza de que deseja apagar todos os dados compartilhados da casa neste aparelho?\n\nEsta ação não pode ser desfeita.",
+  "householdLeaveWipeSubtitle": "Remove as despesas, contas e tarefas compartilhadas deste aparelho.",
+  "householdTutorialStepOf": "Passo {current} de {total}",
+  "@householdTutorialStepOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "householdJoinPreviewEmptyDeviceError": "Informe o nome do aparelho",
+  "householdJoinPreviewTitle": "Entrar em \"{name}\"",
+  "@householdJoinPreviewTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewLocalRecordsTitle": "Registros locais a unir:",
+  "householdJoinPreviewHomeLabel": "Casa (listas, tarefas, receitas):",
+  "householdSyncBothSuffix": " ({sent} enviadas, {applied} aplicadas).",
+  "@householdSyncBothSuffix": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncPeersCompleted": "Sincronizado com {peers} aparelho(s){summary}",
+  "@householdSyncPeersCompleted": {
+    "placeholders": {
+      "peers": {
+        "type": "int"
+      },
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncNoPeersFound": "Nenhum outro aparelho encontrado na rede local no momento.",
+  "householdLoadError": "Erro ao carregar dados da casa: {error}",
+  "@householdLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }
