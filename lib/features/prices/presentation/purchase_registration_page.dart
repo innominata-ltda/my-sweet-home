@@ -72,11 +72,11 @@ class _PurchaseRegistrationPageState
             const Center(child: CircularProgressIndicator())
           else
             Semantics(
-              label: 'Salvar compra',
+              label: l10n.purchaseSaveTooltip,
               button: true,
               child: IconButton(
                 icon: const Icon(AppIcons.check),
-                tooltip: 'Salvar compra',
+                tooltip: l10n.purchaseSaveTooltip,
                 onPressed: state.isValid
                     ? () =>
                           ref.read(purchaseRegistrationProvider.notifier).save()
@@ -247,7 +247,7 @@ class _DraftItemCard extends ConsumerWidget {
                 ),
                 IconButton(
                   icon: const Icon(AppIcons.add),
-                  tooltip: 'Novo produto',
+                  tooltip: l10n.purchaseNewProductTooltip,
                   onPressed: () async {
                     final created = await showCreateProductDialog(context, ref);
                     if (created != null) {
@@ -263,14 +263,14 @@ class _DraftItemCard extends ConsumerWidget {
                   },
                 ),
                 Semantics(
-                  label: 'Remover item',
+                  label: l10n.purchaseRemoveItemTooltip,
                   button: true,
                   child: IconButton(
                     icon: Icon(
                       AppIcons.delete,
                       color: Theme.of(context).colorScheme.error,
                     ),
-                    tooltip: 'Remover item',
+                    tooltip: l10n.purchaseRemoveItemTooltip,
                     onPressed: () {
                       ref
                           .read(purchaseRegistrationProvider.notifier)

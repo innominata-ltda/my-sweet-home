@@ -225,7 +225,14 @@ class _AccessiblePriceTable extends StatelessWidget {
           final dateStr = DateFormat('dd/MM/yyyy').format(point.date.toLocal());
           final priceStr = point.normalizedPrice.formatPtBr();
           final storeName = _storeName(point.storeId);
-          final semanticLabel = '$priceStr em $storeName no $dateStr';
+          final l10n =
+              Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+              lookupAppLocalizations(const Locale('pt'));
+          final semanticLabel = l10n.priceChartSemantics(
+            priceStr,
+            storeName,
+            dateStr,
+          );
 
           return Semantics(
             label: semanticLabel,
