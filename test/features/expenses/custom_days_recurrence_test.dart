@@ -65,6 +65,7 @@ void main() {
 
   Widget buildScreen({DateTime? initialDate, bool initialRecurring = false}) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: QuickAddExpenseScreen(
@@ -335,6 +336,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: QuickAddExpenseScreen(
