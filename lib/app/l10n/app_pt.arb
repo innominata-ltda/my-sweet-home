@@ -636,5 +636,165 @@
         "type": "int"
       }
     }
+  },
+  "commonCancel": "Cancelar",
+  "commonContinue": "Continuar",
+  "commonSave": "Salvar",
+  "commonDelete": "Excluir",
+  "commonRetry": "Tentar novamente",
+  "commonClose": "Fechar",
+  "commonBack": "Voltar",
+  "commonDone": "Concluído",
+  "commonConfirm": "Confirmar",
+  "navHome": "Início",
+  "navShopping": "Compras",
+  "navTasks": "Tarefas",
+  "navBills": "Contas",
+  "navExpenses": "Despesas",
+  "navScanReceipt": "Escanear Nota Fiscal",
+  "pageNotFound": "Página não encontrada",
+  "dashboardSearchTooltip": "Busca global",
+  "settingsTitle": "Ajustes",
+  "dashboardEmptyDescription": "Personalize seu painel inicial adicionando os módulos que desejar.",
+  "mascotGreetingNamed": "Oi! Eu sou a {name} 💕",
+  "@mascotGreetingNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotGreetingSubtitleDefault": "Estou aqui para cuidar do seu cantinho com você!",
+  "mascotGreetingSubtitleOverBudget": "Atenção com as continhas este mês! Mas estamos juntas nisso 💕",
+  "mascotGreetingSubtitleNearBudget": "Quase no limite do orçamento! Vamos cuidar com carinho dos gastos 💕",
+  "mascotGreetingSemantics": "Mascote {name}: {title}. {subtitle}",
+  "@mascotGreetingSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "recoveryResetConfirmTitle": "Recomeçar do zero?",
+  "recoveryResetConfirmBody": "Todos os dados locais existentes serão permanentemente apagados.",
+  "recoveryResetFinalTitle": "Confirmação definitiva",
+  "recoveryResetFinalBody": "Esta ação é irreversível. Tem certeza absoluta que deseja apagar todos os dados e recomeçar?",
+  "recoveryResetFinalConfirm": "Confirmar e apagar",
+  "recoveryKeyUnavailableAppBar": "Chave do banco inacessível",
+  "recoverySecurityFailureAppBar": "Falha na segurança do banco",
+  "recoveryKeyUnavailableTitle": "Chave de segurança inacessível",
+  "recoveryConversionFailedTitle": "Conversão de segurança falhou",
+  "recoveryKeyUnavailableBody": "Não foi possível acessar a chave de segurança no dispositivo. Para proteger seus dados, nenhum banco vazio foi criado.\n\nVocê pode restaurar um backup anterior ou recomeçar do zero.",
+  "recoveryConversionFailedBody": "A conversão do banco existente para o formato cifrado falhou, mas seus dados continuam intactos no banco original.\n\nRecomendamos exportar um backup antes de prosseguir.",
+  "recoveryImportBackup": "Importar backup",
+  "recoveryStartFromScratch": "Recomeçar do zero",
+  "recoveryExportBackup": "Exportar backup",
+  "recoveryContinuePlaintextSemantics": "Continuar no formato original",
+  "celebrationDefaultTitle": "Parabéns!",
+  "celebrationDefaultMessage": "Você concluiu tudo com sucesso! 💕",
+  "celebrationMascotSemantics": "Momo alegre celebrando sua conquista",
+  "mascotNameFieldSemantics": "Campo para alterar o nome da mascote",
+  "mascotNameBlankHelper": "Se deixar em branco, usaremos \"{name}\" 💕",
+  "@mascotNameBlankHelper": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotPreviewSemantics": "Pré-visualização da mascote {name} na paleta {palette}",
+  "@mascotPreviewSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "palette": {
+        "type": "String"
+      }
+    }
+  },
+  "splashInitError": "Ops! Ocorreu uma instabilidade na inicialização.",
+  "onboardingOpenSourceBadge": "Código aberto, sem anúncios e com dados salvos apenas no seu aparelho",
+  "onboardingFirstHomeTitle": "Está montando sua casa nova?",
+  "onboardingFirstHomeDescription": "Se você acabou de se mudar ou está organizando seu cantinho pela primeira vez, posso ativar um checklist especial com itens essenciais no seu início!",
+  "onboardingFirstHomeEnable": "Sim, ativar checklist da primeira casa",
+  "onboardingFirstHomeSkip": "Já tenho tudo / Pular",
+  "onboardingPageIndicatorSemantics": "Página {current} de {total}",
+  "@onboardingPageIndicatorSemantics": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutTitle": "Sobre o My Sweet Home",
+  "aboutVersionLabel": "Versão ",
+  "aboutUpToDate": "Você já está na versão mais recente.",
+  "aboutUpdateCheckFailed": "Não foi possível verificar atualizações no momento.",
+  "aboutLicensesTitle": "Licenças de código aberto",
+  "aboutLicensesSubtitle": "Licenças de pacotes e dependências",
+  "aboutAttributionsTitle": "Atribuições",
+  "aboutAttributionsSubtitle": "Atribuições de ativos e terceiros",
+  "aboutGithubTitle": "Código-fonte no GitHub",
+  "aboutGithubCopied": "Link do GitHub copiado para a área de transferência.",
+  "aboutDocsTitle": "Documentação e privacidade",
+  "aboutDocsCopied": "Link da documentação copiado para a área de transferência.",
+  "aboutCheckUpdatesTitle": "Verificar atualizações",
+  "aboutCheckUpdatesSubtitle": "Buscar novas versões na loja de aplicativos",
+  "aboutCheckUpdatesPlayStoreOnly": "Disponível apenas para instalações feitas pela Google Play",
+  "aboutAttributionsError": "Erro ao carregar atribuições: {error}",
+  "@aboutAttributionsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsSectionAppearance": "Aparência e Experiência",
+  "settingsMascotShortSubtitle": "Animal, paleta de cor e acessório",
+  "settingsVisualEffectsTitle": "Efeitos visuais e partículas",
+  "settingsVisualEffectsSubtitle": "Partículas, confetes e animações contínuas",
+  "settingsLanguageTitle": "Idioma do aplicativo",
+  "settingsLanguageSystem": "Automático (sistema)",
+  "settingsLanguageSystemSubtitle": "Segue o idioma configurado no aparelho",
+  "settingsOcrFormatTitle": "Modelo de nota fiscal (OCR)",
+  "settingsOcrFormatAuto": "Automático (melhor modelo)",
+  "settingsOcrFormatAutoSubtitle": "Seleciona automaticamente o formato com maior pontuação",
+  "settingsSectionModules": "Sua Casa e Módulos",
+  "settingsRecipesSubtitle": "Livro de receitas e ingredientes",
+  "settingsStockTitle": "Estoque",
+  "settingsStockSubtitle": "Despensa e itens essenciais",
+  "settingsEconomySubtitle": "Dicas e metas de economia",
+  "settingsChecklistTitle": "Checklist da 1ª Casa",
+  "settingsChecklistSubtitle": "Itens essenciais para a casa nova",
+  "settingsSuggestionsTitle": "Sugestões de Manutenção",
+  "settingsSuggestionsSubtitle": "Catálogo de tarefas sugeridas para o lar",
+  "settingsProductsTitle": "Produtos e Sinônimos",
+  "settingsProductsSubtitle": "Gerenciar catálogo de produtos",
+  "settingsSectionPrivacy": "Privacidade, Segurança e Dados",
+  "settingsDeleteReceiptPhotoTitle": "Apagar foto do cupom após leitura",
+  "settingsDeleteReceiptPhotoSubtitle": "Excluir arquivo de imagem após processamento do OCR",
+  "settingsBackupSubtitle": "Exportar, importar e gerenciar dados",
+  "settingsSectionHelp": "Ajuda e Sobre",
+  "settingsAboutTitle": "Sobre",
+  "settingsAboutSubtitle": "Informações sobre o aplicativo",
+  "backupMenuExportTitle": "Exportar Backup",
+  "backupMenuExportSubtitle": "Gere um arquivo criptografado com seus dados",
+  "backupMenuImportTitle": "Importar Backup",
+  "backupMenuImportSubtitle": "Restaurar ou mesclar dados de um arquivo de backup",
+  "backupMenuWipeSubtitle": "Excluir permanentemente todos os dados armazenados",
+  "backupExportShareText": "Backup criptografado My Sweet Home",
+  "backupExportEncryptedTitle": "Exportar Dados Criptografados",
+  "backupExportEncryptedSubtitle": "Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.",
+  "backupExportError": "Erro ao gerar backup: {error}",
   }
 }
