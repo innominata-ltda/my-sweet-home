@@ -2398,3 +2398,163 @@ class AppLocalizationsEn extends AppLocalizations {
   String shoppingListItemsMarkedCount(int marked, int total) {
     return '$marked of $total items marked';
   }
+
+  @override
+  String get shoppingListEmptyDescription =>
+      'Add items so you don\'t forget anything at the store.';
+
+  @override
+  String get shoppingShortcutPurchases => 'Purchases';
+
+  @override
+  String get shoppingShortcutPrices => 'Prices';
+
+  @override
+  String get shoppingShortcutStock => 'Stock';
+
+  @override
+  String get shoppingQuantitySemantics => 'Quantity';
+
+  @override
+  String get shoppingQuantityShortLabel => 'Qty';
+
+  @override
+  String get shoppingUnitSemantics => 'Unit of measure';
+
+  @override
+  String get shoppingUnitUnShort => 'Un';
+
+  @override
+  String get shoppingErrorSaveChange => 'Failed to save change';
+
+  @override
+  String get shoppingErrorAddItem => 'Failed to add item';
+
+  @override
+  String get shoppingErrorRemoveItem => 'Failed to remove item';
+
+  @override
+  String get shoppingErrorClearCompleted => 'Failed to clear completed items';
+
+  @override
+  String get shoppingTileRegisterSingle => 'Register purchase of this item';
+
+  @override
+  String get shoppingTileRemoveItem => 'Remove item';
+
+  @override
+  String get shoppingSheetsMyListsTitle => 'My Shopping Lists';
+
+  @override
+  String get shoppingSheetsNewList => 'New List';
+
+  @override
+  String get shoppingSheetsNoLists => 'No lists found.';
+
+  @override
+  String shoppingSheetsArchivedCount(int count) {
+    return 'Archived • $count items';
+  }
+
+  @override
+  String shoppingSheetsItemsCount(int count) {
+    return '$count items';
+  }
+
+  @override
+  String get shoppingSheetsListOptions => 'List options';
+
+  @override
+  String get shoppingSheetsDuplicate => 'Duplicate';
+
+  @override
+  String get shoppingSheetsRename => 'Rename';
+
+  @override
+  String get shoppingSheetsDuplicateSuccess => 'List duplicated successfully.';
+
+  @override
+  String get shoppingSheetsDuplicateError => 'Failed to duplicate list.';
+
+  @override
+  String get shoppingSheetsRenameTitle => 'Rename List';
+
+  @override
+  String get shoppingSheetsListNameLabel => 'List name *';
+
+  @override
+  String get shoppingSheetsArchivedSuccess => 'List archived successfully.';
+
+  @override
+  String get shoppingSheetsUnarchivedSuccess => 'List unarchived successfully.';
+
+  @override
+  String get shoppingSheetsCreateTitle => 'New Shopping List';
+
+  @override
+  String get shoppingSheetsCreateHint => 'e.g.: Market, Pharmacy, BBQ';
+
+  @override
+  String get shoppingSheetsCreateButton => 'Create';
+
+  @override
+  String taskPresetsAreaSemantics(String area) {
+    return 'area $area';
+  }
+
+  @override
+  String get calendarTabDay => 'Day';
+
+  @override
+  String get calendarTabWeek => 'Week';
+
+  @override
+  String get calendarTabMonth => 'Month';
+
+  @override
+  String get calendarMaintenanceSuggestions => 'Maintenance suggestions';
+
+  @override
+  String get calendarSyncGoogle => 'Sync with Google';
+
+  @override
+  String get calendarSyncStarting => 'Starting sync...';
+
+  @override
+  String get calendarSyncDone => 'Sync complete!';
+
+  @override
+  String get calendarTodayTooltip => 'Today';
+
+  @override
+  String get calendarShowingToday => 'Showing today';
+
+  @override
+  String get calendarNewTask => 'New task';
+
+  @override
+  String get calendarEditTaskTitle => 'Edit Task';
+
+  @override
+  String get calendarTaskTitleLabel => 'Title *';
+
+  @override
+  String calendarDayBillsCount(int count) {
+    return '$count bill(s)';
+  }
+
+  @override
+  String calendarBillsDueToday(int count) {
+    return 'Bills due today ($count):';
+  }
+
+  @override
+  String get calendarBillPaidStatus => '(Paid)';
+
+  @override
+  String get calendarBillPendingStatus => '(Pending)';
+
+  @override
+  String get calendarDeleteTaskTitle => 'Delete task?';
+
+  @override
