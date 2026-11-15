@@ -158,3 +158,163 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String taskQuickAddError(Object error) {
+    return 'Error: $error';
+  }
+
+  @override
+  String get taskQuickAddPlaceholder => 'Task title';
+
+  @override
+  String get billsEmpty =>
+      'Add your recurring bills and never pay a late fee again.';
+
+  @override
+  String get billsCreate => 'Add bill';
+
+  @override
+  String get billsAllPaid => 'Nothing to pay this month';
+
+  @override
+  String get billsError => 'Failed to load';
+
+  @override
+  String get billsRetry => 'Try again';
+
+  @override
+  String get billsNotificationWarning => 'Notifications aren\'t arriving?';
+
+  @override
+  String get billsNotificationWarningExplanation =>
+      'Your phone may be blocking My Sweet Home alerts to save battery. You can turn off battery optimization in your device settings to make sure you\'re reminded on the due date. Even if a notification fails, due dates remain visible here on the bills screen.';
+
+  @override
+  String get billsNotificationAllow => 'Fix';
+
+  @override
+  String get billsBatteryOptimizationDialogTitle => 'Important notices';
+
+  @override
+  String get billsStatusOverdue => 'Overdue';
+
+  @override
+  String get billsStatusPaid => 'Paid';
+
+  @override
+  String get billsStatusPending => 'Pending';
+
+  @override
+  String billsMarkAsPaid(String billName) {
+    return 'Mark $billName as paid';
+  }
+
+  @override
+  String get productSearchHint => 'Search products';
+
+  @override
+  String get productEmptyState => 'No products found.';
+
+  @override
+  String get productNew => 'New Product';
+
+  @override
+  String get productName => 'Name';
+
+  @override
+  String get productCategory => 'Category';
+
+  @override
+  String get productUnit => 'Unit';
+
+  @override
+  String get productAliases => 'Aliases and variations';
+
+  @override
+  String get productAddAlias => 'Add alias';
+
+  @override
+  String get productAliasPlaceholder => 'New alias';
+
+  @override
+  String get productAliasesEmpty => 'No aliases registered.';
+
+  @override
+  String get productError => 'Error loading products.';
+
+  @override
+  String get productDetailError => 'Error loading details.';
+
+  @override
+  String get productRemoveAliasConfirm => 'Remove alias?';
+
+  @override
+  String productRemoveAliasA11y(String alias) {
+    return 'Remove alias $alias';
+  }
+
+  @override
+  String productSuggestionTitle(String productName) {
+    return 'Is this the same as $productName?';
+  }
+
+  @override
+  String productSuggestionYes(String alias, String productName) {
+    return 'Yes, $alias is the same as $productName';
+  }
+
+  @override
+  String get productSuggestionNo => 'No, they are different things';
+
+  @override
+  String get productSave => 'Save';
+
+  @override
+  String get productCancel => 'Cancel';
+
+  @override
+  String get expensesEmpty => 'No expenses this month.';
+
+  @override
+  String get expensesError => 'Error loading expense summary.';
+
+  @override
+  String get expensesRetry => 'Try again';
+
+  @override
+  String get expensesChartAltText => 'Donut chart showing budget usage.';
+
+  @override
+  String expensesTotal(String amount) {
+    return 'Spent: $amount';
+  }
+
+  @override
+  String expensesBudgetSet(String amount) {
+    return 'Budget: $amount';
+  }
+
+  @override
+  String expensesRemaining(String amount) {
+    return 'Remaining: $amount';
+  }
+
+  @override
+  String expensesOverBudget(String amount) {
+    return 'Over budget: $amount';
+  }
+
+  @override
+  String get billHistoryTitle => 'Payment history';
+
+  @override
+  String get expenseDeleted => 'Expense deleted';
+
+  @override
+  String get billHistoryEmpty => 'No payments recorded for this bill.';
+
+  @override
+  String get billHistoryError => 'Failed to load history.';
+
+  @override
+  String get billHistoryRetry => 'Try again';
+
+  @override
