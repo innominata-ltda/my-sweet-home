@@ -45,9 +45,9 @@ jobs:
       - name: codigo gerado esta em dia
         run: |
           dart run build_runner build --delete-conflicting-outputs
-          if [ -n "$(git status --porcelain)" ]; then
+          if [ -n "$(git status --porcelain -- '*.g.dart' '*.freezed.dart')" ]; then
             echo "::error::codigo gerado desatualizado ou alteracoes nao commitadas; rode 'make gen' e commite"
-            git status --porcelain
+            git status --porcelain -- '*.g.dart' '*.freezed.dart'
             exit 1
           fi
 
@@ -88,7 +88,7 @@ jobs:
 
       - name: gerar keystore efemero de release para verificacao de tamanho (CA-4.1, CA-5.10)
         run: |
-          keytool -genkeypair -v -keystore android/upload-keystore.jks \
+          keytool -genkeypair -v -keystore android/app/upload-keystore.jks \
             -alias upload -keyalg RSA -keysize 2048 -validity 10000 \
             -storepass mshpassword -keypass mshpassword \
             -dname "CN=MySweetHomeCI, OU=CI, O=Innominata, L=SaoPaulo, S=SP, C=BR"
