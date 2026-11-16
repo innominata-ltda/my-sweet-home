@@ -18,9 +18,11 @@ class StockDashboardCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final StockController effectiveController =
         controller ?? ref.watch(stockControllerProvider);
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
-    final title = l10n?.dashboardCardStockAlert ?? 'Estoque Doméstico';
+    final title = l10n.dashboardCardStockAlert;
 
     return ValueListenableBuilder<StockState>(
       valueListenable: effectiveController,
@@ -28,7 +30,7 @@ class StockDashboardCard extends ConsumerWidget {
         return Semantics(
           container: true,
           button: true,
-          label: '$title, toque para ver detalhes',
+          label: l10n.stockCardSemantics(title),
           child: AppCard(
             key: const Key('stock_dashboard_card'),
             onTap: onTap,
@@ -66,14 +68,14 @@ class StockDashboardCard extends ConsumerWidget {
                     const Center(child: AppLoading())
                   else if (state.items.isEmpty)
                     Text(
-                      'Nenhum produto monitorado no estoque.',
+                      l10n.stockCardEmpty,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
                     )
                   else
                     Text(
-                      '${state.items.length} produto(s) no estoque doméstico',
+                      l10n.stockCardCount(state.items.length),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurface,
                       ),

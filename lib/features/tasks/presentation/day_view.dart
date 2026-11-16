@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/cute_checkbox.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/tasks/domain/models.dart';
@@ -68,7 +69,14 @@ class DayView extends StatelessWidget {
               ),
               if (billsForDay.isNotEmpty)
                 Badge(
-                  label: Text('${billsForDay.length} conta(s)'),
+                  label: Text(
+                    (Localizations.of<AppLocalizations>(
+                              context,
+                              AppLocalizations,
+                            ) ??
+                            lookupAppLocalizations(const Locale('pt')))
+                        .calendarDayBillsCount(billsForDay.length),
+                  ),
                   backgroundColor: Colors.orange.shade800,
                 ),
             ],
@@ -89,7 +97,12 @@ class DayView extends StatelessWidget {
                     const Icon(AppIcons.bill, size: 16, color: Colors.orange),
                     const SizedBox(width: 8),
                     Text(
-                      'Contas a vencer hoje (${billsForDay.length}):',
+                      (Localizations.of<AppLocalizations>(
+                                context,
+                                AppLocalizations,
+                              ) ??
+                              lookupAppLocalizations(const Locale('pt')))
+                          .calendarBillsDueToday(billsForDay.length),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.brown,
@@ -121,7 +134,7 @@ class DayView extends StatelessWidget {
                           const SizedBox(width: 16.0),
                           Expanded(
                             child: Text(
-                              '• ${b.title}${b.amountCents != null ? ' — R\$ ${(b.amountCents! / 100).toStringAsFixed(2)}' : ''}${b.paidOn != null ? ' (Paga)' : ' (Pendente)'}',
+                              '• ${b.title}${b.amountCents != null ? ' — R\$ ${(b.amountCents! / 100).toStringAsFixed(2)}' : ''} ${b.paidOn != null ? (Localizations.of<AppLocalizations>(context, AppLocalizations) ?? lookupAppLocalizations(const Locale('pt'))).calendarBillPaidStatus : (Localizations.of<AppLocalizations>(context, AppLocalizations) ?? lookupAppLocalizations(const Locale('pt'))).calendarBillPendingStatus}',
                               style: TextStyle(
                                 color: b.paidOn != null
                                     ? Colors.green.shade800
@@ -195,9 +208,17 @@ class DayView extends StatelessWidget {
                                       .length;
                                   if (remainingPending == 0 &&
                                       tasksForDay.isNotEmpty) {
+                                    final l10n =
+                                        Localizations.of<AppLocalizations>(
+                                          context,
+                                          AppLocalizations,
+                                        ) ??
+                                        lookupAppLocalizations(
+                                          const Locale('pt'),
+                                        );
                                     CelebrationOverlay.show(
                                       context,
-                                      message: 'Todas as tarefas de hoje foram concluídas! 🎉',
+                                      message: l10n.todayTasksAllDoneMessage,
                                     );
                                   }
                                 }
@@ -221,23 +242,33 @@ class DayView extends StatelessWidget {
                                 if (action == 'edit') {
                                   onEditTask?.call(task);
                                 } else if (action == 'delete') {
+                                  final l10n =
+                                      Localizations.of<AppLocalizations>(
+                                        context,
+                                        AppLocalizations,
+                                      ) ??
+                                      lookupAppLocalizations(
+                                        const Locale('pt'),
+                                      );
                                   final confirm = await showDialog<bool>(
                                     context: context,
                                     builder: (ctx) => AlertDialog(
-                                      title: const Text('Excluir tarefa?'),
+                                      title: Text(l10n.calendarDeleteTaskTitle),
                                       content: Text(
-                                        'Tem certeza de que deseja excluir "${task.title}"?',
+                                        l10n.calendarDeleteTaskConfirm(
+                                          task.title,
+                                        ),
                                       ),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>
                                               Navigator.of(ctx).pop(false),
-                                          child: const Text('Cancelar'),
+                                          child: Text(l10n.commonCancel),
                                         ),
                                         ElevatedButton(
                                           onPressed: () =>
                                               Navigator.of(ctx).pop(true),
-                                          child: const Text('Excluir'),
+                                          child: Text(l10n.commonDelete),
                                         ),
                                       ],
                                     ),
@@ -247,16 +278,24 @@ class DayView extends StatelessWidget {
                                   }
                                 }
                               },
-                              itemBuilder: (context) => const [
-                                PopupMenuItem(
-                                  value: 'edit',
-                                  child: Text('Editar'),
-                                ),
-                                PopupMenuItem(
-                                  value: 'delete',
-                                  child: Text('Excluir'),
-                                ),
-                              ],
+                              itemBuilder: (context) {
+                                final l10n =
+                                    Localizations.of<AppLocalizations>(
+                                      context,
+                                      AppLocalizations,
+                                    ) ??
+                                    lookupAppLocalizations(const Locale('pt'));
+                                return [
+                                  PopupMenuItem(
+                                    value: 'edit',
+                                    child: Text(l10n.commonEdit),
+                                  ),
+                                  PopupMenuItem(
+                                    value: 'delete',
+                                    child: Text(l10n.commonDelete),
+                                  ),
+                                ];
+                              },
                             ),
                           );
                         }).toList(),

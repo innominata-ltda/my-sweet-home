@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/ocr/domain/models/quality_report.dart';
 
@@ -67,45 +68,50 @@ class QualityWarningDialog extends StatelessWidget {
               style: TextStyle(fontSize: 14),
             ),
             const SizedBox(height: 12),
-            ...report.issues.map(_buildIssueTile),
+            ...report.issues.map((i) => _buildIssueTile(context, i)),
           ],
         ),
       ),
       actions: [
         TextButton(
           onPressed: onContinue,
-          child: const Text('Continuar mesmo assim'),
+          child: Text(
+            (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                    lookupAppLocalizations(const Locale('pt')))
+                .ocrQualityContinueAnyway,
+          ),
         ),
         ElevatedButton.icon(
           onPressed: onRetake,
           icon: const Icon(AppIcons.camera),
-          label: const Text('Tirar outra foto'),
+          label: Text(
+            (Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+                    lookupAppLocalizations(const Locale('pt')))
+                .ocrRetakePhotoButton,
+          ),
         ),
       ],
     );
   }
 
-  Widget _buildIssueTile(QualityIssue issue) {
+  Widget _buildIssueTile(BuildContext context, QualityIssue issue) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final (icon, text) = switch (issue) {
-      QualityIssue.blur => (
-        AppIcons.qualityBlur,
-        'Imagem desfocada. Tente segurar a câmera com firmeza.',
-      ),
-      QualityIssue.tooDark => (
-        AppIcons.qualityDark,
-        'Iluminação muito baixa. Ligue o flash ou ilumine a nota.',
-      ),
+      QualityIssue.blur => (AppIcons.qualityBlur, l10n.ocrQualityBlur),
+      QualityIssue.tooDark => (AppIcons.qualityDark, l10n.ocrQualityTooDark),
       QualityIssue.tooBright => (
         AppIcons.qualityBright,
-        'Excesso de iluminação ou reflexo brilhante na imagem.',
+        l10n.ocrQualityTooBright,
       ),
       QualityIssue.badFraming => (
         AppIcons.qualityFraming,
-        'Enquadramento ruim ou foto muito pequena.',
+        l10n.ocrQualityBadFraming,
       ),
       QualityIssue.invalidImage => (
         AppIcons.qualityInvalid,
-        'Não foi possível decodificar os dados da imagem.',
+        l10n.ocrQualityInvalidImage,
       ),
     };
 

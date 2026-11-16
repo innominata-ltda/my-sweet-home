@@ -37,6 +37,15 @@ void main() {
       expect(info1 == infoDiffLabel, isFalse);
       expect(info1 == infoDiffCode, isFalse);
 
+      const infoNonPlay = AppUpdateInfo(
+        updateAvailable: true,
+        installedFromPlayStore: false,
+        availableVersionLabel: '1.2.0',
+        availableVersionCode: 12,
+      );
+      expect(info1 == infoNonPlay, isFalse);
+      expect(infoNonPlay.installedFromPlayStore, isFalse);
+
       expect(info1.toString(), contains('1.2.0'));
       expect(info1.updateAvailable, isTrue);
       expect(info1.availableVersionCode, 12);

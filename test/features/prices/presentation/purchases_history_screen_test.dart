@@ -50,6 +50,7 @@ void main() {
       ProviderScope(
         overrides: [purchaseRepositoryProvider.overrideWithValue(fakeRepo)],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PurchasesHistoryScreen(),
@@ -81,6 +82,7 @@ void main() {
       ProviderScope(
         overrides: [purchaseRepositoryProvider.overrideWithValue(fakeRepo)],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PurchasesHistoryScreen(),
@@ -122,6 +124,7 @@ void main() {
         ProviderScope(
           overrides: [purchaseRepositoryProvider.overrideWithValue(fakeRepo)],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: PurchasesHistoryScreen(),
@@ -150,6 +153,7 @@ void main() {
       ProviderScope(
         overrides: [purchaseRepositoryProvider.overrideWithValue(fakeRepo)],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PurchasesHistoryScreen(),

@@ -27,14 +27,14 @@ class ProductDetailPage extends ConsumerWidget {
           if (productAsync.asData?.value != null) ...[
             IconButton(
               icon: const Icon(AppIcons.priceHistory),
-              tooltip: 'Acompanhar preços',
+              tooltip: l10n.productTrackPricesTooltip,
               onPressed: () {
                 context.push('/compras/historico-precos?productId=$productId');
               },
             ),
             IconButton(
               icon: const Icon(AppIcons.merge),
-              tooltip: 'Unir com outro produto',
+              tooltip: l10n.productMergeTooltip,
               onPressed: () => _showMergeDialog(
                 context,
                 ref,
@@ -64,7 +64,7 @@ class ProductDetailPage extends ConsumerWidget {
               const SizedBox(height: 12),
               OutlinedButton.icon(
                 icon: const Icon(AppIcons.priceHistory),
-                label: const Text('Acompanhar histórico de preços'),
+                label: Text(l10n.productTrackPriceHistoryButton),
                 onPressed: () {
                   context.push(
                     '/compras/historico-precos?productId=$productId',
@@ -106,7 +106,9 @@ class ProductDetailPage extends ConsumerWidget {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
-                                        '"${alias.alias}" definido como nome padrão de exibição.',
+                                        l10n.productPreferredNameSet(
+                                          alias.alias,
+                                        ),
                                       ),
                                     ),
                                   );
@@ -123,7 +125,9 @@ class ProductDetailPage extends ConsumerWidget {
                                   builder: (context) => AlertDialog(
                                     title: Text(l10n.productRemoveAliasConfirm),
                                     content: Text(
-                                      'Você pode separar "${alias.alias}" como um produto independente (com seu próprio histórico de preços) ou apenas remover o apelido.',
+                                      l10n.productSeparateAliasDescription(
+                                        alias.alias,
+                                      ),
                                     ),
                                     actions: [
                                       TextButton(
@@ -134,8 +138,8 @@ class ProductDetailPage extends ConsumerWidget {
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(context, 'separate'),
-                                        child: const Text(
-                                          'Separar como outro produto',
+                                        child: Text(
+                                          l10n.productSeparateAliasAction,
                                         ),
                                       ),
                                       TextButton(
@@ -246,11 +250,8 @@ class ProductDetailPage extends ConsumerWidget {
     if (!context.mounted) return;
 
     if (candidates.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Nenhum outro produto disponível para união.'),
-        ),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(l10n.productNoMergeCandidates)));
       return;
     }
 
@@ -278,7 +279,7 @@ class ProductDetailPage extends ConsumerWidget {
                   }).toList();
 
             return AlertDialog(
-              title: const Text('Unir com outro produto'),
+              title: Text(l10n.productMergeTooltip),
               content: SizedBox(
                 width: double.maxFinite,
                 child: Column(
@@ -286,18 +287,18 @@ class ProductDetailPage extends ConsumerWidget {
                   children: [
                     TextField(
                       controller: queryCtrl,
-                      decoration: const InputDecoration(
-                        labelText: 'Buscar produto destino',
-                        prefixIcon: Icon(AppIcons.search),
+                      decoration: InputDecoration(
+                        labelText: l10n.productMergeSearchLabel,
+                        prefixIcon: const Icon(AppIcons.search),
                       ),
                       onChanged: (_) => setDialogState(() {}),
                     ),
                     const SizedBox(height: 8),
                     Flexible(
                       child: filtered.isEmpty
-                          ? const Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Text('Nenhum produto encontrado.'),
+                          ? Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(l10n.productMergeNoneFound),
                             )
                           : ListView.builder(
                               shrinkWrap: true,
@@ -335,10 +336,12 @@ class ProductDetailPage extends ConsumerWidget {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (confirmCtx) => AlertDialog(
-        title: const Text('Confirmar união'),
+        title: Text(l10n.productMergeConfirmTitle),
         content: Text(
-          'Deseja unir "${currentProduct.canonicalName}" com "${targetProduct.canonicalName}"?\n\n'
-          'Todas as compras, itens, preços e sinônimos serão transferidos para "${targetProduct.canonicalName}" e este produto será arquivado.',
+          l10n.productMergeConfirmBody(
+            currentProduct.canonicalName,
+            targetProduct.canonicalName,
+          ),
         ),
         actions: [
           TextButton(
@@ -347,7 +350,7 @@ class ProductDetailPage extends ConsumerWidget {
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(confirmCtx).pop(true),
-            child: const Text('Unir produtos'),
+            child: Text(l10n.productMergeConfirmButton),
           ),
         ],
       ),
@@ -363,10 +366,10 @@ class ProductDetailPage extends ConsumerWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              'Produto unido com "${targetProduct.canonicalName}".',
+              l10n.productMergeSuccess(targetProduct.canonicalName),
             ),
             action: SnackBarAction(
-              label: 'Desfazer',
+              label: l10n.shoppingListUndo,
               onPressed: () {
                 ref
                     .read(productAliasControllerProvider.notifier)

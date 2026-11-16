@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/backup/data/wipe_all_data_provider.dart';
 import 'package:my_sweet_home/features/backup/domain/wipe_all_data_use_case.dart';
@@ -47,27 +48,27 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
   }
 
   Future<void> _startDoubleConfirmationFlow() async {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     // First confirmation
     final firstConfirmed = await showDialog<bool>(
       context: context,
       barrierDismissible: false,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Confirmar exclusão de dados'),
-          content: const Text(
-            'Você tem certeza de que deseja apagar todos os dados do aplicativo? '
-            'Esta é a primeira confirmação.',
-          ),
+          title: Text(l10n.wipeConfirmFirstTitle),
+          content: Text(l10n.wipeConfirmFirstBody),
           actions: [
             // Default non-destructive action
             TextButton(
               focusNode: FocusNode()..requestFocus(),
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             OutlinedButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: const Text('Continuar'),
+              child: Text(l10n.commonContinue),
             ),
           ],
         );
@@ -82,16 +83,13 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
       barrierDismissible: false,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Confirmação Final'),
-          content: const Text(
-            'ESTA AÇÃO É DEFINITIVA E IRREVERSÍVEL. Todos os seus registros, '
-            'fotos, tarefas, despesas e configurações serão apagados sem resíduo.',
-          ),
+          title: Text(l10n.wipeConfirmSecondTitle),
+          content: Text(l10n.wipeConfirmSecondBody),
           actions: [
             // Default non-destructive action
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             // Explicitly labeled destructive button (A11Y-5)
             FilledButton.tonal(
@@ -100,7 +98,7 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                 foregroundColor: Theme.of(dialogContext).colorScheme.onError,
               ),
               onPressed: () => Navigator.of(dialogContext).pop(true),
-              child: const Text('Apagar tudo permanentemente'),
+              child: Text(l10n.wipeConfirmSecondButton),
             ),
           ],
         );
@@ -114,19 +112,22 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return Scaffold(
-      appBar: AppBar(title: const Text('Apagar Tudo')),
+      appBar: AppBar(title: Text(l10n.backupClearAllSection)),
       body: ValueListenableBuilder<WipeAllDataState>(
         valueListenable: _controller,
         builder: (context, state, child) {
           if (state is WipeAllDataLoading) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(),
-                  SizedBox(height: 16),
-                  Text('Apagando todos os dados...'),
+                  const CircularProgressIndicator(),
+                  const SizedBox(height: 16),
+                  Text(l10n.wipeLoading),
                 ],
               ),
             );
@@ -145,19 +146,16 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Todos os dados foram apagados permanentemente.',
+                    Text(
+                      l10n.wipeSuccessTitle,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
-                      'O banco de dados, arquivos e configurações foram limpos sem deixar resíduos.',
-                      textAlign: TextAlign.center,
-                    ),
+                    Text(l10n.wipeSuccessBody, textAlign: TextAlign.center),
                     const SizedBox(height: 24),
                     ElevatedButton(
                       onPressed: () {
@@ -165,7 +163,7 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                           Navigator.of(context).pop();
                         }
                       },
-                      child: const Text('Concluído'),
+                      child: Text(l10n.commonDone),
                     ),
                   ],
                 ),
@@ -195,7 +193,7 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                             ),
                             const SizedBox(width: 8),
                             Text(
-                              'Atenção: Ação Irreversível',
+                              l10n.wipeWarningTitle,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -208,9 +206,7 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Ao apagar tudo, todos os registros cadastrados (produtos, despesas, '
-                          'contas fixas, tarefas, receitas, compras e estoque), fotos de cupons e '
-                          'preferências do aplicativo serão apagados permanentemente.',
+                          l10n.wipeWarningBody,
                           style: TextStyle(
                             color: Theme.of(context)
                                 .colorScheme
@@ -219,7 +215,7 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Nenhum token ou arquivo temporário permanecerá no dispositivo.',
+                          l10n.wipeWarningTokens,
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: Theme.of(context)
@@ -250,9 +246,12 @@ class _WipeAllDataScreenState extends ConsumerState<WipeAllDataScreen> {
                   ),
                   onPressed: _startDoubleConfirmationFlow,
                   icon: const Icon(AppIcons.deleteForever),
-                  label: const Text(
-                    'Apagar todos os dados',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  label: Text(
+                    l10n.wipeDeleteAllButton,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],

@@ -273,8 +273,10 @@ class SplashScreenState extends ConsumerState<SplashScreen>
     ref.watch(visualEffectsEnabledProvider);
     _checkAndStartAnimation();
     final theme = Theme.of(context);
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
-    final appName = l10n?.appName ?? 'My Sweet Home';
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
+    final appName = l10n.appName;
     final resolver = _resolveResolver();
     final config = _resolveConfig();
     final semanticLabel = _resolveSemanticLabel(config);
@@ -339,7 +341,7 @@ class SplashScreenState extends ConsumerState<SplashScreen>
                     if (_error != null) ...[
                       const SizedBox(height: Spacing.md),
                       Text(
-                        'Ops! Ocorreu uma instabilidade na inicialização.',
+                        l10n.splashInitError,
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.colorScheme.error,
                         ),
@@ -348,7 +350,7 @@ class SplashScreenState extends ConsumerState<SplashScreen>
                       const SizedBox(height: Spacing.sm),
                       TextButton(
                         onPressed: _initializeAndTransition,
-                        child: const Text('Tentar novamente'),
+                        child: Text(l10n.commonRetry),
                       ),
                     ],
                   ],

@@ -41,6 +41,7 @@ void main() {
     String? highlightedBillId,
   }) {
     return MaterialApp(
+      locale: const Locale('pt'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: BillsListScreen(
@@ -429,6 +430,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp.router(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           routerConfig: router,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/providers.dart';
 import 'package:my_sweet_home/core/id/deterministic_id.dart';
 import 'package:my_sweet_home/core/recurrence/recurrence_rule.dart';
@@ -18,30 +19,12 @@ import 'package:my_sweet_home/features/bills/presentation/bills_list_screen.dart
 import 'package:my_sweet_home/features/bills/presentation/bill_history_controller.dart';
 import 'package:my_sweet_home/features/bills/presentation/bill_history_screen.dart';
 import 'package:my_sweet_home/features/bills/presentation/create_bill_dialog.dart';
-import 'package:my_sweet_home/core/notifications/notification_scheduler_port.dart';
-import 'package:my_sweet_home/core/notifications/scheduled_notification.dart';
+import 'package:my_sweet_home/core/notifications/notification_providers.dart';
 import 'package:my_sweet_home/features/expenses/domain/models/year_month.dart';
 import 'package:my_sweet_home/core/money/money.dart';
 import 'package:my_sweet_home/features/bills/domain/bill_materializer.dart';
 import 'package:my_sweet_home/features/bills/domain/pay_bill_use_case.dart';
 import 'package:my_sweet_home/features/bills/domain/reminder_planner.dart';
-
-class _FakeNotificationScheduler implements NotificationSchedulerPort {
-  @override
-  Future<Result<void, Failure>> cancel(String id) async => const Ok(null);
-
-  @override
-  Future<List<ScheduledNotification>> pending() async => [];
-  @override
-  Future<PermissionState> permission() async => PermissionState.granted;
-  @override
-  Future<Result<void, Failure>> rescheduleAllAfterBoot() async =>
-      const Ok(null);
-  @override
-  Future<Result<void, Failure>> schedule(
-    ScheduledNotification notification,
-  ) async => const Ok(null);
-}
 
 class BillsPageContainer extends ConsumerStatefulWidget {
   const BillsPageContainer({super.key});
@@ -59,7 +42,7 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
     _controller = BillsListController(
       billRepository: ref.read(billRepositoryProvider),
       paymentRepository: ref.read(billPaymentRepositoryProvider),
-      notificationScheduler: _FakeNotificationScheduler(),
+      notificationScheduler: ref.read(notificationSchedulerProvider),
       preferences: ref.read(billsPreferencesProvider),
       statusPolicy: DefaultBillStatusPolicy(),
       batteryWarningService: ref.read(batteryWarningServiceProvider),
@@ -152,17 +135,29 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
 
                 await _controller.load();
                 if (!mounted) return;
+                final l10n =
+                    Localizations.of<AppLocalizations>(
+                      context,
+                      AppLocalizations,
+                    ) ??
+                    lookupAppLocalizations(const Locale('pt'));
                 scaffoldMessenger.showSnackBar(
-                  SnackBar(
-                    content: Text('Conta "$title" cadastrada com sucesso!'),
-                  ),
+                  SnackBar(content: Text(l10n.billsCreateSuccess(title))),
                 );
               } else if (newBillResult is Err<Bill, Failure>) {
                 if (!mounted) return;
+                final l10n =
+                    Localizations.of<AppLocalizations>(
+                      context,
+                      AppLocalizations,
+                    ) ??
+                    lookupAppLocalizations(const Locale('pt'));
                 scaffoldMessenger.showSnackBar(
                   SnackBar(
                     content: Text(
-                      'Erro ao cadastrar conta: ${userMessageFor(newBillResult.failure)}',
+                      l10n.billsCreateError(
+                        userMessageFor(newBillResult.failure),
+                      ),
                     ),
                   ),
                 );
@@ -173,12 +168,15 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
       },
       onPayBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final amount = item.bill.amount ?? const Money(0);
         final useCase = DefaultPayBillUseCase(
           ref.read(billPaymentRepositoryProvider),
           ref.read(billRepositoryProvider),
           ref.read(expenseRepositoryProvider),
-          _FakeNotificationScheduler(),
+          ref.read(notificationSchedulerProvider),
         );
         final res = await useCase(
           item.payment.id,
@@ -188,58 +186,57 @@ class _BillsPageContainerState extends ConsumerState<BillsPageContainer> {
         if (res.isOk) {
           await _controller.load();
           messenger.showSnackBar(
-            SnackBar(
-              content: Text('Conta "${item.bill.title}" marcada como paga!'),
-            ),
+            SnackBar(content: Text(l10n.billsPaidSuccess(item.bill.title))),
           );
         }
       },
       onUnpayBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final useCase = DefaultUnpayBillUseCase(
           ref.read(billPaymentRepositoryProvider),
           ref.read(billRepositoryProvider),
           ref.read(expenseRepositoryProvider),
           const DefaultReminderPlanner(),
-          _FakeNotificationScheduler(),
+          ref.read(notificationSchedulerProvider),
           ref.read(clockProvider),
         );
         final res = await useCase(item.payment.id);
         if (res.isOk) {
           await _controller.load();
           messenger.showSnackBar(
-            SnackBar(
-              content: Text(
-                'Conta "${item.bill.title}" marcada como não paga!',
-              ),
-            ),
+            SnackBar(content: Text(l10n.billsUnpaidSuccess(item.bill.title))),
           );
         }
       },
       onPauseBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         await _controller.pauseBill(item.bill.id);
         messenger.showSnackBar(
-          SnackBar(
-            content: Text('Conta "${item.bill.title}" pausada com sucesso!'),
-          ),
+          SnackBar(content: Text(l10n.billsPausedSuccess(item.bill.title))),
         );
       },
       onDeleteBill: (item) async {
         final messenger = ScaffoldMessenger.of(context);
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
         final res = await _controller.deleteBill(item.bill.id);
         if (!context.mounted) return;
         if (res.isOk) {
           messenger.showSnackBar(
-            SnackBar(
-              content: Text('Conta "${item.bill.title}" excluída com sucesso!'),
-            ),
+            SnackBar(content: Text(l10n.billsDeletedSuccess(item.bill.title))),
           );
         } else {
           messenger.showSnackBar(
             SnackBar(
               content: Text(
-                'Erro ao excluir conta: ${res.failureOrNull?.toString() ?? ''}',
+                l10n.billsDeleteError(res.failureOrNull?.toString() ?? ''),
               ),
             ),
           );

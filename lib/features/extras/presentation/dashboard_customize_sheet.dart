@@ -100,7 +100,10 @@ class DashboardCustomizeSheet extends StatelessWidget {
                       children: [
                         // Section 1: Visible items
                         Text(
-                          'Cards exibidos (${visibleItems.length})',
+                          l10n?.customizeVisibleCardsCount(
+                                visibleItems.length,
+                              ) ??
+                              'Cards exibidos (${visibleItems.length})',
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.bold,
                             color: theme.colorScheme.primary,
@@ -108,7 +111,7 @@ class DashboardCustomizeSheet extends StatelessWidget {
                         ),
                         const SizedBox(height: Spacing.xs),
                         Text(
-                          'Arraste para reordenar ou utilize os botões acessíveis.',
+                          l10n?.customizeReorderHint ?? 'Arraste para reordenar ou utilize os botões acessíveis.',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -121,7 +124,8 @@ class DashboardCustomizeSheet extends StatelessWidget {
                               vertical: Spacing.md,
                             ),
                             child: Text(
-                              'Nenhum card visível no momento.',
+                              l10n?.customizeNoVisibleCards ??
+                                  'Nenhum card visível no momento.',
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontStyle: FontStyle.italic,
                                 color: theme.colorScheme.onSurfaceVariant,
@@ -169,7 +173,7 @@ class DashboardCustomizeSheet extends StatelessWidget {
                         ),
                         const SizedBox(height: Spacing.xs),
                         Text(
-                          'Módulos disponíveis para inclusão na sua tela inicial.',
+                          l10n?.customizeAvailableModulesHint ?? 'Módulos disponíveis para inclusão na sua tela inicial.',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.colorScheme.onSurfaceVariant,
                           ),
@@ -182,7 +186,8 @@ class DashboardCustomizeSheet extends StatelessWidget {
                               vertical: Spacing.md,
                             ),
                             child: Text(
-                              'Todos os cards já estão visíveis no painel.',
+                              l10n?.customizeAllCardsVisible ??
+                                  'Todos os cards já estão visíveis no painel.',
                               style: theme.textTheme.bodyMedium?.copyWith(
                                 fontStyle: FontStyle.italic,
                                 color: theme.colorScheme.onSurfaceVariant,
@@ -240,7 +245,9 @@ class DashboardCustomizeSheet extends StatelessWidget {
             ReorderableDragStartListener(
               index: index,
               child: Semantics(
-                label: 'Arrastar $title para reordenar',
+                label:
+                    l10n?.customizeDragSemantics(title) ??
+                    'Arrastar $title para reordenar',
                 child: Padding(
                   padding: const EdgeInsets.all(Spacing.sm),
                   child: Icon(
@@ -268,7 +275,9 @@ class DashboardCustomizeSheet extends StatelessWidget {
 
             // Accessible button: Move up (target >= 48dp)
             Semantics(
-              label: 'Mover $title para cima',
+              label:
+                  l10n?.customizeMoveUpSemantics(title) ??
+                  'Mover $title para cima',
               button: true,
               excludeSemantics: true,
               child: IconButton(
@@ -285,7 +294,9 @@ class DashboardCustomizeSheet extends StatelessWidget {
 
             // Accessible button: Move down (target >= 48dp)
             Semantics(
-              label: 'Mover $title para baixo',
+              label:
+                  l10n?.customizeMoveDownSemantics(title) ??
+                  'Mover $title para baixo',
               button: true,
               excludeSemantics: true,
               child: IconButton(
@@ -302,7 +313,7 @@ class DashboardCustomizeSheet extends StatelessWidget {
 
             // Accessible button: Hide (target >= 48dp)
             Semantics(
-              label: 'Ocultar $title',
+              label: l10n?.customizeHideSemantics(title) ?? 'Ocultar $title',
               button: true,
               excludeSemantics: true,
               child: IconButton(
@@ -358,7 +369,9 @@ class DashboardCustomizeSheet extends StatelessWidget {
 
             // Accessible button: Add (target >= 48dp)
             Semantics(
-              label: 'Adicionar $title ao painel',
+              label:
+                  l10n?.customizeAddSemantics(title) ??
+                  'Adicionar $title ao painel',
               button: true,
               excludeSemantics: true,
               child: TextButton.icon(

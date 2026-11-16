@@ -33,7 +33,10 @@ class TaskPresetTile extends StatelessWidget {
     final semanticLabel = StringBuffer()
       ..write('${preset.title}, ')
       ..write('$frequencyPhrase, ')
-      ..write('área ${preset.area.label}');
+      ..write(
+        l10n?.taskPresetsAreaSemantics(preset.area.label) ??
+            'área ${preset.area.label}',
+      );
     if (isAlreadyInRoutine) {
       semanticLabel.write(', $alreadyInRoutineText');
     }

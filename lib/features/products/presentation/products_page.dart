@@ -52,7 +52,7 @@ class ProductsPage extends ConsumerWidget {
                 ),
                 trailing: IconButton(
                   icon: const Icon(AppIcons.priceHistory),
-                  tooltip: 'Acompanhar preços',
+                  tooltip: l10n.productTrackPricesTooltip,
                   onPressed: () {
                     context.push(
                       '/compras/historico-precos?productId=${product.id}',

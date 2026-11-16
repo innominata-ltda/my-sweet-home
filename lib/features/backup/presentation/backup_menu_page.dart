@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 
 /// Backup and Export menu screen.
@@ -8,37 +9,34 @@ class BackupMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return Scaffold(
-      appBar: AppBar(title: const Text('Backup e Exportação')),
+      appBar: AppBar(title: Text(l10n.backupTitle)),
       body: ListView(
         children: [
           ListTile(
             leading: const Icon(AppIcons.export),
-            title: const Text('Exportar Backup'),
-            subtitle: const Text(
-              'Gere um arquivo criptografado com seus dados',
-            ),
+            title: Text(l10n.backupMenuExportTitle),
+            subtitle: Text(l10n.backupMenuExportSubtitle),
             onTap: () => context.push('/settings/backup/exportar'),
           ),
           const Divider(),
           ListTile(
             leading: const Icon(AppIcons.backup),
-            title: const Text('Importar Backup'),
-            subtitle: const Text(
-              'Restaurar ou mesclar dados de um arquivo de backup',
-            ),
+            title: Text(l10n.backupMenuImportTitle),
+            subtitle: Text(l10n.backupMenuImportSubtitle),
             onTap: () => context.push('/settings/backup/importar'),
           ),
           const Divider(),
           ListTile(
             leading: const Icon(AppIcons.delete),
-            title: const Text(
-              'Apagar Tudo',
-              style: TextStyle(color: Colors.red),
+            title: Text(
+              l10n.backupClearAllSection,
+              style: const TextStyle(color: Colors.red),
             ),
-            subtitle: const Text(
-              'Excluir permanentemente todos os dados armazenados',
-            ),
+            subtitle: Text(l10n.backupMenuWipeSubtitle),
             onTap: () => context.push('/settings/backup/apagar-tudo'),
           ),
         ],

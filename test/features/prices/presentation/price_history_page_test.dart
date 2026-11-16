@@ -39,6 +39,7 @@ void main() {
           productListProvider.overrideWith((ref) => Future.value([])),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PriceHistoryPage(),
@@ -85,6 +86,7 @@ void main() {
           cheapestStoresProvider.overrideWith((ref, id) => Future.value([])),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PriceHistoryPage(),
@@ -128,6 +130,7 @@ void main() {
           cheapestStoresProvider.overrideWith((ref, id) => Future.value([])),
         ],
         child: const MaterialApp(
+          locale: const Locale('pt'),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           home: PriceHistoryPage(productId: 'prod_2'),

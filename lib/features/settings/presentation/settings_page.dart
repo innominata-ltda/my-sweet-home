@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_sweet_home/app/l10n/app_localizations.dart';
+import 'package:my_sweet_home/core/notifications/notification_providers.dart';
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -36,10 +38,10 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   ProviderSubscription<bool>? _visualEffectsSub;
   bool _visualEffects = true;
-  bool _hideValues = false;
   bool _deleteReceiptPhoto = true;
-  bool _cloudBackup = false;
-  bool _cloudOcr = false;
+  bool _retentionNotifications = true;
+  String _appLocale = AppLocaleRegistry.systemLocaleId;
+  String _receiptFormat = ReceiptFormatCatalog.autoFormatId;
   bool _loaded = false;
 
   @override
@@ -71,17 +73,17 @@ class _SettingsPageState extends State<SettingsPage> {
       _visualEffects = container.read(visualEffectsEnabledProvider);
 
       final repo = container.read(settingsRepositoryProvider);
-      repo.isHideValuesEnabled().then((v) {
-        if (mounted) setState(() => _hideValues = v);
-      });
       repo.isDeleteReceiptPhotoEnabled().then((v) {
         if (mounted) setState(() => _deleteReceiptPhoto = v);
       });
-      repo.isCloudBackupAllowed().then((v) {
-        if (mounted) setState(() => _cloudBackup = v);
+      repo.isRetentionNotificationsEnabled().then((v) {
+        if (mounted) setState(() => _retentionNotifications = v);
       });
-      repo.isCloudOcrAllowed().then((v) {
-        if (mounted) setState(() => _cloudOcr = v);
+      repo.getAppLocale().then((v) {
+        if (mounted) setState(() => _appLocale = v);
+      });
+      repo.getReceiptFormat().then((v) {
+        if (mounted) setState(() => _receiptFormat = v);
       });
     } catch (_) {
       // No ProviderScope found (isolated widget unit tests without Riverpod)
@@ -98,16 +100,6 @@ class _SettingsPageState extends State<SettingsPage> {
     } catch (_) {}
   }
 
-  Future<void> _toggleHideValues(bool value) async {
-    setState(() => _hideValues = value);
-    try {
-      final container = ProviderScope.containerOf(context, listen: false);
-      await container
-          .read(settingsRepositoryProvider)
-          .setHideValuesEnabled(value);
-    } catch (_) {}
-  }
-
   Future<void> _toggleDeleteReceiptPhoto(bool value) async {
     setState(() => _deleteReceiptPhoto = value);
     try {
@@ -118,24 +110,138 @@ class _SettingsPageState extends State<SettingsPage> {
     } catch (_) {}
   }
 
-  Future<void> _toggleCloudBackup(bool value) async {
-    setState(() => _cloudBackup = value);
+  Future<void> _toggleRetentionNotifications(bool value) async {
+    setState(() => _retentionNotifications = value);
     try {
       final container = ProviderScope.containerOf(context, listen: false);
       await container
-          .read(settingsRepositoryProvider)
-          .setCloudBackupAllowed(value);
+          .read(retentionNotificationCoordinatorProvider)
+          .onSettingChanged(value);
     } catch (_) {}
   }
 
-  Future<void> _toggleCloudOcr(bool value) async {
-    setState(() => _cloudOcr = value);
-    try {
-      final container = ProviderScope.containerOf(context, listen: false);
-      await container
-          .read(settingsRepositoryProvider)
-          .setCloudOcrAllowed(value);
-    } catch (_) {}
+  AppLocalizations _resolveL10n(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
+  }
+
+  String _localeDisplayName(AppLocalizations l10n, String localeId) {
+    if (localeId == AppLocaleRegistry.systemLocaleId) {
+      return l10n.settingsLanguageSystem;
+    }
+    return AppLocaleRegistry.findById(localeId)?.displayName ??
+        l10n.settingsLanguageSystem;
+  }
+
+  String _receiptFormatDisplayName(AppLocalizations l10n, String formatId) {
+    if (formatId == ReceiptFormatCatalog.autoFormatId) {
+      return l10n.settingsOcrFormatAuto;
+    }
+    return ReceiptFormatCatalog.findById(formatId)?.displayName ??
+        l10n.settingsOcrFormatAuto;
+  }
+
+  Future<void> _showOptionPicker({
+    required String title,
+    required String currentId,
+    required List<({String id, String title, String? subtitle, Key key})>
+    options,
+    required Future<void> Function(String selectedId) onSelected,
+  }) async {
+    final chosen = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(title),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (final option in options)
+                ListTile(
+                  key: option.key,
+                  leading: Icon(
+                    option.id == currentId
+                        ? AppIcons.radioButtonChecked
+                        : AppIcons.radioButtonOff,
+                  ),
+                  title: Text(option.title),
+                  subtitle: option.subtitle != null
+                      ? Text(option.subtitle!)
+                      : null,
+                  onTap: () => Navigator.of(dialogContext).pop(option.id),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+    if (chosen != null && mounted) {
+      await onSelected(chosen);
+    }
+  }
+
+  Future<void> _selectAppLocale() async {
+    final l10n = _resolveL10n(context);
+    await _showOptionPicker(
+      title: l10n.settingsLanguageTitle,
+      currentId: _appLocale,
+      options: [
+        (
+          id: AppLocaleRegistry.systemLocaleId,
+          title: l10n.settingsLanguageSystem,
+          subtitle: l10n.settingsLanguageSystemSubtitle,
+          key: const Key('settings_locale_option_system'),
+        ),
+        for (final locale in AppLocaleRegistry.supportedLocales)
+          (
+            id: locale.id,
+            title: locale.displayName,
+            subtitle: locale.id,
+            key: Key('settings_locale_option_${locale.id}'),
+          ),
+      ],
+      onSelected: (selectedId) async {
+        setState(() => _appLocale = selectedId);
+        try {
+          final container = ProviderScope.containerOf(context, listen: false);
+          await container
+              .read(appLocaleProvider.notifier)
+              .setLocale(selectedId);
+        } catch (_) {}
+      },
+    );
+  }
+
+  Future<void> _selectReceiptFormat() async {
+    final l10n = _resolveL10n(context);
+    await _showOptionPicker(
+      title: l10n.settingsOcrFormatTitle,
+      currentId: _receiptFormat,
+      options: [
+        (
+          id: ReceiptFormatCatalog.autoFormatId,
+          title: l10n.settingsOcrFormatAuto,
+          subtitle: l10n.settingsOcrFormatAutoSubtitle,
+          key: const Key('settings_receipt_format_option_auto'),
+        ),
+        for (final format in ReceiptFormatCatalog.descriptors)
+          (
+            id: format.id,
+            title: format.displayName,
+            subtitle: format.description,
+            key: Key('settings_receipt_format_option_${format.id}'),
+          ),
+      ],
+      onSelected: (selectedId) async {
+        setState(() => _receiptFormat = selectedId);
+        try {
+          final container = ProviderScope.containerOf(context, listen: false);
+          await container
+              .read(receiptFormatProvider.notifier)
+              .setFormat(selectedId);
+        } catch (_) {}
+      },
+    );
   }
 
   Widget _buildSectionHeader(BuildContext context, String title) {
@@ -160,22 +266,19 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n = _resolveL10n(context);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Ajustes')),
+      appBar: AppBar(title: Text(l10n.settingsTitle)),
       body: ListView(
         children: [
           // ── 1. Appearance and Experience ─────────────────────────────────────
-          _buildSectionHeader(context, 'Aparência e Experiência'),
+          _buildSectionHeader(context, l10n.settingsSectionAppearance),
           ListTile(
             key: const Key('settings_mascot_tile'),
             leading: const Icon(AppIcons.catPets),
-            title: Text(l10n?.settingsMascotOption ?? 'Personalizar Momo'),
-            subtitle: Text(
-              l10n?.settingsMascotSubtitle ??
-                  'Animal, paleta de cor e acessório',
-            ),
+            title: Text(l10n.settingsMascotOption),
+            subtitle: Text(l10n.settingsMascotShortSubtitle),
             onTap:
                 widget.onMascotTap ??
                 () {
@@ -185,143 +288,116 @@ class _SettingsPageState extends State<SettingsPage> {
           SwitchListTile(
             key: const Key('settings_visual_effects_switch'),
             secondary: const Icon(AppIcons.taskPreset),
-            title: const Text('Efeitos visuais e partículas'),
-            subtitle: const Text('Partículas, confetes e animações contínuas'),
+            title: Text(l10n.settingsVisualEffectsTitle),
+            subtitle: Text(l10n.settingsVisualEffectsSubtitle),
             value: _visualEffects,
             onChanged: _toggleVisualEffects,
+          ),
+          SwitchListTile(
+            key: const Key('settings_retention_notifications_switch'),
+            secondary: const Icon(AppIcons.catPets),
+            title: Text(l10n.settingsRetentionNotificationsTitle),
+            subtitle: Text(l10n.settingsRetentionNotificationsSubtitle),
+            value: _retentionNotifications,
+            onChanged: _toggleRetentionNotifications,
           ),
           ListTile(
             key: const Key('settings_tutorial_tile'),
             leading: const Icon(AppIcons.info),
-            title: Text(
-              l10n?.settingsTutorialOption ?? 'Ver tutorial com a Momo',
-            ),
-            subtitle: Text(
-              l10n?.settingsTutorialSubtitle ??
-                  'Relembre o funcionamento do app com a mascote',
-            ),
+            title: Text(l10n.settingsTutorialOption),
+            subtitle: Text(l10n.settingsTutorialSubtitle),
             onTap:
                 widget.onTutorialTap ??
                 () {
                   context.push('/onboarding');
                 },
           ),
+          ListTile(
+            key: const Key('settings_language_tile'),
+            leading: const Icon(AppIcons.info),
+            title: Text(l10n.settingsLanguageTitle),
+            subtitle: Text(_localeDisplayName(l10n, _appLocale)),
+            onTap: _selectAppLocale,
+          ),
+          ListTile(
+            key: const Key('settings_receipt_format_tile'),
+            leading: const Icon(AppIcons.ocr),
+            title: Text(l10n.settingsOcrFormatTitle),
+            subtitle: Text(_receiptFormatDisplayName(l10n, _receiptFormat)),
+            onTap: _selectReceiptFormat,
+          ),
 
           const Divider(),
 
           // ── 2. Your Home and Modules ─────────────────────────────────────────
-          _buildSectionHeader(context, 'Sua Casa e Módulos'),
+          _buildSectionHeader(context, l10n.settingsSectionModules),
           ListTile(
             key: const Key('settings_household_tile'),
             leading: const Icon(AppIcons.household),
-            title: Text(l10n?.householdTitle ?? 'Casa compartilhada'),
-            subtitle: Text(
-              l10n?.householdSubtitle ??
-                  'Sincronizar tarefas e finanças em rede local',
-            ),
+            title: Text(l10n.householdTitle),
+            subtitle: Text(l10n.householdSubtitle),
             onTap: () => context.push('/ajustes/casa'),
           ),
           ListTile(
             key: const Key('settings_recipes_tile'),
             leading: const Icon(AppIcons.recipes),
-            title: const Text('Receitas'),
-            subtitle: const Text('Livro de receitas e ingredientes'),
+            title: Text(l10n.recipesTitle),
+            subtitle: Text(l10n.settingsRecipesSubtitle),
             onTap: () => context.push('/receitas'),
           ),
           ListTile(
             key: const Key('settings_stock_tile'),
             leading: const Icon(AppIcons.stock),
-            title: const Text('Estoque'),
-            subtitle: const Text('Despensa e itens essenciais'),
+            title: Text(l10n.settingsStockTitle),
+            subtitle: Text(l10n.settingsStockSubtitle),
             onTap: () => context.push('/estoque'),
           ),
           ListTile(
             key: const Key('settings_economy_tile'),
             leading: const Icon(AppIcons.economy),
-            title: const Text('Modo Economia'),
-            subtitle: const Text('Dicas e metas de economia'),
+            title: Text(l10n.economyTitle),
+            subtitle: Text(l10n.settingsEconomySubtitle),
             onTap: () => context.push('/economia'),
           ),
           ListTile(
             key: const Key('settings_checklist_tile'),
             leading: const Icon(AppIcons.checklist),
-            title: const Text('Checklist da 1ª Casa'),
-            subtitle: const Text('Itens essenciais para a casa nova'),
+            title: Text(l10n.settingsChecklistTitle),
+            subtitle: Text(l10n.settingsChecklistSubtitle),
             onTap: () => context.push('/checklist'),
           ),
           ListTile(
             key: const Key('settings_suggestions_tile'),
             leading: const Icon(AppIcons.tasks),
-            title: const Text('Sugestões de Manutenção'),
-            subtitle: const Text('Catálogo de tarefas sugeridas para o lar'),
+            title: Text(l10n.settingsSuggestionsTitle),
+            subtitle: Text(l10n.settingsSuggestionsSubtitle),
             onTap: () => context.push('/tarefas/sugestoes'),
           ),
           ListTile(
             key: const Key('settings_products_tile'),
             leading: const Icon(AppIcons.product),
-            title: const Text('Produtos e Sinônimos'),
-            subtitle: const Text('Gerenciar catálogo de produtos'),
+            title: Text(l10n.settingsProductsTitle),
+            subtitle: Text(l10n.settingsProductsSubtitle),
             onTap: () => context.push('/produtos'),
           ),
 
           const Divider(),
 
           // ── 3. Privacy, Security and Data ─────────────────────────────────────
-          _buildSectionHeader(context, 'Privacidade, Segurança e Dados'),
-          SwitchListTile(
-            key: const Key('settings_hide_values_switch'),
-            secondary: const Icon(AppIcons.money),
-            title: const Text('Ocultar valores financeiros na tela inicial'),
-            subtitle: const Text(
-              'Mascarar centavos e totais quando em segundo plano',
-            ),
-            value: _hideValues,
-            onChanged: _toggleHideValues,
-          ),
+          _buildSectionHeader(context, l10n.settingsSectionPrivacy),
           SwitchListTile(
             key: const Key('settings_delete_receipt_photo_switch'),
             secondary: const Icon(AppIcons.delete),
-            title: const Text('Apagar foto do cupom após leitura'),
-            subtitle: const Text(
-              'Excluir arquivo de imagem após processamento do OCR',
-            ),
+            title: Text(l10n.settingsDeleteReceiptPhotoTitle),
+            subtitle: Text(l10n.settingsDeleteReceiptPhotoSubtitle),
             value: _deleteReceiptPhoto,
             onChanged: _toggleDeleteReceiptPhoto,
-          ),
-          SwitchListTile(
-            key: const Key('settings_cloud_backup_switch'),
-            secondary: const Icon(AppIcons.cloudBackup),
-            title: const Text('Permitir backup em nuvem'),
-            subtitle: const Text('Cópia criptografada no Google Drive'),
-            value: _cloudBackup,
-            onChanged: _toggleCloudBackup,
-          ),
-          SwitchListTile(
-            key: const Key('settings_cloud_ocr_switch'),
-            secondary: const Icon(AppIcons.ocr),
-            title: const Text('Permitir leitura de cupom em nuvem (OCR)'),
-            subtitle: const Text(
-              'Processar recibos complexos na nuvem anonimamente',
-            ),
-            value: _cloudOcr,
-            onChanged: _toggleCloudOcr,
-          ),
-          ListTile(
-            key: const Key('settings_security_tile'),
-            leading: const Icon(AppIcons.lockBackup),
-            title: const Text('Bloqueio do aplicativo'),
-            subtitle: const Text('Proteção por biometria ou PIN'),
-            onTap: () {
-              try {
-                context.push('/settings/security');
-              } catch (_) {}
-            },
           ),
           ListTile(
             key: const Key('settings_backup_tile'),
             leading: const Icon(AppIcons.backup),
-            title: const Text('Backup e Exportação'),
-            subtitle: const Text('Exportar, importar e gerenciar dados'),
+            title: Text(l10n.backupTitle),
+            subtitle: Text(l10n.settingsBackupSubtitle),
             onTap:
                 widget.onBackupTap ??
                 () {
@@ -332,12 +408,12 @@ class _SettingsPageState extends State<SettingsPage> {
           const Divider(),
 
           // ── 4. Ajuda e Sobre ────────────────────────────────────────────────
-          _buildSectionHeader(context, 'Ajuda e Sobre'),
+          _buildSectionHeader(context, l10n.settingsSectionHelp),
           ListTile(
             key: const Key('settings_about_tile'),
             leading: const Icon(AppIcons.about),
-            title: const Text('Sobre'),
-            subtitle: const Text('Informações sobre o aplicativo'),
+            title: Text(l10n.settingsAboutTitle),
+            subtitle: Text(l10n.settingsAboutSubtitle),
             onTap:
                 widget.onAboutTap ??
                 () {

@@ -170,7 +170,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final visualEffectsEnabled = ref.watch(visualEffectsEnabledProvider);
     final animationsDisabled =
         widget.disableAnimations ?? !visualEffectsEnabled;
@@ -198,7 +200,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  l10n?.onboardingSkip ?? 'Pular introdução',
+                  l10n.onboardingSkip,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -221,40 +223,64 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 children: [
                   OnboardingStep(
                     expression: MascotExpression.waving,
-                    title: l10n?.onboardingStep1Title ?? 'Oi! Eu sou a Momo 💕',
-                    subtitle: l10n?.onboardingStep1Description ?? 'Estou aqui para cuidar do seu cantinho com você e tornar tudo mais leve!',
+                    title: l10n.onboardingStep1Title,
+                    subtitle: l10n.onboardingStep1Description,
                     disableAnimations: animationsDisabled,
+                    extraContent: Container(
+                      key: const Key('onboarding_open_source_badge'),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: Spacing.md,
+                        vertical: Spacing.sm,
+                      ),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.secondaryContainer,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            AppIcons.openSource,
+                            size: 18,
+                            color: theme.colorScheme.onSecondaryContainer,
+                          ),
+                          const SizedBox(width: Spacing.sm),
+                          Flexible(
+                            child: Text(
+                              l10n.onboardingOpenSourceBadge,
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSecondaryContainer,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   OnboardingStep(
                     expression: MascotExpression.pointing,
-                    title:
-                        l10n?.onboardingStep2Title ??
-                        'Aqui a gente cuida do dinheirinho juntas',
-                    subtitle: l10n?.onboardingStep2Description ?? 'Acompanhe seus gastos, registre comprinhas e mantenha o orçamento sem sustos no fim do mês.',
+                    title: l10n.onboardingStep2Title,
+                    subtitle: l10n.onboardingStep2Description,
                     disableAnimations: animationsDisabled,
                   ),
                   OnboardingStep(
                     expression: MascotExpression.shopping,
-                    title:
-                        l10n?.onboardingStep3Title ??
-                        'E também das comprinhas!',
-                    subtitle: l10n?.onboardingStep3Description ?? 'Monte sua listinha de compras no mercado e escaneie a nota fiscal num piscar de olhos.',
+                    title: l10n.onboardingStep3Title,
+                    subtitle: l10n.onboardingStep3Description,
                     disableAnimations: animationsDisabled,
                   ),
                   OnboardingStep(
                     expression: MascotExpression.happy,
-                    title:
-                        l10n?.onboardingStep4Title ??
-                        'Não esquece das tarefinhas do dia',
-                    subtitle: l10n?.onboardingStep4Description ?? 'Organize tarefas de limpeza, cuidados com a casa e rotinas para manter seu lar acolhedor.',
+                    title: l10n.onboardingStep4Title,
+                    subtitle: l10n.onboardingStep4Description,
                     disableAnimations: animationsDisabled,
                   ),
                   OnboardingStep(
                     expression: MascotExpression.budget,
-                    title:
-                        l10n?.onboardingStep5Title ??
-                        'Eu te aviso quando algo precisa de atenção',
-                    subtitle: l10n?.onboardingStep5Description ?? 'Fique tranquila com os lembretes de contas a vencer para nunca mais pagar juros ou multas.',
+                    title: l10n.onboardingStep5Title,
+                    subtitle: l10n.onboardingStep5Description,
                     disableAnimations: animationsDisabled,
                   ),
                   OnboardingRoutineStep(
@@ -282,8 +308,8 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   ),
                   OnboardingStep(
                     expression: MascotExpression.happy,
-                    title: 'Está montando sua casa nova?',
-                    subtitle: 'Se você acabou de se mudar ou está organizando seu cantinho pela primeira vez, posso ativar um checklist especial com itens essenciais no seu início!',
+                    title: l10n.onboardingFirstHomeTitle,
+                    subtitle: l10n.onboardingFirstHomeDescription,
                     disableAnimations: animationsDisabled,
                     extraContent: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -306,9 +332,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                               curve: Curves.easeInOut,
                             );
                           },
-                          label: const Text(
-                            'Sim, ativar checklist da primeira casa',
-                          ),
+                          label: Text(l10n.onboardingFirstHomeEnable),
                         ),
                         const SizedBox(height: Spacing.sm),
                         OutlinedButton(
@@ -328,24 +352,21 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                               curve: Curves.easeInOut,
                             );
                           },
-                          child: const Text('Já tenho tudo / Pular'),
+                          child: Text(l10n.onboardingFirstHomeSkip),
                         ),
                       ],
                     ),
                   ),
                   OnboardingStep(
                     expression: MascotExpression.relaxed,
-                    title:
-                        l10n?.onboardingStep6Title ??
-                        'Pode personalizar meu visual quando quiser!',
-                    subtitle: l10n?.onboardingStep6Description ?? 'Você pode trocar meu animalzinho, colocar acessórios e escolher as cores que mais combinam com você.',
+                    title: l10n.onboardingStep6Title,
+                    subtitle: l10n.onboardingStep6Description,
                     disableAnimations: animationsDisabled,
                     extraContent: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          l10n?.onboardingCustomizePrompt ??
-                              'Quer personalizar meu visual agora?',
+                          l10n.onboardingCustomizePrompt,
                           style: theme.textTheme.titleMedium?.copyWith(
                             fontWeight: FontWeight.w600,
                             color: theme.colorScheme.primary,
@@ -362,10 +383,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                             ),
                           ),
                           onPressed: _goToCustomize,
-                          child: Text(
-                            l10n?.onboardingCustomizeButton ??
-                                'Personalizar agora',
-                          ),
+                          child: Text(l10n.onboardingCustomizeButton),
                         ),
                       ],
                     ),
@@ -379,7 +397,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                 vertical: textScale >= 1.5 ? Spacing.xs : Spacing.md,
               ),
               child: Semantics(
-                label: 'Página ${_currentPage + 1} de $_pageCount',
+                label: l10n.onboardingPageIndicatorSemantics(
+                  _currentPage + 1,
+                  _pageCount,
+                ),
                 child: Row(
                   key: const Key('page_indicator'),
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -423,9 +444,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   ),
                   onPressed: isLastPage ? _finish : _nextPage,
                   child: Text(
-                    isLastPage
-                        ? (l10n?.onboardingStart ?? 'Começar')
-                        : (l10n?.onboardingNext ?? 'Próximo'),
+                    isLastPage ? l10n.onboardingStart : l10n.onboardingNext,
                   ),
                 ),
               ),

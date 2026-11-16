@@ -20,6 +20,7 @@ void main() {
             router.go(initialLocation);
             return MaterialApp.router(
               theme: lightTheme(),
+              locale: const Locale('pt'),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               routerConfig: router,

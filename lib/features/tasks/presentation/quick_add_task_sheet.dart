@@ -282,7 +282,7 @@ class _QuickAddTaskSheetState extends State<QuickAddTaskSheet> {
             ),
             CheckboxListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text('Dia inteiro'),
+              title: Text(l10n.taskAllDayLabel),
               value: _allDay,
               onChanged: (val) {
                 if (val != null) {
@@ -294,24 +294,24 @@ class _QuickAddTaskSheetState extends State<QuickAddTaskSheet> {
             ),
             DropdownButtonFormField<String?>(
               initialValue: _selectedRecurrenceOption,
-              decoration: const InputDecoration(labelText: 'Repetição'),
+              decoration: InputDecoration(labelText: l10n.taskRepeatLabel),
               items: [
-                const DropdownMenuItem(child: Text('Sem repetição')),
-                const DropdownMenuItem(
+                DropdownMenuItem(child: Text(l10n.taskRepeatNone)),
+                DropdownMenuItem(
                   value: 'FREQ=DAILY',
-                  child: Text('Diariamente'),
+                  child: Text(l10n.commonRepeatDaily),
                 ),
-                const DropdownMenuItem(
+                DropdownMenuItem(
                   value: 'CUSTOM_DAYS',
-                  child: Text('A cada X dias'),
+                  child: Text(l10n.commonRepeatCustomDays),
                 ),
-                const DropdownMenuItem(
+                DropdownMenuItem(
                   value: 'FREQ=WEEKLY',
-                  child: Text('Semanalmente'),
+                  child: Text(l10n.commonRepeatWeekly),
                 ),
-                const DropdownMenuItem(
+                DropdownMenuItem(
                   value: 'FREQ=MONTHLY',
-                  child: Text('Mensalmente'),
+                  child: Text(l10n.commonRepeatMonthly),
                 ),
                 if (_selectedRecurrenceOption != null &&
                     !const [
@@ -345,7 +345,7 @@ class _QuickAddTaskSheetState extends State<QuickAddTaskSheet> {
                   controller: _customDaysController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    labelText: 'Quantidade de dias *',
+                    labelText: l10n.commonDaysCountLabel,
                     errorText: _customDaysError,
                   ),
                   onChanged: (_) {

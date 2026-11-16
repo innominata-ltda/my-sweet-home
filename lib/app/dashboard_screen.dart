@@ -114,15 +114,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Sweet Home'),
+        title: Text(l10n.appName),
         actions: [
           Semantics(
-            label: 'Busca',
+            label: l10n.searchGlobalTitle,
             button: true,
             child: IconButton(
               key: const Key('global_search_button'),
               icon: const Icon(AppIcons.search),
-              tooltip: 'Busca global',
+              tooltip: l10n.dashboardSearchTooltip,
               onPressed: () => context.push('/busca'),
             ),
           ),
@@ -137,11 +137,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             ),
           ),
           Semantics(
-            label: 'Ajustes',
+            label: l10n.settingsTitle,
             button: true,
             child: IconButton(
               icon: const Icon(AppIcons.settings),
-              tooltip: 'Ajustes',
+              tooltip: l10n.settingsTitle,
               onPressed: () => context.push('/settings'),
             ),
           ),
@@ -187,7 +187,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     key: const Key('dashboard_empty_state'),
                     icon: AppIcons.customizeDashboard,
                     title: l10n.customizeDashboardEmptyTitle,
-                    description: 'Personalize seu painel inicial adicionando os módulos que desejar.',
+                    description: l10n.dashboardEmptyDescription,
                     actionLabel: l10n.customizeDashboardEmptyAction,
                     onAction: () =>
                         _openCustomizeSheet(context, layoutController),
@@ -391,9 +391,8 @@ class DashboardMascotGreeting extends StatelessWidget {
     MascotExpression expression = MascotExpression.waving;
     final String greetingTitle = config.displayName == 'Momo'
         ? l10n.momoGreeting
-        : 'Oi! Eu sou a ${config.displayName} 💕';
-    String greetingSubtitle =
-        'Estou aqui para cuidar do seu cantinho com você!';
+        : l10n.mascotGreetingNamed(config.displayName);
+    String greetingSubtitle = l10n.mascotGreetingSubtitleDefault;
 
     if (tasksState is TodayTasksWidgetSuccess) {
       final t = tasksState as TodayTasksWidgetSuccess;
@@ -410,18 +409,20 @@ class DashboardMascotGreeting extends StatelessWidget {
           summary.remaining != null &&
           summary.remaining!.cents < 0) {
         expression = MascotExpression.worried;
-        greetingSubtitle =
-            'Atenção com as continhas este mês! Mas estamos juntas nisso 💕';
+        greetingSubtitle = l10n.mascotGreetingSubtitleOverBudget;
       } else if (summary.budget != null &&
           summary.budget!.cents > 0 &&
           (summary.actual.cents / summary.budget!.cents) >= 0.9) {
         expression = MascotExpression.thinking;
-        greetingSubtitle = 'Quase no limite do orçamento! Vamos cuidar com carinho dos gastos 💕';
+        greetingSubtitle = l10n.mascotGreetingSubtitleNearBudget;
       }
     }
 
-    final semanticText =
-        'Mascote ${config.displayName}: $greetingTitle. $greetingSubtitle';
+    final semanticText = l10n.mascotGreetingSemantics(
+      config.displayName,
+      greetingTitle,
+      greetingSubtitle,
+    );
 
     return Semantics(
       container: true,

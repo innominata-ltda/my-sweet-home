@@ -92,6 +92,7 @@ void main() {
           ],
           child: MaterialApp(
             theme: lightTheme(),
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: const DashboardScreen(),
@@ -132,6 +133,7 @@ void main() {
           await tester.pumpWidget(
             MaterialApp(
               theme: lightTheme(),
+              locale: const Locale('pt'),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               home: Scaffold(

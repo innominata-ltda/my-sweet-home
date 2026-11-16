@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lottie/lottie.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/settings/settings_providers.dart';
 import 'package:my_sweet_home/design_system/components/app_card.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -15,8 +16,8 @@ import 'package:my_sweet_home/features/mascot/presentation/widgets/mascot_widget
 class CelebrationOverlay extends StatefulWidget {
   const CelebrationOverlay({
     super.key,
-    this.title = 'Parabéns!',
-    this.message = 'Você concluiu tudo com sucesso! 💕',
+    this.title,
+    this.message,
     this.duration = const Duration(milliseconds: 2800),
     this.onDismiss,
     this.disableAnimations,
@@ -25,10 +26,10 @@ class CelebrationOverlay extends StatefulWidget {
   });
 
   /// Celebration message title.
-  final String title;
+  final String? title;
 
   /// Caring celebration message.
-  final String message;
+  final String? message;
 
   /// Maximum duration before auto-dismiss (<= 3 seconds per CA-112.1).
   final Duration duration;
@@ -51,8 +52,8 @@ class CelebrationOverlay extends StatefulWidget {
   /// If an active overlay is already showing, discards previous to avoid overlap.
   static OverlayEntry show(
     BuildContext context, {
-    String title = 'Parabéns!',
-    String message = 'Você concluiu tudo com sucesso! 💕',
+    String? title,
+    String? message,
     Duration duration = const Duration(milliseconds: 2800),
     VoidCallback? onDismiss,
     bool? disableAnimations,
@@ -196,12 +197,17 @@ class CelebrationOverlayState extends State<CelebrationOverlay>
       _confettiController.repeat();
     }
     final theme = Theme.of(context);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
+    final resolvedTitle = widget.title ?? l10n.celebrationDefaultTitle;
+    final resolvedMessage = widget.message ?? l10n.celebrationDefaultMessage;
     final animate = shouldAnimate;
 
     final contentCard = Semantics(
       container: true,
       liveRegion: true,
-      label: '${widget.title}. ${widget.message}',
+      label: '$resolvedTitle. $resolvedMessage',
       child: AppCard(
         key: const Key('celebration_overlay_card'),
         elevation: 8,
@@ -220,11 +226,11 @@ class CelebrationOverlayState extends State<CelebrationOverlay>
                   expression: MascotExpression.happy,
                   size: 96,
                   disableAnimations: !animate,
-                  semanticLabel: 'Momo alegre celebrando sua conquista',
+                  semanticLabel: l10n.celebrationMascotSemantics,
                 ),
                 const SizedBox(height: Spacing.md),
                 Text(
-                  widget.title,
+                  resolvedTitle,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -233,7 +239,7 @@ class CelebrationOverlayState extends State<CelebrationOverlay>
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
-                  widget.message,
+                  resolvedMessage,
                   textAlign: TextAlign.center,
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,

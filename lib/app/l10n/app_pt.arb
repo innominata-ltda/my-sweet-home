@@ -625,5 +625,1598 @@
   "dashboardCardStockAlert": "Estoque Doméstico",
   "dashboardCardFirstHomeChecklist": "Checklist da Primeira Casa",
   "dashboardCardEconomyGoal": "Modo Economia",
-  "dashboardCardFavoriteRecipes": "Receitas Favoritas"
+  "dashboardCardFavoriteRecipes": "Receitas Favoritas",
+  "settingsRetentionNotificationsTitle": "Lembretes gentis da Momo",
+  "settingsRetentionNotificationsSubtitle": "Avisar em intervalos espaçados se você ficar dias sem abrir o app",
+  "retentionNotificationTitle": "A Momo sentiu sua falta!",
+  "retentionNotificationBody": "Faz {days} dias que não organizamos a casa juntos. Que tal conferir suas tarefas e contas?",
+  "@retentionNotificationBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "commonCancel": "Cancelar",
+  "commonContinue": "Continuar",
+  "commonSave": "Salvar",
+  "commonDelete": "Excluir",
+  "commonRetry": "Tentar novamente",
+  "commonClose": "Fechar",
+  "commonBack": "Voltar",
+  "commonDone": "Concluído",
+  "commonConfirm": "Confirmar",
+  "navHome": "Início",
+  "navShopping": "Compras",
+  "navTasks": "Tarefas",
+  "navBills": "Contas",
+  "navExpenses": "Despesas",
+  "navScanReceipt": "Escanear Nota Fiscal",
+  "pageNotFound": "Página não encontrada",
+  "dashboardSearchTooltip": "Busca global",
+  "settingsTitle": "Ajustes",
+  "dashboardEmptyDescription": "Personalize seu painel inicial adicionando os módulos que desejar.",
+  "mascotGreetingNamed": "Oi! Eu sou a {name} 💕",
+  "@mascotGreetingNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotGreetingSubtitleDefault": "Estou aqui para cuidar do seu cantinho com você!",
+  "mascotGreetingSubtitleOverBudget": "Atenção com as continhas este mês! Mas estamos juntas nisso 💕",
+  "mascotGreetingSubtitleNearBudget": "Quase no limite do orçamento! Vamos cuidar com carinho dos gastos 💕",
+  "mascotGreetingSemantics": "Mascote {name}: {title}. {subtitle}",
+  "@mascotGreetingSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "recoveryResetConfirmTitle": "Recomeçar do zero?",
+  "recoveryResetConfirmBody": "Todos os dados locais existentes serão permanentemente apagados.",
+  "recoveryResetFinalTitle": "Confirmação definitiva",
+  "recoveryResetFinalBody": "Esta ação é irreversível. Tem certeza absoluta que deseja apagar todos os dados e recomeçar?",
+  "recoveryResetFinalConfirm": "Confirmar e apagar",
+  "recoveryKeyUnavailableAppBar": "Chave do banco inacessível",
+  "recoverySecurityFailureAppBar": "Falha na segurança do banco",
+  "recoveryKeyUnavailableTitle": "Chave de segurança inacessível",
+  "recoveryConversionFailedTitle": "Conversão de segurança falhou",
+  "recoveryKeyUnavailableBody": "Não foi possível acessar a chave de segurança no dispositivo. Para proteger seus dados, nenhum banco vazio foi criado.\n\nVocê pode restaurar um backup anterior ou recomeçar do zero.",
+  "recoveryConversionFailedBody": "A conversão do banco existente para o formato cifrado falhou, mas seus dados continuam intactos no banco original.\n\nRecomendamos exportar um backup antes de prosseguir.",
+  "recoveryImportBackup": "Importar backup",
+  "recoveryStartFromScratch": "Recomeçar do zero",
+  "recoveryExportBackup": "Exportar backup",
+  "recoveryContinuePlaintextSemantics": "Continuar no formato original",
+  "celebrationDefaultTitle": "Parabéns!",
+  "celebrationDefaultMessage": "Você concluiu tudo com sucesso! 💕",
+  "celebrationMascotSemantics": "Momo alegre celebrando sua conquista",
+  "mascotNameFieldSemantics": "Campo para alterar o nome da mascote",
+  "mascotNameBlankHelper": "Se deixar em branco, usaremos \"{name}\" 💕",
+  "@mascotNameBlankHelper": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mascotPreviewSemantics": "Pré-visualização da mascote {name} na paleta {palette}",
+  "@mascotPreviewSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "palette": {
+        "type": "String"
+      }
+    }
+  },
+  "splashInitError": "Ops! Ocorreu uma instabilidade na inicialização.",
+  "onboardingOpenSourceBadge": "Código aberto, sem anúncios e com dados salvos apenas no seu aparelho",
+  "onboardingFirstHomeTitle": "Está montando sua casa nova?",
+  "onboardingFirstHomeDescription": "Se você acabou de se mudar ou está organizando seu cantinho pela primeira vez, posso ativar um checklist especial com itens essenciais no seu início!",
+  "onboardingFirstHomeEnable": "Sim, ativar checklist da primeira casa",
+  "onboardingFirstHomeSkip": "Já tenho tudo / Pular",
+  "onboardingPageIndicatorSemantics": "Página {current} de {total}",
+  "@onboardingPageIndicatorSemantics": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutTitle": "Sobre o My Sweet Home",
+  "aboutVersionLabel": "Versão ",
+  "aboutUpToDate": "Você já está na versão mais recente.",
+  "aboutUpdateCheckFailed": "Não foi possível verificar atualizações no momento.",
+  "aboutLicensesTitle": "Licenças de código aberto",
+  "aboutLicensesSubtitle": "Licenças de pacotes e dependências",
+  "aboutAttributionsTitle": "Atribuições",
+  "aboutAttributionsSubtitle": "Atribuições de ativos e terceiros",
+  "aboutGithubTitle": "Código-fonte no GitHub",
+  "aboutGithubCopied": "Link do GitHub copiado para a área de transferência.",
+  "aboutDocsTitle": "Documentação e privacidade",
+  "aboutDocsCopied": "Link da documentação copiado para a área de transferência.",
+  "aboutCheckUpdatesTitle": "Verificar atualizações",
+  "aboutCheckUpdatesSubtitle": "Buscar novas versões na loja de aplicativos",
+  "aboutCheckUpdatesPlayStoreOnly": "Disponível apenas para instalações feitas pela Google Play",
+  "aboutAttributionsError": "Erro ao carregar atribuições: {error}",
+  "@aboutAttributionsError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsSectionAppearance": "Aparência e Experiência",
+  "settingsMascotShortSubtitle": "Animal, paleta de cor e acessório",
+  "settingsVisualEffectsTitle": "Efeitos visuais e partículas",
+  "settingsVisualEffectsSubtitle": "Partículas, confetes e animações contínuas",
+  "settingsLanguageTitle": "Idioma do aplicativo",
+  "settingsLanguageSystem": "Automático (sistema)",
+  "settingsLanguageSystemSubtitle": "Segue o idioma configurado no aparelho",
+  "settingsOcrFormatTitle": "Modelo de nota fiscal (OCR)",
+  "settingsOcrFormatAuto": "Automático (melhor modelo)",
+  "settingsOcrFormatAutoSubtitle": "Seleciona automaticamente o formato com maior pontuação",
+  "settingsSectionModules": "Sua Casa e Módulos",
+  "settingsRecipesSubtitle": "Livro de receitas e ingredientes",
+  "settingsStockTitle": "Estoque",
+  "settingsStockSubtitle": "Despensa e itens essenciais",
+  "settingsEconomySubtitle": "Dicas e metas de economia",
+  "settingsChecklistTitle": "Checklist da 1ª Casa",
+  "settingsChecklistSubtitle": "Itens essenciais para a casa nova",
+  "settingsSuggestionsTitle": "Sugestões de Manutenção",
+  "settingsSuggestionsSubtitle": "Catálogo de tarefas sugeridas para o lar",
+  "settingsProductsTitle": "Produtos e Sinônimos",
+  "settingsProductsSubtitle": "Gerenciar catálogo de produtos",
+  "settingsSectionPrivacy": "Privacidade, Segurança e Dados",
+  "settingsDeleteReceiptPhotoTitle": "Apagar foto do cupom após leitura",
+  "settingsDeleteReceiptPhotoSubtitle": "Excluir arquivo de imagem após processamento do OCR",
+  "settingsBackupSubtitle": "Exportar, importar e gerenciar dados",
+  "settingsSectionHelp": "Ajuda e Sobre",
+  "settingsAboutTitle": "Sobre",
+  "settingsAboutSubtitle": "Informações sobre o aplicativo",
+  "backupMenuExportTitle": "Exportar Backup",
+  "backupMenuExportSubtitle": "Gere um arquivo criptografado com seus dados",
+  "backupMenuImportTitle": "Importar Backup",
+  "backupMenuImportSubtitle": "Restaurar ou mesclar dados de um arquivo de backup",
+  "backupMenuWipeSubtitle": "Excluir permanentemente todos os dados armazenados",
+  "backupExportShareText": "Backup criptografado My Sweet Home",
+  "backupExportEncryptedTitle": "Exportar Dados Criptografados",
+  "backupExportEncryptedSubtitle": "Gere um arquivo de backup seguro de todos os seus dados e fotos para salvar localmente ou compartilhar.",
+  "backupExportError": "Erro ao gerar backup: {error}",
+  "@backupExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "backupExportSuccess": "Backup gerado e exportado com sucesso!",
+  "backupExportCreateButton": "Criar e Exportar Backup",
+  "backupStageCollecting": "Coletando dados do aplicativo...",
+  "backupStageEncrypting": "Criptografando com AES-256 e Argon2id...",
+  "backupStageWriting": "Finalizando arquivo de backup...",
+  "backupStageDone": "Concluído!",
+  "backupEncryptedTitle": "Backup Criptografado",
+  "backupWarningTitle": "Aviso Importante (RN-234)",
+  "backupWarningLostPassword": "Se você perder a senha, o backup é perdido.",
+  "backupWarningNoRecovery": "O aplicativo não salva sua senha nem consegue ler o backup sem ela. Não há opção de recuperação.",
+  "backupPasswordLabel": "Senha do Backup *",
+  "backupPasswordRequired": "Informe uma senha para proteger o backup",
+  "backupPasswordMinLength": "A senha deve ter pelo menos 4 caracteres",
+  "backupConfirmPasswordLabel": "Confirmar Senha *",
+  "backupPasswordsMismatch": "As senhas não coincidem",
+  "backupIncludePhotosTitle": "Incluir fotos no backup (RN-237)",
+  "backupIncludePhotosWithSize": "Fotos de cupons e receitas (Tamanho estimado: {size})",
+  "@backupIncludePhotosWithSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "backupIncludePhotosDefault": "Fotos de cupons e receitas ficam fora do backup por padrão",
+  "backupExportEncryptedButton": "Exportar Criptografado",
+  "backupRestoreEncryptedTitle": "Restaurar Backup Criptografado",
+  "backupRestoreEncryptedBody": "Este arquivo de backup está protegido por senha. Informe a senha definida durante a exportação para continuar.",
+  "backupRestorePasswordRequired": "Digite a senha do backup",
+  "backupRestoreEncryptedButton": "Descriptografar e Restaurar",
+  "backupImportProcessing": "Processando backup...",
+  "backupImportReplacedTitle": "Backup restaurado com sucesso!",
+  "backupImportMergedTitle": "Dados mesclados com sucesso!",
+  "backupImportReplacedBody": "Os dados do aplicativo foram totalmente substituídos pelos do backup.",
+  "backupImportMergedBody": "Os registros do backup foram mesclados aos dados existentes.",
+  "backupImportFailedTitle": "Falha na importação",
+  "backupPreviewTitle": "Pré-visualização do Backup",
+  "backupPreviewAffectedRecords": "{count} registros afetados",
+  "@backupPreviewAffectedRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewSchemaVersion": "Versão do schema: v{version}",
+  "@backupPreviewSchemaVersion": {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "backupPreviewExportedAt": "Data da exportação: {date}",
+  "@backupPreviewExportedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "backupImportModeTitle": "Escolha a forma de importação:",
+  "backupImportModeReplace": "Substituir tudo",
+  "backupImportModeMerge": "Mesclar",
+  "backupImportConfirmReplace": "Substituir e restaurar backup",
+  "backupImportConfirmMerge": "Mesclar dados do backup",
+  "backupImportNoFile": "Nenhum backup selecionado para pré-visualização.",
+  "backupImportSelectFile": "Selecionar arquivo de backup",
+  "backupImportPasswordField": "Senha do backup",
+  "backupImportRestoreButton": "Restaurar",
+  "wipeConfirmFirstTitle": "Confirmar exclusão de dados",
+  "wipeConfirmFirstBody": "Você tem certeza de que deseja apagar todos os dados do aplicativo? Esta é a primeira confirmação.",
+  "wipeConfirmSecondTitle": "Confirmação Final",
+  "wipeConfirmSecondBody": "ESTA AÇÃO É DEFINITIVA E IRREVERSÍVEL. Todos os seus registros, fotos, tarefas, despesas e configurações serão apagados sem resíduo.",
+  "wipeConfirmSecondButton": "Apagar tudo permanentemente",
+  "wipeLoading": "Apagando todos os dados...",
+  "wipeSuccessTitle": "Todos os dados foram apagados permanentemente.",
+  "wipeSuccessBody": "O banco de dados, arquivos e configurações foram limpos sem deixar resíduos.",
+  "wipeWarningTitle": "Atenção: Ação Irreversível",
+  "wipeWarningBody": "Ao apagar tudo, todos os registros cadastrados (produtos, despesas, contas fixas, tarefas, receitas, compras e estoque), fotos de cupons e preferências do aplicativo serão apagados permanentemente.",
+  "wipeWarningTokens": "Nenhum token ou arquivo temporário permanecerá no dispositivo.",
+  "wipeDeleteAllButton": "Apagar todos os dados",
+  "monthJanuary": "Janeiro",
+  "monthFebruary": "Fevereiro",
+  "monthMarch": "Março",
+  "monthApril": "Abril",
+  "monthMay": "Maio",
+  "monthJune": "Junho",
+  "monthJuly": "Julho",
+  "monthAugust": "Agosto",
+  "monthSeptember": "Setembro",
+  "monthOctober": "Outubro",
+  "monthNovember": "Novembro",
+  "monthDecember": "Dezembro",
+  "monthYearFormat": "{month} de {year}",
+  "@monthYearFormat": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "commonPreviousMonth": "Mês anterior",
+  "commonNextMonth": "Próximo mês",
+  "commonInvalidValue": "Valor inválido",
+  "commonEnterAmount": "Informe o valor",
+  "commonNotesOptional": "Observações (opcional)",
+  "commonRepeatDaily": "Diariamente",
+  "commonRepeatWeekly": "Semanalmente",
+  "commonRepeatMonthly": "Mensalmente",
+  "commonRepeatCustomDays": "A cada X dias",
+  "commonDaysCountLabel": "Quantidade de dias *",
+  "billsUnpayTooltip": "Desmarcar pagamento de {title}",
+  "@billsUnpayTooltip": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsOptionsTooltip": "Opções da conta",
+  "billsDeleteConfirmTitle": "Excluir conta?",
+  "billsDeleteConfirmBody": "Tem certeza de que deseja excluir a conta \"{title}\"?",
+  "@billsDeleteConfirmBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsMarkUnpaid": "Marcar como não pago",
+  "billsPauseAction": "Pausar conta",
+  "billsDeleteAction": "Excluir conta",
+  "billsCreateSuccess": "Conta \"{title}\" cadastrada com sucesso!",
+  "@billsCreateSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsCreateError": "Erro ao cadastrar conta: {error}",
+  "@billsCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPaidSuccess": "Conta \"{title}\" marcada como paga!",
+  "@billsPaidSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsUnpaidSuccess": "Conta \"{title}\" marcada como não paga!",
+  "@billsUnpaidSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsPausedSuccess": "Conta \"{title}\" pausada com sucesso!",
+  "@billsPausedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeletedSuccess": "Conta \"{title}\" excluída com sucesso!",
+  "@billsDeletedSuccess": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "billsDeleteError": "Erro ao excluir conta: {error}",
+  "@billsDeleteError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "billsNewDialogTitle": "Nova Conta a Vencer",
+  "billsTitleFieldLabel": "Título * (ex: Aluguel, Luz, Internet)",
+  "billsTitleRequired": "Informe o título",
+  "billsAmountFieldLabel": "Valor em R$ * (ex: 150.00)",
+  "billsDueDayFieldLabel": "Dia do Vencimento * (1 a 31)",
+  "billsDueDayInvalid": "Informe um dia entre 1 e 31",
+  "billsFrequencyLabel": "Frequência da Conta",
+  "billsFrequencyMonthly": "Mensal",
+  "billsFrequencyBiweekly": "Quinzenal",
+  "billsFrequencyWeekly": "Semanal",
+  "billsFrequencyAnnual": "Anual",
+  "billsCategoryLabel": "Categoria *",
+  "billsSaveButton": "Salvar Conta",
+  "expensesExportError": "Erro ao exportar despesas: {error}",
+  "@expensesExportError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "expensesMonthBudgetTooltip": "Orçamento do mês",
+  "expensesPurchasesReceiptsTooltip": "Compras e Notas Fiscais",
+  "expensesExportTooltip": "Exportar despesas",
+  "expensesExportCsv": "Exportar CSV",
+  "expensesExportPdf": "Exportar PDF",
+  "expensesDeleteConfirmTitle": "Excluir despesa?",
+  "expensesDeleteConfirmBody": "Tem certeza de que deseja excluir esta despesa?",
+  "expensesViewPurchaseTooltip": "Ver Compra / Nota",
+  "expensesViewBillTooltip": "Ver Conta",
+  "expensesEditBudget": "Editar Orçamento",
+  "expensesEditTitle": "Editar Despesa",
+  "expensesDeleteTooltip": "Excluir despesa",
+  "expensesAmountLabel": "Valor *",
+  "expensesNameDescriptionLabel": "Nome / Descrição",
+  "expensesNameDescriptionHint": "ex.: Supermercado, Aluguel, Farmácia",
+  "expensesNotesHint": "Detalhes adicionais...",
+  "expensesRepeatExpense": "Repetir despesa",
+  "expensesRepeatFrequency": "Frequência de repetição",
+  "expensesCustomDaysHint": "ex.: 4",
+  "expensesCustomDaysRequired": "Informe a quantidade de dias (entre 1 e 365)",
+  "expensesCustomDaysInvalid": "Informe um número de dias válido entre 1 e 365",
+  "budgetCategoryDialogTitle": "Orçamento para {category}",
+  "@budgetCategoryDialogTitle": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetCategoryLimitLabel": "Limite em R$ * (ex: 500,00)",
+  "budgetTotalDialogTitle": "Orçamento Total de {month}",
+  "@budgetTotalDialogTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "budgetBaseIncomeLabel": "Receita base recorrente *",
+  "budgetBaseIncomeHint": "ex: 3000,00",
+  "budgetIncomeRequired": "Informe ao menos uma receita",
+  "budgetExtraIncomeLabel": "Receitas adicionais avulsas no mês",
+  "budgetExtraIncomeHint": "ex: 500,00",
+  "budgetTotalSumLabel": "Soma total do orçamento:",
+  "budgetMonthTotalCardTitle": "Orçamento Total do Mês",
+  "budgetEditIncomeTooltip": "Editar receita e orçamento",
+  "budgetNoCategories": "Nenhuma categoria cadastrada.",
+  "commonAdd": "Adicionar",
+  "checklistGenerateShoppingList": "Gerar lista de compras",
+  "checklistNewItem": "Novo item",
+  "checklistLoadError": "Erro ao carregar checklist: {error}",
+  "@checklistLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistEmptyDescription": "Adicione itens ou selecione outro cômodo.",
+  "checklistProgressTitle": "Progresso da casa",
+  "checklistMarkedCount": "{marked} de {total} itens marcados",
+  "@checklistMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistCreateListCount": "Criar lista ({count})",
+  "@checklistCreateListCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistAddItemTitle": "Adicionar item ao checklist",
+  "checklistItemLabel": "Item *",
+  "checklistItemHint": "Ex: Toalha de rosto",
+  "checklistRoomLabel": "Cômodo / Categoria *",
+  "checklistRoomHint": "Ex: Banheiro",
+  "checklistEditItemTitle": "Editar item",
+  "checklistItemTitleLabel": "Título do item *",
+  "checklistDeleteItemTitle": "Excluir item?",
+  "checklistDeleteItemBody": "Deseja remover \"{title}\" do checklist?",
+  "@checklistDeleteItemBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistDefaultListNameCategory": "Lista da Casa - {category}",
+  "@checklistDefaultListNameCategory": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistDefaultListName": "Lista da Casa (Checklist)",
+  "checklistExportBody": "Criar uma lista de compras com os {count} itens pendentes do checklist.",
+  "@checklistExportBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListNameLabel": "Nome da lista *",
+  "checklistListCreated": "Lista \"{name}\" criada com {count} itens!",
+  "@checklistListCreated": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "checklistListCreateError": "Falha ao criar lista: {error}",
+  "@checklistListCreateError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "checklistGenerateListButton": "Gerar lista",
+  "checklistCardSemantics": "{title}, {percent}% concluído, toque para ver detalhes",
+  "@checklistCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeVisibleCardsCount": "Cards exibidos ({count})",
+  "@customizeVisibleCardsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "customizeReorderHint": "Arraste para reordenar ou utilize os botões acessíveis.",
+  "customizeNoVisibleCards": "Nenhum card visível no momento.",
+  "customizeAvailableModulesHint": "Módulos disponíveis para inclusão na sua tela inicial.",
+  "customizeAllCardsVisible": "Todos os cards já estão visíveis no painel.",
+  "customizeDragSemantics": "Arrastar {title} para reordenar",
+  "@customizeDragSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveUpSemantics": "Mover {title} para cima",
+  "@customizeMoveUpSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeMoveDownSemantics": "Mover {title} para baixo",
+  "@customizeMoveDownSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeHideSemantics": "Ocultar {title}",
+  "@customizeHideSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "customizeAddSemantics": "Adicionar {title} ao painel",
+  "@customizeAddSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsWidgetSemantics": "Widget de contas a vencer",
+  "dueBillsDefaultTitle": "Contas a vencer",
+  "dueBillsEmptyTitle": "Nenhuma conta a vencer",
+  "dueBillsEmptyDescription": "Todas as suas contas deste mês estão em dia.",
+  "dueBillsVariableAmount": "Variável",
+  "dueBillsItemSemanticsHidden": "{title}, {dueLabel}, valor oculto",
+  "@dueBillsItemSemanticsHidden": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsItemSemanticsVisible": "{title}, {dueLabel}, valor {amount}",
+  "@dueBillsItemSemanticsVisible": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "dueLabel": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsViewAll": "Ver todas as contas",
+  "economySetGoalTitle": "Definir Meta de Economia",
+  "economySetGoalFieldLabel": "Meta de Economia do Mês",
+  "economySaveGoalButton": "Salvar Meta",
+  "economyLoadError": "Erro ao carregar dados: {error}",
+  "@economyLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "economyMonthGoalTitle": "Meta do Mês ({month})",
+  "@economyMonthGoalTitle": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "economySetGoalFallback": "Definir meta de economia",
+  "economyCardSemantics": "{title}, {goalText}, toque para ver detalhes",
+  "@economyCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "goalText": {
+        "type": "String"
+      }
+    }
+  },
+  "searchGlobalScreenTitle": "Busca Global",
+  "searchGlobalLabel": "Buscar em todo o app",
+  "searchGlobalInputHint": "Digite produtos, despesas, tarefas...",
+  "searchGlobalEmptyTitle": "Busca no app",
+  "searchGlobalEmptyDescription": "Busque por produtos, despesas, tarefas, receitas e listas.",
+  "searchGlobalNoResultsTitle": "Nenhum resultado",
+  "searchGlobalNoResultsForQuery": "Não encontramos nada para \"{query}\". Tente outro termo.",
+  "@searchGlobalNoResultsForQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceLoadError": "Erro ao carregar saldo do mês: {error}",
+  "@monthBalanceLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceNotSet": "Não definido",
+  "monthBalanceSemanticsHidden": "Widget de saldo do mês, valor oculto",
+  "monthBalanceSemanticsVisible": "Widget de saldo do mês, gasto {actual} de {budget}",
+  "@monthBalanceSemanticsVisible": {
+    "placeholders": {
+      "actual": {
+        "type": "String"
+      },
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceDefaultTitle": "Saldo do mês",
+  "monthBalanceSpentLabel": "Gasto no mês",
+  "monthBalanceBudgetedLabel": "Orçado: {budget}",
+  "@monthBalanceBudgetedLabel": {
+    "placeholders": {
+      "budget": {
+        "type": "String"
+      }
+    }
+  },
+  "monthBalanceViewDetails": "Ver resumo financeiro",
+  "recipesCardSemantics": "{title}, {count} receitas favoritas, toque para ver detalhes",
+  "@recipesCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetSemantics": "Widget de listas de compras",
+  "shoppingWidgetEmptyTitle": "Nenhuma lista de compras",
+  "shoppingWidgetEmptyDescription": "Crie uma lista para acompanhar suas compras.",
+  "shoppingWidgetOnePending": "1 item pendente",
+  "shoppingWidgetPendingOfTotal": "{pending} de {total} itens pendentes",
+  "@shoppingWidgetPendingOfTotal": {
+    "placeholders": {
+      "pending": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingWidgetViewAll": "Ver todas as listas",
+  "stockCardSemantics": "{title}, toque para ver detalhes",
+  "@stockCardSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "stockCardEmpty": "Nenhum produto monitorado no estoque.",
+  "stockCardCount": "{count} produto(s) no estoque doméstico",
+  "@stockCardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockRegisterTitle": "Registrar no Estoque",
+  "stockProductNameLabel": "Nome do Produto *",
+  "stockProductNameHint": "Ex: Arroz Tipo 1",
+  "stockApproxQuantityLabel": "Quantidade aproximada *",
+  "stockApproxQuantityHint": "Ex: 4",
+  "stockAddProductButton": "Adicionar produto",
+  "stockLoadError": "Erro ao carregar estoque: {error}",
+  "@stockLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEmptyTitle": "Estoque vazio",
+  "stockEmptyDescription": "Nenhum produto registrado no estoque doméstico.",
+  "stockNoEstimate": "Sem estimativa de consumo (compras no histórico: {count}, mínimo: 3)",
+  "@stockNoEstimate": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockAvgInterval": "Intervalo médio de compra: {days} dias",
+  "@stockAvgInterval": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "stockEstimatedRemaining": "Estimativa restante: ~{days} dias",
+  "@stockEstimatedRemaining": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "todayTasksWidgetSemantics": "Widget de tarefas do dia",
+  "todayTasksDefaultTitle": "Tarefas de hoje",
+  "todayTasksEmptyTitle": "Nenhuma tarefa para hoje",
+  "todayTasksEmptyDescription": "Você não tem tarefas agendadas para hoje.",
+  "todayTasksDoneStatus": "concluída",
+  "todayTasksPendingStatus": "pendente",
+  "todayTasksAllDoneMessage": "Todas as tarefas de hoje foram concluídas! 🎉",
+  "todayTasksViewAll": "Ver todas as tarefas",
+  "commonAll": "Todos",
+  "economyNoGoalSet": "Nenhuma meta definida",
+  "economyChangeGoalButton": "Alterar Meta",
+  "economyGoalProgressTitle": "Progresso da Meta",
+  "economyContextualTipsTitle": "Dicas Contextuais",
+  "stockProductFallback": "Produto: {id}",
+  "@stockProductFallback": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "stockReportedQuantity": "Quantidade informada: {quantity} {unit}",
+  "@stockReportedQuantity": {
+    "placeholders": {
+      "quantity": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "dueBillsWidgetLoadError": "Erro ao carregar contas a vencer: {error}",
+  "@dueBillsWidgetLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "shoppingListCompletedCelebration": "Você completou a lista de compras! 💕",
+  "shoppingListRegisterPurchaseTitle": "Registrar compra",
+  "shoppingListManageLists": "Gerenciar listas",
+  "shoppingListClearPurchased": "Limpar comprados",
+  "shoppingListItemsMarkedCount": "{marked} de {total} itens marcados",
+  "@shoppingListItemsMarkedCount": {
+    "placeholders": {
+      "marked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingListEmptyDescription": "Adicione itens para não esquecer nada no mercado.",
+  "shoppingShortcutPurchases": "Compras",
+  "shoppingShortcutPrices": "Preços",
+  "shoppingShortcutStock": "Estoque",
+  "shoppingQuantitySemantics": "Quantidade",
+  "shoppingQuantityShortLabel": "Qtd",
+  "shoppingUnitSemantics": "Unidade de medida",
+  "shoppingUnitUnShort": "Un",
+  "shoppingErrorSaveChange": "Falha ao salvar alteração",
+  "shoppingErrorAddItem": "Falha ao adicionar item",
+  "shoppingErrorRemoveItem": "Falha ao remover item",
+  "shoppingErrorClearCompleted": "Falha ao limpar itens concluídos",
+  "shoppingTileRegisterSingle": "Registrar compra deste item",
+  "shoppingTileRemoveItem": "Remover item",
+  "shoppingSheetsMyListsTitle": "Minhas Listas de Compras",
+  "shoppingSheetsNewList": "Nova Lista",
+  "shoppingSheetsNoLists": "Nenhuma lista encontrada.",
+  "shoppingSheetsArchivedCount": "Arquivada • {count} itens",
+  "@shoppingSheetsArchivedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsItemsCount": "{count} itens",
+  "@shoppingSheetsItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingSheetsListOptions": "Opções da lista",
+  "shoppingSheetsDuplicate": "Duplicar",
+  "shoppingSheetsRename": "Renomear",
+  "shoppingSheetsDuplicateSuccess": "Lista duplicada com sucesso.",
+  "shoppingSheetsDuplicateError": "Falha ao duplicar lista.",
+  "shoppingSheetsRenameTitle": "Renomear Lista",
+  "shoppingSheetsListNameLabel": "Nome da lista *",
+  "shoppingSheetsArchivedSuccess": "Lista arquivada com sucesso.",
+  "shoppingSheetsUnarchivedSuccess": "Lista desarquivada com sucesso.",
+  "shoppingSheetsCreateTitle": "Nova Lista de Compras",
+  "shoppingSheetsCreateHint": "ex.: Feira, Farmácia, Churrasco",
+  "shoppingSheetsCreateButton": "Criar",
+  "taskPresetsAreaSemantics": "área {area}",
+  "@taskPresetsAreaSemantics": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "calendarTabDay": "Dia",
+  "calendarTabWeek": "Semana",
+  "calendarTabMonth": "Mês",
+  "calendarMaintenanceSuggestions": "Sugestões de manutenção",
+  "calendarSyncGoogle": "Sincronizar com Google",
+  "calendarSyncStarting": "Iniciando sincronização...",
+  "calendarSyncDone": "Sincronização concluída!",
+  "calendarTodayTooltip": "Hoje",
+  "calendarShowingToday": "Exibindo hoje",
+  "calendarNewTask": "Nova tarefa",
+  "calendarEditTaskTitle": "Editar Tarefa",
+  "calendarTaskTitleLabel": "Título *",
+  "calendarDayBillsCount": "{count} conta(s)",
+  "@calendarDayBillsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillsDueToday": "Contas a vencer hoje ({count}):",
+  "@calendarBillsDueToday": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "calendarBillPaidStatus": "(Paga)",
+  "calendarBillPendingStatus": "(Pendente)",
+  "calendarDeleteTaskTitle": "Excluir tarefa?",
+  "calendarDeleteTaskConfirm": "Tem certeza de que deseja excluir \"{title}\"?",
+  "@calendarDeleteTaskConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "commonEdit": "Editar",
+  "taskAllDayLabel": "Dia inteiro",
+  "taskRepeatLabel": "Repetição",
+  "taskRepeatNone": "Sem repetição",
+  "calendarEditTaskAction": "Editar tarefa",
+  "calendarDeleteTaskAction": "Excluir tarefa",
+  "priceSearchProductLabel": "Pesquisar produto",
+  "priceSearchProductHint": "Digite para buscar um produto...",
+  "priceClearSearchTooltip": "Limpar busca",
+  "purchaseSaveTooltip": "Salvar compra",
+  "purchaseNewProductTooltip": "Novo produto",
+  "purchaseRemoveItemTooltip": "Remover item",
+  "purchasesHistoryTitle": "Compras e Notas Fiscais",
+  "purchasesPriceHistoryTooltip": "Histórico de Preços",
+  "purchasesLoadError": "Erro ao carregar compras: {error}",
+  "@purchasesLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "purchasesEmptyTitle": "Nenhuma compra registrada",
+  "purchasesRegisterButton": "Registrar Compra",
+  "purchasesDeleteTooltip": "Excluir compra",
+  "purchasesNewTooltip": "Nova Compra",
+  "purchasesDeleteDialogTitle": "Excluir compra?",
+  "purchasesDeleteDialogBody": "Esta compra e seus pontos de preço serão excluídos.",
+  "purchasesDeleteSuccess": "Compra excluída com sucesso",
+  "purchasesDeleteError": "Erro ao excluir compra",
+  "purchasesTotalLabel": "Total",
+  "purchasesDiscountLabel": "Desconto",
+  "purchasesItemsCount": "Itens ({count})",
+  "@purchasesItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "purchasesNoDetailedItems": "Nenhum item detalhado nesta compra.",
+  "purchasesProductFallback": "Produto",
+  "purchasesItemPriceHistoryTooltip": "Histórico de preço",
+  "priceChartSemantics": "{price} em {store} no {date}",
+  "@priceChartSemantics": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      },
+      "store": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "productTrackPricesTooltip": "Acompanhar preços",
+  "productMergeTooltip": "Unir com outro produto",
+  "productTrackPriceHistoryButton": "Acompanhar histórico de preços",
+  "productPreferredNameSet": "\"{alias}\" definido como nome padrão de exibição.",
+  "@productPreferredNameSet": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasDescription": "Você pode separar \"{alias}\" como um produto independente (com seu próprio histórico de preços) ou apenas remover o apelido.",
+  "@productSeparateAliasDescription": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "productSeparateAliasAction": "Separar como outro produto",
+  "productNoMergeCandidates": "Nenhum outro produto disponível para união.",
+  "productMergeSearchLabel": "Buscar produto destino",
+  "productMergeNoneFound": "Nenhum produto encontrado.",
+  "productMergeConfirmTitle": "Confirmar união",
+  "productMergeConfirmBody": "Deseja unir \"{source}\" com \"{target}\"?\n\nTodas as compras, itens, preços e sinônimos serão transferidos para \"{target}\" e este produto será arquivado.",
+  "@productMergeConfirmBody": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productMergeConfirmButton": "Unir produtos",
+  "productMergeSuccess": "Produto unido com \"{target}\".",
+  "@productMergeSuccess": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "productNewDialogTitle": "Novo Produto",
+  "productCanonicalNameRequiredLabel": "Nome Canônico *",
+  "productCanonicalNameError": "Informe o nome",
+  "productDefaultUnitRequiredLabel": "Unidade Padrão *",
+  "productAliasesLabel": "Apelidos / Sinônimos",
+  "productAliasesHint": "Separados por vírgula (opcional)",
+  "productCreateError": "Erro ao criar produto",
+  "recipeListServiceUnavailable": "Serviço de listas não disponível",
+  "recipeNoActiveShoppingLists": "Nenhuma lista de compras ativa encontrada.",
+  "recipeSelectShoppingListTitle": "Selecione a lista de compras",
+  "recipeIngredientsSentSuccess": "Ingredientes enviados para a lista de compras!",
+  "recipeIngredientsSentError": "Falha ao enviar ingredientes: {error}",
+  "@recipeIngredientsSentError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeDecreaseServingsTooltip": "Diminuir porções",
+  "recipeIncreaseServingsTooltip": "Aumentar porções",
+  "recipeSendIngredientsButton": "Enviar ingredientes para lista de compras",
+  "recipeDraftTitleRequiredError": "O título é obrigatório.",
+  "recipeDraftIngredientsRequiredError": "Adicione pelo menos um ingrediente.",
+  "recipeDraftSaveError": "Falha ao salvar receita: {error}",
+  "@recipeDraftSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "recipePasteTitle": "Colar receita",
+  "recipePasteHint": "Cole a receita aqui (título, ingredientes, modo de preparo)...",
+  "recipeImportButton": "Importar",
+  "recipeIngredientNameLabel": "Nome do ingrediente",
+  "recipeIngredientNameHint": "Ex: 2 xícaras de farinha",
+  "recipeTagNameLabel": "Nome da tag",
+  "recipeTagNameHint": "Ex: Sobremesa, Rápido, Vegano",
+  "recipeSaveTooltip": "Salvar receita",
+  "recipeRemoveIngredientSemantics": "Remover ingrediente {name}",
+  "@recipeRemoveIngredientSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeRemoveIngredientTooltip": "Remover ingrediente",
+  "recipeAddPhotoButton": "Adicionar foto",
+  "recipePhotoAttached": "Foto anexada à receita.",
+  "recipeSpinDecrease": "Diminuir {label}",
+  "@recipeSpinDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeSpinIncrease": "Aumentar {label}",
+  "@recipeSpinIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeListTimeAndServings": "{minutes} min • {servings} porções",
+  "@recipeListTimeAndServings": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      },
+      "servings": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeUnfavoriteTooltip": "Desmarcar favorito",
+  "recipeFavoriteTooltip": "Marcar como favorito",
+  "recipeRepoUnavailable": "Repositório de receitas não disponível",
+  "recipeNotFound": "Receita não encontrada",
+  "recipeNoInstructions": "Sem instruções cadastradas.",
+  "ocrScanReceiptTitle": "Escanear nota fiscal",
+  "ocrDisableFlashTooltip": "Desativar flash",
+  "ocrEnableFlashTooltip": "Ativar flash",
+  "ocrBenchmarkTooltip": "Benchmark de Precisão OCR",
+  "ocrGalleryTooltip": "Escolher foto da galeria",
+  "ocrGalleryLabel": "Galeria",
+  "ocrTakePhotoSemantics": "Tirar foto da nota fiscal",
+  "ocrManualEntryTooltip": "Lançar manualmente",
+  "ocrReceiptSavedSuccess": "Nota Fiscal salva com sucesso!",
+  "ocrReceiptSaveError": "Erro ao salvar nota: {error}",
+  "@ocrReceiptSaveError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrRecognizeError": "Falha ao reconhecer nota fiscal.",
+  "ocrTotalDivergenceTitle": "Divergência no total",
+  "ocrTotalDivergenceBody": "A soma dos itens selecionados ({itemsSum}) difere do total lido ({total}).\n\nDivergência de {divergence}. Deseja salvar assim mesmo?",
+  "@ocrTotalDivergenceBody": {
+    "placeholders": {
+      "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "divergence": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrWriteOffTitle": "Baixar itens da lista de compras",
+  "ocrWriteOffSingleConfirm": "Deseja dar baixa nos itens desta compra na lista de compras \"{listName}\"?",
+  "@ocrWriteOffSingleConfirm": {
+    "placeholders": {
+      "listName": {
+        "type": "String"
+      }
+    }
+  },
+  "commonNo": "Não",
+  "ocrWriteOffYes": "Sim, dar baixa",
+  "ocrWriteOffSelectPrompt": "Selecione a lista de compras para dar baixa nos itens comprados:",
+  "ocrSaveWithoutWriteOff": "Salvar sem baixa",
+  "ocrWriteOffButton": "Dar baixa",
+  "ocrCouponItemsHeader": "Itens do cupom ({selected}/{total})",
+  "@ocrCouponItemsHeader": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrAddItemButton": "Adicionar item",
+  "ocrNoItemsPlaceholder": "Nenhum item. Toque em Adicionar item.",
+  "ocrCloudConsentBody": "A leitura no aparelho teve baixa precisão. Como você permitiu o OCR na nuvem nas configurações, deseja tentar melhorar a leitura enviando esta nota para o serviço em nuvem nesta operação?",
+  "ocrRetakePhotoButton": "Tirar outra foto",
+  "ocrContinueWithoutCloud": "Continuar sem nuvem",
+  "ocrUseCloudOcr": "Usar OCR na nuvem",
+  "ocrLowPrecisionTitle": "Leitura com baixa precisão",
+  "ocrLowPrecisionBody": "A leitura da nota fiscal no aparelho teve baixa precisão. Recomendamos tirar uma nova foto com melhor iluminação e enquadramento.",
+  "ocrContinueWithData": "Continuar com estes dados",
+  "ocrFramingGuideSemantics": "Guia de enquadramento de nota fiscal. {instruction}",
+  "@ocrFramingGuideSemantics": {
+    "placeholders": {
+      "instruction": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrFramingDefaultInstruction": "Posicione a nota fiscal na vertical dentro do guia",
+  "ocrTotalFailureTitle": "Não foi possível ler a nota",
+  "ocrAttachedPhoto": "Foto anexada: {path}",
+  "@ocrAttachedPhoto": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrQualityContinueAnyway": "Continuar mesmo assim",
+  "ocrQualityBlur": "Imagem desfocada. Tente segurar a câmera com firmeza.",
+  "ocrQualityTooDark": "Iluminação muito baixa. Ligue o flash ou ilumine a nota.",
+  "ocrQualityTooBright": "Excesso de iluminação ou reflexo brilhante na imagem.",
+  "ocrQualityBadFraming": "Enquadramento ruim ou foto muito pequena.",
+  "ocrQualityInvalidImage": "Não foi possível decodificar os dados da imagem.",
+  "ocrStoreUnknown": "Estabelecimento não identificado",
+  "ocrEditStoreTooltip": "Editar estabelecimento",
+  "ocrCnpjLabel": "CNPJ: {cnpj}",
+  "@ocrCnpjLabel": {
+    "placeholders": {
+      "cnpj": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNotInformed": "Não informado",
+  "ocrCnpjUnconfirmed": "CNPJ não confirmado",
+  "ocrTotalDivergenceCardTitle": "Divergência no valor total",
+  "ocrTotalDivergenceCardBody": "Divergência de {absDiv}. O sistema não ajusta automaticamente.\nSoma dos itens: {itemsSum} | Total lido: {total}",
+  "@ocrTotalDivergenceCardBody": {
+    "placeholders": {
+      "absDiv": {
+        "type": "String"
+      },
+      "itemsSum": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrLowConfidenceBanner": "Há {count} item(ns) com baixa confiança lidos do cupom. Verifique e marque os corretos.",
+  "@ocrLowConfidenceBanner": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrReceiptTotalsTitle": "Totais da Nota",
+  "ocrEditTotalsTooltip": "Editar totais",
+  "ocrSubtotalLabel": "Subtotal:",
+  "ocrDiscountLabel": "Desconto:",
+  "ocrOriginExactAlias": "exato (apelido)",
+  "ocrOriginSeed": "semente",
+  "ocrOriginFuzzy": "aproximado ({percent}%)",
+  "@ocrOriginFuzzy": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "ocrOriginUnknown": "não identificado",
+  "ocrItemSelectedStatus": "selecionado",
+  "ocrItemUnselectedStatus": "desmarcado",
+  "ocrItemLowConfidenceHint": ", baixa confiança, confira este item",
+  "ocrItemDetectedAs": "detectado como {raw}",
+  "@ocrItemDetectedAs": {
+    "placeholders": {
+      "raw": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemUncheckHint": "Desmarcar {title}",
+  "@ocrItemUncheckHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrItemLinkOrigin": "Vínculo: {origin}",
+  "@ocrItemLinkOrigin": {
+    "placeholders": {
+      "origin": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrEditItemTooltip": "Editar item",
+  "ocrDeleteItemTooltip": "Apagar item",
+  "ocrEditHeaderTitle": "Editar cabeçalho",
+  "ocrStoreRequiredLabel": "Estabelecimento *",
+  "ocrStoreHint": "Nome do supermercado ou loja",
+  "ocrStoreError": "Informe o nome do estabelecimento",
+  "ocrCnpjOptionalLabel": "CNPJ (opcional)",
+  "ocrDateTimeRequiredLabel": "Data/Hora (dd/MM/yyyy HH:mm) *",
+  "ocrDateTimeRequiredError": "Informe a data da compra",
+  "ocrDateTimeInvalidError": "Formato inválido (ex: 21/09/2026 14:30)",
+  "ocrNfceKeyOptionalLabel": "Chave da NFC-e (opcional)",
+  "ocrNfceKeyHint": "44 dígitos da nota fiscal",
+  "ocrSubtotalInputLabel": "Subtotal (R$)",
+  "ocrDiscountInputLabel": "Desconto (R$)",
+  "ocrReadTotalInputLabel": "Total lido (R$)",
+  "ocrRegisterNewProductTitle": "Cadastrar novo produto",
+  "ocrCanonicalNameRequiredLabel": "Nome canônico *",
+  "ocrCanonicalNameHint": "Ex: Leite Integral 1L",
+  "ocrCanonicalNameRequiredError": "Informe o nome canônico",
+  "ocrCategoryRequiredLabel": "Categoria *",
+  "ocrCategoryHint": "Ex: Alimentos, Limpeza, etc.",
+  "ocrCategoryRequiredError": "Informe a categoria",
+  "ocrDefaultUnitRequiredLabel": "Unidade padrão *",
+  "ocrAliasesOptionalLabel": "Sinônimos / Apelidos (opcional)",
+  "ocrAliasesHint": "Separados por vírgula",
+  "ocrLinkProductTitle": "Vincular produto",
+  "ocrProductNameSearchLabel": "Nome do produto",
+  "ocrProductNameSearchHint": "Digite o nome do produto",
+  "ocrRegisterNamedAsNew": "Cadastrar \"{name}\" como novo produto",
+  "@ocrRegisterNamedAsNew": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrSuggestedProductsLabel": "Produtos sugeridos:",
+  "ocrProductMetaRow": "Categoria: {category} | Unidade: {unit}",
+  "@ocrProductMetaRow": {
+    "placeholders": {
+      "category": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "ocrNoExistingProductFound": "Nenhum produto existente encontrado com esse nome.",
+  "ocrNoneLinked": "Nenhum",
+  "ocrItemDescriptionLabel": "Descrição lida / Nome *",
+  "ocrItemDescriptionError": "Informe o nome ou descrição",
+  "ocrQuantityRequiredLabel": "Quantidade *",
+  "ocrQuantityRequiredError": "Informe a qtd",
+  "ocrQuantityInvalidError": "Qtd inválida",
+  "ocrUnitRequiredLabel": "Unidade *",
+  "ocrUnitPriceRequiredLabel": "Preço unitário (R$) *",
+  "ocrTotalPriceRequiredLabel": "Preço total (R$) *",
+  "ocrIncludeItemInPurchase": "Incluir item na compra",
+  "ocrLinkedProductLabel": "Produto vinculado:",
+  "ocrChangeOrLinkButton": "Trocar / Vincular",
+  "ocrRegisterProductButton": "Cadastrar produto",
+  "ocrUnlinkTooltip": "Remover vínculo",
+  "ocrUnnamedItemFallback": "Item sem nome",
+  "ocrTotalReadColonLabel": "Total lido do cupom:",
+  "ocrSelectedItemsSumColonLabel": "Soma dos itens selecionados:",
+  "ocrItemSelectHint": "Selecionar {title}",
+  "@ocrItemSelectHint": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncFailure": "Falha na sincronização: {error}",
+  "@householdSyncFailure": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncAppliedSuffix": " ({count} alterações aplicadas).",
+  "@householdSyncAppliedSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncSentSuffix": " ({count} alterações enviadas).",
+  "@householdSyncSentSuffix": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncCompleted": "Sincronização concluída: {sent} alterações enviadas, {applied} aplicadas.",
+  "@householdSyncCompleted": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdCloudSyncNoChanges": "Sincronização em nuvem concluída. Nenhuma alteração pendente.",
+  "householdSyncUnexpectedError": "Erro inesperado na sincronização: {error}",
+  "@householdSyncUnexpectedError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHowSyncWorksTooltip": "Como funciona a sincronização",
+  "householdImportBundleButton": "Importar pacote",
+  "householdCloudSyncTitle": "Permitir sincronização remota da casa (nuvem)",
+  "householdCloudSyncSubtitle": "Sincronizar fora do Wi-Fi doméstico com criptografia de ponta a ponta",
+  "householdCalendarLocalTitle": "Sincronizar agenda neste aparelho",
+  "householdCalendarLocalSubtitle": "Evita duplicação sincronizando tarefas do Google Calendar só aqui",
+  "householdMembersLoadError": "Erro ao carregar membros: {error}",
+  "@householdMembersLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdThisDevice": "Este aparelho",
+  "householdLastSeen": "Visto por último: {time}",
+  "@householdLastSeen": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "householdNeverSynced": "Nunca sincronizou",
+  "householdRemoveMemberTooltip": "Remover membro",
+  "householdDefaultDeviceName": "Meu celular",
+  "householdJoinDialogTitle": "Entrar em uma casa",
+  "householdScanQrButton": "Ler QR Code com a câmera",
+  "householdInviteCodeLabel": "Código ou link de convite",
+  "householdInviteCodeHint": "Cole o link mshsync:// ou escaneie o QR Code",
+  "householdPasteCodeTooltip": "Colar código",
+  "householdDeviceNameLabel": "Nome deste aparelho",
+  "householdInvalidInviteError": "Código de convite inválido. Verifique o link ou QR Code.",
+  "householdHostDeviceFallback": "Aparelho Anfitrião",
+  "householdInviteGenerateError": "Não foi possível gerar o convite de pareamento.",
+  "householdInviteDialogTitle": "Convidar dispositivo",
+  "householdInviteDialogPrompt": "Escaneie este QR Code no outro aparelho ou envie o link abaixo:",
+  "householdCopyLinkButton": "Copiar link",
+  "householdInviteLinkCopied": "Link de convite copiado!",
+  "householdSasCodeLabel": "Código de autenticação SAS (6 dígitos):",
+  "householdRemoveMemberDialogTitle": "Remover \"{name}\"?",
+  "@householdRemoveMemberDialogTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdRemoveMemberDialogBody": "Ao remover o aparelho, a chave da casa será rotacionada e ele não poderá mais sincronizar novos dados.",
+  "householdDefaultHouseName": "Minha Casa",
+  "householdDefaultDeviceNameAlt": "Meu Aparelho",
+  "householdEmptyHouseNameError": "O nome da casa não pode ser vazio.",
+  "householdEmptyDeviceNameError": "O nome do aparelho não pode ser vazio.",
+  "householdUnexpectedErrorWithDetail": "Erro inesperado: {error}",
+  "@householdUnexpectedErrorWithDetail": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdHouseNameLabel": "Nome da casa",
+  "householdCreatingProgress": "Criando casa e preparando dados...",
+  "householdCreateShortButton": "Criar",
+  "householdErrorUnknown": "Erro desconhecido.",
+  "householdErrorStorageDetail": "Não foi possível salvar ou carregar os dados. Tente novamente.",
+  "householdErrorStorageAccess": "Não foi possível acessar o armazenamento.",
+  "householdErrorNoInternet": "Sem conexão com a internet.",
+  "householdErrorNetwork": "Falha de comunicação na rede.",
+  "householdErrorPermissionRequired": "Permissão necessária: {permission}.",
+  "@householdErrorPermissionRequired": {
+    "placeholders": {
+      "permission": {
+        "type": "String"
+      }
+    }
+  },
+  "householdErrorCancelled": "Operação cancelada.",
+  "householdErrorGeneric": "Ocorreu um erro inesperado.",
+  "householdTutorialWelcomeTitle": "Bem-vindo à Casa Compartilhada!",
+  "householdTutorialWelcomeBody": "Aqui você divide listas de compras, tarefas, estoque, receitas e finanças com quem mora com você, sem criar conta em servidor e com criptografia de ponta a ponta.",
+  "householdTutorialPairingTitle": "Pareamento seguro com QR Code e 6 dígitos",
+  "householdTutorialPairingBody": "O novo aparelho lê o QR Code pela câmera (ou usa o link de convite) e ambos confirmam o mesmo código de autenticação de 6 dígitos.",
+  "householdTutorialWifiTitle": "Sincronização no Wi-Fi e por Pacotes",
+  "householdTutorialWifiBody": "Quando os aparelhos estão no mesmo Wi-Fi com o app aberto, as mudanças sincronizam direto na rede local. Você também pode tocar em \"Gerar pacote\" para enviar atualizações por qualquer app de mensagens.",
+  "householdTutorialCloudTitle": "Sincronização fora de casa (Nuvem)",
+  "householdTutorialCloudBody": "Quando vocês não estão no mesmo Wi-Fi (ex.: alguém no mercado), o app pode usar uma caixa postal criptografada na sua nuvem para entregar as mudanças com segurança.",
+  "householdTutorialCloseTooltip": "Fechar tutorial",
+  "householdTutorialRemoteQuestion": "Deseja habilitar a sincronização remota agora?",
+  "householdTutorialRemoteYesTitle": "Sim, habilitar sincronização remota",
+  "householdTutorialRemoteYesSubtitle": "Sincroniza fora do Wi-Fi com criptografia de ponta a ponta",
+  "householdTutorialRemoteNoTitle": "Não, usar apenas Wi-Fi local e pacotes",
+  "householdTutorialRemoteNoSubtitle": "Você poderá ativar depois dentro da tela da Casa Compartilhada",
+  "householdTutorialPrevious": "Anterior",
+  "householdTutorialFinish": "Concluir",
+  "householdTutorialNext": "Próximo",
+  "householdJoinPreviewError": "Falha ao carregar prévia: {error}",
+  "@householdJoinPreviewError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewMergeInfo": "Ao entrar na casa, seus dados locais serão unidos com os da casa. Nenhum dado seu será apagado ou duplicado.",
+  "householdJoinPreviewSasLabel": "Código de autenticação (6 dígitos):",
+  "householdJoinPreviewSasHint": "Confira se este código é idêntico ao exibido no outro aparelho.",
+  "householdJoinPreviewFinanceLabel": "Finanças (despesas, contas):",
+  "householdJoinPreviewProductsLabel": "Catálogo de produtos:",
+  "householdJoinPreviewBackupNotice": "Um backup automático de segurança será gerado antes da adesão.",
+  "householdJoinPreviewDeviceNameLabel": "Nome deste aparelho na casa",
+  "householdJoinPreviewDeviceNameHint": "Ex.: Celular do Alex",
+  "householdJoinPreviewJoining": "Entrando...",
+  "householdJoinPreviewJoinButton": "Entrar na casa",
+  "householdLeaveDeleteConfirmTitle": "Confirmar exclusão dos dados",
+  "householdLeaveDeleteIrreversible": "Esta ação não pode ser desfeita.",
+  "householdLeaveDeleteAndExit": "Apagar e sair",
+  "householdLeaveDialogTitle": "Sair da casa compartilhada",
+  "householdLeaveDialogBody": "Ao sair da casa, este aparelho não receberá nem enviará mais atualizações de sincronização.",
+  "householdLeaveKeepLocalTitle": "Manter uma cópia local (recomendado)",
+  "householdLeaveKeepLocalSubtitle": "Você continua com todas as despesas e tarefas criadas até agora.",
+  "householdQrCloseTooltip": "Fechar câmera",
+  "householdQrScanPrompt": "Aponte a câmera para o QR Code exibido no outro aparelho.",
+  "householdQrCameraUnavailable": "Câmera indisponível neste dispositivo/emulador.\nUse a opção de colar o link de convite.",
+  "householdQrManualEntry": "Digitar ou colar código manualmente",
+  "householdBundleAlreadyApplied": "Este pacote já foi aplicado",
+  "householdBundleAppliedSuccess": "Pacote aplicado com sucesso!",
+  "householdBundleImportTitle": "Importar pacote .mshsync",
+  "householdBundleContentLabel": "Conteúdo ou caminho do pacote",
+  "householdBundleContentHint": "Cole os dados do arquivo .mshsync",
+  "householdBundleImportAction": "Importar",
+  "householdBundleShareTitle": "Pacote de sincronização",
+  "householdBundleShareDescription": "Gere um arquivo criptografado com as alterações deste aparelho para enviar por WhatsApp, Telegram ou e-mail.",
+  "householdBundleShareAction": "Compartilhar",
+  "householdBundleGeneratedSuccess": "Pacote gerado com sucesso! ({bytes} bytes)",
+  "@householdBundleGeneratedSuccess": {
+    "placeholders": {
+      "bytes": {
+        "type": "int"
+      }
+    }
+  },
+  "householdQrScanTitle": "Ler QR Code da casa",
+  "householdLeaveDeleteConfirmBody": "Tem certeza de que deseja apagar todos os dados compartilhados da casa neste aparelho?\n\nEsta ação não pode ser desfeita.",
+  "householdLeaveWipeSubtitle": "Remove as despesas, contas e tarefas compartilhadas deste aparelho.",
+  "householdTutorialStepOf": "Passo {current} de {total}",
+  "@householdTutorialStepOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "householdJoinPreviewEmptyDeviceError": "Informe o nome do aparelho",
+  "householdJoinPreviewTitle": "Entrar em \"{name}\"",
+  "@householdJoinPreviewTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "householdJoinPreviewLocalRecordsTitle": "Registros locais a unir:",
+  "householdJoinPreviewHomeLabel": "Casa (listas, tarefas, receitas):",
+  "householdSyncBothSuffix": " ({sent} enviadas, {applied} aplicadas).",
+  "@householdSyncBothSuffix": {
+    "placeholders": {
+      "sent": {
+        "type": "int"
+      },
+      "applied": {
+        "type": "int"
+      }
+    }
+  },
+  "householdSyncPeersCompleted": "Sincronizado com {peers} aparelho(s){summary}",
+  "@householdSyncPeersCompleted": {
+    "placeholders": {
+      "peers": {
+        "type": "int"
+      },
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "householdSyncNoPeersFound": "Nenhum outro aparelho encontrado na rede local no momento.",
+  "householdLoadError": "Erro ao carregar dados da casa: {error}",
+  "@householdLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  }
 }

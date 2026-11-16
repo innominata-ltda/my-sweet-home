@@ -79,4 +79,34 @@ abstract interface class SettingsRepository {
 
   /// Sets whether household shared tutorial has been completed.
   Future<void> setHouseholdTutorialCompleted(bool value);
+
+  /// Returns the preferred app locale ID (`'system'` or a registered locale ID).
+  ///
+  /// Default: `'system'`.
+  Future<String> getAppLocale();
+
+  /// Persists the preferred app locale ID (`'system'` or a registered locale ID).
+  Future<void> setAppLocale(String localeId);
+
+  /// Returns the preferred receipt OCR format ID (`'auto'` or a registered format ID).
+  ///
+  /// Default: `'auto'`.
+  Future<String> getReceiptFormat();
+
+  /// Persists the preferred receipt OCR format ID (`'auto'` or a registered format ID).
+  Future<void> setReceiptFormat(String formatId);
+
+  /// Returns `true` if Fibonacci retention reminders are enabled.
+  ///
+  /// Default: `true`.
+  Future<bool> isRetentionNotificationsEnabled();
+
+  /// Persists whether Fibonacci retention reminders are enabled.
+  Future<void> setRetentionNotificationsEnabled(bool value);
+
+  /// Returns the last recorded timestamp when the app was opened or resumed.
+  Future<DateTime?> getLastAppOpenTimestamp();
+
+  /// Persists the timestamp when the app was opened or resumed.
+  Future<void> setLastAppOpenTimestamp(DateTime timestamp);
 }

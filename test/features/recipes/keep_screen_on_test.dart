@@ -34,6 +34,7 @@ void main() {
         ProviderScope(
           overrides: [keepScreenOnProvider.overrideWithValue(fakeKeepScreenOn)],
           child: const MaterialApp(
+            locale: const Locale('pt'),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             home: RecipePreparationScreen(recipeId: '123'),

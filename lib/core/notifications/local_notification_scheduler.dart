@@ -140,6 +140,41 @@ class LocalNotificationScheduler implements NotificationSchedulerPort {
   }
 
   @override
+  Future<PermissionState> requestPermission() async {
+    try {
+      final platform = _plugin
+          .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin
+          >();
+      if (platform != null) {
+        final granted = await platform.requestNotificationsPermission();
+        return granted == true
+            ? PermissionState.granted
+            : PermissionState.denied;
+      }
+
+      final iosPlatform = _plugin
+          .resolvePlatformSpecificImplementation<
+            IOSFlutterLocalNotificationsPlugin
+          >();
+      if (iosPlatform != null) {
+        final granted = await iosPlatform.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+        return granted == true
+            ? PermissionState.granted
+            : PermissionState.denied;
+      }
+
+      return PermissionState.denied;
+    } catch (_) {
+      return PermissionState.denied;
+    }
+  }
+
+  @override
   Future<Result<void, Failure>> rescheduleAllAfterBoot() async {
     for (final rescheduler in reschedulers) {
       final result = await rescheduler();

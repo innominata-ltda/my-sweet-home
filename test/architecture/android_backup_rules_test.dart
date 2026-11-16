@@ -52,24 +52,35 @@ void main() {
       expect(content.contains('<cloud-backup>'), isTrue);
       expect(content.contains('<device-transfer>'), isTrue);
 
-      // Garante que exclui raiz em cloud-backup e device-transfer
-      final cloudBackupMatch = RegExp(
-        r'<cloud-backup>[\s\S]*?<exclude\s+path="\."\s*\/>[\s\S]*?<\/cloud-backup>',
-      );
-      expect(
-        cloudBackupMatch.hasMatch(content),
-        isTrue,
-        reason: 'cloud-backup deve conter <exclude path="." />',
-      );
+      // Ensure root path is excluded with explicit domain attributes in cloud-backup and device-transfer
+      const requiredDomains = [
+        'root',
+        'file',
+        'database',
+        'sharedpref',
+        'external',
+      ];
+      for (final domain in requiredDomains) {
+        final cloudBackupMatch = RegExp(
+          '<cloud-backup>[\\s\\S]*?<exclude\\s+domain="$domain"\\s+path="\\."\\s*\\/>[\\s\\S]*?<\\/cloud-backup>',
+        );
+        expect(
+          cloudBackupMatch.hasMatch(content),
+          isTrue,
+          reason:
+              'cloud-backup must contain <exclude domain="$domain" path="." /> (RN-413)',
+        );
 
-      final deviceTransferMatch = RegExp(
-        r'<device-transfer>[\s\S]*?<exclude\s+path="\."\s*\/>[\s\S]*?<\/device-transfer>',
-      );
-      expect(
-        deviceTransferMatch.hasMatch(content),
-        isTrue,
-        reason: 'device-transfer deve conter <exclude path="." />',
-      );
+        final deviceTransferMatch = RegExp(
+          '<device-transfer>[\\s\\S]*?<exclude\\s+domain="$domain"\\s+path="\\."\\s*\\/>[\\s\\S]*?<\\/device-transfer>',
+        );
+        expect(
+          deviceTransferMatch.hasMatch(content),
+          isTrue,
+          reason:
+              'device-transfer must contain <exclude domain="$domain" path="." /> (RN-413)',
+        );
+      }
     });
   });
 }

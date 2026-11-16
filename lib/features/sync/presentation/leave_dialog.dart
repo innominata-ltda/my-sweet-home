@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
 
@@ -21,23 +22,21 @@ class _LeaveHouseholdDialogState extends State<LeaveHouseholdDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     if (_secondConfirm) {
       return AlertDialog(
-        title: const Text('Confirmar exclusão dos dados'),
-        content: const Text(
-          'Tem certeza de que deseja apagar todos os dados compartilhados da casa neste aparelho?\n\n'
-          'Esta ação não pode ser desfeita.',
-        ),
+        title: Text(l10n.householdLeaveDeleteConfirmTitle),
+        content: Text(l10n.householdLeaveDeleteConfirmBody),
         actions: [
           TextButton(
             onPressed: _isLoading
                 ? null
                 : () => setState(() => _secondConfirm = false),
-            child: const Text('Voltar'),
+            child: Text(l10n.commonBack),
           ),
           AppButton.danger(
             key: const Key('confirm_wipe_leave_button'),
-            label: 'Apagar e sair',
+            label: l10n.householdLeaveDeleteAndExit,
             isLoading: _isLoading,
             onPressed: () async {
               setState(() => _isLoading = true);
@@ -50,31 +49,25 @@ class _LeaveHouseholdDialogState extends State<LeaveHouseholdDialog> {
     }
 
     return AlertDialog(
-      title: const Text('Sair da casa compartilhada'),
+      title: Text(l10n.householdLeaveDialogTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Ao sair da casa, este aparelho não receberá nem enviará mais atualizações de sincronização.',
-          ),
+          Text(l10n.householdLeaveDialogBody),
           const SizedBox(height: Spacing.md),
           RadioListTile<bool>(
             key: const Key('leave_keep_copy_radio'),
-            title: const Text('Manter uma cópia local (recomendado)'),
-            subtitle: const Text(
-              'Você continua com todas as despesas e tarefas criadas até agora.',
-            ),
+            title: Text(l10n.householdLeaveKeepLocalTitle),
+            subtitle: Text(l10n.householdLeaveKeepLocalSubtitle),
             value: true,
             groupValue: _keepCopy,
             onChanged: (val) => setState(() => _keepCopy = val ?? true),
           ),
           RadioListTile<bool>(
             key: const Key('leave_wipe_radio'),
-            title: const Text('Apagar dados compartilhados'),
-            subtitle: const Text(
-              'Remove as despesas, contas e tarefas compartilhadas deste aparelho.',
-            ),
+            title: Text(l10n.householdLeaveWipeData),
+            subtitle: Text(l10n.householdLeaveWipeSubtitle),
             value: false,
             groupValue: _keepCopy,
             onChanged: (val) => setState(() => _keepCopy = val ?? false),
@@ -84,7 +77,7 @@ class _LeaveHouseholdDialogState extends State<LeaveHouseholdDialog> {
       actions: [
         TextButton(
           onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
-          child: const Text('Cancelar'),
+          child: Text(l10n.commonCancel),
         ),
         FilledButton(
           key: const Key('confirm_leave_button'),
@@ -99,7 +92,7 @@ class _LeaveHouseholdDialogState extends State<LeaveHouseholdDialog> {
                   await widget.onConfirm(keepCopy: true);
                   if (context.mounted) Navigator.of(context).pop();
                 },
-          child: const Text('Confirmar'),
+          child: Text(l10n.commonConfirm),
         ),
       ],
     );

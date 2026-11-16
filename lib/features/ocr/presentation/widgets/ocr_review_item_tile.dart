@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/quantity/quantity.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/ocr/domain/models/receipt_item_draft.dart';
@@ -30,35 +31,38 @@ class OcrReviewItemTile extends StatelessWidget {
     return '$formattedVal ${q.unit.name}';
   }
 
-  String _formatMatchOrigin(MatchOrigin origin) {
+  String _formatMatchOrigin(MatchOrigin origin, AppLocalizations loc) {
     return switch (origin) {
-      ExactUserAlias() => 'exato (apelido)',
-      ExactSeedAlias() => 'semente',
-      Fuzzy(:final score) => 'aproximado (${(score * 100).toInt()}%)',
-      Unknown() => 'não identificado',
+      ExactUserAlias() => loc.ocrOriginExactAlias,
+      ExactSeedAlias() => loc.ocrOriginSeed,
+      Fuzzy(:final score) => loc.ocrOriginFuzzy((score * 100).toInt()),
+      Unknown() => loc.ocrOriginUnknown,
     };
   }
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final isMatched = item.match != null;
     final titleText = isMatched
         ? item.match!.product.canonicalName
         : item.rawDescription;
-    final semanticsStatus = item.selected ? 'selecionado' : 'desmarcado';
+    final semanticsStatus = item.selected
+        ? loc.ocrItemSelectedStatus
+        : loc.ocrItemUnselectedStatus;
     final lowConfidenceText = item.isLowConfidence
-        ? ', baixa confiança, confira este item'
+        ? loc.ocrItemLowConfidenceHint
         : '';
     final matchText = isMatched
-        ? ', detectado como ${item.rawDescription}'
+        ? ', ${loc.ocrItemDetectedAs(item.rawDescription)}'
         : '';
     final fullSemanticsLabel =
         '$titleText$matchText, ${_formatQuantity(item.quantity)}, '
         '${item.totalPrice.formatPtBr()}$lowConfidenceText, $semanticsStatus';
     final onTapActionHint = item.selected
-        ? 'Desmarcar $titleText'
-        : 'Selecionar $titleText';
+        ? loc.ocrItemUncheckHint(titleText)
+        : loc.ocrItemSelectHint(titleText);
 
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 4.0),
@@ -130,7 +134,7 @@ class OcrReviewItemTile extends StatelessWidget {
 
                           // Detected description (CA-3.2)
                           Text(
-                            'detectado como ${item.rawDescription}',
+                            loc.ocrItemDetectedAs(item.rawDescription),
                             style: theme.textTheme.bodySmall?.copyWith(
                               color: theme.textTheme.bodySmall?.color
                                   ?.withValues(alpha: 0.8),
@@ -142,7 +146,9 @@ class OcrReviewItemTile extends StatelessWidget {
                           if (isMatched) ...[
                             const SizedBox(height: 2.0),
                             Text(
-                              'Vínculo: ${_formatMatchOrigin(item.match!.origin)}',
+                              loc.ocrItemLinkOrigin(
+                                _formatMatchOrigin(item.match!.origin, loc),
+                              ),
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: theme.colorScheme.primary,
                                 fontWeight: FontWeight.w500,
@@ -180,7 +186,7 @@ class OcrReviewItemTile extends StatelessWidget {
                             if (onEdit != null)
                               IconButton(
                                 icon: const Icon(AppIcons.edit, size: 20),
-                                tooltip: 'Editar item',
+                                tooltip: loc.ocrEditItemTooltip,
                                 constraints: const BoxConstraints(
                                   minWidth: 48.0,
                                   minHeight: 48.0,
@@ -190,7 +196,7 @@ class OcrReviewItemTile extends StatelessWidget {
                             if (onDelete != null)
                               IconButton(
                                 icon: const Icon(AppIcons.delete, size: 20),
-                                tooltip: 'Apagar item',
+                                tooltip: loc.ocrDeleteItemTooltip,
                                 constraints: const BoxConstraints(
                                   minWidth: 48.0,
                                   minHeight: 48.0,

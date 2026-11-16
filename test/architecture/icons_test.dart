@@ -258,5 +258,11 @@ void main() {
             'Use AppIcons em vez disso:\n${violations.join('\n')}',
       );
     });
+
+    test('AppIcons.economy, budget, and expense use distinct icons', () {
+      expect(AppIcons.economy, isNot(equals(AppIcons.budget)));
+      expect(AppIcons.budget, isNot(equals(AppIcons.expense)));
+      expect(AppIcons.economy, isNot(equals(AppIcons.expense)));
+    });
   });
 }

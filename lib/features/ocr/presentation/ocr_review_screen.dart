@@ -137,29 +137,30 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
   }
 
   Future<void> _handleSave() async {
+    final loc = AppLocalizations.of(context);
     // RN-196 / CA-4.1: If total value diverges, asks confirmation before saving.
     if (_draft.isDivergent()) {
-      final loc = AppLocalizations.of(context);
       final confirmed = await showDialog<bool>(
         context: context,
         builder: (dialogContext) => AlertDialog(
-          title: const Row(
+          title: Row(
             children: [
-              Icon(AppIcons.qualityWarning, color: Colors.orange),
-              SizedBox(width: 8),
-              Text('Divergência no total'),
+              const Icon(AppIcons.qualityWarning, color: Colors.orange),
+              const SizedBox(width: 8),
+              Flexible(child: Text(loc.ocrTotalDivergenceTitle)),
             ],
           ),
           content: Text(
-            'A soma dos itens selecionados (${_draft.itemsSum.formatPtBr()}) '
-            'difere do total lido (${_draft.total?.formatPtBr() ?? "R\$ 0,00"}).\n\n'
-            'Divergência de ${_draft.absoluteDivergence?.formatPtBr() ?? "R\$ 0,00"}. '
-            'Deseja salvar assim mesmo?',
+            loc.ocrTotalDivergenceBody(
+              _draft.itemsSum.formatPtBr(),
+              _draft.total?.formatPtBr() ?? 'R\$ 0,00',
+              _draft.absoluteDivergence?.formatPtBr() ?? 'R\$ 0,00',
+            ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(false),
-              child: const Text('Cancelar'),
+              child: Text(loc.commonCancel),
             ),
             ElevatedButton(
               onPressed: () => Navigator.of(dialogContext).pop(true),
@@ -186,18 +187,16 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
         final shouldWriteOff = await showDialog<bool>(
           context: context,
           builder: (dialogCtx) => AlertDialog(
-            title: const Text('Baixar itens da lista de compras'),
-            content: Text(
-              'Deseja dar baixa nos itens desta compra na lista de compras "${list.name}"?',
-            ),
+            title: Text(loc.ocrWriteOffTitle),
+            content: Text(loc.ocrWriteOffSingleConfirm(list.name)),
             actions: [
               TextButton(
                 onPressed: () => Navigator.of(dialogCtx).pop(false),
-                child: const Text('Não'),
+                child: Text(loc.commonNo),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(dialogCtx).pop(true),
-                child: const Text('Sim, dar baixa'),
+                child: Text(loc.ocrWriteOffYes),
               ),
             ],
           ),
@@ -215,14 +214,12 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
             return StatefulBuilder(
               builder: (context, setDialogState) {
                 return AlertDialog(
-                  title: const Text('Baixar itens da lista de compras'),
+                  title: Text(loc.ocrWriteOffTitle),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Selecione a lista de compras para dar baixa nos itens comprados:',
-                      ),
+                      Text(loc.ocrWriteOffSelectPrompt),
                       const SizedBox(height: 12),
                       DropdownButton<String>(
                         isExpanded: true,
@@ -244,12 +241,12 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.of(dialogCtx).pop(),
-                      child: const Text('Salvar sem baixa'),
+                      child: Text(loc.ocrSaveWithoutWriteOff),
                     ),
                     ElevatedButton(
                       onPressed: () =>
                           Navigator.of(dialogCtx).pop(currentSelectedId),
-                      child: const Text('Dar baixa'),
+                      child: Text(loc.ocrWriteOffButton),
                     ),
                   ],
                 );
@@ -306,7 +303,7 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
         title: Text(loc.ocrReviewTitle),
         leading: IconButton(
           icon: const Icon(AppIcons.back),
-          tooltip: 'Voltar',
+          tooltip: loc.commonBack,
           constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
           onPressed: () {
             if (widget.onCancel != null) {
@@ -342,7 +339,10 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
                   children: [
                     Expanded(
                       child: Text(
-                        'Itens do cupom ($selectedCount/${_draft.items.length})',
+                        loc.ocrCouponItemsHeader(
+                          selectedCount,
+                          _draft.items.length,
+                        ),
                         style: theme.textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -350,7 +350,7 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
                     ),
                     TextButton.icon(
                       icon: const Icon(AppIcons.add, size: 18),
-                      label: const Text('Adicionar item'),
+                      label: Text(loc.ocrAddItemButton),
                       style: TextButton.styleFrom(
                         minimumSize: const Size(48, 48),
                       ),
@@ -362,11 +362,9 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
 
                 // Lista de itens
                 if (_draft.items.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24.0),
-                    child: Center(
-                      child: Text('Nenhum item. Toque em Adicionar item.'),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 24.0),
+                    child: Center(child: Text(loc.ocrNoItemsPlaceholder)),
                   )
                 else
                   ...List.generate(_draft.items.length, (index) {
@@ -472,7 +470,7 @@ class _OcrReviewScreenState extends State<OcrReviewScreen> {
                           Navigator.of(context).maybePop();
                         }
                       },
-                      child: const Text('Cancelar'),
+                      child: Text(loc.commonCancel),
                     ),
                   ),
                   const SizedBox(width: 12),

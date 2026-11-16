@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/features/prices/data/prices_repository_provider.dart';
 import 'package:my_sweet_home/features/prices/domain/purchase/purchase.dart';
@@ -13,22 +14,25 @@ class PurchasesHistoryScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final purchasesAsync = ref.watch(purchasesListProvider);
     final storesAsync = ref.watch(storeListProvider);
     final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Compras e Notas Fiscais'),
+        title: Text(l10n.purchasesHistoryTitle),
         actions: [
           IconButton(
             icon: const Icon(AppIcons.priceHistory),
-            tooltip: 'Histórico de Preços',
+            tooltip: l10n.purchasesPriceHistoryTooltip,
             onPressed: () => context.push('/compras/historico-precos'),
           ),
           IconButton(
             icon: const Icon(AppIcons.camera),
-            tooltip: 'Escanear Nota Fiscal',
+            tooltip: l10n.navScanReceipt,
             onPressed: () async {
               await context.push('/ocr');
               ref.invalidate(purchasesListProvider);
@@ -39,7 +43,7 @@ class PurchasesHistoryScreen extends ConsumerWidget {
       body: purchasesAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) =>
-            Center(child: Text('Erro ao carregar compras: $err')),
+            Center(child: Text(l10n.purchasesLoadError('$err'))),
         data: (purchases) {
           if (purchases.isEmpty) {
             return Center(
@@ -53,7 +57,7 @@ class PurchasesHistoryScreen extends ConsumerWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Nenhuma compra registrada',
+                    l10n.purchasesEmptyTitle,
                     style: theme.textTheme.titleMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -61,7 +65,7 @@ class PurchasesHistoryScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   FilledButton.icon(
                     icon: const Icon(AppIcons.add),
-                    label: const Text('Registrar Compra'),
+                    label: Text(l10n.purchasesRegisterButton),
                     onPressed: () async {
                       await context.push('/compras/nova');
                       ref.invalidate(purchasesListProvider);
@@ -116,11 +120,11 @@ class PurchasesHistoryScreen extends ConsumerWidget {
                           ),
                         ),
                         Semantics(
-                          label: 'Excluir compra',
+                          label: l10n.purchasesDeleteTooltip,
                           button: true,
                           child: IconButton(
                             icon: const Icon(AppIcons.delete),
-                            tooltip: 'Excluir compra',
+                            tooltip: l10n.purchasesDeleteTooltip,
                             onPressed: () =>
                                 _confirmDelete(context, ref, purchase),
                           ),
@@ -137,10 +141,10 @@ class PurchasesHistoryScreen extends ConsumerWidget {
         },
       ),
       floatingActionButton: Semantics(
-        label: 'Nova Compra',
+        label: l10n.purchasesNewTooltip,
         button: true,
         child: FloatingActionButton(
-          tooltip: 'Nova Compra',
+          tooltip: l10n.purchasesNewTooltip,
           onPressed: () async {
             await context.push('/compras/nova');
             ref.invalidate(purchasesListProvider);
@@ -152,21 +156,22 @@ class PurchasesHistoryScreen extends ConsumerWidget {
   }
 
   void _confirmDelete(BuildContext context, WidgetRef ref, Purchase purchase) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Excluir compra?'),
-        content: const Text(
-          'Esta compra e seus pontos de preço serão excluídos.',
-        ),
+        title: Text(l10n.purchasesDeleteDialogTitle),
+        content: Text(l10n.purchasesDeleteDialogBody),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancelar'),
+            child: Text(l10n.commonCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Excluir'),
+            child: Text(l10n.commonDelete),
           ),
         ],
       ),
@@ -177,13 +182,13 @@ class PurchasesHistoryScreen extends ConsumerWidget {
         if (context.mounted) {
           if (res.isOk) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Compra excluída com sucesso')),
+              SnackBar(content: Text(l10n.purchasesDeleteSuccess)),
             );
             ref.invalidate(purchasesListProvider);
           } else {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Erro ao excluir compra')),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(l10n.purchasesDeleteError)));
           }
         }
       }
@@ -258,7 +263,15 @@ class _PurchaseDetailsSheet extends ConsumerWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Total', style: theme.textTheme.titleMedium),
+                  Text(
+                    (Localizations.of<AppLocalizations>(
+                              context,
+                              AppLocalizations,
+                            ) ??
+                            lookupAppLocalizations(const Locale('pt')))
+                        .purchasesTotalLabel,
+                    style: theme.textTheme.titleMedium,
+                  ),
                   Text(
                     purchase.totalAmount.formatPtBr(),
                     style: theme.textTheme.titleLarge?.copyWith(
@@ -273,7 +286,15 @@ class _PurchaseDetailsSheet extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Desconto', style: theme.textTheme.bodyMedium),
+                    Text(
+                      (Localizations.of<AppLocalizations>(
+                                context,
+                                AppLocalizations,
+                              ) ??
+                              lookupAppLocalizations(const Locale('pt')))
+                          .purchasesDiscountLabel,
+                      style: theme.textTheme.bodyMedium,
+                    ),
                     Text(
                       '- ${purchase.discountAmount.formatPtBr()}',
                       style: theme.textTheme.bodyMedium?.copyWith(
@@ -285,14 +306,26 @@ class _PurchaseDetailsSheet extends ConsumerWidget {
               ],
               const Divider(height: 24),
               Text(
-                'Itens (${purchase.items.length})',
+                (Localizations.of<AppLocalizations>(
+                          context,
+                          AppLocalizations,
+                        ) ??
+                        lookupAppLocalizations(const Locale('pt')))
+                    .purchasesItemsCount(purchase.items.length),
                 style: theme.textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
               if (purchase.items.isEmpty)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                  child: Text('Nenhum item detalhado nesta compra.'),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Text(
+                    (Localizations.of<AppLocalizations>(
+                              context,
+                              AppLocalizations,
+                            ) ??
+                            lookupAppLocalizations(const Locale('pt')))
+                        .purchasesNoDetailedItems,
+                  ),
                 )
               else
                 ...purchase.items.map((item) {
@@ -304,7 +337,14 @@ class _PurchaseDetailsSheet extends ConsumerWidget {
                       : (canonical ??
                             (item.productId.isNotEmpty
                                 ? item.productId
-                                : 'Produto'));
+                                : (Localizations.of<AppLocalizations>(
+                                            context,
+                                            AppLocalizations,
+                                          ) ??
+                                          lookupAppLocalizations(
+                                            const Locale('pt'),
+                                          ))
+                                      .purchasesProductFallback));
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 6.0),
                     child: Row(
@@ -341,11 +381,27 @@ class _PurchaseDetailsSheet extends ConsumerWidget {
                         ),
                         if (item.productId.isNotEmpty)
                           Semantics(
-                            label: 'Histórico de preço',
+                            label:
+                                (Localizations.of<AppLocalizations>(
+                                          context,
+                                          AppLocalizations,
+                                        ) ??
+                                        lookupAppLocalizations(
+                                          const Locale('pt'),
+                                        ))
+                                    .purchasesItemPriceHistoryTooltip,
                             button: true,
                             child: IconButton(
                               icon: const Icon(AppIcons.priceHistory, size: 20),
-                              tooltip: 'Histórico de preço',
+                              tooltip:
+                                  (Localizations.of<AppLocalizations>(
+                                            context,
+                                            AppLocalizations,
+                                          ) ??
+                                          lookupAppLocalizations(
+                                            const Locale('pt'),
+                                          ))
+                                      .purchasesItemPriceHistoryTooltip,
                               onPressed: () {
                                 Navigator.of(context).pop();
                                 context.push(

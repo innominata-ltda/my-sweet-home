@@ -4,12 +4,16 @@ import 'package:my_sweet_home/core/result/result.dart';
 class AppUpdateInfo {
   const AppUpdateInfo({
     required this.updateAvailable,
+    this.installedFromPlayStore = true,
     this.availableVersionLabel,
     this.availableVersionCode,
   });
 
   /// Indicates whether a newer version is available in the official app store.
   final bool updateAvailable;
+
+  /// Whether the app was installed from Google Play (`com.android.vending`).
+  final bool installedFromPlayStore;
 
   /// Human-readable label of available version (e.g. "0.2.0"), if provided by store.
   final String? availableVersionLabel;
@@ -23,16 +27,21 @@ class AppUpdateInfo {
       other is AppUpdateInfo &&
           runtimeType == other.runtimeType &&
           updateAvailable == other.updateAvailable &&
+          installedFromPlayStore == other.installedFromPlayStore &&
           availableVersionLabel == other.availableVersionLabel &&
           availableVersionCode == other.availableVersionCode;
 
   @override
-  int get hashCode =>
-      Object.hash(updateAvailable, availableVersionLabel, availableVersionCode);
+  int get hashCode => Object.hash(
+    updateAvailable,
+    installedFromPlayStore,
+    availableVersionLabel,
+    availableVersionCode,
+  );
 
   @override
   String toString() =>
-      'AppUpdateInfo(updateAvailable: $updateAvailable, label: $availableVersionLabel, code: $availableVersionCode)';
+      'AppUpdateInfo(updateAvailable: $updateAvailable, installedFromPlayStore: $installedFromPlayStore, label: $availableVersionLabel, code: $availableVersionCode)';
 }
 
 /// Hierarchy of update verification or invocation failures.
@@ -78,4 +87,7 @@ abstract class AppUpdatePort {
 
   /// Triggers native store update flow (In-App Update or intent).
   Future<Result<void, AppUpdateFailure>> startUpdate();
+
+  /// Opens an external `https://` URL using the host platform browser.
+  Future<Result<void, AppUpdateFailure>> openExternalUrl(String url);
 }

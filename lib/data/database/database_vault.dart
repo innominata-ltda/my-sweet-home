@@ -104,33 +104,13 @@ final class DefaultDatabaseVault implements DatabaseVaultPort {
       return customFactory(file, key);
     }
     final hexKey = key.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
-    void setup(sqlite3.Database rawDb) {
-      rawDb.execute('PRAGMA key = "x\'$hexKey\'";');
-      rawDb.select('SELECT count(*) FROM sqlite_master;');
-      rawDb.execute('PRAGMA foreign_keys = ON;');
-    }
-
     return AppDatabase(
-      LazyDatabase(() async {
-        if (inBackground) {
-          return NativeDatabase.createInBackground(file, setup: setup);
-        } else {
-          return NativeDatabase(file, setup: setup);
-        }
-      }),
+      _buildEncryptedLazyDb(file, hexKey, inBackground: inBackground),
     );
   }
 
   AppDatabase _createPlaintextDb(File file) {
-    return AppDatabase(
-      LazyDatabase(() async {
-        if (inBackground) {
-          return NativeDatabase.createInBackground(file);
-        } else {
-          return NativeDatabase(file);
-        }
-      }),
-    );
+    return AppDatabase(_buildPlaintextLazyDb(file, inBackground: inBackground));
   }
 
   @override
@@ -229,4 +209,39 @@ final class DefaultDatabaseVault implements DatabaseVaultPort {
       return Err(StorageFailure(detail: 'Failed to destroy vault', cause: e));
     }
   }
+}
+
+final class _EncryptedDbSetup {
+  const _EncryptedDbSetup(this.hexKey);
+
+  final String hexKey;
+
+  void call(sqlite3.Database rawDb) {
+    rawDb.execute('PRAGMA key = "x\'$hexKey\'";');
+    rawDb.select('SELECT count(*) FROM sqlite_master;');
+    rawDb.execute('PRAGMA foreign_keys = ON;');
+  }
+}
+
+LazyDatabase _buildEncryptedLazyDb(
+  File file,
+  String hexKey, {
+  required bool inBackground,
+}) {
+  final setup = _EncryptedDbSetup(hexKey).call;
+  return LazyDatabase(() {
+    if (inBackground) {
+      return NativeDatabase.createInBackground(file, setup: setup);
+    }
+    return NativeDatabase(file, setup: setup);
+  });
+}
+
+LazyDatabase _buildPlaintextLazyDb(File file, {required bool inBackground}) {
+  return LazyDatabase(() {
+    if (inBackground) {
+      return NativeDatabase.createInBackground(file);
+    }
+    return NativeDatabase(file);
+  });
 }

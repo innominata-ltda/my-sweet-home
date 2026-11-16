@@ -131,7 +131,7 @@ All lanes are executed from the `android/` directory using `bundle exec fastlane
 
 ## 6. CI/CD Pipeline on GitHub Actions
 
-The workflow [`.github/workflows/deploy.yml`](../../.github/workflows/deploy.yml) automates deployment:
+The workflow [`.github/workflows/deploy.yml`](https://github.com/innominata-ltda/my-sweet-home/blob/main/.github/workflows/deploy.yml) automates deployment:
 
 ### Trigger 1: Version Tag Push
 When pushing a `v*` tag (e.g., `git tag v1.0.0 && git push origin v1.0.0`):

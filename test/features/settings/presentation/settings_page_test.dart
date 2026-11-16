@@ -95,7 +95,7 @@ void main() {
         expect(find.text('Privacidade, Segurança e Dados'), findsOneWidget);
         expect(
           find.byKey(const Key('settings_hide_values_switch')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const Key('settings_delete_receipt_photo_switch')),
@@ -107,13 +107,13 @@ void main() {
         );
         expect(
           find.byKey(const Key('settings_cloud_backup_switch')),
-          findsOneWidget,
+          findsNothing,
         );
         expect(
           find.byKey(const Key('settings_cloud_ocr_switch')),
-          findsOneWidget,
+          findsNothing,
         );
-        expect(find.byKey(const Key('settings_security_tile')), findsOneWidget);
+        expect(find.byKey(const Key('settings_security_tile')), findsNothing);
         expect(find.byKey(const Key('settings_backup_tile')), findsOneWidget);
 
         // 4. Ajuda e Sobre
@@ -309,37 +309,84 @@ void main() {
         await tester.pumpWidget(buildSubject());
         await tester.pumpAndSettle();
 
-        // 1. Ocultar valores financeiros
-        final hideValuesFinder = find.byKey(
-          const Key('settings_hide_values_switch'),
-        );
-        await tester.tap(hideValuesFinder);
-        await tester.pumpAndSettle();
-        expect(await fakeSettingsRepo.isHideValuesEnabled(), isTrue);
-
-        // 2. Delete receipt photo (default true -> toggle to false)
+        // Delete receipt photo (default true -> toggle to false)
         final deletePhotoFinder = find.byKey(
           const Key('settings_delete_receipt_photo_switch'),
         );
         await tester.tap(deletePhotoFinder);
         await tester.pumpAndSettle();
         expect(await fakeSettingsRepo.isDeleteReceiptPhotoEnabled(), isFalse);
+      },
+    );
 
-        // 3. Backup em nuvem
-        final cloudBackupFinder = find.byKey(
-          const Key('settings_cloud_backup_switch'),
-        );
-        await tester.tap(cloudBackupFinder);
-        await tester.pumpAndSettle();
-        expect(await fakeSettingsRepo.isCloudBackupAllowed(), isTrue);
+    testWidgets(
+      'Language and receipt format selectors persist selection in SettingsRepository',
+      (tester) async {
+        tester.view.physicalSize = const Size(1080, 2400);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
 
-        // 4. OCR em nuvem
-        final cloudOcrFinder = find.byKey(
-          const Key('settings_cloud_ocr_switch'),
-        );
-        await tester.tap(cloudOcrFinder);
+        await tester.pumpWidget(buildSubject());
         await tester.pumpAndSettle();
-        expect(await fakeSettingsRepo.isCloudOcrAllowed(), isTrue);
+
+        // 1. Language selector
+        final languageTile = find.byKey(const Key('settings_language_tile'));
+        expect(languageTile, findsOneWidget);
+        await tester.tap(languageTile);
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('settings_locale_option_pt_BR')));
+        await tester.pumpAndSettle();
+        expect(await fakeSettingsRepo.getAppLocale(), 'pt_BR');
+        expect(find.text('Português (Brasil)'), findsOneWidget);
+
+        // 2. Receipt format selector
+        final formatTile = find.byKey(
+          const Key('settings_receipt_format_tile'),
+        );
+        expect(formatTile, findsOneWidget);
+        await tester.tap(formatTile);
+        await tester.pumpAndSettle();
+
+        await tester.tap(
+          find.byKey(const Key('settings_receipt_format_option_br_nfce')),
+        );
+        await tester.pumpAndSettle();
+        expect(await fakeSettingsRepo.getReceiptFormat(), 'br_nfce');
+        expect(
+          find.text('Brasil (NFC-e / SAT / Cupom Fiscal)'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'Retention notifications switch toggles preference in repository',
+      (tester) async {
+        tester.view.physicalSize = const Size(1080, 2400);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        await tester.pumpWidget(buildSubject());
+        await tester.pumpAndSettle();
+
+        final retentionSwitch = find.byKey(
+          const Key('settings_retention_notifications_switch'),
+        );
+        expect(retentionSwitch, findsOneWidget);
+        expect(
+          await fakeSettingsRepo.isRetentionNotificationsEnabled(),
+          isTrue,
+        );
+
+        await tester.tap(retentionSwitch);
+        await tester.pumpAndSettle();
+        expect(
+          await fakeSettingsRepo.isRetentionNotificationsEnabled(),
+          isFalse,
+        );
       },
     );
   });

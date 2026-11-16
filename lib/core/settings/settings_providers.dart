@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_sweet_home/app/providers.dart';
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/drift_settings_repository.dart';
 import 'package:my_sweet_home/core/settings/settings_repository.dart';
 
@@ -71,3 +72,65 @@ final onboardingCompletedProvider =
     NotifierProvider<OnboardingCompletedNotifier, bool>(
       OnboardingCompletedNotifier.new,
     );
+
+/// Notifier for the persisted application UI locale ID.
+class AppLocaleNotifier extends Notifier<String> {
+  @override
+  String build() {
+    _loadInitial();
+    return AppLocaleRegistry.systemLocaleId;
+  }
+
+  Future<void> _loadInitial() async {
+    try {
+      final repo = ref.read(settingsRepositoryProvider);
+      state = await repo.getAppLocale();
+    } catch (_) {
+      // Ignored in test environments where databaseProvider is unconfigured.
+    }
+  }
+
+  Future<void> setLocale(String localeId) async {
+    final normalized = AppLocaleRegistry.normalizeLocaleId(localeId);
+    state = normalized;
+    try {
+      final repo = ref.read(settingsRepositoryProvider);
+      await repo.setAppLocale(normalized);
+    } catch (_) {}
+  }
+}
+
+final appLocaleProvider = NotifierProvider<AppLocaleNotifier, String>(
+  AppLocaleNotifier.new,
+);
+
+/// Notifier for the persisted regional receipt OCR format ID.
+class ReceiptFormatNotifier extends Notifier<String> {
+  @override
+  String build() {
+    _loadInitial();
+    return ReceiptFormatCatalog.autoFormatId;
+  }
+
+  Future<void> _loadInitial() async {
+    try {
+      final repo = ref.read(settingsRepositoryProvider);
+      state = await repo.getReceiptFormat();
+    } catch (_) {
+      // Ignored in test environments where databaseProvider is unconfigured.
+    }
+  }
+
+  Future<void> setFormat(String formatId) async {
+    final normalized = ReceiptFormatCatalog.normalizeFormatId(formatId);
+    state = normalized;
+    try {
+      final repo = ref.read(settingsRepositoryProvider);
+      await repo.setReceiptFormat(normalized);
+    } catch (_) {}
+  }
+}
+
+final receiptFormatProvider = NotifierProvider<ReceiptFormatNotifier, String>(
+  ReceiptFormatNotifier.new,
+);

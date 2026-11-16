@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_sweet_home/app/database_recovery_screen.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/data/database/database.dart';
 import 'package:my_sweet_home/data/database/database_vault.dart';
 
@@ -16,6 +17,9 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('pt'),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             home: DatabaseRecoveryScreen(
               opening: VaultKeyUnavailable(),
               vault: fakeVault,
@@ -53,6 +57,9 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('pt'),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             home: DatabaseRecoveryScreen(
               opening: VaultKeyUnavailable(),
               vault: fakeVault,
@@ -103,6 +110,9 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('pt'),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             home: DatabaseRecoveryScreen(
               opening: VaultKeyUnavailable(),
               vault: fakeVault,
@@ -140,6 +150,9 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('pt'),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             home: DatabaseRecoveryScreen(
               opening: VaultConversionFailed(plaintextDb),
               vault: fakeVault,

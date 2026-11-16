@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/errors/user_message.dart';
 import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/core/sync/domain/sync_table_registry.dart';
@@ -48,6 +49,8 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
   HouseholdJoinPreviewData? _previewData;
   bool _isLoading = true;
   bool _isSubmitting = false;
+  bool _initializedDeviceName = false;
+  Object? _previewFailure;
   String? _errorMessage;
 
   @override
@@ -56,9 +59,21 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
     _deviceNameController = TextEditingController(
       text: widget.initialDeviceName?.isNotEmpty == true
           ? widget.initialDeviceName
-          : 'Meu celular',
+          : '',
     );
     _loadPreview();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_initializedDeviceName) {
+      _initializedDeviceName = true;
+      if (_deviceNameController.text.isEmpty) {
+        _deviceNameController.text = AppLocalizations.of(context)
+            .householdDefaultDeviceName;
+      }
+    }
   }
 
   @override
@@ -75,15 +90,16 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
       if (result.isOk) {
         _previewData = result.valueOrNull;
       } else {
-        _errorMessage = 'Falha ao carregar prévia: ${result.failureOrNull}';
+        _previewFailure = result.failureOrNull;
       }
     });
   }
 
   Future<void> _handleJoin() async {
+    final l10n = AppLocalizations.of(context);
     final deviceName = _deviceNameController.text.trim();
     if (deviceName.isEmpty) {
-      setState(() => _errorMessage = 'Informe o nome do aparelho');
+      setState(() => _errorMessage = l10n.householdJoinPreviewEmptyDeviceError);
       return;
     }
 
@@ -116,6 +132,13 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final displayedError =
+        _errorMessage ??
+        (_previewFailure != null
+            ? l10n.householdJoinPreviewError(_previewFailure.toString())
+            : null);
+
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ConstrainedBox(
@@ -136,17 +159,14 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                   const SizedBox(width: Spacing.sm),
                   Expanded(
                     child: Text(
-                      'Entrar em "${widget.householdName}"',
+                      l10n.householdJoinPreviewTitle(widget.householdName),
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: Spacing.md),
-              const Text(
-                'Ao entrar na casa, seus dados locais serão unidos com os da casa. '
-                'Nenhum dado seu será apagado ou duplicado.',
-              ),
+              Text(l10n.householdJoinPreviewMergeInfo),
               if (widget.sasCode != null) ...[
                 const SizedBox(height: Spacing.md),
                 Container(
@@ -158,7 +178,7 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                   child: Column(
                     children: [
                       Text(
-                        'Código de autenticação (6 dígitos):',
+                        l10n.householdJoinPreviewSasLabel,
                         style: Theme.of(context).textTheme.labelMedium
                             ?.copyWith(
                               color: Theme.of(context)
@@ -181,7 +201,7 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Confira se este código é idêntico ao exibido no outro aparelho.',
+                        l10n.householdJoinPreviewSasHint,
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Theme.of(context)
@@ -202,22 +222,22 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Registros locais a unir:',
+                        l10n.householdJoinPreviewLocalRecordsTitle,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const SizedBox(height: Spacing.sm),
                       _buildRow(
-                        'Casa (listas, tarefas, receitas):',
+                        l10n.householdJoinPreviewHomeLabel,
                         '${_previewData!.homeRecordsCount}',
                       ),
                       const SizedBox(height: 4),
                       _buildRow(
-                        'Finanças (despesas, contas):',
+                        l10n.householdJoinPreviewFinanceLabel,
                         '${_previewData!.financeRecordsCount}',
                       ),
                       const SizedBox(height: 4),
                       _buildRow(
-                        'Catálogo de produtos:',
+                        l10n.householdJoinPreviewProductsLabel,
                         '${_previewData!.catalogRecordsCount}',
                       ),
                     ],
@@ -238,10 +258,10 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                     const SizedBox(width: Spacing.sm),
-                    const Expanded(
+                    Expanded(
                       child: Text(
-                        'Um backup automático de segurança será gerado antes da adesão.',
-                        style: TextStyle(fontSize: 12),
+                        l10n.householdJoinPreviewBackupNotice,
+                        style: const TextStyle(fontSize: 12),
                       ),
                     ),
                   ],
@@ -250,15 +270,15 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
               const SizedBox(height: Spacing.md),
               TextField(
                 controller: _deviceNameController,
-                decoration: const InputDecoration(
-                  labelText: 'Nome deste aparelho na casa',
-                  hintText: 'Ex.: Celular do Alex',
+                decoration: InputDecoration(
+                  labelText: l10n.householdJoinPreviewDeviceNameLabel,
+                  hintText: l10n.householdJoinPreviewDeviceNameHint,
                 ),
               ),
-              if (_errorMessage != null) ...[
+              if (displayedError != null) ...[
                 const SizedBox(height: Spacing.sm),
                 Text(
-                  _errorMessage!,
+                  displayedError,
                   style: TextStyle(color: Theme.of(context).colorScheme.error),
                 ),
               ],
@@ -270,13 +290,15 @@ class _JoinPreviewDialogState extends State<JoinPreviewDialog> {
                     onPressed: _isSubmitting
                         ? null
                         : () => Navigator.of(context).pop(false),
-                    label: 'Cancelar',
+                    label: l10n.commonCancel,
                     variant: AppButtonVariant.text,
                   ),
                   const SizedBox(width: Spacing.sm),
                   AppButton(
                     onPressed: _isSubmitting ? null : _handleJoin,
-                    label: _isSubmitting ? 'Entrando...' : 'Entrar na casa',
+                    label: _isSubmitting
+                        ? l10n.householdJoinPreviewJoining
+                        : l10n.householdJoinPreviewJoinButton,
                   ),
                 ],
               ),

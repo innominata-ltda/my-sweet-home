@@ -5,18 +5,23 @@ import 'package:my_sweet_home/core/update/app_update_port.dart';
 class FakeAppUpdatePort implements AppUpdatePort {
   FakeAppUpdatePort({
     this.updateAvailable = false,
+    this.installedFromPlayStore = true,
     this.availableVersionLabel,
     this.availableVersionCode,
     this.failure,
+    this.openExternalUrlFailure,
   });
 
   bool updateAvailable;
+  bool installedFromPlayStore;
   String? availableVersionLabel;
   int? availableVersionCode;
   AppUpdateFailure? failure;
+  AppUpdateFailure? openExternalUrlFailure;
 
   int checkForUpdateCallCount = 0;
   int startUpdateCallCount = 0;
+  final List<String> openedUrls = [];
 
   @override
   Future<Result<AppUpdateInfo, AppUpdateFailure>> checkForUpdate() async {
@@ -27,6 +32,7 @@ class FakeAppUpdatePort implements AppUpdatePort {
     return Ok(
       AppUpdateInfo(
         updateAvailable: updateAvailable,
+        installedFromPlayStore: installedFromPlayStore,
         availableVersionLabel: availableVersionLabel,
         availableVersionCode: availableVersionCode,
       ),
@@ -38,6 +44,15 @@ class FakeAppUpdatePort implements AppUpdatePort {
     startUpdateCallCount++;
     if (failure != null) {
       return Err(failure!);
+    }
+    return const Ok(null);
+  }
+
+  @override
+  Future<Result<void, AppUpdateFailure>> openExternalUrl(String url) async {
+    openedUrls.add(url);
+    if (openExternalUrlFailure != null) {
+      return Err(openExternalUrlFailure!);
     }
     return const Ok(null);
   }

@@ -121,5 +121,52 @@ void main() {
         expect(await repo.isHouseholdSyncRemoteAllowed(), isFalse);
       },
     );
+
+    test('app_locale defaults to system and persists valid choices', () async {
+      expect(await repository.getAppLocale(), 'system');
+
+      await repository.setAppLocale('pt_BR');
+      expect(await repository.getAppLocale(), 'pt_BR');
+
+      await repository.setAppLocale('unknown_xx');
+      expect(await repository.getAppLocale(), 'system');
+    });
+
+    test(
+      'receipt_format defaults to auto and persists valid choices',
+      () async {
+        expect(await repository.getReceiptFormat(), 'auto');
+
+        await repository.setReceiptFormat('br_nfce');
+        expect(await repository.getReceiptFormat(), 'br_nfce');
+
+        await repository.setReceiptFormat('unknown_fmt');
+        expect(await repository.getReceiptFormat(), 'auto');
+      },
+    );
+
+    test(
+      'retention_notifications_enabled defaults to true and persists',
+      () async {
+        expect(await repository.isRetentionNotificationsEnabled(), isTrue);
+
+        await repository.setRetentionNotificationsEnabled(false);
+        expect(await repository.isRetentionNotificationsEnabled(), isFalse);
+
+        await repository.setRetentionNotificationsEnabled(true);
+        expect(await repository.isRetentionNotificationsEnabled(), isTrue);
+      },
+    );
+
+    test(
+      'last_app_open_timestamp defaults to null and roundtrips ISO 8601',
+      () async {
+        expect(await repository.getLastAppOpenTimestamp(), isNull);
+
+        final ts = DateTime(2026, 11, 14, 10, 30, 0);
+        await repository.setLastAppOpenTimestamp(ts);
+        expect(await repository.getLastAppOpenTimestamp(), ts);
+      },
+    );
   });
 }

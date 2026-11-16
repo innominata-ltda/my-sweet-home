@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/core/update/app_update_providers.dart';
 import 'package:my_sweet_home/core/update/update_dialog.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
@@ -15,6 +17,9 @@ class AboutPage extends ConsumerWidget {
   static const appName = 'My Sweet Home';
   static const appVersion = '0.1.0';
   static const legalese = 'Feito por Innominata Ltda';
+  static const githubRepoUrl =
+      'https://github.com/innominata-ltda/my-sweet-home';
+  static const wikiUrl = 'https://innominata-ltda.github.io/my-sweet-home/';
 
   /// Optional callback triggered upon tapping "Open-source licenses".
   ///
@@ -44,31 +49,58 @@ class AboutPage extends ConsumerWidget {
             service: service,
           );
         } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Você já está na versão mais recente.'),
-            ),
-          );
+          final l10n =
+              Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+              lookupAppLocalizations(const Locale('pt'));
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(l10n.aboutUpToDate)));
         }
       },
       (failure) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'Não foi possível verificar atualizações no momento.',
-            ),
-          ),
-        );
+        final l10n =
+            Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+            lookupAppLocalizations(const Locale('pt'));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(l10n.aboutUpdateCheckFailed)));
       },
     );
   }
 
+  Future<void> _handleOpenExternalUrl(
+    BuildContext context,
+    WidgetRef ref, {
+    required String url,
+    required String fallbackMessage,
+  }) async {
+    final service = ref.read(appUpdateServiceProvider);
+    final result = await service.openExternalUrl(url);
+
+    if (!context.mounted) return;
+
+    if (result.isErr) {
+      await Clipboard.setData(ClipboardData(text: url));
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(fallbackMessage)));
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
+    var isPlayStoreInstall = true;
+    try {
+      isPlayStoreInstall =
+          ref.watch(installedFromPlayStoreProvider).asData?.value ?? true;
+    } catch (_) {
+      // Isolated widget tests without ProviderScope default to enabled
+    }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Sobre o My Sweet Home')),
+      appBar: AppBar(title: Text(l10n.aboutTitle)),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: Spacing.md),
         children: [
@@ -88,7 +120,7 @@ class AboutPage extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Versão ',
+                      l10n.aboutVersionLabel,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -115,8 +147,8 @@ class AboutPage extends ConsumerWidget {
           const Divider(),
           ListTile(
             leading: const Icon(AppIcons.openSource),
-            title: const Text('Licenças de código aberto'),
-            subtitle: const Text('Licenças de pacotes e dependências'),
+            title: Text(l10n.aboutLicensesTitle),
+            subtitle: Text(l10n.aboutLicensesSubtitle),
             onTap:
                 onLicensesTap ??
                 () {
@@ -130,8 +162,8 @@ class AboutPage extends ConsumerWidget {
           ),
           ListTile(
             leading: const Icon(AppIcons.info),
-            title: const Text('Atribuições'),
-            subtitle: const Text('Atribuições de ativos e terceiros'),
+            title: Text(l10n.aboutAttributionsTitle),
+            subtitle: Text(l10n.aboutAttributionsSubtitle),
             onTap:
                 onAttributionsTap ??
                 () {
@@ -143,10 +175,42 @@ class AboutPage extends ConsumerWidget {
                 },
           ),
           ListTile(
+            key: const Key('about_github_tile'),
+            leading: const Icon(AppIcons.openSource),
+            title: Text(l10n.aboutGithubTitle),
+            subtitle: const Text('github.com/innominata-ltda/my-sweet-home'),
+            onTap: () => _handleOpenExternalUrl(
+              context,
+              ref,
+              url: githubRepoUrl,
+              fallbackMessage: l10n.aboutGithubCopied,
+            ),
+          ),
+          ListTile(
+            key: const Key('about_wiki_tile'),
+            leading: const Icon(AppIcons.info),
+            title: Text(l10n.aboutDocsTitle),
+            subtitle: const Text('innominata-ltda.github.io/my-sweet-home'),
+            onTap: () => _handleOpenExternalUrl(
+              context,
+              ref,
+              url: wikiUrl,
+              fallbackMessage: l10n.aboutDocsCopied,
+            ),
+          ),
+          ListTile(
+            key: const Key('about_update_tile'),
+            enabled: isPlayStoreInstall,
             leading: const Icon(AppIcons.sync),
-            title: const Text('Verificar atualizações'),
-            subtitle: const Text('Buscar novas versões na loja de aplicativos'),
-            onTap: () => _handleCheckForUpdates(context, ref),
+            title: Text(l10n.aboutCheckUpdatesTitle),
+            subtitle: Text(
+              isPlayStoreInstall
+                  ? l10n.aboutCheckUpdatesSubtitle
+                  : l10n.aboutCheckUpdatesPlayStoreOnly,
+            ),
+            onTap: isPlayStoreInstall
+                ? () => _handleCheckForUpdates(context, ref)
+                : null,
           ),
         ],
       ),
@@ -166,8 +230,11 @@ class AttributionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     return Scaffold(
-      appBar: AppBar(title: const Text('Atribuições')),
+      appBar: AppBar(title: Text(l10n.aboutAttributionsTitle)),
       body: FutureBuilder<String>(
         future: DefaultAssetBundle.of(context).loadString(assetPath),
         builder: (context, snapshot) {
@@ -178,7 +245,7 @@ class AttributionsPage extends StatelessWidget {
             return Center(
               child: Padding(
                 padding: const EdgeInsets.all(Spacing.md),
-                child: Text('Erro ao carregar atribuições: ${snapshot.error}'),
+                child: Text(l10n.aboutAttributionsError('${snapshot.error}')),
               ),
             );
           }

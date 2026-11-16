@@ -18,10 +18,11 @@ class ChecklistDashboardCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ChecklistController effectiveController =
         controller ?? ref.watch(checklistControllerProvider);
-    final l10n = Localizations.of<AppLocalizations>(context, AppLocalizations);
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
-    final title =
-        l10n?.dashboardCardFirstHomeChecklist ?? 'Checklist da Primeira Casa';
+    final title = l10n.dashboardCardFirstHomeChecklist;
 
     return ValueListenableBuilder<ChecklistState>(
       valueListenable: effectiveController,
@@ -31,7 +32,7 @@ class ChecklistDashboardCard extends ConsumerWidget {
         return Semantics(
           container: true,
           button: true,
-          label: '$title, $percent% concluído, toque para ver detalhes',
+          label: l10n.checklistCardSemantics(title, percent),
           child: AppCard(
             key: const Key('checklist_dashboard_card'),
             onTap: onTap,

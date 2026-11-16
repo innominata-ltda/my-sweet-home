@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/app/providers.dart';
 import 'package:my_sweet_home/core/result/result.dart';
 import 'package:my_sweet_home/features/prices/data/prices_repository_provider.dart';
@@ -199,7 +202,12 @@ class ShoppingListDetailNotifier
     );
 
     if (result.isErr) {
-      value = value.copyWith(errorMessage: 'Falha ao salvar alteração');
+      final l10n = lookupAppLocalizations(
+        PlatformDispatcher.instance.locale.languageCode == 'en'
+            ? const Locale('en')
+            : const Locale('pt'),
+      );
+      value = value.copyWith(errorMessage: l10n.shoppingErrorSaveChange);
     }
   }
 
@@ -216,7 +224,12 @@ class ShoppingListDetailNotifier
     if (result.isOk) {
       await loadList(silent: true);
     } else {
-      value = value.copyWith(errorMessage: 'Falha ao adicionar item');
+      final l10n = lookupAppLocalizations(
+        PlatformDispatcher.instance.locale.languageCode == 'en'
+            ? const Locale('en')
+            : const Locale('pt'),
+      );
+      value = value.copyWith(errorMessage: l10n.shoppingErrorAddItem);
     }
   }
 
@@ -249,7 +262,12 @@ class ShoppingListDetailNotifier
     final repo = ref.read(shoppingListRepositoryProvider);
     final result = await repo.save(updatedList);
     if (result.isErr) {
-      value = value.copyWith(errorMessage: 'Falha ao remover item');
+      final l10n = lookupAppLocalizations(
+        PlatformDispatcher.instance.locale.languageCode == 'en'
+            ? const Locale('en')
+            : const Locale('pt'),
+      );
+      value = value.copyWith(errorMessage: l10n.shoppingErrorRemoveItem);
     } else {
       await loadList(silent: true);
     }
@@ -266,7 +284,12 @@ class ShoppingListDetailNotifier
     final repo = ref.read(shoppingListRepositoryProvider);
     final result = await repo.save(updatedList);
     if (result.isErr) {
-      value = value.copyWith(errorMessage: 'Falha ao limpar itens concluídos');
+      final l10n = lookupAppLocalizations(
+        PlatformDispatcher.instance.locale.languageCode == 'en'
+            ? const Locale('en')
+            : const Locale('pt'),
+      );
+      value = value.copyWith(errorMessage: l10n.shoppingErrorClearCompleted);
     } else {
       await loadList(silent: true);
     }

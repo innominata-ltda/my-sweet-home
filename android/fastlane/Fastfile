@@ -181,9 +181,55 @@ platform :android do
     apk_files
   end
 
+  desc "Resolves next Google Play build_number (max versionCode across tracks + 1)"
+  lane :resolve_next_build_number do |options|
+    min_build = (options[:min_build_number] || ENV["GITHUB_RUN_NUMBER"] || 1).to_i
+    min_build = 1 if min_build < 1
+
+    package_name = options[:package_name] || CredentialsManager::AppfileConfig.try_fetch_value(:package_name) || "br.com.innominata.mysweethome"
+    creds = ensure_play_store_credentials(options.merge(allow_missing: true))
+
+    max_code = 0
+    if creds
+      tracks = %w[internal alpha beta production]
+      all_codes = []
+      tracks.each do |track|
+        begin
+          vc_args = { package_name: package_name, track: track }
+          vc_args[:json_key] = creds[:json_key] if creds[:json_key]
+          vc_args[:json_key_data] = creds[:json_key_data] if creds[:json_key_data]
+          codes = google_play_track_version_codes(vc_args)
+          all_codes.concat(Array(codes).map(&:to_i))
+        rescue => e
+          UI.message("Track '#{track}' returned no version codes (#{e.message})")
+        end
+      end
+      max_code = all_codes.max || 0
+      UI.message("Highest Google Play versionCode across #{tracks.join(', ')}: #{max_code}")
+    else
+      UI.important("Play Store credentials unavailable; falling back to min_build_number=#{min_build}.")
+    end
+
+    next_build = [max_code + 1, min_build].max
+    UI.success("Resolved next build_number: #{next_build}")
+    puts "NEXT_BUILD_NUMBER=#{next_build}"
+
+    gh_output = ENV["GITHUB_OUTPUT"]
+    if gh_output && !gh_output.strip.empty?
+      File.open(gh_output, "a") { |f| f.puts("build_number=#{next_build}") }
+    end
+
+    next_build
+  end
+
   desc "Publishes Android App Bundle (AAB) to Internal Testing track on Google Play Console (RNF-012)"
   lane :deploy_internal do |options|
     UI.message("Starting deploy lane for Internal Testing track...")
+
+    if options[:build_number].to_s.strip.empty?
+      resolved_build = resolve_next_build_number(options)
+      options = options.merge(build_number: resolved_build)
+    end
 
     project_root = File.expand_path("../..", __dir__)
     metadata_path = options[:metadata_path] ?

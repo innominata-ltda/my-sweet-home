@@ -1,3 +1,4 @@
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/settings_repository.dart';
 
 /// Deterministic fake of [SettingsRepository] for unit and widget tests.
@@ -11,6 +12,10 @@ class FakeSettingsRepository implements SettingsRepository {
   bool visualEffectsEnabled;
   bool onboardingCompleted;
   bool householdTutorialCompleted;
+  String appLocale;
+  String receiptFormat;
+  bool retentionNotificationsEnabled;
+  DateTime? lastAppOpenTimestamp;
 
   FakeSettingsRepository({
     this.cloudOcrAllowed = false,
@@ -22,6 +27,10 @@ class FakeSettingsRepository implements SettingsRepository {
     this.visualEffectsEnabled = true,
     this.onboardingCompleted = false,
     this.householdTutorialCompleted = false,
+    this.appLocale = AppLocaleRegistry.systemLocaleId,
+    this.receiptFormat = ReceiptFormatCatalog.autoFormatId,
+    this.retentionNotificationsEnabled = true,
+    this.lastAppOpenTimestamp,
   });
 
   @override
@@ -96,5 +105,40 @@ class FakeSettingsRepository implements SettingsRepository {
   @override
   Future<void> setHouseholdTutorialCompleted(bool value) async {
     householdTutorialCompleted = value;
+  }
+
+  @override
+  Future<String> getAppLocale() async =>
+      AppLocaleRegistry.normalizeLocaleId(appLocale);
+
+  @override
+  Future<void> setAppLocale(String localeId) async {
+    appLocale = AppLocaleRegistry.normalizeLocaleId(localeId);
+  }
+
+  @override
+  Future<String> getReceiptFormat() async =>
+      ReceiptFormatCatalog.normalizeFormatId(receiptFormat);
+
+  @override
+  Future<void> setReceiptFormat(String formatId) async {
+    receiptFormat = ReceiptFormatCatalog.normalizeFormatId(formatId);
+  }
+
+  @override
+  Future<bool> isRetentionNotificationsEnabled() async =>
+      retentionNotificationsEnabled;
+
+  @override
+  Future<void> setRetentionNotificationsEnabled(bool value) async {
+    retentionNotificationsEnabled = value;
+  }
+
+  @override
+  Future<DateTime?> getLastAppOpenTimestamp() async => lastAppOpenTimestamp;
+
+  @override
+  Future<void> setLastAppOpenTimestamp(DateTime timestamp) async {
+    lastAppOpenTimestamp = timestamp;
   }
 }

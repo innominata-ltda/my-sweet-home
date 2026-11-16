@@ -150,17 +150,23 @@ class _PriceHistoryPageState extends ConsumerState<PriceHistoryPage> {
                         FocusNode focusNode,
                         VoidCallback onFieldSubmitted,
                       ) {
+                        final l10n =
+                            Localizations.of<AppLocalizations>(
+                              context,
+                              AppLocalizations,
+                            ) ??
+                            lookupAppLocalizations(const Locale('pt'));
                         return TextFormField(
                           controller: textEditingController,
                           focusNode: focusNode,
                           decoration: InputDecoration(
-                            labelText: 'Pesquisar produto',
-                            hintText: 'Digite para buscar um produto...',
+                            labelText: l10n.priceSearchProductLabel,
+                            hintText: l10n.priceSearchProductHint,
                             prefixIcon: const Icon(AppIcons.search),
                             suffixIcon: textEditingController.text.isNotEmpty
                                 ? IconButton(
                                     icon: const Icon(AppIcons.close),
-                                    tooltip: 'Limpar busca',
+                                    tooltip: l10n.priceClearSearchTooltip,
                                     onPressed: () {
                                       textEditingController.clear();
                                       focusNode.requestFocus();

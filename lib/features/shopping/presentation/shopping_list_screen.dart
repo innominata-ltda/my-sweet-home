@@ -223,7 +223,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
     if (isBought && !wasAllBought && isNowAllBought) {
       CelebrationOverlay.show(
         context,
-        message: 'Você completou a lista de compras! 💕',
+        message: AppLocalizations.of(context).shoppingListCompletedCelebration,
       );
     }
 
@@ -293,7 +293,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
             if (!isEmpty)
               IconButton(
                 icon: const Icon(AppIcons.purchase),
-                tooltip: 'Registrar compra',
+                tooltip: l10n.shoppingListRegisterPurchaseTitle,
                 onPressed: () => _registerPurchase(
                   list,
                   boughtItems.isNotEmpty ? boughtItems : null,
@@ -301,13 +301,13 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               ),
             IconButton(
               icon: const Icon(AppIcons.checklist),
-              tooltip: 'Gerenciar listas',
+              tooltip: l10n.shoppingListManageLists,
               onPressed: _showManageListsSheet,
             ),
             if (!isEmpty && boughtItems.isNotEmpty)
               IconButton(
                 icon: const Icon(AppIcons.delete),
-                tooltip: 'Limpar comprados',
+                tooltip: l10n.shoppingListClearPurchased,
                 onPressed: () {
                   ref
                       .read(shoppingListDetailProvider(widget.listId))
@@ -338,7 +338,10 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                         Text(
                           allBought
                               ? l10n.shoppingListAllDone
-                              : '${boughtItems.length} de ${list!.items.length} itens marcados',
+                              : l10n.shoppingListItemsMarkedCount(
+                                  boughtItems.length,
+                                  list!.items.length,
+                                ),
                           style: Theme.of(context).textTheme.titleMedium
                               ?.copyWith(fontWeight: FontWeight.bold),
                         ),
@@ -356,7 +359,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
                   child: isEmpty
                       ? AppEmptyState.mascot(
                           title: l10n.shoppingListEmpty,
-                          description: 'Adicione itens para não esquecer nada no mercado.',
+                          description: l10n.shoppingListEmptyDescription,
                           mascotExpression: MascotExpression.shopping,
                           mascotSemanticLabel: l10n.momoEmptyShoppingList,
                         )
@@ -397,6 +400,7 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
   }
 
   Widget _buildSubmoduleShortcuts(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SingleChildScrollView(
@@ -406,28 +410,28 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
             ActionChip(
               key: const Key('shortcut_purchases'),
               avatar: const Icon(AppIcons.purchase, size: 18),
-              label: const Text('Compras'),
+              label: Text(l10n.shoppingShortcutPurchases),
               onPressed: () => context.push('/compras'),
             ),
             const SizedBox(width: Spacing.xs),
             ActionChip(
               key: const Key('shortcut_prices'),
               avatar: const Icon(AppIcons.priceHistory, size: 18),
-              label: const Text('Preços'),
+              label: Text(l10n.shoppingShortcutPrices),
               onPressed: () => context.push('/compras/historico-precos'),
             ),
             const SizedBox(width: Spacing.xs),
             ActionChip(
               key: const Key('shortcut_stock'),
               avatar: const Icon(AppIcons.product, size: 18),
-              label: const Text('Estoque'),
+              label: Text(l10n.shoppingShortcutStock),
               onPressed: () => context.push('/estoque'),
             ),
             const SizedBox(width: Spacing.xs),
             ActionChip(
               key: const Key('shortcut_recipes'),
               avatar: const Icon(AppIcons.recipes, size: 18),
-              label: const Text('Receitas'),
+              label: Text(l10n.recipesTitle),
               onPressed: () => context.push('/receitas'),
             ),
           ],
@@ -516,23 +520,24 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
       builder: (context, constraints) {
         final shouldStack = textScale >= 1.5 && constraints.maxWidth < 450;
 
+        final l10n = AppLocalizations.of(context);
         final quantityField = ConstrainedBox(
           key: const Key('shopping_quantity_field'),
           constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
           child: SizedBox(
             width: shouldStack ? 72 : 48,
             child: Semantics(
-              label: 'Quantidade',
+              label: l10n.shoppingQuantitySemantics,
               child: TextFormField(
                 controller: _quantityController,
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
                 textAlign: TextAlign.center,
-                decoration: const InputDecoration(
-                  labelText: 'Qtd',
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.symmetric(
+                decoration: InputDecoration(
+                  labelText: l10n.shoppingQuantityShortLabel,
+                  border: const OutlineInputBorder(),
+                  contentPadding: const EdgeInsets.symmetric(
                     horizontal: 4,
                     vertical: 14,
                   ),
@@ -553,17 +558,23 @@ class _ShoppingListScreenState extends ConsumerState<ShoppingListScreen> {
               borderRadius: BorderRadius.circular(Radius.sm),
             ),
             child: Semantics(
-              label: 'Unidade de medida',
+              label: l10n.shoppingUnitSemantics,
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<Unit>(
                   value: _selectedUnit,
-                  items: const [
-                    DropdownMenuItem(value: Unit.un, child: Text('Un')),
-                    DropdownMenuItem(value: Unit.kg, child: Text('kg')),
-                    DropdownMenuItem(value: Unit.g, child: Text('g')),
-                    DropdownMenuItem(value: Unit.l, child: Text('L')),
-                    DropdownMenuItem(value: Unit.ml, child: Text('ml')),
-                    DropdownMenuItem(value: Unit.pack, child: Text('pct')),
+                  items: [
+                    DropdownMenuItem(
+                      value: Unit.un,
+                      child: Text(l10n.shoppingUnitUnShort),
+                    ),
+                    const DropdownMenuItem(value: Unit.kg, child: Text('kg')),
+                    const DropdownMenuItem(value: Unit.g, child: Text('g')),
+                    const DropdownMenuItem(value: Unit.l, child: Text('L')),
+                    const DropdownMenuItem(value: Unit.ml, child: Text('ml')),
+                    const DropdownMenuItem(
+                      value: Unit.pack,
+                      child: Text('pct'),
+                    ),
                   ],
                   onChanged: (u) {
                     if (u != null) {

@@ -23,12 +23,14 @@ class RecipePreparationScreen extends ConsumerStatefulWidget {
       _RecipePreparationScreenState();
 }
 
+enum _RecipeLoadError { repoUnavailable, notFound }
+
 class _RecipePreparationScreenState
     extends ConsumerState<RecipePreparationScreen> {
   KeepScreenOnPort? _keepScreenOn;
   Recipe? _recipe;
   bool _isLoading = true;
-  String? _errorMessage;
+  _RecipeLoadError? _error;
 
   @override
   void initState() {
@@ -53,7 +55,7 @@ class _RecipePreparationScreenState
     if (repo == null) {
       setState(() {
         _isLoading = false;
-        _errorMessage = 'Repositório de receitas não disponível';
+        _error = _RecipeLoadError.repoUnavailable;
       });
       return;
     }
@@ -65,7 +67,7 @@ class _RecipePreparationScreenState
       if (result.isOk && result.valueOrNull != null) {
         _recipe = result.valueOrNull;
       } else {
-        _errorMessage = 'Receita não encontrada';
+        _error = _RecipeLoadError.notFound;
       }
     });
   }
@@ -79,16 +81,21 @@ class _RecipePreparationScreenState
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final errorMessage = switch (_error) {
+      _RecipeLoadError.repoUnavailable => l10n.recipeRepoUnavailable,
+      _RecipeLoadError.notFound => l10n.recipeNotFound,
+      null => null,
+    };
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.recipePreparationTitle)),
       body: SafeArea(
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
-            : _errorMessage != null
+            : errorMessage != null
             ? Center(
                 child: Text(
-                  _errorMessage!,
+                  errorMessage,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               )
@@ -110,7 +117,7 @@ class _RecipePreparationScreenState
                     Text(
                       _recipe!.prepText.isNotEmpty
                           ? _recipe!.prepText
-                          : 'Sem instruções cadastradas.',
+                          : l10n.recipeNoInstructions,
                       key: const Key('recipe_prep_text'),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),

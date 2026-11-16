@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
+
 import 'package:my_sweet_home/app/dashboard_screen.dart';
 import 'package:my_sweet_home/app/main_shell_page.dart';
 import 'package:my_sweet_home/features/onboarding/presentation/onboarding_page.dart';
@@ -56,11 +58,19 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
+final initialRouteProvider = Provider<String>((ref) => '/');
+
 @riverpod
 GoRouter appRouter(Ref ref) {
   return GoRouter(
     navigatorKey: _rootNavigatorKey,
-    initialLocation: '/',
+    initialLocation: ref.watch(initialRouteProvider),
+    redirect: (context, state) {
+      if (state.uri.scheme == 'mshsync') {
+        return '/ajustes/casa?invite=${Uri.encodeComponent(state.uri.toString())}';
+      }
+      return null;
+    },
     routes: [
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
@@ -231,7 +241,19 @@ GoRouter appRouter(Ref ref) {
       ),
       GoRoute(
         path: '/ajustes/casa',
-        builder: (context, state) => const HouseholdScreen(),
+        builder: (context, state) => HouseholdScreen(
+          initialInviteUri: state.uri.queryParameters['invite'],
+        ),
+      ),
+      GoRoute(
+        path: '/invite',
+        redirect: (context, state) {
+          final query = state.uri.query;
+          final raw = query.isNotEmpty
+              ? 'mshsync://invite?$query'
+              : 'mshsync://invite';
+          return '/ajustes/casa?invite=${Uri.encodeComponent(raw)}';
+        },
       ),
       GoRoute(path: '/about', builder: (context, state) => const AboutPage()),
 
@@ -363,7 +385,8 @@ GoRouter appRouter(Ref ref) {
         ],
       ),
     ],
-    errorBuilder: (context, state) =>
-        const Scaffold(body: Center(child: Text('Página não encontrada'))),
+    errorBuilder: (context, state) => Scaffold(
+      body: Center(child: Text(AppLocalizations.of(context).pageNotFound)),
+    ),
   );
 }

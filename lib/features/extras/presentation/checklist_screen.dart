@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_card.dart';
 import 'package:my_sweet_home/design_system/components/app_empty_state.dart';
 import 'package:my_sweet_home/design_system/components/app_loading.dart';
@@ -13,17 +14,20 @@ class ChecklistScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final controller = ref.watch(checklistControllerProvider);
 
     return ValueListenableBuilder<ChecklistState>(
       valueListenable: controller,
       builder: (context, state, child) {
         return AppScaffold(
-          title: 'Checklist da casa',
+          title: l10n.checklistTitle,
           actions: [
             IconButton(
               key: const Key('export_unmarked_to_shopping_list_button'),
-              tooltip: 'Gerar lista de compras',
+              tooltip: l10n.checklistGenerateShoppingList,
               icon: const Icon(AppIcons.sendToList),
               onPressed: state.unmarkedCount == 0
                   ? null
@@ -37,14 +41,14 @@ class ChecklistScreen extends ConsumerWidget {
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () => _showAddItemDialog(context, controller, state),
             icon: const Icon(AppIcons.add),
-            label: const Text('Novo item'),
+            label: Text(l10n.checklistNewItem),
           ),
           body: state.isLoading
               ? const AppLoading()
               : state.failure != null && state.items.isEmpty
               ? Center(
                   child: Text(
-                    'Erro ao carregar checklist: ${state.failure}',
+                    l10n.checklistLoadError('${state.failure}'),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.error,
                     ),
@@ -63,10 +67,9 @@ class ChecklistScreen extends ConsumerWidget {
                         _buildCategoryFilterChips(context, controller, state),
                         const SizedBox(height: 16),
                         if (state.filteredItems.isEmpty)
-                          const AppEmptyState(
-                            title: 'Nenhum item no checklist.',
-                            description:
-                                'Adicione itens ou selecione outro cômodo.',
+                          AppEmptyState(
+                            title: l10n.checklistEmpty,
+                            description: l10n.checklistEmptyDescription,
                             icon: AppIcons.check,
                           )
                         else
@@ -89,6 +92,9 @@ class ChecklistScreen extends ConsumerWidget {
     ChecklistController controller,
     ChecklistState state,
   ) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final theme = Theme.of(context);
     final percent = (state.progress * 100).toStringAsFixed(0);
 
@@ -100,7 +106,7 @@ class ChecklistScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Progresso da casa',
+                l10n.checklistProgressTitle,
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -131,7 +137,7 @@ class ChecklistScreen extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${state.markedCount} de ${state.totalCount} itens marcados',
+                l10n.checklistMarkedCount(state.markedCount, state.totalCount),
                 style: theme.textTheme.bodySmall?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -145,7 +151,9 @@ class ChecklistScreen extends ConsumerWidget {
                     state,
                   ),
                   icon: const Icon(AppIcons.sendToList, size: 16),
-                  label: Text('Criar lista (${state.unmarkedCount})'),
+                  label: Text(
+                    l10n.checklistCreateListCount(state.unmarkedCount),
+                  ),
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -168,26 +176,25 @@ class ChecklistScreen extends ConsumerWidget {
     ChecklistController controller,
     ChecklistState state,
   ) {
-    final categories = ['Todos', ...state.roomCategories];
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
+    final categories = <String?>[null, ...state.roomCategories];
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: categories.map((cat) {
           final isSelected =
-              (cat == 'Todos' && state.selectedCategory == null) ||
+              (cat == null && state.selectedCategory == null) ||
               cat == state.selectedCategory;
           return Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: FilterChip(
-              label: Text(cat),
+              label: Text(cat ?? l10n.commonAll),
               selected: isSelected,
               onSelected: (bool selected) {
-                if (cat == 'Todos') {
-                  controller.selectCategory(null);
-                } else {
-                  controller.selectCategory(cat);
-                }
+                controller.selectCategory(cat);
               },
             ),
           );
@@ -267,20 +274,23 @@ class ChecklistScreen extends ConsumerWidget {
             : 'Cozinha');
     final categoryController = TextEditingController(text: initialCategory);
 
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Adicionar item ao checklist'),
+          title: Text(l10n.checklistAddItemTitle),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
                 key: const Key('add_item_title_input'),
                 controller: titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Item *',
-                  hintText: 'Ex: Toalha de rosto',
+                decoration: InputDecoration(
+                  labelText: l10n.checklistItemLabel,
+                  hintText: l10n.checklistItemHint,
                 ),
                 autofocus: true,
               ),
@@ -288,9 +298,9 @@ class ChecklistScreen extends ConsumerWidget {
               TextField(
                 key: const Key('add_item_category_input'),
                 controller: categoryController,
-                decoration: const InputDecoration(
-                  labelText: 'Cômodo / Categoria *',
-                  hintText: 'Ex: Banheiro',
+                decoration: InputDecoration(
+                  labelText: l10n.checklistRoomLabel,
+                  hintText: l10n.checklistRoomHint,
                 ),
               ),
             ],
@@ -298,7 +308,7 @@ class ChecklistScreen extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_add_item_button'),
@@ -310,7 +320,7 @@ class ChecklistScreen extends ConsumerWidget {
                   Navigator.of(context).pop();
                 }
               },
-              child: const Text('Adicionar'),
+              child: Text(l10n.commonAdd),
             ),
           ],
         );
@@ -323,23 +333,28 @@ class ChecklistScreen extends ConsumerWidget {
     ChecklistController controller,
     ChecklistItem item,
   ) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final titleController = TextEditingController(text: item.title);
 
     showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Editar item'),
+          title: Text(l10n.checklistEditItemTitle),
           content: TextField(
             key: const Key('edit_item_title_input'),
             controller: titleController,
-            decoration: const InputDecoration(labelText: 'Título do item *'),
+            decoration: InputDecoration(
+              labelText: l10n.checklistItemTitleLabel,
+            ),
             autofocus: true,
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_edit_item_button'),
@@ -350,7 +365,7 @@ class ChecklistScreen extends ConsumerWidget {
                   Navigator.of(context).pop();
                 }
               },
-              child: const Text('Salvar'),
+              child: Text(l10n.commonSave),
             ),
           ],
         );
@@ -363,16 +378,19 @@ class ChecklistScreen extends ConsumerWidget {
     ChecklistController controller,
     ChecklistItem item,
   ) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Excluir item?'),
-          content: Text('Deseja remover "${item.title}" do checklist?'),
+          title: Text(l10n.checklistDeleteItemTitle),
+          content: Text(l10n.checklistDeleteItemBody(item.title)),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_delete_item_button'),
@@ -380,7 +398,7 @@ class ChecklistScreen extends ConsumerWidget {
                 controller.deleteItem(item.id);
                 Navigator.of(context).pop();
               },
-              child: const Text('Excluir'),
+              child: Text(l10n.commonDelete),
             ),
           ],
         );
@@ -393,34 +411,39 @@ class ChecklistScreen extends ConsumerWidget {
     ChecklistController controller,
     ChecklistState state,
   ) {
+    final l10n =
+        Localizations.of<AppLocalizations>(context, AppLocalizations) ??
+        lookupAppLocalizations(const Locale('pt'));
     final count = state.selectedCategory != null
         ? state.filteredUnmarkedCount
         : state.unmarkedCount;
 
     final listNameController = TextEditingController(
       text: state.selectedCategory != null
-          ? 'Lista da Casa - ${state.selectedCategory}'
-          : 'Lista da Casa (Checklist)',
+          ? l10n.checklistDefaultListNameCategory(state.selectedCategory!)
+          : l10n.checklistDefaultListName,
     );
 
     showDialog<void>(
       context: context,
       builder: (dialogContext) {
         return AlertDialog(
-          title: const Text('Gerar lista de compras'),
+          title: Text(l10n.checklistGenerateShoppingList),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Criar uma lista de compras com os $count itens pendentes do checklist.',
+                l10n.checklistExportBody(count),
                 style: Theme.of(dialogContext).textTheme.bodyMedium,
               ),
               const SizedBox(height: 12),
               TextField(
                 key: const Key('shopping_list_name_input'),
                 controller: listNameController,
-                decoration: const InputDecoration(labelText: 'Nome da lista *'),
+                decoration: InputDecoration(
+                  labelText: l10n.checklistListNameLabel,
+                ),
                 autofocus: true,
               ),
             ],
@@ -428,7 +451,7 @@ class ChecklistScreen extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(dialogContext).pop(),
-              child: const Text('Cancelar'),
+              child: Text(l10n.commonCancel),
             ),
             FilledButton(
               key: const Key('confirm_export_shopping_list_button'),
@@ -445,7 +468,10 @@ class ChecklistScreen extends ConsumerWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Lista "${list.name}" criada com ${list.items.length} itens!',
+                          l10n.checklistListCreated(
+                            list.name,
+                            list.items.length,
+                          ),
                         ),
                       ),
                     );
@@ -453,14 +479,16 @@ class ChecklistScreen extends ConsumerWidget {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                          'Falha ao criar lista: ${result.failureOrNull}',
+                          l10n.checklistListCreateError(
+                            '${result.failureOrNull}',
+                          ),
                         ),
                       ),
                     );
                   }
                 }
               },
-              child: const Text('Gerar lista'),
+              child: Text(l10n.checklistGenerateListButton),
             ),
           ],
         );

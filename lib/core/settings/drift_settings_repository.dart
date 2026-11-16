@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart';
+import 'package:my_sweet_home/core/regionalization/regionalization_models.dart';
 import 'package:my_sweet_home/core/settings/settings_repository.dart';
 import 'package:my_sweet_home/core/time/clock.dart';
 import 'package:my_sweet_home/data/database/database.dart';
@@ -200,6 +201,93 @@ class DriftSettingsRepository implements SettingsRepository {
           SettingsCompanion(
             key: const Value('household_tutorial_completed'),
             value: Value(value.toString()),
+          ),
+        );
+  }
+
+  @override
+  Future<String> getAppLocale() async {
+    final setting = await (_db.select(
+      _db.settings,
+    )..where((tbl) => tbl.key.equals('app_locale'))).getSingleOrNull();
+    return AppLocaleRegistry.normalizeLocaleId(setting?.value);
+  }
+
+  @override
+  Future<void> setAppLocale(String localeId) async {
+    final normalized = AppLocaleRegistry.normalizeLocaleId(localeId);
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('app_locale'),
+            value: Value(normalized),
+          ),
+        );
+  }
+
+  @override
+  Future<String> getReceiptFormat() async {
+    final setting = await (_db.select(
+      _db.settings,
+    )..where((tbl) => tbl.key.equals('receipt_format'))).getSingleOrNull();
+    return ReceiptFormatCatalog.normalizeFormatId(setting?.value);
+  }
+
+  @override
+  Future<void> setReceiptFormat(String formatId) async {
+    final normalized = ReceiptFormatCatalog.normalizeFormatId(formatId);
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('receipt_format'),
+            value: Value(normalized),
+          ),
+        );
+  }
+
+  @override
+  Future<bool> isRetentionNotificationsEnabled() async {
+    final setting =
+        await (_db.select(_db.settings)..where(
+              (tbl) => tbl.key.equals('retention_notifications_enabled'),
+            ))
+            .getSingleOrNull();
+    if (setting == null) return true;
+    return setting.value == 'true';
+  }
+
+  @override
+  Future<void> setRetentionNotificationsEnabled(bool value) async {
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('retention_notifications_enabled'),
+            value: Value(value.toString()),
+          ),
+        );
+  }
+
+  @override
+  Future<DateTime?> getLastAppOpenTimestamp() async {
+    final setting =
+        await (_db.select(_db.settings)
+              ..where((tbl) => tbl.key.equals('last_app_open_timestamp')))
+            .getSingleOrNull();
+    if (setting == null || setting.value.isEmpty) return null;
+    return DateTime.tryParse(setting.value);
+  }
+
+  @override
+  Future<void> setLastAppOpenTimestamp(DateTime timestamp) async {
+    await _db
+        .into(_db.settings)
+        .insertOnConflictUpdate(
+          SettingsCompanion(
+            key: const Value('last_app_open_timestamp'),
+            value: Value(timestamp.toIso8601String()),
           ),
         );
   }

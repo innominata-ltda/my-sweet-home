@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:my_sweet_home/app/l10n/app_localizations.dart';
 import 'package:my_sweet_home/design_system/components/app_button.dart';
 import 'package:my_sweet_home/design_system/icons/app_icons.dart';
 import 'package:my_sweet_home/design_system/theme/spacing.dart';
@@ -26,16 +27,14 @@ class _BundleShareDialogState extends State<BundleShareDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return AlertDialog(
-      title: const Text('Pacote de sincronização'),
+      title: Text(l10n.householdBundleShareTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Gere um arquivo criptografado com as alterações deste aparelho para enviar por '
-            'WhatsApp ou outro aplicativo para pessoas da sua casa.',
-          ),
+          Text(l10n.householdBundleShareDescription),
           const SizedBox(height: Spacing.md),
           if (_generatedBytes != null) ...[
             Container(
@@ -50,7 +49,9 @@ class _BundleShareDialogState extends State<BundleShareDialog> {
                   const SizedBox(width: Spacing.sm),
                   Expanded(
                     child: Text(
-                      'Pacote gerado com sucesso! (${_generatedBytes!.lengthInBytes} bytes)',
+                      l10n.householdBundleGeneratedSuccess(
+                        _generatedBytes!.lengthInBytes,
+                      ),
                       style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -64,11 +65,13 @@ class _BundleShareDialogState extends State<BundleShareDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Fechar'),
+          child: Text(l10n.commonClose),
         ),
         AppButton.primary(
           key: const Key('action_generate_bundle_button'),
-          label: _generatedBytes == null ? 'Gerar pacote' : 'Compartilhar',
+          label: _generatedBytes == null
+              ? l10n.householdGenerateBundleButton
+              : l10n.householdBundleShareAction,
           icon: const Icon(AppIcons.fileExport),
           isLoading: _isGenerating,
           onPressed: () async {

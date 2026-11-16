@@ -176,6 +176,50 @@ void main() {
 
     expect(scheduler.scheduled.isEmpty, isTrue);
   });
+
+  test(
+    'upsert requests notification permission when reminders are planned',
+    () async {
+      final newTask = NewTask(
+        title: 'Pagar aluguel',
+        dueAt: clock.nowUtc().add(const Duration(days: 1)),
+        allDay: false,
+      );
+      inner.upsertReturn = Task(
+        id: 'task_perm_1',
+        title: 'Pagar aluguel',
+        allDay: false,
+        isCompleted: false,
+        dueAt: newTask.dueAt,
+        syncState: SyncState.dirty,
+        createdAt: clock.nowUtc(),
+        updatedAt: clock.nowUtc(),
+      );
+
+      await repository.upsert(newTask);
+
+      expect(scheduler.requestPermissionCalls, 1);
+      expect(scheduler.scheduled.length, 1);
+    },
+  );
+
+  test('upsert skips requestPermission when task has no reminders', () async {
+    const newTask = NewTask(title: 'Tarefa sem prazo', allDay: false);
+    inner.upsertReturn = Task(
+      id: 'task_perm_2',
+      title: 'Tarefa sem prazo',
+      allDay: false,
+      isCompleted: false,
+      syncState: SyncState.dirty,
+      createdAt: clock.nowUtc(),
+      updatedAt: clock.nowUtc(),
+    );
+
+    await repository.upsert(newTask);
+
+    expect(scheduler.requestPermissionCalls, 0);
+    expect(scheduler.scheduled, isEmpty);
+  });
 }
 
 ScheduledNotification mySweetHomeNotificationDummy({required String id}) {
