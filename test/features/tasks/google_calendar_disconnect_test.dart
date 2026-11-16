@@ -84,8 +84,8 @@ void main() {
               inMemoryStorage.remove(key);
             });
 
-        when(() => mockGoogleSignIn.disconnect()).thenAnswer((_) async => null);
-        when(() => mockGoogleSignIn.signOut()).thenAnswer((_) async => null);
+        when(() => mockGoogleSignIn.disconnect()).thenAnswer((_) async {});
+        when(() => mockGoogleSignIn.signOut()).thenAnswer((_) async {});
 
         adapter = GoogleCalendarAdapter(
           googleSignIn: mockGoogleSignIn,

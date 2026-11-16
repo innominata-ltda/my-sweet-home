@@ -398,10 +398,22 @@ void main() {
             clock: FakeClock(now),
           );
 
-          when(() => mockGoogleSignIn.currentUser).thenReturn(null);
-          when(() => mockGoogleSignIn.signInSilently())
+          when(
+            () => mockGoogleSignIn.initialize(
+              serverClientId: any(named: 'serverClientId'),
+            ),
+          ).thenAnswer((_) async {});
+          when(() => mockGoogleSignIn.attemptLightweightAuthentication())
               .thenAnswer((_) async => null);
-          when(() => mockGoogleSignIn.signIn()).thenAnswer((_) async => null);
+          when(
+            () => mockGoogleSignIn.authenticate(
+              scopeHint: any(named: 'scopeHint'),
+            ),
+          ).thenThrow(
+            const GoogleSignInException(
+              code: GoogleSignInExceptionCode.canceled,
+            ),
+          );
 
           final result = await adapterWithoutMockApi.deleteRemote(
             'ev1',
