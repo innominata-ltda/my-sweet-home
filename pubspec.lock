@@ -667,18 +667,18 @@ packages:
     dependency: transitive
     description:
       name: google_mlkit_commons
-      sha256: "621e94de22fd0f1e902e593b892746d80ab7542b39c2552aa091d904eb82fc6f"
+      sha256: "58b969da65027b6242afb38b944f5a0d3f6b90305b29d70b0cca3048a50b4263"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.0"
+    version: "1.0.3"
   google_mlkit_text_recognition:
     dependency: "direct main"
     description:
       name: google_mlkit_text_recognition
-      sha256: e13685af5093c8be009a3555909b72a80e10cfe8f97752bcbdf99fa0ccbda810
+      sha256: "546e3e40181af7166d539f44416ff592a88bd12de61625ad9f2ec7166624f12b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.17.1"
+    version: "1.0.3"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -723,10 +723,10 @@ packages:
     dependency: "direct main"
     description:
       name: googleapis
-      sha256: "864f222aed3f2ff00b816c675edf00a39e2aaf373d728d8abec30b37bee1a81c"
+      sha256: "48200d0b604fc49ed87053bd8c42711a110e958dd80d52db03cbe723f8fb44dc"
       url: "https://pub.dev"
     source: hosted
-    version: "13.2.0"
+    version: "19.0.0"
   googleapis_auth:
     dependency: "direct main"
     description:
@@ -1000,10 +1000,10 @@ packages:
     dependency: "direct main"
     description:
       name: mobile_scanner
-      sha256: "5a51ea79f0cf8293f616a5d08baae185b59b5e6bb24df01f2a63037ade0bade0"
+      sha256: "175c62fc813c2bd762757359a2088f8cbdb72020cf85d4cd27fc4d3fe59be058"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.2"
+    version: "7.5.0"
   mocktail:
     dependency: "direct dev"
     description:
