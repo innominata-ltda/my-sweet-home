@@ -12772,22 +12772,22 @@ class $SyncHouseholdsTable extends SyncHouseholds
 }
 
 class SyncHousehold extends DataClass implements Insertable<SyncHousehold> {
-  /// Identificador UUID da casa.
+  /// Household UUID.
   final String id;
 
-  /// Apelido da casa (ex.: "Casa da Duda").
+  /// Household name (e.g., "Family Home").
   final String name;
 
-  /// Identificador do aparelho local nesta casa.
+  /// Local device site ID in this household.
   final String localSiteId;
 
-  /// Active shared areas separated by comma (e.g. "catalog,home,finance").
+  /// Active shared areas separated by commas (e.g., "catalog,home,finance").
   final String sharedAreas;
 
-  /// Household creation date (ISO-8601 UTC).
+  /// Household creation timestamp (ISO-8601 UTC).
   final String createdAt;
 
-  /// Data em que este aparelho entrou na casa (ISO-8601 UTC).
+  /// Timestamp when this device joined the household (ISO-8601 UTC).
   final String joinedAt;
 
   /// Whether synchronization is active on this device.
@@ -13261,25 +13261,25 @@ class $SyncMembersTable extends SyncMembers
 }
 
 class SyncMember extends DataClass implements Insertable<SyncMember> {
-  /// Identificador UUID do membro.
+  /// Member UUID.
   final String id;
 
-  /// Chave estrangeira para a casa.
+  /// Foreign key to household.
   final String householdId;
 
-  /// Unique device identifier of member.
+  /// Unique device site ID.
   final String siteId;
 
-  /// Visible nickname of device (e.g. "John's Phone") (RN-306).
+  /// Visible device nickname (RN-306).
   final String name;
 
-  /// Data de ingresso na casa (ISO-8601 UTC).
+  /// Household join timestamp (ISO-8601 UTC).
   final String joinedAt;
 
-  /// Last time this device was seen in synchronization.
+  /// Last timestamp this device was seen during sync.
   final String? lastSeenAt;
 
-  /// Whether device is still an active member (deactivated when removed).
+  /// Whether the device is still an active member (deactivated when removed).
   final bool isActive;
   const SyncMember({
     required this.id,
@@ -13723,22 +13723,22 @@ class $SyncColumnVersionsTable extends SyncColumnVersions
 
 class SyncColumnVersion extends DataClass
     implements Insertable<SyncColumnVersion> {
-  /// Nome da tabela no banco.
+  /// Database table name.
   final String tableNameCol;
 
-  /// Primary row identifier.
+  /// Primary key of the row.
   final String rowId;
 
-  /// Nome da coluna.
+  /// Column name.
   final String columnName;
 
-  /// HLC empacotado lexicograficamente.
+  /// Lexicographically packed HLC.
   final String hlc;
 
-  /// Device that originated change.
+  /// Device site ID that originated the change.
   final String siteId;
 
-  /// Local record date (ISO-8601 UTC).
+  /// Local record timestamp (ISO-8601 UTC).
   final String updatedAt;
   const SyncColumnVersion({
     required this.tableNameCol,
@@ -14128,19 +14128,19 @@ class $SyncRowTombstonesTable extends SyncRowTombstones
 
 class SyncRowTombstone extends DataClass
     implements Insertable<SyncRowTombstone> {
-  /// Unique tombstone identifier.
+  /// Unique tombstone ID.
   final String id;
 
-  /// Nome da tabela da linha purgada.
+  /// Table name of the purged row.
   final String tableNameCol;
 
-  /// Identificador da linha purgada.
+  /// Primary key of the purged row.
   final String rowId;
 
-  /// HLC do momento do expurgo.
+  /// HLC of the purge moment.
   final String hlc;
 
-  /// Data do expurgo (ISO-8601 UTC).
+  /// Purge timestamp (ISO-8601 UTC).
   final String purgedAt;
   const SyncRowTombstone({
     required this.id,
@@ -14476,16 +14476,16 @@ class $SyncPeerVectorsTable extends SyncPeerVectors
 }
 
 class SyncPeerVector extends DataClass implements Insertable<SyncPeerVector> {
-  /// Identificador da casa.
+  /// Household ID.
   final String householdId;
 
-  /// Identificador do aparelho remoto.
+  /// Remote device site ID.
   final String siteId;
 
-  /// Maior HLC conhecido desse aparelho.
+  /// Highest known HLC for this device.
   final String hlc;
 
-  /// Last update date of this vector (ISO-8601 UTC).
+  /// Last update timestamp of this vector (ISO-8601 UTC).
   final String updatedAt;
   const SyncPeerVector({
     required this.householdId,
@@ -16282,10 +16282,11 @@ class $$CategoriesTableTableManager
                   getPrefetchedDataCallback: (items) async {
                     return [
                       if (productsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Category,
                           $CategoriesTable,
-                          Product
+                          Product,
+                          $ProductsTable
                         >(
                           currentTable: table,
                           referencedTable: $$CategoriesTableReferences
@@ -16296,17 +16297,16 @@ class $$CategoriesTableTableManager
                                 table,
                                 p0,
                               ).productsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.categoryId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'category_id',
                           typedResults: items,
                         ),
                       if (billsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Category,
                           $CategoriesTable,
-                          Bill
+                          Bill,
+                          $BillsTable
                         >(
                           currentTable: table,
                           referencedTable: $$CategoriesTableReferences
@@ -16317,17 +16317,16 @@ class $$CategoriesTableTableManager
                                 table,
                                 p0,
                               ).billsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.categoryId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'category_id',
                           typedResults: items,
                         ),
                       if (expensesRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Category,
                           $CategoriesTable,
-                          Expense
+                          Expense,
+                          $ExpensesTable
                         >(
                           currentTable: table,
                           referencedTable: $$CategoriesTableReferences
@@ -16338,17 +16337,16 @@ class $$CategoriesTableTableManager
                                 table,
                                 p0,
                               ).expensesRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.categoryId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'category_id',
                           typedResults: items,
                         ),
                       if (budgetsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Category,
                           $CategoriesTable,
-                          Budget
+                          Budget,
+                          $BudgetsTable
                         >(
                           currentTable: table,
                           referencedTable: $$CategoriesTableReferences
@@ -16359,17 +16357,16 @@ class $$CategoriesTableTableManager
                                 table,
                                 p0,
                               ).budgetsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.categoryId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'category_id',
                           typedResults: items,
                         ),
                       if (tasksRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Category,
                           $CategoriesTable,
-                          Task
+                          Task,
+                          $TasksTable
                         >(
                           currentTable: table,
                           referencedTable: $$CategoriesTableReferences
@@ -16380,10 +16377,8 @@ class $$CategoriesTableTableManager
                                 table,
                                 p0,
                               ).tasksRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.categoryId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'category_id',
                           typedResults: items,
                         ),
                     ];
@@ -17279,10 +17274,11 @@ class $$ProductsTableTableManager
                   getPrefetchedDataCallback: (items) async {
                     return [
                       if (productAliasesRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Product,
                           $ProductsTable,
-                          ProductAliase
+                          ProductAliase,
+                          $ProductAliasesTable
                         >(
                           currentTable: table,
                           referencedTable: $$ProductsTableReferences
@@ -17293,17 +17289,16 @@ class $$ProductsTableTableManager
                                 table,
                                 p0,
                               ).productAliasesRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.productId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'product_id',
                           typedResults: items,
                         ),
                       if (productDenialsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Product,
                           $ProductsTable,
-                          ProductDenial
+                          ProductDenial,
+                          $ProductDenialsTable
                         >(
                           currentTable: table,
                           referencedTable: $$ProductsTableReferences
@@ -17314,17 +17309,16 @@ class $$ProductsTableTableManager
                                 table,
                                 p0,
                               ).productDenialsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.productId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'product_id',
                           typedResults: items,
                         ),
                       if (purchaseItemsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Product,
                           $ProductsTable,
-                          PurchaseItem
+                          PurchaseItem,
+                          $PurchaseItemsTable
                         >(
                           currentTable: table,
                           referencedTable: $$ProductsTableReferences
@@ -17335,17 +17329,16 @@ class $$ProductsTableTableManager
                                 table,
                                 p0,
                               ).purchaseItemsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.productId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'product_id',
                           typedResults: items,
                         ),
                       if (pricePointsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Product,
                           $ProductsTable,
-                          PricePoint
+                          PricePoint,
+                          $PricePointsTable
                         >(
                           currentTable: table,
                           referencedTable: $$ProductsTableReferences
@@ -17356,17 +17349,16 @@ class $$ProductsTableTableManager
                                 table,
                                 p0,
                               ).pricePointsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.productId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'product_id',
                           typedResults: items,
                         ),
                       if (shoppingItemsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           Product,
                           $ProductsTable,
-                          ShoppingItem
+                          ShoppingItem,
+                          $ShoppingItemsTable
                         >(
                           currentTable: table,
                           referencedTable: $$ProductsTableReferences
