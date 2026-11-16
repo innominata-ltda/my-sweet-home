@@ -21975,10 +21975,8 @@ class $$PurchaseItemsTableTableManager
                                 table,
                                 p0,
                               ).pricePointsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.purchaseItemId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'purchase_item_id',
                           typedResults: items,
                         ),
                     ];
@@ -23790,10 +23788,11 @@ class $$ShoppingListsTableTableManager
                   getPrefetchedDataCallback: (items) async {
                     return [
                       if (shoppingItemsRefs)
-                        await $_getPrefetchedData<
+                        await $_getPrefetchedDataByColumns<
                           ShoppingList,
                           $ShoppingListsTable,
-                          ShoppingItem
+                          ShoppingItem,
+                          $ShoppingItemsTable
                         >(
                           currentTable: table,
                           referencedTable: $$ShoppingListsTableReferences
@@ -23804,10 +23803,8 @@ class $$ShoppingListsTableTableManager
                                 table,
                                 p0,
                               ).shoppingItemsRefs,
-                          referencedItemsForCurrentItem:
-                              (item, referencedItems) => referencedItems.where(
-                                (e) => e.listId == item.id,
-                              ),
+                          currentColumn: 'id',
+                          referencedColumn: 'list_id',
                           typedResults: items,
                         ),
                     ];
@@ -25317,10 +25314,11 @@ class $$RecipesTableTableManager
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (recipeIngredientsRefs)
-                    await $_getPrefetchedData<
+                    await $_getPrefetchedDataByColumns<
                       Recipe,
                       $RecipesTable,
-                      RecipeIngredient
+                      RecipeIngredient,
+                      $RecipeIngredientsTable
                     >(
                       currentTable: table,
                       referencedTable: $$RecipesTableReferences
@@ -25330,8 +25328,8 @@ class $$RecipesTableTableManager
                         table,
                         p0,
                       ).recipeIngredientsRefs,
-                      referencedItemsForCurrentItem: (item, referencedItems) =>
-                          referencedItems.where((e) => e.recipeId == item.id),
+                      currentColumn: 'id',
+                      referencedColumn: 'recipe_id',
                       typedResults: items,
                     ),
                 ];
@@ -27481,10 +27479,11 @@ class $$SyncHouseholdsTableTableManager
               getPrefetchedDataCallback: (items) async {
                 return [
                   if (syncMembersRefs)
-                    await $_getPrefetchedData<
+                    await $_getPrefetchedDataByColumns<
                       SyncHousehold,
                       $SyncHouseholdsTable,
-                      SyncMember
+                      SyncMember,
+                      $SyncMembersTable
                     >(
                       currentTable: table,
                       referencedTable: $$SyncHouseholdsTableReferences
@@ -27495,10 +27494,8 @@ class $$SyncHouseholdsTableTableManager
                             table,
                             p0,
                           ).syncMembersRefs,
-                      referencedItemsForCurrentItem: (item, referencedItems) =>
-                          referencedItems.where(
-                            (e) => e.householdId == item.id,
-                          ),
+                      currentColumn: 'id',
+                      referencedColumn: 'household_id',
                       typedResults: items,
                     ),
                 ];
