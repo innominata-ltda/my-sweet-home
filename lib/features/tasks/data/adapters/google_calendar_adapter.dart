@@ -41,6 +41,7 @@ class GoogleCalendarAdapter implements CalendarGatewayPort {
   final Clock clock;
   final calendar.CalendarApi? _injectedCalendarApi;
   final String? _clientId;
+  Future<void>? _initFuture;
 
   static const String keyAccessToken = 'google_calendar_access_token';
   static const String keyRefreshToken = 'google_calendar_refresh_token';
@@ -55,13 +56,12 @@ class GoogleCalendarAdapter implements CalendarGatewayPort {
     String? clientId,
   }) : _injectedCalendarApi = calendarApi,
        _clientId = clientId ?? _resolveClientId(),
-       _googleSignIn =
-           googleSignIn ??
-           GoogleSignIn(
-             serverClientId: clientId ?? _resolveClientId(),
-             scopes: [calendar.CalendarApi.calendarEventsScope],
-           ),
+       _googleSignIn = googleSignIn ?? GoogleSignIn.instance,
        _secureStorage = secureStorage ?? const FlutterSecureStorage();
+
+  Future<void> _ensureInitialized() {
+    return _initFuture ??= _googleSignIn.initialize(serverClientId: _clientId);
+  }
 
   /// Tries to resolve Google OAuth Client ID from environment variable.
   static String? _resolveClientId() {
@@ -125,17 +125,28 @@ class GoogleCalendarAdapter implements CalendarGatewayPort {
       return _injectedCalendarApi;
     }
 
-    GoogleSignInAccount? account = _googleSignIn.currentUser;
-    account ??= await _googleSignIn.signInSilently();
-    account ??= await _googleSignIn.signIn();
-
-    if (account == null) {
+    await _ensureInitialized();
+    const scopes = [calendar.CalendarApi.calendarEventsScope];
+    final GoogleSignInAccount account;
+    try {
+      final lightweight = _googleSignIn.attemptLightweightAuthentication();
+      final existing = lightweight != null ? await lightweight : null;
+      account = existing ?? await _googleSignIn.authenticate(scopeHint: scopes);
+    } on GoogleSignInException {
       throw const FormatException(
         'Autenticação com Google cancelada ou indisponível',
       );
     }
 
-    final authHeaders = await account.authHeaders;
+    final authHeaders = await account.authorizationClient.authorizationHeaders(
+      scopes,
+      promptIfNecessary: true,
+    );
+    if (authHeaders == null) {
+      throw const FormatException(
+        'Autenticação com Google cancelada ou indisponível',
+      );
+    }
     final token = authHeaders['Authorization']?.replaceAll('Bearer ', '');
     if (token != null && token.isNotEmpty) {
       await storeTokens(accessToken: token);

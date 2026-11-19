@@ -48,6 +48,7 @@ class GoogleDriveStorageAdapter implements CloudStoragePort {
   final drive.DriveApi? _injectedDriveApi;
   final Clock clock;
   final String? _clientId;
+  Future<void>? _initFuture;
   drive.DriveApi? _cachedDriveApi;
   String? _cachedFolderId;
 
@@ -66,12 +67,11 @@ class GoogleDriveStorageAdapter implements CloudStoragePort {
              aOptions: AndroidOptions(resetOnError: false),
            ),
        _cachedFolderId = initialFolderId,
-       _googleSignIn =
-           googleSignIn ??
-           GoogleSignIn(
-             serverClientId: clientId ?? _resolveClientId(),
-             scopes: [drive.DriveApi.driveFileScope],
-           );
+       _googleSignIn = googleSignIn ?? GoogleSignIn.instance;
+
+  Future<void> _ensureInitialized() {
+    return _initFuture ??= _googleSignIn.initialize(serverClientId: _clientId);
+  }
 
   static String? _resolveClientId() {
     if (Platform.environment.containsKey('GOOGLE_OAUTH_CLIENT_ID_ANDROID')) {
@@ -158,17 +158,28 @@ class GoogleDriveStorageAdapter implements CloudStoragePort {
       }
     }
 
-    GoogleSignInAccount? account = _googleSignIn.currentUser;
-    account ??= await _googleSignIn.signInSilently();
-    account ??= await _googleSignIn.signIn();
+    await _ensureInitialized();
+    const scopes = [drive.DriveApi.driveFileScope];
+    final GoogleSignInAccount account;
+    try {
+      final lightweight = _googleSignIn.attemptLightweightAuthentication();
+      final existing = lightweight != null ? await lightweight : null;
+      account = existing ?? await _googleSignIn.authenticate(scopeHint: scopes);
+    } on GoogleSignInException catch (e) {
+      throw FormatException(
+        'Google authentication canceled or unavailable: ${e.description ?? e.code.name}',
+      );
+    }
 
-    if (account == null) {
+    final authHeaders = await account.authorizationClient.authorizationHeaders(
+      scopes,
+      promptIfNecessary: true,
+    );
+    if (authHeaders == null) {
       throw const FormatException(
         'Google authentication canceled or unavailable',
       );
     }
-
-    final authHeaders = await account.authHeaders;
     final token = authHeaders['Authorization']?.replaceAll('Bearer ', '');
     if (token != null && token.isNotEmpty) {
       await storeTokens(accessToken: token);
