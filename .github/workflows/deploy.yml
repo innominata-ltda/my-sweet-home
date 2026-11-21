@@ -157,7 +157,7 @@ jobs:
 
       - name: Upload Android App Bundle (AAB) artifact
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: app-bundle-release
           path: build/app/outputs/bundle/release/*.aab
@@ -166,7 +166,7 @@ jobs:
 
       - name: Upload Split APKs artifacts
         if: ${{ always() && (github.event_name != 'workflow_dispatch' || inputs.action != 'promote_to_production') }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: split-apks-release
           path: build/app/outputs/flutter-apk/*.apk
